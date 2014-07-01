@@ -1,16 +1,4 @@
 <?php
-/**
- *
- * ===================================================
- *
- *					    WARNING
- *
- * rename this file to "databaseConfig.php" to use it.
- *
- *===================================================
- *
- **/
-
 
 global $mysqlConfig;
 

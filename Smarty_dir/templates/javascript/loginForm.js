@@ -10,7 +10,7 @@ $(function(){
 		var loginData = {"username":username, "password":password};
 
 		$.post("index.php?controllerAction=login", loginData, function(data){
-			if(data.statusCode==1) {
+			if(data.statusCode==1){
 				$(".container-fluid").hide(animationTime, function(){
 					$("#loginForm").remove();
 					$(this).append(data.content);

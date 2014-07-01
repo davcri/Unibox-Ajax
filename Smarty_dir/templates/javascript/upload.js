@@ -3,16 +3,16 @@ $(function(){
 	var degreeCourse;
 
 	$("#degreeCourse").change(function(){
-			degreeCourse = $(this).val();
+		var selectField = $("#subject");
+		selectField.empty();
+		degreeCourse = $(this).val();
 
-			$.get("index.php?controllerAction=upload&uploadAction="+degreeCourse, function(data){
-				data.forEach(function(element){
-					$("#subject").append("<option>" + element + "</option>");
-				});				
-			},"json");
-
-			
-		});	
+		$.get("index.php?controllerAction=upload&uploadAction="+degreeCourse, function(data){
+			data.forEach(function(element){
+				selectField.append("<option>" + element + "</option>");
+			});				
+		},"json");			
+	});	
 
 	$("#uploadButton").click(function(event){
 		event.preventDefault();
@@ -24,6 +24,8 @@ $(function(){
 			"subject": $("#subject").val()
 		};
 
-		console.log(formData);
+		$.post("index.php?controllerAction=upload", formData, function(data){
+			changePage(data);
+		});
 	});
 });

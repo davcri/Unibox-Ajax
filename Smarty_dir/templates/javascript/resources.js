@@ -10,11 +10,23 @@ $(function(){
 		$.get(url, function(data){
 			changePage(data);
 		});
-	});		
+	});
 
-	behaviour();
-})
+	$("#resourcesContainer").find("a").click(function(){
+		var url = $(this).attr("href"); 
 
+		$.get(url, function(data){
+			changePage(data);
+		});
+	});			
+});
+
+
+
+
+
+
+// not used now
 function behaviour()
 {
 	$(".accordion").accordion({ collapsible: true, 
