@@ -10,6 +10,7 @@ require_once $projectDirectory.'/Classes/View/Home.php';
 require_once $projectDirectory.'/Classes/Control/Upload.php';
 require_once $projectDirectory.'/Classes/Control/Navigation.php';
 require_once $projectDirectory.'/Classes/Control/Login.php';
+require_once $projectDirectory.'/Classes/Control/Profile.php';
 require_once $projectDirectory.'/Classes/Utility/Session.php';
 require_once $projectDirectory.'/Classes/Foundation/User.php';
 require_once $projectDirectory.'/Classes/Utility/Singleton.php';
@@ -53,6 +54,12 @@ class Home
 			case 'upload':
 				$upload = new \Control\Upload();
 				break;
+				
+			case 'profile':
+			  	if($userSession->isLoggedIn()){
+			  		$profile = new \Control\Profile();
+			  		break;
+			  	}
 				
 			case 'login':
 				$login = new \Control\Login();	

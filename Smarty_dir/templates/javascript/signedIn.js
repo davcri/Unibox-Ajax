@@ -11,6 +11,7 @@ $(document).ready(function(){
 				//console.log($("#loginForm"));
 				$(this).append(data);
 				$(this).show(animationTime);
+				$('#profile').remove();
 			});
 		});
 

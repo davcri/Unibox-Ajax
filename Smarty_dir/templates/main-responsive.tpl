@@ -40,6 +40,7 @@
 					<li id="home" class="active"><a href="index.php?controllerAction=home">Home</a></li>
 					<li id="navigation"><a href="index.php?controllerAction=navigation">Risorse</a></li>
 					<li id="upload"><a href="index.php?controllerAction=upload">Upload</a></li>
+
 				</ul>
 
 				{if !$loggedIn}
