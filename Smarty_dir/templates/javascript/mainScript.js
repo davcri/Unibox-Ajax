@@ -1,25 +1,19 @@
 
-$(mainFunction); // when the DOM is ready, run mainFunction()
+$(setNavbarBehaviour); // when the DOM is ready, run mainFunction()
 
 var animationTime = 300;
 
-function mainFunction(){
+function setNavbarBehaviour(){
 	disableNavbarLinksDefault();
-
-	$("#navigationBar").find("li").click(function(){		
-		
-		toggleActivate($(this));
-
-		var url = $(this).children().eq(0).attr("href"); 
-		
-		$.get(url, function(data){
-			changePage(data);
-		}).fail(function(){
-			alert("Errore di connessione")
-		});
-	});	
+	$("#navigationBar").find("li").click(ajaxChangePage);	
+	
+	// var url = $(this).children().eq(0).attr("href"); 
+	// $.get(url, function(data){
+	// 	changePage(data);
+	// }).fail(function(){
+	// 	alert("Errore di connessione")
+	// });	
 }
-
 
 //
 // Utility functions
@@ -46,4 +40,17 @@ function disableNavbarLinksDefault(){
 	$("#navigationBar").find("a").click(function(event) {
 		event.preventDefault();
 	});
+}
+
+function ajaxChangePage()
+{	
+	toggleActivate($(this));		
+	
+	var url = $(this).children().eq(0).attr("href"); 
+	
+	$.get(url, function(data){
+		changePage(data);
+	}).fail(function(){
+		alert("Errore di connessione")
+	});	
 }

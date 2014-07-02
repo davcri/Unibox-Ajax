@@ -1,6 +1,20 @@
+
 $(function(){
 
+	$("#uploadForm").submit(function(event) {
+		event.preventDefault();
+	});
+
 	var degreeCourse;
+
+	var uploadObj = $("#fileuploader").uploadFile({
+		url:"index.php",
+		multiple:false,
+		maxFileCount:1,
+		showFileCounter:false,
+		fileName:"file",
+		autoSubmit:false
+	});
 
 	$("#degreeCourse").change(function(){
 		var selectField = $("#subject");
@@ -15,17 +29,20 @@ $(function(){
 	});	
 
 	$("#uploadButton").click(function(event){
-		event.preventDefault();
+	
+		var file = document.getElementById('inputFile');
+
+		console.log(uploadObj);
 		
 		var formData = {
 			"name": $("#name").val(),
 			"category": $("#category").val(),
 			"degreeCourse": $("#degreeCourse").val(),
-			"subject": $("#subject").val()
+			"subject": $("#subject").val(),
 		};
 
-		$.post("index.php?controllerAction=upload", formData, function(data){
+		/*$.post("index.php?controllerAction=upload", formData, function(data){
 			changePage(data);
-		});
+		});*/
 	});
 });

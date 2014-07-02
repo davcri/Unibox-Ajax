@@ -14,6 +14,12 @@ $(function(){
 				$(".container-fluid").hide(animationTime, function(){
 					$("#loginForm").remove();
 					$(this).append(data.content);
+					
+					$('#navigationBar').append('<li id="profile"><a href="index.php?controllerAction=profile">Profilo</a></li>');
+					
+					disableNavbarLinksDefault();
+					$('#profile').click(ajaxChangePage);
+
 					$(this).show(animationTime);
 				});
 
@@ -29,9 +35,7 @@ $(function(){
 					$.get("index.php?controllerAction="+currentActivePage,function(data){
 						changePage(data);
 					});
-				}
-				$('#navigationBar').append('<li id="profile"><a href="index.php?controllerAction=profile">Profilo</a></li>');
-				disableNavbarLinksDefault();			
+				}			
 			}
 			else{
 				changePage(data.content);
