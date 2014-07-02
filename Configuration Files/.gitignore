@@ -1,1 +1,0 @@
-databaseConfig.php
