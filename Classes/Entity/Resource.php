@@ -157,9 +157,9 @@ class Resource
 	}
 	
 	/**
-	* Returns the subject of the resource.
+	* Returns the subject code of the resource.
 	*
-	* @return string Subject of the resource.
+	* @return int Subject code of the resource.
 	*/
 	public function getSubjectCode()
 	{

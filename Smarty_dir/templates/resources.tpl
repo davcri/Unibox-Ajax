@@ -1,6 +1,6 @@
 {function name=displayResource}
 	<tr>
-		<td><a href="{$res->getPath()}">{$res->getName()}</a></td>
+		<td><a href="index.php?controllerAction=resource&degreeCourse={$degreeCourse}&resourceId={$res->getId()}">{$res->getName()}</a></td>
 		<td>{$res->getQualityScore()}</td>
 		<td>{$res->getDifficultyScore()}</td>
 		<td>{$res->getType()}</td>
@@ -29,19 +29,18 @@
 					{/if}				
 				{/foreach}
 			</tr> 
-		</table>
-						
+		</table>						
 
 		<h3>Esercizi</h3>
 		<table class="table">
-		<tr>
-			<th>Nome</th> <th>Qualità</th> <th>Difficoltà</th> <th>Tipo</th> <th>Uploader</th> <th># Downloads</th>
-			{foreach $resource as $res}
-				{if $res->getcategory()=='esercizi'}
-					{displayResource}		
-				{/if}
+			<tr>
+				<th>Nome</th> <th>Qualità</th> <th>Difficoltà</th> <th>Tipo</th> <th>Uploader</th> <th># Downloads</th>
+				{foreach $resource as $res}
+					{if $res->getcategory()=='esercizi'}
+						{displayResource}		
+					{/if}
 
-			{/foreach}
+				{/foreach}
 			</tr>
 		</table>
 

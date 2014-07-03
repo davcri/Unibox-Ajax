@@ -75,8 +75,7 @@ class DegreeCourse extends Database
 			$degreeCourses = array(); // an empty array
 		
 		return $degreeCourses;		
-	}
-		
+	}		
 }
 
 ?>
