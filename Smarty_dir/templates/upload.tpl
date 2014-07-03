@@ -1,13 +1,14 @@
 
 {if $loggedIn}
-  <div id="uploadForm" class="jumbotron">
+  <div class="mainContent">
+    <br>
     <p class="lead">Da questa pagina puoi inviarci i tuoi file.</p>
     <p>Ti basta compilare la form qui sotto</p> <br>
 
-    <form name="uploadForm" method="POST" enctype="multipart/form-data" action="index.php?controllerAction=upload">
+    <form id="uploadForm" method="POST" enctype="multipart/form-data" action="index.php?controllerAction=upload">
       <div class="form-group">
         <label>Nome risorsa</label>
-        <input type="text" class="form-control" id="name" placeholder="Nome risorsa">
+        <input type="text" class="form-control" id="name" placeholder="Nome risorsa" name="name">
       </div>
 
       <div class="form-group">
@@ -40,8 +41,7 @@
       <div class="form-group">
         <p class="help-block">Seleziona il file da caricare</p>
         <label>File input</label>
-        <div id="fileuploader">Upload</div>
-        <!-- <input type="file" id="inputFile"> -->
+        <input type="file" id="inputFile" name="file">
       </div>
 
       <button id="uploadButton"  class="btn btn-primary">Invia</button>
@@ -51,7 +51,4 @@
   <div id="loginRequired" class="alert alert-danger text-center">Devi registrarti o effettuare il login per caricare file.</div>
 {/if}
 
-  
-<script src="Smarty_dir/templates/javascript/jquery.uploadfile.min.js"></script>
 <script src="Smarty_dir/templates/javascript/upload.js"></script>
-<link href="Smarty_dir/templates/css/uploadfile.min.css" rel="stylesheet">
