@@ -15,7 +15,7 @@ $(function(){
 					$("#loginForm").remove();
 					$(this).append(data.content);
 					
-					$('#navigationBar').append('<li id="profile"><a href="index.php?controllerAction=profile">Profilo</a></li>');
+					$('#navigationBar').append(data.profile);
 					
 					disableNavbarLinksDefault();
 					$('#profile').click(ajaxChangePage);

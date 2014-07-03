@@ -22,8 +22,9 @@ class Login
 			$mainView->assign('loggedIn',true);
 			$mainView->assign('username',$username);
 			$content = $mainView->fetch("signedIn.tpl");
+			$profile_button=$mainView->fetch("profile_button.tpl");
 			
-			$ajaxReturn = array ('statusCode'=>1,'content'=>$content);
+			$ajaxReturn = array ('statusCode'=>1,'content'=>$content,'profile'=>$profile_button);
 			
 			print json_encode($ajaxReturn); // Login ok
 			//$ret = array("1");
