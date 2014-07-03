@@ -51,7 +51,4 @@
   <div id="loginRequired" class="alert alert-danger text-center">Devi registrarti o effettuare il login per caricare file.</div>
 {/if}
 
-  
-<script src="Smarty_dir/templates/javascript/jquery.uploadfile.min.js"></script>
 <script src="Smarty_dir/templates/javascript/upload.js"></script>
-<link href="Smarty_dir/templates/css/uploadfile.min.css" rel="stylesheet">

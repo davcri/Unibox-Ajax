@@ -60,6 +60,41 @@ class User extends Database
 			
 		return $user;
 	}
+	
+	public function usersVotation($userVoted,$userVoter,$vote)
+	{
+		
+		$insert = "INSERT INTO `users_scores`(`username_voted','username_voter','vote')";
+		$values = "VALUES ($username,$name,$surname)";
+		$queryString = $insert." ".$values;
+		
+		
+		if ($vote>=0 && $vote<=10)
+		{
+			if($this->query($queryString))
+				return true;
+		}
+		else
+			return false;
+ 	}
+ 	
+ 	public function hasBeenRated($voted,$voter)
+ 	{
+ 		$select = "SELECT *";
+ 		$from = "FROM `users_scores`";
+ 		$where = "WHERE `username_voted`=$voted AND `username_voter`='$voter'";
+ 	
+ 		$query = $select." ".$from." ".$where;
+ 	
+ 		$result = $this->associativeArrayQuery($query);
+ 	
+ 		if(count($result)==0)
+ 			$rated = false;
+ 		else
+ 			$rated = true;
+ 	
+ 		return $rated;
+ 	}
 
 }
 

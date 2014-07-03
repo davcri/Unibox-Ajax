@@ -7,15 +7,6 @@ $(function(){
 
 	var degreeCourse;
 
-	var uploadObj = $("#fileuploader").uploadFile({
-		url:"index.php",
-		multiple:false,
-		maxFileCount:1,
-		showFileCounter:false,
-		fileName:"file",
-		autoSubmit:false
-	});
-
 	$("#degreeCourse").change(function(){
 		var selectField = $("#subject");
 		selectField.empty();

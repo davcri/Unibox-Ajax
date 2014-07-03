@@ -20,6 +20,12 @@ $(document).ready(function(){
 				changePage(data);
 			});
 		}
+		if($("#profilePage").length){
+			$.get("index.php?controllerAction=home",function(data){
+				changePage(data);
+			});
+		}
+
 	});
 });
 

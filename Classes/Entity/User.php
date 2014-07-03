@@ -202,4 +202,11 @@ class User
 		$this->degreeCourse-$degreeCourse;
 	}
 	
+	public function hasBeenRated($username)
+	{
+		$db = new \Foundation\Resource();
+	
+		return $db->hasBeenRated($this->username, $username);
+	}
+	
 }
