@@ -50,11 +50,15 @@ class Upload
 			print json_encode(($this->processSubjectList($_REQUEST['uploadAction'])));
 		}
 		elseif(empty($_REQUEST['name']) || empty($_REQUEST['subject']) || empty($_REQUEST['category']) || empty($_REQUEST['degreeCourse']) || empty($_FILES))
-		{			
-			$this->getForm();
+		{	
+			var_dump($_REQUEST);
+			var_dump($_FILES);
+			$this->getForm();			
 		}
 		else
 		{
+			//var_dump($_REQUEST);
+			print "eccoci";
 			$this->addNewResourceIntoDb();
 		}		
 	}
@@ -84,10 +88,11 @@ class Upload
 	{
 		//print dirname($_SERVER['SCRIPT_NAME']).'/Resources';
 		
-		$elaboratedForm = new \View\Upload();		
-		$resourceDetail = $elaboratedForm->getResourceDetailArray();
+		$elaboratedForm = \Utility\Singleton::getInstance("\View\Home");
 		
-		$elaboratedForm->setTplContent('completed'); //@todo change this name. The tpl 'completed' is displayed also when the uploading is not completed
+		
+		//$resourceDetail = $elaboratedForm->getResourceDetailArray();
+		//$elaboratedForm->setTplContent('completed'); //@todo change this name. The tpl 'completed' is displayed also when the uploading is not completed
 													 // so the name 'completed' is misleading.
 		
 		$uploadedFile = $resourceDetail['uploadedFile'];
