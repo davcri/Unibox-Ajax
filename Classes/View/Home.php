@@ -24,6 +24,11 @@ class Home extends \View\SmartyConfiguration
 		return $_REQUEST[$key];		
 	}
 	
+	public function getFile($key)
+	{
+		return $_FILES[$key];
+	}
+	
 	public function getController()
 	{
 		if (isset($_REQUEST['controllerAction']))

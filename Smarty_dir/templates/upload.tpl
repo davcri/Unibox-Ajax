@@ -41,7 +41,7 @@
       <div class="form-group">
         <p class="help-block">Seleziona il file da caricare</p>
         <label>File input</label>
-        <input type="file" id="inputFile" name="file">
+        <input type="file" id="inputFile" name="uploadedFile">
       </div>
 
       <button id="uploadButton"  class="btn btn-primary">Invia</button>

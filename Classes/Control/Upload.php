@@ -51,14 +51,13 @@ class Upload
 		}
 		elseif(empty($_REQUEST['name']) || empty($_REQUEST['subject']) || empty($_REQUEST['category']) || empty($_REQUEST['degreeCourse']) || empty($_FILES))
 		{	
-			var_dump($_REQUEST);
-			var_dump($_FILES);
+			//var_dump($_REQUEST);
+			//var_dump($_FILES);
 			$this->getForm();			
 		}
 		else
 		{
 			//var_dump($_REQUEST);
-			print "eccoci";
 			$this->addNewResourceIntoDb();
 		}		
 	}
@@ -89,11 +88,12 @@ class Upload
 		//print dirname($_SERVER['SCRIPT_NAME']).'/Resources';
 		
 		$elaboratedForm = \Utility\Singleton::getInstance("\View\Home");
-		
-		
-		//$resourceDetail = $elaboratedForm->getResourceDetailArray();
-		//$elaboratedForm->setTplContent('completed'); //@todo change this name. The tpl 'completed' is displayed also when the uploading is not completed
-													 // so the name 'completed' is misleading.
+			
+		$resourceDetail['name'] = $elaboratedForm->get('name');
+		$resourceDetail['category'] = $elaboratedForm->get('category');
+		$resourceDetail['degreeCourse'] = $elaboratedForm->get('degreeCourse');
+		$resourceDetail['subject'] = $elaboratedForm->get('subject');
+		$resourceDetail['uploadedFile'] = $elaboratedForm->getFile('uploadedFile');		
 		
 		$uploadedFile = $resourceDetail['uploadedFile'];
 		$tmpUploadedFile = $uploadedFile['tmp_name'];		
@@ -117,18 +117,18 @@ class Upload
 			
 			if(move_uploaded_file($tmpUploadedFile, $destination))
 			{
-				chmod($destination, 0777); // all permission given to the uploaded file. 				
+				chmod($destination, 0644); // all read permission given to the uploaded file. 				
 				
 				$resourceDb = new \Foundation\Resource($destination);
 				
 				if($resourceDb->store($resource))
 				{
-					$elaboratedForm->assign("result",$resource);
-					$elaboratedForm->assign("problem", null);					
+					$elaboratedForm->assign('result',$resource);
+					$elaboratedForm->assign('problem', null);					
 				}
 				else
 				{
-					$elaboratedForm->assign("problem","Error while storing the resource on the database");
+					$elaboratedForm->assign('problem','Error while storing the resource on the database');
 				}							
 			}
 			else
@@ -138,12 +138,12 @@ class Upload
 		}
 		else
 		{
-			$elaboratedForm->assign("problem","please check if the subject inserted is correct");
+			$elaboratedForm->assign('problem','please check if the subject inserted is correct');
 			// no subject found
 			// we need to create it...maybe
 		}
 		
-		return $elaboratedForm->processTemplate();
+		$elaboratedForm->display('uploadCompleted.tpl');
 	}
 	
 	public function processSubjectList($courseDegree)
