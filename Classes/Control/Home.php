@@ -54,6 +54,7 @@ class Home
 			
 			case 'resource':
 				$resourceController = new \Control\Resource();
+				$resourceController->controlResource();
 				break;
 				
 			case 'upload':

@@ -13,9 +13,8 @@
 	<br>
 	<ol id="pathBar" class="breadcrumb">
 		<li><a href="index.php?controllerAction=navigation"> Risorse</a></li>
-		<li>todo :(</li>
-<!-- 		<li><a href="index.php?controllerAction=navigation&degreeCourse={$degreeCourse}">{$degreeCourse}</a></li>
-		<li>{$subject_name}</li> -->
+		<li><a href="index.php?controllerAction=navigation&degreeCourse={$degreeCourse}">{$degreeCourse}</a></li>
+		<li><a href="index.php?controllerAction=navigation&degreeCourse={$degreeCourse}&subject={$subject->getCode()}">{$subject->getName()}</a></li> 
 	</ol>
 
 	<div id="resourcesContainer">

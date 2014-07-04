@@ -43,7 +43,7 @@ class Subject extends Database
 		$array = $this->associativeArrayQuery($queryString);
 		
 		if(count($array)!=0)
-			$subject = new \Entity\Subject($array[0]['code'], $array[0]['name']);
+			$subject = new \Entity\Subject($array[0]['name'],$array[0]['code']);
 		else
 			$subject = false;
 		
