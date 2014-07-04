@@ -68,19 +68,16 @@ class Registration
 			if($userDb->store($user))
 			{
 				$elaboratedForm->assign('user',$user);
+				$elaboratedForm->assign('error',false); 
 			}
 			else
 			{
-				print "Error while storing the user on the database";
-				$elaboratedForm->assign('error',true);
+				$elaboratedForm->assign('error','Error while storing the user on the database');
 			}
 		}
 		else
 		{
-			//@todo check
-			$elaboratedForm->assign('error',true);
-			
-			print "Username already exist";
+			$elaboratedForm->assign('error','Username already exist');
 		}
 				
 		$elaboratedForm->display('registrationResult.tpl');
