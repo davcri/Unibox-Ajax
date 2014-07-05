@@ -97,6 +97,13 @@ class Resource
 	 * @var string
 	 */
 	private $path;
+	
+	/**
+	 * Brief description of the resource.
+	 * 
+	 * @var string
+	 */
+	//private $description;
 
 	/**
 	 * Creates a resource and initializes all its attributes.
@@ -219,16 +226,35 @@ class Resource
 	/**
 	* Returns the downloads number of the resource.
 	*
-	* @return Downloads number of the resource.
+	* @return int Downloads number of the resource.
 	*/
 	public function getDownloadsNumber()
 	{
 		return $this->downloadsNumber;
 	}
 	
+	/**
+	 * Returns the path where the resource is stored.
+	 * 
+	 * @return string
+	 */
 	public function getPath()
 	{
 		return $this->path;
+	}
+	
+	/**
+	 * Get the size of the resource in Megabytes, with a precision of 2 decimal digits.
+	 * 
+	 * @return float 
+	 */
+	public function getSize()
+	{
+		$documentRoot = $_SERVER['DOCUMENT_ROOT'];
+		$resourceAbsolutePath = $documentRoot.$this->getPath();
+		$fileSizeInMegaBytes = filesize($resourceAbsolutePath)/(1000*1000);
+		
+		return round($fileSizeInMegaBytes,2);		
 	}
 	
 	

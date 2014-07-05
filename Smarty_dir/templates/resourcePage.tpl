@@ -37,6 +37,9 @@
 			  	Tipo <span class="badge">{$resource->getType()}</span>
 			  </li>
 			  <li class="list-group-item">
+			    Dimensione <span class="badge">{$resource->getSize()} MB</span>
+			  </li>
+			  <li class="list-group-item">
 			  	Uploader <span class="badge">{$resource->getUploaderUsername()}</span>
 			  </li>
 			  <li class="list-group-item">
