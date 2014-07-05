@@ -130,12 +130,8 @@ class Navigation
 		else
 		{
 			return $this->chooseSubject();
-		}
-			
-		
-	}
-	
-	
+		}		
+	}	
 	
 	/**
 	 * 
@@ -148,48 +144,5 @@ class Navigation
 		$subjectsList=$subjects->getByDegreeCourse($courseDegree);
 		
 		return $subjectsList;
-	}
-	
-
-	
-	public function processContent()
-	{
-		
-	}
-	
-	
-	
-	/**
-	 * Rates a resource.
-	 * 
-	 * This method should be called only by AJAX. 
-	 * 
-	 * @todo move this method away from Control\Navigation ?
-	 * @param string $username
-	 */
-	public function rateResource()
-	{
-		/* These values come from the ajax call */
-		$resId = $_REQUEST["resourceId"];
-		$difficulty = $_REQUEST["difficulty"];
-		$quality = $_REQUEST["quality"];
-		$username = $this->session->get("username");
-		
-		$db = new \Foundation\Resource();		
-		
-		$db->addResourceDifficultyScore($username,$resId,$difficulty);
-		$db->addResourceQualityScore($username,$resId,$quality);
-		
-		$difficultyVotes = $db->getNumberOfDifficultyVotes($resId);
-		$qualityVotes = $db->getNumberOfVotes($resId);
-		$res = $db->getById($resId);
-		
-		$res->updateDifficultyScore($difficultyVotes,$difficulty);
-		$res->updateQualityScore($qualityVotes,$quality);
-		
-		$ret = $db->updateScores($resId,$res->getQualityScore(),$res->getDifficultyScore());
-		
-		print json_encode(array("difficulty"=>$res->getDifficultyScore(),"quality"=>$res->getQualityScore()));
-		exit;
-	}
+	}	
 }

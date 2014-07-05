@@ -11,58 +11,48 @@ $(function(){
 		});
 	});
 
-	behaviour();
+	setSliders();
+
+	$("#ajaxVote").click(function(event){
+		event.preventDefault();
+
+		var button = $(this);
+		var sliderQ = $('#difficultySlider');
+		var sliderD = $('#qualitySlider');
+
+		var difficulty = sliderD.slider( "option", "value" );
+		var quality = sliderQ.slider( "option", "value" );
+		var resourceId = $("#resourceId").html();
+		var url = $(this).attr("href");
+
+		var resourceVoteInfo = {"difficulty":difficulty,
+								"quality":quality,
+								"resourceId":resourceId};
+		
+		// AJAX call
+		$.post(url, resourceVoteInfo, function(data){
+		    $("#ratingPanel").hide(animationTime, function(){
+		    	$(this).remove();
+		    	// qui dovrebbe arrivare un bel tpl processato
+		    	$("#resourceContainer").append("<p> Grazie per aver votato questa risorsa </p>");
+		    });
+		    
+		},"json");		
+	});
 });
 
+function setSliders(){
 
-// not used now
-function behaviour(){
 	$(".slider").slider({ min: 0, 
 		  				  max: 10,
 		  				  value: 5,
 		  				  animate: "slow"});
 
-	$(".jqButton").click(function ()
-	{
-		$(this).next().slideToggle("slow");
-	})
+	$("#qualitySlider").on("slide", function(event,obj){
+		$("#qualityVal").html(obj.value).hide().show("fast");
+	});
 
-	$(".ajaxVote").click(function()
-	{
-		var container = $(this).parent().parent();	
-		var resourceId = container.attr("id");
-		
-		var button = $(this);
-		var sliderQ = $('#sliderQ'+resourceId);
-		var sliderD = $('#sliderD'+resourceId);
-
-		var difficulty = sliderD.slider( "option", "value" );
-		var quality = sliderQ.slider( "option", "value" );
-		
-		// AJAX call
-		$.post("index.php",
-			  {"controllerAction": "rateResource", "resourceId":resourceId, "difficulty":difficulty, "quality":quality},
-			  function(data)
-			  {
-			  	//container.filter(".jqButton").hide("slow");
-			  	
-			  	//var rateBox = container.find(".hidden");
-			  	var rateBox = container.find("*:not(a)");
-			  	
-			  	//container.find(".jqButton").hide("slow");
-			  	
-
-			  	rateBox.hide("slow",function()
-			  	{
-			  		//console.log(data);
-			  		rateBox.next().remove("*"); // remove all the html elementes in the rateBox
-			  		
-			  		var newHtml = "Nuovi punteggi :<p>Difficoltà risorsa : " + 
-			  		              data.difficulty + "</p>" + "<p>Qualità risorsa : " + data.quality + "</p>" +
-			  		              "Grazie per aver votato questa risorsa";
-
-			  		rateBox.html(newHtml).show("slow");
-			  	});
-			  },"json");
+	$("#difficultySlider").on("slide", function(event,obj){
+		$("#difficultyVal").html(obj.value).hide().show("fast");
 	});
 }

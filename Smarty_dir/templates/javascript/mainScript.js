@@ -1,7 +1,7 @@
 
 $(setNavbarBehaviour); // when the DOM is ready, run mainFunction()
 
-var animationTime = 300;
+var animationTime = 250;
 
 function setNavbarBehaviour(){
 	disableNavbarLinksDefault();
@@ -53,4 +53,14 @@ function ajaxChangePage()
 	}).fail(function(){
 		alert("Errore di connessione")
 	});	
+}
+
+function userIsLogged()
+{
+	// questa funzione è molto debole ! Basta che un malintenzionato crei un qualsiasi tag html con id="loginForm" per 
+	// effettuare un exploit di questa funzione. 
+	if($("#loginForm").length)
+		return false;
+	else
+		return true;
 }

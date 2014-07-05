@@ -10,10 +10,6 @@ require_once $projectDirectory.'/Classes/View/SmartyConfiguration.php';
 
 class Home extends \View\SmartyConfiguration
 {
-	//@todo change the name of this variable
-	private $_default='contentDefault';
-	private $_defaultDx='default_sidebar';
-	
 	public function __construct()
 	{
 		parent::__construct();
@@ -21,7 +17,10 @@ class Home extends \View\SmartyConfiguration
 	
 	public function get($key)
 	{
-		return $_REQUEST[$key];		
+		if (isset($_REQUEST[$key]))
+			return $_REQUEST[$key];
+		else
+			return false;		
 	}
 	
 	public function getFile($key)
@@ -29,6 +28,7 @@ class Home extends \View\SmartyConfiguration
 		return $_FILES[$key];
 	}
 	
+	//@todo delete this
 	public function getController()
 	{
 		if (isset($_REQUEST['controllerAction']))
@@ -36,19 +36,7 @@ class Home extends \View\SmartyConfiguration
 		else
 			return false;		
 	}
-	
-	public function processContentTemplate() 
-	{
-		$content=$this->fetch('home_'.$this->_default.'.tpl');
-		return $content;
-	}
-	
-	public function processContentDxTemplate()
-	{
-		$content=$this->fetch($this->_defaultDx.'.tpl');
-		return $content;
-	}
-	
+	//@todo delete this
 	public function getUsername()
 	{
 		if (isset($_POST['username'])) 
@@ -58,7 +46,7 @@ class Home extends \View\SmartyConfiguration
 		else
 			return false;	
 	}
-	
+	//@todo delete this
 	public function getPassword()
 	{
 		if (isset($_POST['password']))

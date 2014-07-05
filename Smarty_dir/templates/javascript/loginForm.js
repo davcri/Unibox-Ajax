@@ -23,11 +23,21 @@ $(function(){
 					$(this).show(animationTime);
 				});
 
-				if($("#loginRequired").length){ // login required is an alert found only on the upload page
+				if($("#loginRequired").length){ // 'loginRequired' is an alert found only on the upload page
 					$.get("index.php?controllerAction=upload",function(data){
 						changePage(data);
 					});
 				}
+
+				/*var ratingPanel = $("#ratingPanel");
+				if(ratingPanel.length){
+					if (ratingPanel.hasClass("hidden")) {
+						$("#loginRequiredForResourceRating").hide(animationTime,function(){$(this).remove();});
+						ratingPanel.removeClass("hidden").hide();
+					}
+
+					ratingPanel.show(animationTime);
+				}*/
 
 				// this is needed only to select the correct page when a user fails a login and then logs in correctly
 				if($("#loginFailed").length){ 

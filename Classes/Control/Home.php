@@ -56,6 +56,16 @@ class Home
 				$resourceController = new \Control\Resource();
 				$resourceController->controlResource();
 				break;
+
+			case 'rateResource':
+				if ($userSession->isLoggedIn())
+				{
+					$resourceController = new \Control\Resource();
+					$resourceController->rateResource();
+				}
+				else
+					print "Error. The user is not logged in but is still trying to rate a resource.";
+				break;	
 				
 			case 'upload':
 				$upload = new \Control\Upload();

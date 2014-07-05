@@ -8,10 +8,10 @@ $(document).ready(function(){
 		$.post("index.php?controllerAction=logout", function(data){
 			$(".container-fluid").hide(animationTime, function(){
 				$("#logoutDiv").remove();
-				//console.log($("#loginForm"));
+				$('#profile').remove();
+
 				$(this).append(data);
 				$(this).show(animationTime);
-				$('#profile').remove();
 			});
 		});
 
@@ -20,10 +20,16 @@ $(document).ready(function(){
 				changePage(data);
 			});
 		}
+
 		if($("#profilePage").length){
 			$.get("index.php?controllerAction=home",function(data){
 				changePage(data);
 			});
+		}
+
+		var ratingPanel = $("#ratingPanel");
+		if(ratingPanel.length){
+			$(ratingPanel).hide(animationTime);
 		}
 
 	});
