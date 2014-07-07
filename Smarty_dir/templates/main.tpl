@@ -4,7 +4,7 @@
 	<script src="Library/jquery-ui/js/jquery-1.10.2.js"></script>
 	<script src="Library/jquery-ui/js/jquery-ui-1.10.4.custom.js"></script>
 	<script src="Smarty_dir/templates/javascript/mainScript.js"></script>
-	
+
 	<!-- <script src="Library/bootstrap-3.1.1-dist/js/bootstrap.js"></script> -->
 
 	<link href="Smarty_dir/templates/css/style.css" rel="stylesheet" type="text/css">
@@ -56,7 +56,8 @@
 
 		<div id="mainContainer" class="col-md-12">			
 			{include 'home.tpl'}
-		</div>			
+		</div>
+		
 	</div>
 </body>
 </html>

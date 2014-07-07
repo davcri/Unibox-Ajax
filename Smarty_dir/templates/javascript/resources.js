@@ -1,5 +1,10 @@
 
 $(function(){
+
+	$("#tableS").tablesorter({
+		theme:'metro-dark'
+	});
+
 	$("#mainContent").find("a").click(function(event) {
 		event.preventDefault();
 	});
