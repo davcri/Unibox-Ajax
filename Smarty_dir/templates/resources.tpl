@@ -20,7 +20,7 @@
 	</ol>
 
 	<div id="resourcesContainer">
-		<h3>{$subject_name}</h3>
+		<h3>{$subject_name}</h3> <br>
 		
 		<table id="tableS" class="tablesorter">
 			<thead>
@@ -35,7 +35,23 @@
 									
 				{/foreach}
 			</tbody>
-		</table>						
+		</table>	
+		
+		<div id="tablePager" class="pager">
+			<form>
+				<img src="Library/tablesorter-master/addons/pager/icons/first.png" class="first"/>
+				<img src="Library/tablesorter-master/addons/pager/icons/prev.png" class="prev"/>
+				<span class="pagedisplay"></span> <!-- this can be any element, including an input -->	
+				<img src="Library/tablesorter-master/addons/pager/icons/next.png" class="next"/>
+				<img src="Library/tablesorter-master/addons/pager/icons/last.png" class="last"/>
+				<select class="pagesize">
+				  <option selected="selected" value="10">10</option>
+				  <option value="4">4</option>
+				  <option value="30">30</option>
+				  <option value="40">40</option>
+				</select>
+			</form>
+		</div>					
 
 		<!-- <h3>Esercizi</h3>
 		<table class="table">
@@ -65,9 +81,12 @@
 </div>
 
 
-
 <link rel="stylesheet" href="Library/tablesorter-master/css/theme.metro-dark.css">
+<link rel="stylesheet" href="Library/tablesorter-master/addons/pager/jquery.tablesorter.pager.css">
+
 <script src="Library/tablesorter-master/js/jquery.tablesorter.js"></script>
+<script src="Library/tablesorter-master/js/jquery.tablesorter.widgets.min.js"></script>
+<script src="Library/tablesorter-master/addons/pager/jquery.tablesorter.pager.min.js"></script>
 <script src="Smarty_dir/templates/javascript/resources.js"></script> 
 
 <!-- <link rel="stylesheet" href="Library/jquery-ui/css/custom-theme/jquery-ui-1.10.4.custom.css">
