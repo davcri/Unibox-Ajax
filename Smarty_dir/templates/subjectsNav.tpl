@@ -8,7 +8,7 @@
 	
 	<p class="lead"> Benvenuto nella sezione di {$degreeCourse} </p>
 	{foreach $subjects as $subject}
-   		<a class="list-group-item" href="index.php?controllerAction=navigation&degreeCourse={$degreeCourse}&subject={$subject->getCode()}">{$subject->getName()}<span class="badge">#</span></a>
+   		<a class="list-group-item" href="index.php?controllerAction=navigation&degreeCourse={$degreeCourse}&subject={$subject->getCode()}">{$subject->getName()}<span class="badge">{$resourceDb->countResourcesBySubject($subject->getCode())}</span></a>
 	{/foreach}
 </div>
 

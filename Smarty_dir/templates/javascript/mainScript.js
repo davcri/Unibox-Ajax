@@ -30,9 +30,13 @@ function animateSidebar(){
 }
 
 function changePage(newContent){
-	$("#mainContainer").slideToggle(animationTime,function(){
+	/*$("#mainContainer").slideToggle(animationTime,function(){
 			$("#mainContainer").html(newContent);
 			$("#mainContainer").slideToggle(animationTime);
+		});*/
+	$("#mainContainer").toggle("fade","linear",animationTime,function(){
+			$("#mainContainer").html(newContent);
+			$("#mainContainer").toggle("fade", "linear",animationTime);
 		});
 }
 
@@ -51,7 +55,7 @@ function ajaxChangePage()
 	$.get(url, function(data){
 		changePage(data);
 	}).fail(function(){
-		alert("Errore di connessione")
+		changePage("Errore di connessione.");
 	});	
 }
 

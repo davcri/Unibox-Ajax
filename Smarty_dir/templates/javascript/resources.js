@@ -41,6 +41,8 @@ function initializeTablesorter(){
   	};
 
 	$("#tableS").tablesorter({
+		sortList: [[1,0], // sort on the second column, ASC
+				   [2,1]], // sort on the third column, DESC 
 		theme:'metro-dark',
 		headerTemplate : '{content} {icon}', // new in v2.7. Needed to add the bootstrap icon!
       	widthFixed: true,

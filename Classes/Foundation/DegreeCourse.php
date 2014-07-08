@@ -75,7 +75,22 @@ class DegreeCourse extends Database
 			$degreeCourses = array(); // an empty array
 		
 		return $degreeCourses;		
-	}		
+	}	
+	
+	/**
+	 * Gets all the subjects of a degree course.
+	 * 
+	 * @param string $degreeCourseName
+	 * @return array
+	 * @todo test this method
+	 */
+	public function getSubjects($degreeCourseName)
+	{
+		$query = "SELECT `subjectCode` FROM `degreeCourses_Subjects` WHERE `degreeCourse`='$degreeCourseName'";
+		$res = $this->associativeArrayQuery($query);
+		
+		return $res;
+	}
 }
 
 ?>

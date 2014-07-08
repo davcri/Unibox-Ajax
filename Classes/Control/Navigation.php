@@ -57,7 +57,10 @@ class Navigation
 		
 		$view = \Utility\Singleton::getInstance('\View\Home');
 		$view->assign('degreeCourses',$degreeCourses);
-	
+		
+		$resourceDb = new \Foundation\Resource();
+		$view->assign('resourceDb',$resourceDb);
+		
 		$view->display('degreeCoursesNav.tpl');
 	}
 	
@@ -77,6 +80,10 @@ class Navigation
 		$mainView = \Utility\Singleton::getInstance('\View\Home');
 		$mainView->assign('degreeCourse',$degreeCourse);
 		$mainView->assign('subjects',$subjectsList);
+		
+		$resourceDb = new \Foundation\Resource();
+		$mainView->assign('resourceDb',$resourceDb); // used to count the number of resources 
+													 // found in a given subject.
 				
 		$mainView->display('subjectsNav.tpl');
 	}
@@ -136,7 +143,7 @@ class Navigation
 	/**
 	 * 
 	 *
-	 * @param unknown_type $courseDegree
+	 * @param string $courseDegree
 	 */
 	public function processSubjectList($courseDegree)
 	{

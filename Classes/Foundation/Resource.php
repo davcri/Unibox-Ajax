@@ -164,6 +164,32 @@ class Resource extends Database
 		return $res[0]['Number of votes'];
 	}
 	
+	public function countResourcesByDegreeCourse($degCourse)
+	{
+		$outerQuery = "SELECT count(*) as 'resourcesCount' FROM resource WHERE resource.subjectCode IN";
+		$subQuery = "(SELECT `subjectCode` FROM `degreeCourses_Subjects` WHERE `degreeCourse`='$degCourse')";
+		
+		$query = $outerQuery.' '.$subQuery;
+		
+		$res = $this->associativeArrayQuery($query);
+		
+		return $res[0]['resourcesCount'];
+	}
+	
+	/**
+	 * Counts the resources found in a certain subject.
+	 * 
+	 * @param int $subjId Code of the subject
+	 * @return int Number of resources of a certain subject.
+	 */
+	public function countResourcesBySubject($subjId)
+	{
+		$query = "SELECT count(*) as 'resourcesCount' FROM `resource` WHERE `subjectCode`=$subjId";
+		$res = $this->associativeArrayQuery($query);
+		
+		return $res[0]['resourcesCount'];
+	}
+	
 	/**
 	 * Updates quality and difficulty score of a resource on the database.
 	 * 
