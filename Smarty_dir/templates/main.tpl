@@ -9,6 +9,8 @@
 
 	<link href="Smarty_dir/templates/css/style.css" rel="stylesheet" type="text/css">
 	<link href="Library/bootstrap-3.1.1-dist/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="Library/jquery-ui/css/custom-theme/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
@@ -57,7 +59,24 @@
 		<div id="mainContainer" class="col-md-12">			
 			{include 'home.tpl'}
 		</div>
-		
+
+		<!-- <div id="footer" class="col-md-12">
+			<br>
+			<hr>
+			<br>
+			<div class="col-md-4">
+				<p class="text-center">Chi siamo</p>
+			</div>
+
+			<div class="col-md-4">
+				<p class="text-center">About</p>
+			</div>
+
+			<div class="col-md-4">
+				<p class="text-center">Copyright</p>
+			</div>
+		</div>	 -->	
+
 	</div>
 </body>
 </html>

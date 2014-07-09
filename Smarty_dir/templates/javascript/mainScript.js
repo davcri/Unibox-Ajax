@@ -6,19 +6,14 @@ var animationTime = 250;
 function setNavbarBehaviour(){
 	disableNavbarLinksDefault();
 	$("#navigationBar").find("li").click(ajaxChangePage);	
-	
-	// var url = $(this).children().eq(0).attr("href"); 
-	// $.get(url, function(data){
-	// 	changePage(data);
-	// }).fail(function(){
-	// 	alert("Errore di connessione")
-	// });	
+
+	//ajaxLoadingMessage();
 }
+
 
 //
 // Utility functions
 //
-
 function toggleActivate(obj){
 	$(".active").toggleClass("active");
 	obj.addClass("active");
@@ -34,10 +29,17 @@ function changePage(newContent){
 			$("#mainContainer").html(newContent);
 			$("#mainContainer").slideToggle(animationTime);
 		});*/
-	$("#mainContainer").toggle("fade","linear",animationTime,function(){
-			$("#mainContainer").html(newContent);
-			$("#mainContainer").toggle("fade", "linear",animationTime);
-		});
+	var mainContainer = $("#mainContainer");
+	var footer = $("#footer");
+
+	mainContainer.toggle("fade","linear",animationTime,function(){
+		mainContainer.html(newContent);
+		mainContainer.toggle("fade", "linear",animationTime);
+	});
+
+	footer.toggle("fade","linear",animationTime,function(){
+		footer.toggle("fade","linear",animationTime);
+	});
 }
 
 function disableNavbarLinksDefault(){
@@ -54,7 +56,8 @@ function ajaxChangePage()
 	
 	$.get(url, function(data){
 		changePage(data);
-	}).fail(function(){
+	})
+	.fail(function(){
 		changePage("Errore di connessione.");
 	});	
 }
@@ -68,3 +71,18 @@ function userIsLogged()
 	else
 		return true;
 }
+
+/*
+function ajaxLoadingMessage(){
+	body = $("body");
+
+	$(document).on({
+		ajaxStart: function() { 
+			body.addClass("loading");
+		 },
+		 ajaxStop: function() { 
+		 	body.removeClass("loading"); 
+		 }    
+	});
+}
+*/

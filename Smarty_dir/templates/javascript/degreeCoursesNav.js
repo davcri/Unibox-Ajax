@@ -1,5 +1,7 @@
 
 $(function(){
+	$(document).tooltip();
+
 	$("#mainContent").find("a").click(function(event) {
 		event.preventDefault();
 	});

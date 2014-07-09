@@ -40,6 +40,8 @@ function initializeTablesorter(){
 	    cssGoto: '.gotoPage'										
   	};
 
+  	$("#tableS").hide();
+	
 	$("#tableS").tablesorter({
 		sortList: [[1,0], // sort on the second column, ASC
 				   [2,1]], // sort on the third column, DESC 
@@ -48,5 +50,6 @@ function initializeTablesorter(){
       	widthFixed: true,
       	widgets: ['zebra','filter']
 	})
-	.tablesorterPager(pagerOptions);
+	.tablesorterPager(pagerOptions).show("fade",animationTime+500);
+	//.tablesorterPager(pagerOptions).delay(500).show("slide",animationTime+500);
 }

@@ -6,7 +6,7 @@ $(document).ready(function(){
 
 	$("#logoutButton").click(function(){
 		$.post("index.php?controllerAction=logout", function(data){
-			$(".container-fluid").hide(animationTime, function(){
+			$(".container-fluid").hide("fade", animationTime, function(){
 				$("#logoutDiv").remove();
 				$('#profile').remove();
 

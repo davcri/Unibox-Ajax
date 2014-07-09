@@ -1,7 +1,6 @@
 @charset "utf-8";
 
-.mainContent {
-	
+.mainContent{
 	padding-left: 40px;
 	padding-right: 40px;
 	padding-top: 10px;
@@ -11,7 +10,14 @@
 	background-color: #EEE;
 }
 
+.myTooltip{
+	padding: 6px 12px;
+	margin-top: 26px;
+	border-radius: 4px;
+	background-color: #FFFFE6;
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(119, 122, 107, 0.6);
+}
 
 #star{
-font-size: 50px;
+	font-size: 50px;
 }
