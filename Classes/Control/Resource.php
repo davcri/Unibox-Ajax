@@ -34,9 +34,30 @@ class Resource
 	 */
 	public function controlResource()
 	{
-		$resourcePage = \Utility\Singleton::getInstance('\View\Home');		
-		$this->setTplVariables();
-		$resourcePage->display('resourcePage.tpl');				
+		$resourcePage = \Utility\Singleton::getInstance('\View\Home');
+		
+		switch($resourcePage->get('resourceAction'))
+		{
+			case 'incrementDownloadsCount':
+				$this->incrementDownloads();
+				break;
+			
+			case 'getResourcePage':
+				$this->setTplVariables();
+				$resourcePage->display('resourcePage.tpl');				
+				break;
+				
+			case 'rateResource':
+				$userSession = \Utility\Singleton::getInstance('\Control\Session');
+				
+				if ($userSession->isLoggedIn())
+				{
+					$this->rateResource();
+				}
+				else
+					print 'Error. The user is not logged in but is still trying to rate a resource.';
+				break;
+		}				
 	}
 	
 	/**
@@ -78,7 +99,7 @@ class Resource
 	 *
 	 * This method should be called only by AJAX.
 	 */
-	public function rateResource()
+	private function rateResource()
 	{
 		/* These values come from the ajax call */
 		$resId = $_REQUEST["resourceId"];
@@ -100,9 +121,23 @@ class Resource
 		$res->updateDifficultyScore($difficultyVotes,$difficulty);
 		$res->updateQualityScore($qualityVotes,$quality);
 	
-		$retCode = $db->updateScores($resId,$res->getQualityScore(),$res->getDifficultyScore()); 
+		$retCode = $db->updateScores($resId,$res->getQualityScore(), $res->getDifficultyScore()); 
 	
-		print json_encode(array("returnCode"=>$retCode, "newDifficulty"=>$res->getDifficultyScore(),"newQuality"=>$res->getQualityScore()));
+		print json_encode(array("returnCode"=>$retCode, "newDifficulty"=>$res->getDifficultyScore(), "newQuality"=>$res->getQualityScore(), "voti diff"=>$difficultyVotes, "voti qual"=>$qualityVotes));
+	}
+	
+	private function incrementDownloads()
+	{
+		$resourcePage = \Utility\Singleton::getInstance('\View\Home');
+		$resourceId = $resourcePage->get("resourceId");
+		$resourceDb = new \Foundation\Resource();
+		$resource = $resourceDb->getById($resourceId);
+		
+		$resource->incrementDownloadsNumber();
+		
+		$resourceDb->updateDownloadsNumber($resourceId, $resource->getDownloadsNumber());
+		
+		print json_encode(array('newDownloadsCount' => $resource->getDownloadsNumber()));
 	}
 }
 ?>

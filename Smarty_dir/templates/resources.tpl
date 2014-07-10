@@ -1,7 +1,7 @@
 
 {function name=displayResource}
 	<tr>
-		<td><a href="index.php?controllerAction=resource&degreeCourse={$degreeCourse}&resourceId={$res->getId()}">{$res->getName()}</a></td>
+		<td><a href="index.php?controllerAction=resource&resourceAction=getResourcePage&degreeCourse={$degreeCourse}&resourceId={$res->getId()}">{$res->getName()}</a></td>
 		<td>{$res->getCategory()}</td>
 		<td>{$res->getQualityScore()}</td>
 		<td>{$res->getDifficultyScore()}</td>

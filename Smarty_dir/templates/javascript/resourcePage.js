@@ -12,6 +12,7 @@ $(function(){
 	});
 
 	setSliders();
+	downloadLinkBehaviour();
 
 	$("#ajaxVote").click(function(event){
 		event.preventDefault();
@@ -39,10 +40,10 @@ $(function(){
 		    
 		},"json");		
 	});
+	
 });
 
 function setSliders(){
-
 	$(".slider").slider({ min: 0, 
 		  				  max: 10,
 		  				  value: 5,
@@ -54,5 +55,16 @@ function setSliders(){
 
 	$("#difficultySlider").on("slide", function(event,obj){
 		$("#difficultyVal").html(obj.value).hide().show("fast");
+	});
+}
+
+function downloadLinkBehaviour(){
+	$("#downloadLink").click(function(){
+		var resourceInfo = {"resourceId": $("#resourceId").html()};
+		var url = "index.php?controllerAction=resource&resourceAction=incrementDownloadsCount";
+
+		$.post(url, resourceInfo, function(data){
+			console.log(data);
+		});
 	});
 }

@@ -10,9 +10,7 @@
 		  		<p><div id="qualitySlider" class="slider"></div></p> <br>	
 		  		<p>Difficoltà  <span id="difficultyVal"></span></p>  
 		  		<p><div id="difficultySlider" class="slider"></div></p> <br>
-	  			<p class="text-center"><a id="ajaxVote" href="index.php?controllerAction=rateResource" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span> Vota questa risorsa</a></p>
-
-	  			<div class="hidden" id="resourceId">{$resource->getId()}</div>
+	  			<p class="text-center"><a id="ajaxVote" href="index.php?controllerAction=resource&resourceAction=rateResource" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span> Vota questa risorsa</a></p>
 			</div>			  					
 	  	</div>
 	</div>					   
@@ -60,16 +58,18 @@
 					  	# Downloads <span class="badge">{$resource->getDownloadsNumber()}</span>
 					</li>
 					<li class="list-group-item">
-					  	Data di caricamento <span class="badge">{$resource->getUploadingDate()}</span>
+					  	Data di caricamento <span class="badge">{$resource->getUploadingDate()->format("d/m H:i:s")}</span>
 					</li>
 					<li class="list-group-item">
 						<div class="text-center">
-							<a class="btn btn-success" href="{$resource->getPath()}" download><span class="glyphicon glyphicon-download"></span> Download link</a><br>
+							<a id="downloadLink" class="btn btn-success" href="{$resource->getPath()}" download><span class="glyphicon glyphicon-download"></span> Download link</a><br>
 							<label>Scarica questa risorsa !</label>	
 						</div>
 					</li>
 				</ul>				
 			</div>
+
+			<div class="hidden" id="resourceId">{$resource->getId()}</div>
 
 			{if $loggedIn}
 				{if !$resource->hasBeenRated($user->getUsername())}

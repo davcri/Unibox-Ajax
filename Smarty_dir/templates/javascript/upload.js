@@ -10,9 +10,7 @@ $(function(){
 	
 	handleNameInput(uploadButton);
 	handleSubjectInput();
-	
 	handleDescriptionInput(); 
-	$("#description").text("todo");
 
 	handleUploadButton(uploadButton);	
 });

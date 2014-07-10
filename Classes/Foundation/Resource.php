@@ -73,8 +73,9 @@ class Resource extends Database
 		$array = $this->associativeArrayQuery($queryString);
 		
 		if(isset($array[0])) // if there is a match
-		{			
-			$resource = new \Entity\Resource($array[0]['id'],$array[0]['name'], $array[0]['category'], $array[0]['subjectCode'], $array[0]['uploaderUsername'], $array[0]['type'], $array[0]['qualityScore'], $array[0]['difficultyScore'], $array[0]['uploadingDate'], $array[0]['downloadsNumber'], $array[0]['visible'], $array[0]['path'], $array[0]['description']);
+		{
+			$uploadingDate = new \DateTime($array[0]['uploadingDate']);  			
+			$resource = new \Entity\Resource($array[0]['id'],$array[0]['name'], $array[0]['category'], $array[0]['subjectCode'], $array[0]['uploaderUsername'], $array[0]['type'], $array[0]['qualityScore'], $array[0]['difficultyScore'], $uploadingDate, $array[0]['downloadsNumber'], $array[0]['visible'], $array[0]['path'], $array[0]['description']);
 		}
 		else 
 			$resource = false;
@@ -114,7 +115,6 @@ class Resource extends Database
 	{
 		$queryString = "SELECT * FROM `resource` WHERE uploaderUsername=\"$username\"" ;
 		$array = $this->associativeArrayQuery($queryString);
-		var_dump($array);
 		
 		if(!empty($array)) // if there is a match
 		{
@@ -214,6 +214,21 @@ class Resource extends Database
 		else
 			return false;
 	}
+		
+	/**
+	 * 
+	 * Enter description here ...
+	 * @param int $newDownloadsNumber
+	 */
+	public function updateDownloadsNumber($id, $newDownloadsNumber)
+	{
+		$update = "UPDATE `resource` SET `downloadsNumber` = '$newDownloadsNumber' WHERE `resource`.`id` = $id;";
+
+		if($this->query($update))
+			return true;
+		else
+			return false;
+	}
 	
    /**
 	* Registers the quality score given by a user.
@@ -283,8 +298,7 @@ class Resource extends Database
 			$rated = true;
 		
 		return $rated;	
-	}
-	
+	}	
 }
 
 

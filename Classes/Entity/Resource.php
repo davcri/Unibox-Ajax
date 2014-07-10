@@ -19,6 +19,11 @@ require_once $projectDirectory."/Classes/Foundation/Resource.php";
  */
 class Resource 
 {	
+	/**
+	 * 
+	 * Enter description here ...
+	 * @var int
+	 */
 	private $id;
 	
 	/**
@@ -374,6 +379,15 @@ class Resource
 			$votes = 1;
 		
 		$this->difficultyScore = ($this->difficultyScore+$score)/$votes;
+	}
+	
+	/**
+	 * Increments the downloads number.
+	 * 
+	 */
+	public function incrementDownloadsNumber()
+	{
+		$this->downloadsNumber++;		
 	}
 	
 	/**

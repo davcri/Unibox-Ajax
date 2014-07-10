@@ -105,8 +105,7 @@ class Upload
 		$elaboratedForm = \Utility\Singleton::getInstance("\View\Home");
 		
 		$resourceDetail = $this->getUploadFormData();
-		var_dump($resourceDetail);
-					
+							
 		$uploadedFile = $resourceDetail['uploadedFile'];
 		$tmpUploadedFile = $uploadedFile['tmp_name'];		
 			
