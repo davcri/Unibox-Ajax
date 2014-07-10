@@ -96,7 +96,7 @@ class Resource
 		$difficultyVotes = $db->getNumberOfDifficultyVotes($resId);
 		$qualityVotes = $db->getNumberOfVotes($resId);
 		$res = $db->getById($resId);
-	
+				
 		$res->updateDifficultyScore($difficultyVotes,$difficulty);
 		$res->updateQualityScore($qualityVotes,$quality);
 	

@@ -69,6 +69,8 @@ class Home
 				
 			case 'upload':
 				$upload = new \Control\Upload();
+				$ajaxData = $upload->handleUpload();
+				print $ajaxData;
 				break;
 				
 			case 'profile':

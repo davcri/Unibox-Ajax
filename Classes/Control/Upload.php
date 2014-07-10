@@ -35,7 +35,7 @@ class Upload
 	{		
 		$this->resourceDestinationPath = dirname($_SERVER['SCRIPT_NAME']).'/Resources';
 		
-		$this->handleUpload();
+		//$this->handleUpload();
 	}
 	
 	/**
@@ -46,43 +46,35 @@ class Upload
 	public function handleUpload()
 	{
 		$mainView = \Utility\Singleton::getInstance("\View\Home");
+		$data;
 		
 		switch($mainView->get('uploadAction'))
 		{
 			case 'getUploadPage' :
-				$this->getForm();
+				$data = $this->getForm();
 				break;
 				
 			case 'updateSubjectsField' :
 				$subjects = $this->getSubjectList($mainView->get('degreeCourse'));
-				print json_encode($subjects);
+				$data = json_encode($subjects);
 				break;
 			
 			case 'uploadResource':				
 				if ($this->validateFormInputData())
 				{	
-					//$this->addNewResourceIntoDb();
-					print json_encode("ok");
+					$data = $this->addNewResourceIntoDb();
+					//$data = json_encode("ok");
 				}
 				else
-					print json_encode("You're a bad, evil person");
+					$data = json_encode("You're a bad, evil person");
 				
 				break;
-		}	
-		
-		/*if (isset($_REQUEST['uploadAction'])) // $_REQUEST['uploadAction] is setted when a degree course is selected in the upload page.
-		{                                     
-			print json_encode(($this->processSubjectList($_REQUEST['uploadAction'])));
+			
+			default :
+				break;
 		}
-		elseif(empty($_REQUEST['name']) || empty($_REQUEST['subject']) || empty($_REQUEST['category']) || 
-		       empty($_REQUEST['degreeCourse']) || empty($_FILES) || empty($_REQUEST['description']))
-		{	
-			$this->getForm();			
-		}
-		else
-		{
-			$this->addNewResourceIntoDb();
-		}*/		
+
+		return $data;	
 	}
 	
 	/**
@@ -95,10 +87,9 @@ class Upload
 		//$uploadPage->setTplContent('form');
 		$uploadPage = \Utility\Singleton::getInstance("\View\Home");
 		$uploadPage->assign("degreeCourses",$degreeCourses);
-		
-		//$this->processSubjectList($courseDegree);
-		
-		$uploadPage->display("upload.tpl");
+				
+		//$uploadPage->display("upload.tpl");
+		return $uploadPage->fetch("upload.tpl");
 	}
 	
 	/**
@@ -166,7 +157,7 @@ class Upload
 			// we need to create it...maybe
 		}
 		
-		$elaboratedForm->display('uploadCompleted.tpl');
+		return $elaboratedForm->fetch('uploadCompleted.tpl');
 	}
 	
 	/**

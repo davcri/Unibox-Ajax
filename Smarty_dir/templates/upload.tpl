@@ -4,7 +4,8 @@
 
     <br>
     <p class="lead">Da questa pagina puoi inviarci i tuoi file.</p>
-    <p>Ti basta compilare la form qui sotto</p> <br>
+    <p>Ti basta compilare la form qui sotto. <br>
+       Nota: È necessario riempire tutti i campi per caricare il file.</p> <br>
 
     
     <form id="uploadForm" method="POST" enctype="multipart/form-data" action="index.php?controllerAction=upload">

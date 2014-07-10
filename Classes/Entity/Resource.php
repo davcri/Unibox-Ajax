@@ -347,7 +347,10 @@ class Resource
 	 */
 	public function updateQualityScore($votes, $score)
 	{
-		$votes+=1;
+		// avoiding division by zero
+		if($votes==0)
+			$votes = 1;
+		
 		$this->qualityScore = ($this->qualityScore+$score)/$votes;
 	}
 	
@@ -360,7 +363,10 @@ class Resource
 	*/
 	public function updateDifficultyScore($votes, $score)
 	{
-		$votes = $votes + 1;
+		// avoiding division by zero
+		if($votes==0)	
+			$votes = 1;
+		
 		$this->difficultyScore = ($this->difficultyScore+$score)/$votes;
 	}
 	

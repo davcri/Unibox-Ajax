@@ -164,6 +164,11 @@ class Resource extends Database
 		return $res[0]['Number of votes'];
 	}
 	
+	/**
+	 * 
+	 * @todo is this method used ? 
+	 * @param unknown_type $degCourse
+	 */
 	public function countResourcesByDegreeCourse($degCourse)
 	{
 		$outerQuery = "SELECT count(*) as 'resourcesCount' FROM resource WHERE resource.subjectCode IN";
