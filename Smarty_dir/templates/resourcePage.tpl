@@ -35,7 +35,9 @@
 				</div>
 
 				<div class="panel-body">
-					<p>Descrizione risorsa *da implementare*<p>
+					<blockquote>
+					  <p><em>{$resource->getDescription()}</em></p>
+					</blockquote>
 				</div>
 
 				<ul class="list-group">

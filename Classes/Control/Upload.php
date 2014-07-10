@@ -80,11 +80,11 @@ class Upload
 	/**
 	 *  @todo 
 	 */
-	public function getForm()
+	private function getForm()
 	{		
 		$degreeCourseDb = new \Foundation\DegreeCourse();
 		$degreeCourses = $degreeCourseDb->getDegreeCourses();
-		//$uploadPage->setTplContent('form');
+
 		$uploadPage = \Utility\Singleton::getInstance("\View\Home");
 		$uploadPage->assign("degreeCourses",$degreeCourses);
 				
@@ -96,19 +96,17 @@ class Upload
 	 *  It takes the form's fields from the resource form and create an Entity\Resource with these details and 
 	 *  after stores it into the database.
 	 *  
+	 *  @todo review this method and clean it.
 	 */
-	public function addNewResourceIntoDb()
+	private function addNewResourceIntoDb()
 	{
 		//print dirname($_SERVER['SCRIPT_NAME']).'/Resources';
 		
 		$elaboratedForm = \Utility\Singleton::getInstance("\View\Home");
-			
-		$resourceDetail['name'] = $elaboratedForm->get('name');
-		$resourceDetail['category'] = $elaboratedForm->get('category');
-		$resourceDetail['degreeCourse'] = $elaboratedForm->get('degreeCourse');
-		$resourceDetail['subject'] = $elaboratedForm->get('subject');
-		$resourceDetail['uploadedFile'] = $elaboratedForm->getFile('uploadedFile');		
 		
+		$resourceDetail = $this->getUploadFormData();
+		var_dump($resourceDetail);
+					
 		$uploadedFile = $resourceDetail['uploadedFile'];
 		$tmpUploadedFile = $uploadedFile['tmp_name'];		
 			
@@ -124,7 +122,7 @@ class Upload
 			$session = \Utility\Singleton::getInstance("\Control\Session");
 			$username = $session->get("username");
 			
-			$resource = new \Entity\Resource(NULL,$resourceDetail['name'], $resourceDetail['category'], $subj->getCode(), $username, $uploadedFile['type'], 0, 0, $currentDate, 0, false, $this->resourceDestinationPath);
+			$resource = new \Entity\Resource(NULL,$resourceDetail['name'], $resourceDetail['category'], $subj->getCode(), $username, $uploadedFile['type'], 0, 0, $currentDate, 0, false, $this->resourceDestinationPath, $resourceDetail['description']);
 			
 			// taking the absolute path to store the file. Because $this->resourceDestinationPath is relative to the server Document Root. 
 			$destination = $_SERVER['DOCUMENT_ROOT'].$this->resourceDestinationPath;
@@ -165,7 +163,7 @@ class Upload
 	 * @param string $courseDegree
 	 * @return array Contains all the subjects of a degree course
 	 */
-	public function getSubjectList($courseDegree)
+	private function getSubjectList($courseDegree)
 	{
 		$subjects=new \Foundation\Subject();
 		
@@ -202,6 +200,20 @@ class Upload
 		}
 						
 		return $validate;		
+	}
+	
+	private function getUploadFormData()
+	{
+		$uploadForm = \Utility\Singleton::getInstance("\View\Home");
+		
+		$resourceDetail['name'] = $uploadForm->get('name');
+		$resourceDetail['category'] = $uploadForm->get('category');
+		$resourceDetail['degreeCourse'] = $uploadForm->get('degreeCourse');
+		$resourceDetail['subject'] = $uploadForm->get('subject');
+		$resourceDetail['uploadedFile'] = $uploadForm->getFile('uploadedFile');
+		$resourceDetail['description'] =  $uploadForm->get('description');
+		
+		return $resourceDetail;
 	}
 }
 

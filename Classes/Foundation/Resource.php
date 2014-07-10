@@ -52,14 +52,12 @@ class Resource extends Database
 		$uploadingDate = '"'.$resource->getUploadingDate()->format("Y-m-d H:i:s").'"';
 		$visible = '"'.$resource->isVisible().'"';
 		$downloadsNumber = '"'.$resource->getDownloadsNumber().'"';
+		$description = '"'.$resource->getDescription().'"';
 		
-		$insertInto = "INSERT INTO `resource`(`id`, `name`, `category`, `subjectCode`, `uploaderUsername`, `type`, `difficultyScore`, `qualityScore`, `path`, `uploadingDate`, `visible`, `downloadsNumber`)"; 
-		$values = "VALUES (NULL, $name ,$category,$subjectCode,$uploaderUsername,$type,$difficultyScore,$qualityScore,$path,$uploadingDate,$visible,$downloadsNumber);";
+		$insertInto = "INSERT INTO `resource`(`id`, `name`, `category`, `subjectCode`, `uploaderUsername`, `type`, `difficultyScore`, `qualityScore`, `path`, `uploadingDate`, `visible`, `downloadsNumber`, `description`)"; 
+		$values = "VALUES (NULL, $name ,$category,$subjectCode,$uploaderUsername,$type,$difficultyScore,$qualityScore,$path,$uploadingDate,$visible,$downloadsNumber,$description);";
 		$queryString = $insertInto." ".$values;
-		
-		// debug print
-		//print $queryString;
-		
+				
 		return $this->query($queryString);
 	}	
 	
@@ -76,7 +74,7 @@ class Resource extends Database
 		
 		if(isset($array[0])) // if there is a match
 		{			
-			$resource = new \Entity\Resource($array[0]['id'],$array[0]['name'], $array[0]['category'], $array[0]['subjectCode'], $array[0]['uploaderUsername'], $array[0]['type'], $array[0]['qualityScore'], $array[0]['difficultyScore'], $array[0]['uploadingDate'], $array[0]['downloadsNumber'], $array[0]['visible'],$array[0]['path']);
+			$resource = new \Entity\Resource($array[0]['id'],$array[0]['name'], $array[0]['category'], $array[0]['subjectCode'], $array[0]['uploaderUsername'], $array[0]['type'], $array[0]['qualityScore'], $array[0]['difficultyScore'], $array[0]['uploadingDate'], $array[0]['downloadsNumber'], $array[0]['visible'], $array[0]['path'], $array[0]['description']);
 		}
 		else 
 			$resource = false;
@@ -98,7 +96,7 @@ class Resource extends Database
 		{
 			foreach ($array as $res)
 			{
-				$resources[] = new \Entity\Resource($res['id'],$res['name'], $res['category'], $res['subjectCode'], $res['uploaderUsername'], $res['type'], $res['qualityScore'], $res['difficultyScore'], $res['uploadingDate'], $res['downloadsNumber'], $res['visible'] , $res['path']);
+				$resources[] = new \Entity\Resource($res['id'],$res['name'], $res['category'], $res['subjectCode'], $res['uploaderUsername'], $res['type'], $res['qualityScore'], $res['difficultyScore'], $res['uploadingDate'], $res['downloadsNumber'], $res['visible'] , $res['path'], $res['description']);
 			}			
 		}
 		else
@@ -116,12 +114,13 @@ class Resource extends Database
 	{
 		$queryString = "SELECT * FROM `resource` WHERE uploaderUsername=\"$username\"" ;
 		$array = $this->associativeArrayQuery($queryString);
+		var_dump($array);
 		
 		if(!empty($array)) // if there is a match
 		{
 			foreach ($array as $res)
 			{
-				$resources[] = new \Entity\Resource($res['id'],$res['name'], $res['category'], $res['subjectCode'], $res['uploaderUsername'], $res['type'], $res['qualityScore'], $res['difficultyScore'], $res['uploadingDate'], $res['downloadsNumber'], $res['visible'] , $res['path']);
+				$resources[] = new \Entity\Resource($res['id'],$res['name'], $res['category'], $res['subjectCode'], $res['uploaderUsername'], $res['type'], $res['qualityScore'], $res['difficultyScore'], $res['uploadingDate'], $res['downloadsNumber'], $res['visible'], $res['path'], $res['description']);
 			}
 		}
 		else

@@ -97,13 +97,13 @@ class Resource
 	 * @var string
 	 */
 	private $path;
-	
+		
 	/**
 	 * Brief description of the resource.
 	 * 
 	 * @var string
 	 */
-	//private $description;
+	private $description;
 
 	/**
 	 * Creates a resource and initializes all its attributes.
@@ -119,10 +119,11 @@ class Resource
 	 * @param int $downloadsNumber
 	 * @param bool $visible
 	 * @param string $path
+	 * @param string $description
 	 * 
 	 * @todo Exceptions handling. Many parameters need to be checked.
 	 */
-	public function __construct($id, $name,$category,$subjectCode,$uploaderUsername,$type,$qualityScore,$difficultyScore,$uploadingDate,$downloadsNumber,$visible,$path)
+	public function __construct($id, $name, $category, $subjectCode, $uploaderUsername, $type, $qualityScore, $difficultyScore, $uploadingDate, $downloadsNumber, $visible, $path, $description)
 	{
 		$this->id = $id;
 		$this->name = $name;
@@ -136,6 +137,7 @@ class Resource
 		$this->downloadsNumber = $downloadsNumber;
 		$this->visible = $visible;
 		$this->path = $path;
+		$this->description = $description;
 	}
 	
 	public function getId()
@@ -243,6 +245,11 @@ class Resource
 		return $this->path;
 	}
 	
+	public function getDescription()
+	{
+		return $this->description;
+	}
+	
 	/**
 	 * Get the size of the resource in Megabytes, with a precision of 2 decimal digits.
 	 * 
@@ -256,7 +263,6 @@ class Resource
 		
 		return round($fileSizeInMegaBytes,2);		
 	}
-	
 	
 	/**
 	* Returns the visibility of the resource.
@@ -279,7 +285,7 @@ class Resource
 	}
 	
 	/**
-	 * Set the name of the resource.
+	 * Sets the name of the resource.
 	 * 
 	 * @param string $name
 	 */
@@ -289,7 +295,7 @@ class Resource
 	}
 	
 	/**
-	 * Set the category of the resource.
+	 * Sets the category of the resource.
 	 * 
 	 * @param string $category
 	 */
@@ -299,7 +305,7 @@ class Resource
 	}
 	
 	/**
-	 * Set the subject of the resource.
+	 * Sets the subject of the resource.
 	 * 
 	 * @param string $subject
 	 */
@@ -309,7 +315,7 @@ class Resource
 	}
 
 	/**
-	 * Set the uploader's name of the resource.
+	 * Sets the uploader's name of the resource.
 	 * 
 	 * @param string $uploaderName
 	 */
@@ -319,7 +325,7 @@ class Resource
 	}
 	
 	/**
-	 * Set the quality score of the resource.
+	 * Sets the quality score of the resource.
 	 * 
 	 * @param float $qualityScore
 	 */
@@ -329,7 +335,7 @@ class Resource
 	}
 	
 	/**
-	 * Set the difficulty score of the resource.
+	 * Sets the difficulty score of the resource.
 	 * 
 	 * @param float $difficultyScore
 	 */
@@ -371,7 +377,7 @@ class Resource
 	}
 	
 	/**
-	 * Set the uploading date of the resource.
+	 * Sets the uploading date of the resource.
 	 * 
 	 * @param \DateTime $uploadingDate
 	 */
@@ -381,7 +387,7 @@ class Resource
 	}
 	
 	/**
-	 * Set the downloads number of the resource.
+	 * Sets the downloads number of the resource.
 	 *
 	 * @param int $downloadsNumber
 	 */
@@ -391,7 +397,7 @@ class Resource
 	}
 	
 	/**
-	 * Set the visibility of the resource.
+	 * Sets the visibility of the resource.
 	 * 
 	 * @param bool $visibility
 	 */
@@ -400,6 +406,22 @@ class Resource
 		$this->visible = $visibility;
 	}
 	
+	/**
+	 * Sets the description of a resource.
+	 *  
+	 * @param string $desc
+	 */
+	public function setDescription($desc)
+	{
+		$this->description = $desc;
+	}
+	
+	/**
+	 * Checks if the resource has been rated by a certain user.
+	 * 
+	 * @param string $username
+	 * @return bool 
+	 */
 	public function hasBeenRated($username)
 	{
 		$db = new \Foundation\Resource();
