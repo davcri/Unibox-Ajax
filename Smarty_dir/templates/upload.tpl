@@ -68,26 +68,40 @@
             tooltip placeholder
         </div>
       </div>
-        
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <p class="help-block">Seleziona il file da caricare</p>
-              <label>File input</label>
-              <input type="file" id="inputFile" name="uploadedFile">
-            </div>
-
-            <button id="uploadButton"  class="btn btn-primary" disabled="disabled">Invia</button>
-          </div>
-
-          <div class="col-md-6 myTooltip">
-            tooltip placeholder
+      
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Descrizione</label>
+              <textarea class="form-control" rows="3" id="description" placeholder="Breve descrizione" name="description"></textarea>
           </div>
         </div>
-      </form>
+        
+        <div id="descriptionTooltip" class="col-md-6 myTooltip">
+            Inserisci una breve descrizione.
+        </div>
+      </div> 
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <p class="help-block">Seleziona il file da caricare</p>
+            <label>File input</label>
+            <input type="file" id="inputFile" name="uploadedFile">
+          </div>
+
+          <button id="uploadButton"  class="btn btn-primary" disabled="disabled">Invia</button>
+        </div>
+
+        <div class="col-md-6 myTooltip">
+          tooltip placeholder
+        </div>
+      </div>
+
+    </form>
   </div>
 {else}
-<div id="loginRequired" class="alert alert-danger text-center">Devi registrarti o effettuare il login per caricare file.</div>
+  <div id="loginRequired" class="alert alert-danger text-center">Devi registrarti o effettuare il login per caricare file.</div>
 {/if}
 
 <script src="Smarty_dir/templates/javascript/upload.js"></script>

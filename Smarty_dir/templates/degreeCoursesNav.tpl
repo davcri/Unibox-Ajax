@@ -6,7 +6,9 @@
 	
 	<div class="list-group">
 	{foreach $degreeCourses as $deg}
-		<a href="index.php?controllerAction=navigation&degreeCourse={$deg->getName()}" class="list-group-item">{$deg->getName()}<span class="badge" title="Numero di risorse presenti in questo corso di laurea">{$resourceDb->countResourcesByDegreeCourse($deg->getName())}</span></a>
+		{$name = $deg->getName()}
+		{$count = $resourceDb->countResourcesByDegreeCourse($name)}
+		<a href="index.php?controllerAction=navigation&degreeCourse={$deg->getName()}" class="list-group-item">{$name}<span class="badge" title="Sono presenti {$count} risorse nel corso di {$name}">{$count}</span></a>
 	{/foreach}
 	</div>
 </div>

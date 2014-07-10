@@ -10,6 +10,11 @@ $(function(){
 	
 	handleNameInput(uploadButton);
 	handleSubjectInput();
+	
+	handleDescriptionInput(); // useless until we implement the description field
+	$("#description").wrap("<fieldset disabled>","</fieldset>"); // disable the description input. It isn't implemented yet :(
+	$("#description").text("todo");
+
 	handleUploadButton(uploadButton);
 
 	$("#uploadForm").submit(function(event) {
@@ -36,7 +41,6 @@ function handleNameInput(uploadBtn)
 	var maxCharCount = 10;
 	var nameInput = $("#name");
 	var nameTooltip = $("#nameTooltip");
-
 	var default_nameTooltip = nameTooltip.text();
 
 	nameInput.focus(function(){
@@ -45,10 +49,9 @@ function handleNameInput(uploadBtn)
 
 	nameInput.blur(function(){
 		nameTooltip.hide("fade",animationTime);
-		nameTooltip.parent().addClass("has-success has-feedback");
 	});
 
-	nameInput.keyup(function(){	
+	nameInput.keyup(function(){	// validation
 		
 		if($(this).val().length==0){
 			$(this).parent().addClass("has-error");
@@ -61,6 +64,7 @@ function handleNameInput(uploadBtn)
 			nameTooltip.text("Il nome non può contenere più di " + maxCharCount + " caratteri").show("fade",animationTime);
 		}
 		else{
+			// nameTooltip.parent().addClass("has-success has-feedback");
 			if($(this).parent().hasClass("has-error"))
 			{
 				$(this).parent().removeClass("has-error");
@@ -90,6 +94,20 @@ function handleSubjectInput(){
 	});	
 }
 
+function handleDescriptionInput(){
+	var descriptionInput = $("#description");
+	var descriptionTooltip = $("#descriptionTooltip");
+	//var default_tooltip = descriptionTooltip.text();
+
+	descriptionInput.focus(function(){
+		descriptionTooltip.show("fade",animationTime);
+	});
+
+	descriptionInput.blur(function(){
+		descriptionTooltip.hide("fade",animationTime);
+	});
+}
+
 function handleUploadButton(btn){
 
 	$("#uploadForm").change(function(){	
@@ -109,6 +127,7 @@ function isFormCompleted(){
        $("#category").val().length!=0 && 
 	   $("#degreeCourse").val().length!=0 && 
 	   $("#subject").val().length!=0 &&
+	   $("#description").val().length!=0 &&
 	   $("#inputFile").val().length!=0 &&  	   	   // if a file is selected
 	   $("#inputFile").prop("files")[0].size > 0)  // and it isn't empty
 	{

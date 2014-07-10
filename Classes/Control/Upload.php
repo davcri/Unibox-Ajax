@@ -42,11 +42,12 @@ class Upload
 	 * It calls the function addNewResource if the form's fields are setted, otherwise
 	 * it shows the input form of a new resource.
 	 * 
+	 * @todo review this method
 	 */
 	public function handleUpload()
 	{	
-		if (isset($_REQUEST['uploadAction']))
-		{
+		if (isset($_REQUEST['uploadAction'])) // $_REQUEST['uploadAction] is setted when a degree course is selected in the upload page.
+		{                                     
 			print json_encode(($this->processSubjectList($_REQUEST['uploadAction'])));
 		}
 		elseif(empty($_REQUEST['name']) || empty($_REQUEST['subject']) || empty($_REQUEST['category']) || empty($_REQUEST['degreeCourse']) || empty($_FILES))
@@ -146,6 +147,10 @@ class Upload
 		$elaboratedForm->display('uploadCompleted.tpl');
 	}
 	
+	/**
+	 * 
+	 * @param string $courseDegree
+	 */
 	public function processSubjectList($courseDegree)
 	{
 		$subjects=new \Foundation\Subject();

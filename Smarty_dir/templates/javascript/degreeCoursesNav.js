@@ -1,3 +1,4 @@
+//todo : tooltip position
 
 $(function(){
 	$(document).tooltip();
