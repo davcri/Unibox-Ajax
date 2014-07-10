@@ -27,7 +27,7 @@ class Home extends \View\SmartyConfiguration
 	{
 		return $_FILES[$key];
 	}
-	
+		
 	//@todo delete this
 	public function getController()
 	{

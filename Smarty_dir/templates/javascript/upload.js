@@ -11,29 +11,10 @@ $(function(){
 	handleNameInput(uploadButton);
 	handleSubjectInput();
 	
-	handleDescriptionInput(); // useless until we implement the description field
-	$("#description").wrap("<fieldset disabled>","</fieldset>"); // disable the description input. It isn't implemented yet :(
+	handleDescriptionInput(); 
 	$("#description").text("todo");
 
-	handleUploadButton(uploadButton);
-
-	$("#uploadForm").submit(function(event) {
-		event.preventDefault();	
-
-		var formData = new FormData(this);
-
-		// for details and explanation read: http://stackoverflow.com/questions/5392344/sending-multipart-formdata-with-jquery-ajax 
-		// processData and contentType need to be false, otherwise the ajax call will fail.
-		$.ajax({
-			url: 'index.php?controllerAction=upload',
-			type: 'POST',
-			data: new FormData(this),
-			processData: false,
-			contentType: false
-		}).done(function(data){
-			changePage(data);
-		});
-	});
+	handleUploadButton(uploadButton);	
 });
 
 function handleNameInput(uploadBtn)
@@ -65,13 +46,13 @@ function handleNameInput(uploadBtn)
 		}
 		else{
 			// nameTooltip.parent().addClass("has-success has-feedback");
+			if(isFormCompleted())
+				uploadBtn.removeAttr("disabled");
+
 			if($(this).parent().hasClass("has-error"))
 			{
 				$(this).parent().removeClass("has-error");
-				nameTooltip.text(default_nameTooltip);
-
-				if(isFormCompleted())
-					uploadBtn.removeAttr("disabled");		
+				nameTooltip.text(default_nameTooltip);						
 			}			
 		}		
 	});
@@ -86,7 +67,7 @@ function handleSubjectInput(){
 		selectField.empty(); // remove all previous loaded subjects
 		degreeCourse = $(this).val();
 
-		$.get("index.php?controllerAction=upload&uploadAction=" + degreeCourse, function(data){
+		$.get("index.php?controllerAction=upload&uploadAction=updateSubjectsField&degreeCourse=" + degreeCourse, function(data){
 			data.forEach(function(element){
 				selectField.append("<option>" + element + "</option>");
 			});				
@@ -118,6 +99,24 @@ function handleUploadButton(btn){
 		else
 			btn.attr("disabled","disabled");	
 	});	
+
+	$("#uploadForm").submit(function(event) {
+		event.preventDefault();	
+
+		var formData = new FormData(this);
+
+		// for details and explanation read: http://stackoverflow.com/questions/5392344/sending-multipart-formdata-with-jquery-ajax 
+		// processData and contentType need to be false, otherwise the ajax call will fail.
+		$.ajax({
+			url: 'index.php?controllerAction=upload&uploadAction=uploadResource',
+			type: 'POST',
+			data: new FormData(this),
+			processData: false,
+			contentType: false
+		}).done(function(data){
+			changePage(data);
+		});
+	});
 }
 
 function isFormCompleted(){
@@ -136,3 +135,4 @@ function isFormCompleted(){
 	else
 		return false;
 }
+

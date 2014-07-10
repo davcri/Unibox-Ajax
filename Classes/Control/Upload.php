@@ -42,25 +42,47 @@ class Upload
 	 * It calls the function addNewResource if the form's fields are setted, otherwise
 	 * it shows the input form of a new resource.
 	 * 
-	 * @todo review this method
 	 */
 	public function handleUpload()
-	{	
-		if (isset($_REQUEST['uploadAction'])) // $_REQUEST['uploadAction] is setted when a degree course is selected in the upload page.
+	{
+		$mainView = \Utility\Singleton::getInstance("\View\Home");
+		
+		switch($mainView->get('uploadAction'))
+		{
+			case 'getUploadPage' :
+				$this->getForm();
+				break;
+				
+			case 'updateSubjectsField' :
+				$subjects = $this->getSubjectList($mainView->get('degreeCourse'));
+				print json_encode($subjects);
+				break;
+			
+			case 'uploadResource':				
+				if ($this->validateFormInputData())
+				{	
+					//$this->addNewResourceIntoDb();
+					print json_encode("ok");
+				}
+				else
+					print json_encode("You're a bad, evil person");
+				
+				break;
+		}	
+		
+		/*if (isset($_REQUEST['uploadAction'])) // $_REQUEST['uploadAction] is setted when a degree course is selected in the upload page.
 		{                                     
 			print json_encode(($this->processSubjectList($_REQUEST['uploadAction'])));
 		}
-		elseif(empty($_REQUEST['name']) || empty($_REQUEST['subject']) || empty($_REQUEST['category']) || empty($_REQUEST['degreeCourse']) || empty($_FILES))
+		elseif(empty($_REQUEST['name']) || empty($_REQUEST['subject']) || empty($_REQUEST['category']) || 
+		       empty($_REQUEST['degreeCourse']) || empty($_FILES) || empty($_REQUEST['description']))
 		{	
-			//var_dump($_REQUEST);
-			//var_dump($_FILES);
 			$this->getForm();			
 		}
 		else
 		{
-			//var_dump($_REQUEST);
 			$this->addNewResourceIntoDb();
-		}		
+		}*/		
 	}
 	
 	/**
@@ -150,8 +172,9 @@ class Upload
 	/**
 	 * 
 	 * @param string $courseDegree
+	 * @return array Contains all the subjects of a degree course
 	 */
-	public function processSubjectList($courseDegree)
+	public function getSubjectList($courseDegree)
 	{
 		$subjects=new \Foundation\Subject();
 		
@@ -164,6 +187,30 @@ class Upload
 		}
 	
 		return $result;
+	}
+	
+	/**
+	 * Validates the input data from the upload form page.
+	 * 
+	 * @todo add controls on string length and max file size
+	 * @return boolean True if the form is valid, false otherwise
+	 */
+	private function validateFormInputData()
+	{	
+		$formData = \Utility\Singleton::getInstance("\View\Home");
+		$validate = false;
+		
+		if( !empty($formData->get('name')) && 
+			!empty($formData->get('subject')) &&
+			!empty($formData->get('category')) &&
+			!empty($formData->get('degreeCourse')) &&
+			!empty($formData->get('description')) &&
+			!empty($formData->getFile('uploadedFile')) )
+		{
+			$validate = true;
+		}
+						
+		return $validate;		
 	}
 }
 
