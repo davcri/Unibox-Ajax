@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 20, 2014 at 11:08 AM
+-- Generation Time: Jul 12, 2014 at 10:48 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.9
 
@@ -87,6 +87,7 @@ CREATE TABLE IF NOT EXISTS `resource` (
   `uploadingDate` datetime NOT NULL,
   `visible` tinyint(1) NOT NULL,
   `downloadsNumber` int(11) NOT NULL,
+  `description` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `resource_ibfk_1` (`uploaderUsername`),
   KEY `resource_ibfk_2` (`subjectCode`)
