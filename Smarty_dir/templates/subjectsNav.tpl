@@ -8,8 +8,14 @@
 	
 	<p class="lead"> Benvenuto nella sezione di {$degreeCourse} </p>
 	{foreach $subjects as $subject}
-   		<a class="list-group-item" href="index.php?controllerAction=navigation&degreeCourse={$degreeCourse}&subject={$subject->getCode()}">{$subject->getName()}<span class="badge">{$resourceDb->countResourcesBySubject($subject->getCode())}</span></a>
+		{$subjName = $subject->getName()}
+		{$subjCode = $subject->getCode()}
+		{$subjCount = $resourceDb->countResourcesBySubject($subjCode)}
+
+   		<a class="list-group-item" href="index.php?controllerAction=navigation&degreeCourse={$degreeCourse}&subject={$subjCode}">{$subjName}
+   		<span title="{$subjCount} risorse trovate in {$subjName}" class="badge" >{$subjCount}</span></a>
 	{/foreach}
+	<br>
 </div>
 
 <!-- <div id="sidebar" class="col-md-3">

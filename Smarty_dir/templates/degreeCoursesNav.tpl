@@ -8,7 +8,8 @@
 	{foreach $degreeCourses as $deg}
 		{$name = $deg->getName()}
 		{$count = $resourceDb->countResourcesByDegreeCourse($name)}
-		<a href="index.php?controllerAction=navigation&degreeCourse={$deg->getName()}" class="list-group-item">{$name}<span class="badge" title="Sono presenti {$count} risorse nel corso di {$name}">{$count}</span></a>
+		<a href="index.php?controllerAction=navigation&degreeCourse={$deg->getName()}" class="list-group-item">{$name}
+		<span class="badge" title="{$count} risorse trovate in {$name}">{$count}</span></a>
 	{/foreach}
 	</div>
 </div>
