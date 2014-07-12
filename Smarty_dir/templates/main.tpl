@@ -21,11 +21,15 @@
 			
 		<noscript>
 			<div class="alert alert-danger" role="alert"> 
-				Nel tuo tuo browser &egrave disabilitato Javascript. 
+				<p>Nel tuo tuo browser &egrave disabilitato Javascript. 
 				Questa applicazione web non pu&ograve funzionare senza Javascript, quindi ti preghiamo di abilitarlo. 
-				Qui ci sono tutte le <a href="http://www.enable-javascript.com/it/" target="_blank"> istruzioni su come abilitare JavaScript nel tuo browser</a>
+				Qui ci sono tutte le <a href="http://www.enable-javascript.com/it/" target="_blank"> istruzioni su come abilitare JavaScript nel tuo browser</a></p>
 			</div>
 		</noscript>
+
+		<div id="cookieAlert" class="alert alert-warning" role="alert"> 
+			I cookie sono disabilitati. Ti preghiamo di attivarli dalle impostazioni del tuo browser per consentire il corretto funzionamento di questa applicazione.
+		</div>
 
 		<div class="navbar navbar-default">
 			<div class="container-fluid">

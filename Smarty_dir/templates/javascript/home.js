@@ -1,5 +1,7 @@
 
 $(function(){
+	cookieCheck();
+
 	var list = $(".mainContent").find(".list-group");
 	list.hide();
 	
@@ -14,3 +16,12 @@ $(function(){
 		});		
 	});
 });
+
+function cookieCheck(){
+	if (cookiesEnabled())
+		$("#cookieAlert").remove();
+}
+
+function cookiesEnabled(){
+	return navigator.cookieEnabled;
+}
