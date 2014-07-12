@@ -11,14 +11,15 @@
 	</tr>				   
 {/function}
 
+<ol id="pathBar" class="breadcrumb">
+	<li><span class="glyphicon glyphicon-folder-open"></span></li>
+	<li><a href="index.php?controllerAction=navigation"> Risorse</a></li>
+	<li><a href="index.php?controllerAction=navigation&degreeCourse={$degreeCourse}">{$degreeCourse}</a></li>
+	<li>{$subject_name}</li>
+</ol>
+
 <div id="mainContent" class="mainContent">
 	<br>
-	<ol id="pathBar" class="breadcrumb">
-		<li><a href="index.php?controllerAction=navigation"> Risorse</a></li>
-		<li><a href="index.php?controllerAction=navigation&degreeCourse={$degreeCourse}">{$degreeCourse}</a></li>
-		<li>{$subject_name}</li>
-	</ol>
-
 	<div id="resourcesContainer">
 		<h3>{$subject_name}</h3> <br>
 		

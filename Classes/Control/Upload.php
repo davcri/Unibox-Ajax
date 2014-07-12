@@ -46,7 +46,7 @@ class Upload
 	public function handleUpload()
 	{
 		$mainView = \Utility\Singleton::getInstance("\View\Home");
-		$data;
+		$data = "";
 		
 		switch($mainView->get('uploadAction'))
 		{

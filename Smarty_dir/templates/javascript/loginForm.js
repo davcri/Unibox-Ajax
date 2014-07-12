@@ -24,7 +24,7 @@ $(function(){
 				});
 
 				if($("#loginRequired").length){ // 'loginRequired' is an alert found only on the upload page
-					$.get("index.php?controllerAction=upload",function(data){
+					$.get("index.php?controllerAction=upload&uploadAction=getUploadPage",function(data){
 						changePage(data);
 					});
 				}

@@ -2,11 +2,11 @@
 $(function(){
 	initializeTablesorter();
 
-	$("#mainContent").find("a").click(function(event) {
+	$("#mainContainer").find("a").click(function(event) {
 		event.preventDefault();
 	});
 
-	$("#pathBar").find("a").click(function(){		
+	$("#mainContainer").find("a").click(function(){		
 		var url = $(this).attr("href"); 
 				
 		$.get(url, function(data){
@@ -14,13 +14,14 @@ $(function(){
 		});
 	});
 
+	/*
 	$("#resourcesContainer").find("a").click(function(){
 		var url = $(this).attr("href"); 
 
 		$.get(url, function(data){
 			changePage(data);
 		});
-	});			
+	});*/			
 });
 
 function initializeTablesorter(){

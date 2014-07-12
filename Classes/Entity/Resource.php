@@ -4,7 +4,7 @@
  * 
  * Contains the definition of the Resource enitity class. 
  * 
- * @todo verifica il comportamento del tag @acces public di phpdoc ! 
+ * @todo remove 'type' property from this class ?  
  */
 
 namespace Entity;
@@ -187,7 +187,8 @@ class Resource
 	*/
 	public function getType()
 	{
-		return $this->type;
+		return pathinfo($this->path, PATHINFO_EXTENSION);
+		//return $this->type;
 	}
 	
 	/**

@@ -16,15 +16,18 @@
 	</div>					   
 {/function}
 
-<div id="mainContent" class="mainContent">
-	<br>
+{if !empty($degreeCourse)}
 	<ol id="pathBar" class="breadcrumb">
+		<li><span class="glyphicon glyphicon-folder-open"></span></li>
 		<li><a href="index.php?controllerAction=navigation"> Risorse</a></li>
 		<li><a href="index.php?controllerAction=navigation&degreeCourse={$degreeCourse}">{$degreeCourse}</a></li>
 		<li><a href="index.php?controllerAction=navigation&degreeCourse={$degreeCourse}&subject={$subject->getCode()}">{$subject->getName()}</a></li>
 		<li>{$resource->getName()}</li>
 	</ol>
+{/if}
 
+<div id="mainContent" class="mainContent">
+	<br>
 	<div id="resourceContainer" class="row">		
 		<div class="col-md-12">
 			<div class="panel panel-success">
@@ -69,8 +72,13 @@
 				</ul>				
 			</div>
 
-			<div class="hidden" id="resourceId">{$resource->getId()}</div>
+			{if $resource->getType()=="pdf"}
+			<div>
+				<object width='100%' height="600" data="{$resource->getPath()}"></object>
+			</div>
+			{/if}
 
+			<div class="hidden" id="resourceId">{$resource->getId()}</div>
 			{if $loggedIn}
 				{if !$resource->hasBeenRated($user->getUsername())}
 					{displayRatingPanel visibility=true}
@@ -82,6 +90,8 @@
 				<div id="loginRequiredForResourceRating" class="alert alert-danger text-center">Effettua il login per votare questa risorsa</div>
 				{displayRatingPanel visibility=false}
 			{/if}
+
+
 			
 		</div>				
 	</div>	

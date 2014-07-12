@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 12, 2014 at 10:48 AM
+-- Generation Time: Jul 12, 2014 at 12:44 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.9
 
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `resource` (
   PRIMARY KEY (`id`),
   KEY `resource_ibfk_1` (`uploaderUsername`),
   KEY `resource_ibfk_2` (`subjectCode`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=27 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
 
 -- --------------------------------------------------------
 
@@ -195,15 +195,15 @@ ALTER TABLE `resource`
 -- Constraints for table `resources_difficultyScores`
 --
 ALTER TABLE `resources_difficultyScores`
-  ADD CONSTRAINT `resources_difficultyScores_ibfk_2` FOREIGN KEY (`username`) REFERENCES `user` (`username`),
-  ADD CONSTRAINT `resources_difficultyScores_ibfk_1` FOREIGN KEY (`resourceId`) REFERENCES `resource` (`id`);
+  ADD CONSTRAINT `resources_difficultyScores_ibfk_2` FOREIGN KEY (`username`) REFERENCES `user` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `resources_difficultyScores_ibfk_1` FOREIGN KEY (`resourceId`) REFERENCES `resource` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `resources_scores`
 --
 ALTER TABLE `resources_scores`
-  ADD CONSTRAINT `resources_scores_ibfk_2` FOREIGN KEY (`username`) REFERENCES `user` (`username`),
-  ADD CONSTRAINT `resources_scores_ibfk_1` FOREIGN KEY (`resourceId`) REFERENCES `resource` (`id`);
+  ADD CONSTRAINT `resources_scores_ibfk_2` FOREIGN KEY (`username`) REFERENCES `user` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `resources_scores_ibfk_1` FOREIGN KEY (`resourceId`) REFERENCES `resource` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `user`

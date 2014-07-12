@@ -1,4 +1,9 @@
 
+<ol id="pathBar" class="breadcrumb">
+	<li><span class="glyphicon glyphicon-folder-open"></span></li>
+	<li>Risorse</li>
+</ol>
+
 <div id="mainContent" class="mainContent">
 	<br>
 
