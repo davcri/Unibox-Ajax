@@ -18,26 +18,19 @@
 		<div class="page-header">
 	  		<h1>Unibox <small> all you need it's me !</small></h1>
 		</div>
+			
+		<noscript>
+			<div class="alert alert-danger" role="alert"> 
+				Nel tuo tuo browser &egrave disabilitato Javascript. 
+				Questa applicazione web non pu&ograve funzionare senza Javascript, quindi ti preghiamo di abilitarlo. 
+				Qui ci sono tutte le <a href="http://www.enable-javascript.com/it/" target="_blank"> istruzioni su come abilitare JavaScript nel tuo browser</a>
+			</div>
+		</noscript>
 
 		<div class="navbar navbar-default">
 			<div class="container-fluid">
-				
-				<!-- To enable responsive mode for smartphone resolutions, uncomment the following lines and include the bootstrap.js library -->
-			    <!--<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					
-					<a class="navbar-brand"> <span class="glyphicon glyphicon-inbox"></span> </a>
-				</div> -->
-				
-
-				<!-- <span class="navbar-brand glyphicon glyphicon-inbox"></span> -->
 				<span class="glyphicon glyphicon-inbox navbar-brand"></span>
-				<!-- <div class="navbar-collapse collapse">  -->
+
 				<ul id="navigationBar" class="nav navbar-nav">
 					<li id="home" class="active"><a href="index.php?controllerAction=home">Home</a></li>
 					<li id="navigation"><a href="index.php?controllerAction=navigation">Risorse</a></li>
@@ -52,7 +45,6 @@
 				{else}
 					{include 'signedIn.tpl'}
 				{/if}
-				<!-- </div> -->
 			</div>
 		</div>
 
