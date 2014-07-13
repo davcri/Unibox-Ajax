@@ -56,22 +56,22 @@
 			{include 'home.tpl'}
 		</div>
 
-		<!-- <div id="footer" class="col-md-12">
-			<br>
-			<hr>
-			<br>
-			<div class="col-md-4">
+		
+		<!-- <div id="footer" class="navbar-fixed-bottom footer">
+			<div class="container-fluid">
+				<div class="col-md-4">
 				<p class="text-center">Chi siamo</p>
-			</div>
+				</div>
 
-			<div class="col-md-4">
-				<p class="text-center">About</p>
-			</div>
+				<div class="col-md-4">
+					<p class="text-center">About</p>
+				</div>
 
-			<div class="col-md-4">
-				<p class="text-center">Copyright</p>
+				<div class="col-md-4">
+					<p class="text-center">Copyright</p>
+				</div>
 			</div>
-		</div>	 -->	
+		</div> -->
 
 	</div>
 </body>

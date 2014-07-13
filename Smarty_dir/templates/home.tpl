@@ -33,7 +33,7 @@
 	 		<strong>Filippo Reggimenti</strong><br>
 	 		email : <br>
 		<address> <br> 	
-		Oppure se sei un programmatore e vuoi aiutarci con lo sviluppo puoi farlo visitando <a href="https://github.com/davcri/Unibox-Ajax">la pagina Github del progetto
+		Oppure se sei un programmatore e vuoi aiutarci con lo sviluppo puoi farlo visitando <a href="https://github.com/davcri/Unibox-Ajax">la pagina Github del progetto</a>
 	</div>
 </div>
 
