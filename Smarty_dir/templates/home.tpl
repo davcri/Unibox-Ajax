@@ -1,6 +1,7 @@
 <div id="mainContent" class="mainContent">
 	<h1>Unibox</h1>
 	<p class="lead">Benvenuto sulla piattaforma di condivisione di appunti.</p>
+
 	<p><button id="moreInfo" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span> Scopri di pi&ugrave</button></p>
 
 	<div class="list-group">				
@@ -18,6 +19,21 @@
 			<h4 class="list-group-item-heading"><span class="glyphicon glyphicon-upload"></span> Contribuisci</h4>
 			<p class="list-group-item-text">Aiutaci a migliorare il sito, caricando i file che ritieni utili oppure votando le risorse caricate dagli altri utenti</p>
 		</div>
+	</div>
+
+	<br>
+	<div>
+		Questa applicazione web &egrave ancora in via di sviluppo, se trovi qualche bug o hai qualche suggerimento puoi contattarci via e-mail:
+		<br><br>
+		<address>
+	  		<strong>Davide Cristini</strong><br>
+	 		email : <a href="mailto:davcri91@gmail.com">davcri91@gmail.com</a>  
+	 	</address>
+	 	<address>
+	 		<strong>Filippo Reggimenti</strong><br>
+	 		email : <br>
+		<address> <br> 	
+		Oppure se sei un programmatore e vuoi aiutarci con lo sviluppo puoi farlo visitando <a href="https://github.com/davcri/Unibox-Ajax">la pagina Github del progetto
 	</div>
 </div>
 

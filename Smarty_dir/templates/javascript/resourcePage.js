@@ -64,7 +64,8 @@ function downloadLinkBehaviour(){
 		var url = "index.php?controllerAction=resource&resourceAction=incrementDownloadsCount";
 
 		$.post(url, resourceInfo, function(data){
-			console.log(data);
-		});
+			$("#downloadsCount").html(data.newDownloadsCount) // put the new value in the downloadsCount <span>
+			.parent().effect("highlight",{color: "#d8dff0"},3000); // on the div use the highlight effect
+		}, "json");
 	});
 }

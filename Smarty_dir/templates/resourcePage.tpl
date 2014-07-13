@@ -58,7 +58,7 @@
 					  	Uploader <span class="badge">{$resource->getUploaderUsername()}</span>
 					</li>
 					<li class="list-group-item">
-					  	# Downloads <span class="badge">{$resource->getDownloadsNumber()}</span>
+					  	# Downloads <span id="downloadsCount" class="badge">{$resource->getDownloadsNumber()}</span>
 					</li>
 					<li class="list-group-item">
 					  	Data di caricamento <span class="badge">{$resource->getUploadingDate()->format("d/m H:i:s")}</span>
