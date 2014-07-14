@@ -29,7 +29,7 @@
 <div id="mainContent" class="mainContent">
 	<br>
 	<div id="resourceContainer" class="row">
-		<div class="col-md-8">
+		<div id="resourcePanel" class="{if $resource->getType()=="pdf"}col-md-6{else}col-md-12{/if}">
 			<div class="panel panel-success">
 				<div class="panel-heading">
 					Descrizione
@@ -86,11 +86,9 @@
 			{/if}
 		</div>
 
-		<div class="col-md-4">
+		<div id="filePreview" class="col-md-6">
 			{if $resource->getType()=="pdf"}
-			<div>
 				<object width='100%' height="600" data="{$resource->getPath()}"></object>
-			</div>
 			{/if}			
 		</div>				
 	</div>	

@@ -15,6 +15,7 @@ $(function(){
 	setSliders();
 	resourceVote();
 	
+	//filePreview();
 });
 
 function setSliders(){
@@ -76,3 +77,12 @@ function resourceVote(){
 		},"json");		
 	});
 }
+
+/*function filePreview(){
+	$("h1").click(function(){
+		$("#resourcePanel").switchClass("col-md-12","col-md-6",animationTime+250, function(){
+			
+		});
+		$("#filePreview").switchClass("hidden", "col-md-6",animationTime);//show("slide", animationTime+250);
+	});
+}*/
