@@ -28,8 +28,8 @@
 
 <div id="mainContent" class="mainContent">
 	<br>
-	<div id="resourceContainer" class="row">		
-		<div class="col-md-12">
+	<div id="resourceContainer" class="row">
+		<div class="col-md-8">
 			<div class="panel panel-success">
 				<div class="panel-heading">
 					Descrizione
@@ -43,10 +43,10 @@
 
 				<ul class="list-group">
 					<li class="list-group-item">
-					Qualità <span class="badge">{$resource->getQualityScore()}</span>
+					Qualità <span id="qualityScore" class="badge">{$resource->getQualityScore()}</span>
 					</li>
 					<li class="list-group-item">
-						Difficoltà <span class="badge">{$resource->getDifficultyScore()}</span> 
+						Difficoltà <span id="difficultyScore" class="badge">{$resource->getDifficultyScore()}</span> 
 					</li>
 					<li class="list-group-item">
 						Tipo <span class="badge">{$resource->getType()}</span>
@@ -61,7 +61,7 @@
 					  	# Downloads <span id="downloadsCount" class="badge">{$resource->getDownloadsNumber()}</span>
 					</li>
 					<li class="list-group-item">
-					  	Data di caricamento <span class="badge">{$resource->getUploadingDate()->format("d/m H:i:s")}</span>
+					  	Data di caricamento <span class="badge">{$resource->getUploadingDate()->format("d/m/y H:i:s")}</span>
 					</li>
 					<li class="list-group-item">
 						<div class="text-center">
@@ -71,12 +71,6 @@
 					</li>
 				</ul>				
 			</div>
-
-			{if $resource->getType()=="pdf"}
-			<div>
-				<object width='100%' height="600" data="{$resource->getPath()}"></object>
-			</div>
-			{/if}
 
 			<div class="hidden" id="resourceId">{$resource->getId()}</div>
 			{if $loggedIn}
@@ -90,9 +84,14 @@
 				<div id="loginRequiredForResourceRating" class="alert alert-danger text-center">Effettua il login per votare questa risorsa</div>
 				{displayRatingPanel visibility=false}
 			{/if}
+		</div>
 
-
-			
+		<div class="col-md-4">
+			{if $resource->getType()=="pdf"}
+			<div>
+				<object width='100%' height="600" data="{$resource->getPath()}"></object>
+			</div>
+			{/if}			
 		</div>				
 	</div>	
 </div>
