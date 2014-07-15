@@ -4,32 +4,37 @@
 		<div class="col-md-2">
 		</div>
 
-		<div class="col-md-8">
+		<div class="col-md-6">
 			<br>
 			<p>Compila la form per registrarti</p>
 			<br>
 
-			<form>
+			<form id="registrationForm" enctype="multipart/form-data">
 				<div class="form-group">
 			    	<label>Nome</label>
-			    	<input type="text" class="form-control" id="nameUser" placeholder="Nome">
+			    	<input type="text" name="nameUser" class="form-control" id="nameUser" placeholder="Nome">
 			  	</div>
+
 			  	<div class="form-group">
 			    	<label>Cognome</label>
-			    	<input type="text" class="form-control" id="surname" placeholder="Cognome">
+			    	<input type="text" name="surname" class="form-control" id="surname" placeholder="Cognome">
 			  	</div>
+
 				<div class="form-group">
 			    	<label>Username</label>
-			    	<input type="text" class="form-control" id="usernameRegForm" placeholder="Username">
+			    	<input type="text" name="username" class="form-control" id="usernameRegForm" placeholder="Username">
 			  	</div>
+
 			  	<div class="form-group">
 			   		<label>Password</label>
-			   		<input type="password" class="form-control" id="passwordRegForm" placeholder="Password">
+			   		<input type="password" name="password" class="form-control" id="passwordRegForm" placeholder="Password">
 			  	</div>
+
 				<div class="form-group">
 			    	<label>Indirizzo Email</label>
-			    	<input type="email" class="form-control" id="email" placeholder="Inserici email">
+			    	<input type="email" name="email" class="form-control" id="email" placeholder="Inserici email">
 			  	</div>
+
 			  	<div class="form-group">
 				  	<label>Corso di Laurea</label>
 				  	<select class="form-control" id="degreeCourse" name="degreeCourse">
@@ -38,9 +43,14 @@
 			        {/foreach}
 	       			</select>		  				  	
 			  	</div>
-			  	<button id="submitButton" type="submit" class="btn btn-default">Registrati</button>
+
+			  	<button id="submitButton" type="submit" class="btn btn-success" disabled="disabled">Invia dati</button>
+			  	
 			</form>
 		</div>
+		<div class="col-md-4">
+		</div>
+
 	</div>
 </div>
 

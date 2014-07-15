@@ -4,8 +4,8 @@
 //todo : add controls in PHP code.
 
 $(function(){
-	maxNameChars = 10;
-	maxDescriptionChars = 10;
+	maxNameChars = 15;
+	maxDescriptionChars = 150;
 
 	var uploadButton = $("#uploadButton");
 
@@ -134,7 +134,7 @@ function handleUploadButton(btn){
 		$.ajax({
 			url: 'index.php?controllerAction=upload&uploadAction=uploadResource',
 			type: 'POST',
-			data: new FormData(this),
+			data: formData,
 			processData: false,
 			contentType: false
 		}).done(function(data){

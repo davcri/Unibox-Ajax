@@ -3,10 +3,6 @@ ALTA
 ----------------------------------------------------    
 - pagina profilo utente
 
-- pagina risorse : 
-  |
-  | - fornire all'utente più dettagli sulla struttura della pagina (vedi pagina documentazione di tablesorter)
-
 - Controlli lato client e server per login, registrazione, upload
   |
   | - HASH password
@@ -17,6 +13,11 @@ ALTA
   | + upload client : FATTO (da rivedere solo il campo "descrizione") 
   | +- upload server : QUASI FATTO (da testare a fondo). Si devono aggiungere i limiti di lunghezza sui campi (per farlo bisogna prima
        fare un confronto con le lunghezze massime presenti nel database).
+
+- pagina risorse : 
+  |
+  | - fornire all'utente più dettagli sulla struttura della pagina (vedi pagina documentazione di tablesorter)
+
 
 - gestire l'upload di 2 risorse con lo stesso nome (vengono caricate nel database ma sul file system vengono sovrascritte)
 

@@ -34,8 +34,6 @@ class Upload
 	public function __construct()
 	{		
 		$this->resourceDestinationPath = dirname($_SERVER['SCRIPT_NAME']).'/Resources';
-		
-		//$this->handleUpload();
 	}
 	
 	/**
