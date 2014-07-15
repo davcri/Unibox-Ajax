@@ -3,6 +3,8 @@ ALTA
 ----------------------------------------------------    
 - pagina profilo utente
 
+- vedi come ottenere un elenco delle variabili e funzioni definite in javascript (memory leaks)
+
 - Controlli lato client e server per login, registrazione, upload
   |
   | - HASH password

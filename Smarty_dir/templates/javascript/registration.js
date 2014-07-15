@@ -36,7 +36,9 @@ function submitButton(btn){
 		$.ajax({
 			url: 'index.php?controllerAction=registration',
 			type: 'POST',
-			data: formData,})
+			data: formData,
+			processData: false,
+			contentType: false})
 		.done(function(data){
 			changePage(data);
 		});

@@ -21,7 +21,7 @@ class Registration
 {
 	public function handleRegistration()
 	{
-		if(empty($_REQUEST['nameUser']) || empty($_REQUEST['surname']) || empty($_REQUEST['email']) || empty($_REQUEST['username']) || empty($_REQUEST['password'])|| empty($_REQUEST['degreeCourse']))
+		if($this->validateRegistrationFormData() == FALSE)
 		{
 			$this->getRegistrationForm();
 		}
@@ -83,4 +83,20 @@ class Registration
 		$elaboratedForm->display('registrationResult.tpl');
 	}
 	
+	private function validateRegistrationFormData()
+	{
+		$valid = false;
+		
+		if(!empty($_REQUEST['nameUser']) && 
+		   !empty($_REQUEST['surname']) && 
+		   !empty($_REQUEST['email']) && 
+		   !empty($_REQUEST['username']) && 
+		   !empty($_REQUEST['password'])&& 
+		   !empty($_REQUEST['degreeCourse']))
+		{
+			$valid = true;
+		}
+		
+		return $valid;		
+	}	
 }
