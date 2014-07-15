@@ -19,7 +19,6 @@ ALTA
        fare un confronto con le lunghezze massime presenti nel database).
 
 - gestire l'upload di 2 risorse con lo stesso nome (vengono caricate nel database ma sul file system vengono sovrascritte)
-- migliorare la grafica del sito 
 
 - ricompense per risorse particolarmente importanti (achievements)
 - mettere in evidenza risorse ed utenti più attivi nella home 

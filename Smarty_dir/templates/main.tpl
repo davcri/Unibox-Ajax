@@ -27,7 +27,7 @@
 			</div>
 		</noscript>
 
-		<div id="cookieAlert" class="alert alert-warning" role="alert"> 
+		<div id="cookieAlert" class="alert alert-warning hidden" role="alert"> 
 			I cookie sono disabilitati. Ti preghiamo di attivarli dalle impostazioni del tuo browser per consentire il corretto funzionamento di questa applicazione.
 		</div>
 
