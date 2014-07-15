@@ -24,6 +24,10 @@ class Profile
 {
 	public function __construct()
 	{	
+		if(isset($_REQUEST['vote']))
+		{
+			$this->rateUser();
+		}
 		$this->controlProfile();
 	}
 	
@@ -44,12 +48,17 @@ class Profile
 		$view->assign('surname',$user->getsurname());
 		$view->assign('email',$user->getEmail());
 		$view->assign('degreeCourse',$user->getDegreeCourse());
+		$view->assign('votazione',$user->getReliability());
 	}
 	
 	public function setResourcesUploaded($view,$username){
 		$resourceDb=new \Foundation\Resource();
 		$resources=$resourceDb-> getResourcesByUser($username);
 		$view->assign('resource',$resources);
+		
+	}
+	
+	public function rateUser(){
 		
 	}
 }
