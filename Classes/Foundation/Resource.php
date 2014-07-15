@@ -166,7 +166,7 @@ class Resource extends Database
 	/**
 	 * 
 	 * @todo is this method used ? 
-	 * @param unknown_type $degCourse
+	 * @param string $degCourse
 	 */
 	public function countResourcesByDegreeCourse($degCourse)
 	{

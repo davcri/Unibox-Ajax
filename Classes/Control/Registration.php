@@ -19,18 +19,30 @@ require_once $projectDirectory.'/Classes/Foundation/DegreeCourse.php';
  */
 class Registration
 {
+	/**
+	 * Handles the behaviour of the Registration controller.
+	 * 
+	 * @return string Rendered template output
+	 */
 	public function handleRegistration()
 	{
 		if($this->validateRegistrationFormData() == FALSE)
 		{
-			$this->getRegistrationForm();
+			$ajaxData = $this->getRegistrationForm();
 		}
 		else
 		{
-			$this->addNewUser();
+			$ajaxData = $this->addNewUser();
 		}
+		
+		return $ajaxData;
 	}
 	
+	/**
+	 * Gets the registration form
+	 * 
+	 * @return string Rendered template output
+	 */
 	public function getRegistrationForm()
 	{		
 		$registrationPage = \Utility\Singleton::getInstance("\View\Home");
@@ -38,14 +50,14 @@ class Registration
 		$degreeCourses = $degreeCourseDb->getDegreeCourses();
 		$registrationPage->assign('degreeCourses',$degreeCourses);
 		
-		$registrationPage->display('registration.tpl');
+		return $registrationPage->fetch('registration.tpl');
 	}
 	
 	/**
 	 *  It takes the form's fields from the user form and create an Entity\User with these details and
-	 *  after stores it into the database.
+	 *  after tries to store it into the database.
 	 *
-	 *  
+	 *  @return string Rendered template output
 	 */
 	public function addNewUser()
 	{
@@ -80,9 +92,14 @@ class Registration
 			$elaboratedForm->assign('error','Username already exist');
 		}
 				
-		$elaboratedForm->display('registrationResult.tpl');
+		return $elaboratedForm->fetch('registrationResult.tpl');
 	}
 	
+	/**
+	 * Checks the validity of the registration values.
+	 * 
+	 * @return bool 
+	 */
 	private function validateRegistrationFormData()
 	{
 		$valid = false;
