@@ -28,14 +28,21 @@
 			</div>
 
 			<div class="col-md-4">
-					votazione {$username}
+				<div id="votazione">
+					votazione :
+					{$votazione=3}
+					<div id="vot">{$votazione}</div>
 					<br>
-					<span class="glyphicon glyphicon-star-empty" id="star"></span>
-					<span class="glyphicon glyphicon-star-empty" id="star"></span>
-					<span class="glyphicon glyphicon-star-empty" id="star"></span>
-					<span class="glyphicon glyphicon-star-empty" id="star"></span>
-					<span class="glyphicon glyphicon-star-empty" id="star"></span>
+							{for $i=1 to 5}
+								{if $votazione>=$i}
+									<span class="glyphicon glyphicon-star" id='{$i}'></span>
+								{else}
+									<span class="glyphicon glyphicon-star-empty" id='{$i}'></span>
+								{/if}
+						
+							{/for}	
 
+				</div>	
 			</div>	
 		</div>
 		<div class="row">
@@ -43,7 +50,7 @@
 			<div class="resource">
 				<ul>
 					{foreach $resource as $res}
-						<li>{$res->getName()}</li>
+						<li><a href="index.php?controllerAction=resource&resourceAction=getResourcePage&resourceId=id">{$res->getName()}</li>
 					{/foreach}
 				</ul>
 			</div>

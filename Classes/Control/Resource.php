@@ -46,7 +46,9 @@ class Resource
 				$this->setTplVariables();
 				$resourcePage->display('resourcePage.tpl');				
 				break;
-				
+			case 'getResourcePageFromUser':
+				$this->setTplVariablesFromUser();
+				break;
 			case 'rateResource':
 				$userSession = \Utility\Singleton::getInstance('\Control\Session');
 				

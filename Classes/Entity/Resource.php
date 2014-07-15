@@ -378,9 +378,10 @@ class Resource
 		// avoiding division by zero
 		if($votes==0)	
 			$votes = 1;
-		
-		$this->difficultyScore = ($this->difficultyScore+$score)/$votes;
-	}
+		$newAvg=($this->difficultyScore * $votes-1 + $score)/($votes);
+		//$this->difficultyScore = ($this->difficultyScore+$score)/$votes;
+		$this->difficultyScore=$newAvg;
+	}	
 	
 	/**
 	 * Increments the downloads number.
