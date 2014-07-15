@@ -1,0 +1,68 @@
+
+ALTA
+----------------------------------------------------    
+- pagina profilo utente
+
+- pagina risorse : 
+  |
+  | - fornire all'utente più dettagli sulla struttura della pagina (vedi pagina documentazione di tablesorter)
+
+- Controlli lato client e server per login, registrazione, upload
+  |
+  | - HASH password
+  | - login client : da implementare con javascript
+  | - login server : da implementare (dobbiamo controllare caratteri speciali e lunghezza min/max confrontandola anche con il database).
+  | - registrazione client : 
+  | - registrazione server : 
+  | + upload client : FATTO (da rivedere solo il campo "descrizione") 
+  | +- upload server : QUASI FATTO (da testare a fondo). Si devono aggiungere i limiti di lunghezza sui campi (per farlo bisogna prima
+       fare un confronto con le lunghezze massime presenti nel database).
+
+- gestire l'upload di 2 risorse con lo stesso nome (vengono caricate nel database ma sul file system vengono sovrascritte)
+- migliorare la grafica del sito 
+
+- ricompense per risorse particolarmente importanti (achievements)
+- mettere in evidenza risorse ed utenti più attivi nella home 
+
+- installazione sito
+
+MEDIA
+----------------------------------------------------
+
+- creare pagina "about"
+- creare footer
+- tasto "ricordami"
+- navigazione AJAX con supporto a storia e deep linking
+
+- revisone codice PHP
+  |
+  | - phpDoc da completare
+  | - creare una classe per gestire invio dati ajax
+  | - cambiare il nome della class \View\Home in \View\Main ?
+  | - cambiare il nome della class \Control\Home in \Control\Main ?
+
+
+
+- migliorare l'upload :
+  |
+  | - upload via drag 'n drop 
+  | - feedback sulla durata dell'upload
+
+BASSA
+----------------------------------------------------
+
+- Tasto condivisione social (facebook/g+)
+- verificare memory leaks
+
+COMPLETATI
+----------------------------------------------------
++ Aggiunta la gestione della descrizione delle risorse
++ avviso javascript disabilitato  
++ avvisto cookie disabilitati 
++ visualizzazione pdf 
++ implementare codice javascript per aggiornare il numero di downloads 
+
+
++ pagina risorsa : 
+  | 
+  | + aggiornare la pagina quando un voto viene inviato
