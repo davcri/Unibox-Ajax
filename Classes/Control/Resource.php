@@ -123,7 +123,7 @@ class Resource
 		$res->updateDifficultyScore($difficultyVotes,$difficulty);
 		$res->updateQualityScore($qualityVotes,$quality);
 	
-		$retCode = $db->updateScores($resId,$res->getQualityScore(), $res->getDifficultyScore()); 
+		$retCode = $db->updateScores($resId, $res->getQualityScore(), $res->getDifficultyScore()); 
 	
 		print json_encode(array("returnCode"=>$retCode, "newDifficulty"=>$res->getDifficultyScore(), "newQuality"=>$res->getQualityScore(), "voti diff"=>$difficultyVotes, "voti qual"=>$qualityVotes));
 	}

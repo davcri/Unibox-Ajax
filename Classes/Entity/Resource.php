@@ -363,7 +363,8 @@ class Resource
 		if($votes==0)
 			$votes = 1;
 		
-		$this->qualityScore = ($this->qualityScore+$score)/$votes;
+		$newAvg = ($this->qualityScore * ($votes-1) + $score)/$votes;
+		$this->qualityScore = $newAvg;
 	}
 	
 	/**
@@ -378,9 +379,10 @@ class Resource
 		// avoiding division by zero
 		if($votes==0)	
 			$votes = 1;
-		$newAvg=($this->difficultyScore * $votes-1 + $score)/($votes);
+		
+		$newAvg=($this->difficultyScore *($votes-1) + $score)/($votes);
 		//$this->difficultyScore = ($this->difficultyScore+$score)/$votes;
-		$this->difficultyScore=$newAvg;
+		$this->difficultyScore = $newAvg;
 	}	
 	
 	/**

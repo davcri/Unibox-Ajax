@@ -204,7 +204,7 @@ class Resource extends Database
 	 * @param float $qualityScore
 	 * @param float $difficultyScore
 	 */
-	public function updateScores($id,$qualityScore,$difficultyScore)
+	public function updateScores($id, $qualityScore, $difficultyScore)
 	{
 		$updateQual = "UPDATE `resource` SET `qualityScore` = '$qualityScore' WHERE `resource`.`id` = $id;";
 		$updateDiff = "UPDATE `resource` SET `difficultyScore` = '$difficultyScore' WHERE `resource`.`id` = $id";
