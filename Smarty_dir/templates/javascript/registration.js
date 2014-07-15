@@ -2,6 +2,10 @@
 $(function(){
 	var button = $("#submitButton");
 
+	$(".myTooltip").hide(); // hide all tooltips div
+
+	handleNameInput(button);
+
 	submitButton(button);	
 });
 
@@ -43,4 +47,42 @@ function isFormCompleted(){
 	}
 
 	return completed;
+}
+
+function handleNameInput(submitBtn){
+	var nameInput = $("#nameUser");
+	var nameTooltip = $("#nameTooltip");
+	var default_nameTooltip = nameTooltip.text();
+
+	nameInput.focus(function(){
+		nameTooltip.show("fade",animationTime);
+	});
+
+	nameInput.blur(function(){
+		nameTooltip.hide("fade",animationTime);
+	});
+
+	nameInput.keyup(function(){	// validation function
+		if($(this).val().length==0){
+			$(this).parent().addClass("has-error");
+			submitBtn.attr("disabled","disabled");
+			nameTooltip.text("Il nome non può essere vuoto").show("fade",animationTime);
+		}
+		else if($(this).val().length > maxNameChars){
+			$(this).parent().addClass("has-error");
+			submitBtn.attr("disabled","disabled");
+			nameTooltip.text("Il nome non può contenere più di " + maxNameChars + " caratteri").show("fade",animationTime);
+		}
+		else{
+			// nameTooltip.parent().addClass("has-success has-feedback");
+			if(isFormCompleted())
+				submitBtn.removeAttr("disabled");
+
+			if($(this).parent().hasClass("has-error"))
+			{
+				$(this).parent().removeClass("has-error");
+				nameTooltip.text(default_nameTooltip);						
+			}			
+		}		
+	});
 }

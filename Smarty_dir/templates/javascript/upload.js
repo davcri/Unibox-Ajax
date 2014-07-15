@@ -1,26 +1,21 @@
 
-//todo : fix tooltips animation. Instead of "fade" effect we can use "bounce" or something like that.
-//todo : decide if all form's field should become green after their. Now only name input has this behaviour.
-//todo : add controls in PHP code.
-
 $(function(){
-	maxNameChars = 15;
-	maxDescriptionChars = 150;
+	var maxNameChars = 15;
+	var maxDescriptionChars = 150;
 
 	var uploadButton = $("#uploadButton");
 
 	$(".myTooltip").hide(); // hide all tooltips div
 	
-	handleNameInput(uploadButton);
+	handleNameInput(uploadButton, maxNameChars, maxDescriptionChars);
 	handleSubjectInput();
-	handleDescriptionInput(uploadButton); 
+	handleDescriptionInput(uploadButton, maxNameChars, maxDescriptionChars); 
 
-	handleUploadButton(uploadButton);	
+	handleUploadButton(uploadButton, maxNameChars, maxDescriptionChars);	
 });
 
-function handleNameInput(uploadBtn, maxCharCount)
+function handleNameInput(uploadBtn, maxNameChars, maxDescriptionChars)
 {
-	//var maxCharCount = 10;
 	var nameInput = $("#name");
 	var nameTooltip = $("#nameTooltip");
 	var default_nameTooltip = nameTooltip.text();
@@ -46,7 +41,7 @@ function handleNameInput(uploadBtn, maxCharCount)
 		}
 		else{
 			// nameTooltip.parent().addClass("has-success has-feedback");
-			if(isFormCompleted())
+			if(isFormCompleted(maxNameChars, maxDescriptionChars))
 				uploadBtn.removeAttr("disabled");
 
 			if($(this).parent().hasClass("has-error"))
@@ -61,12 +56,10 @@ function handleNameInput(uploadBtn, maxCharCount)
 function handleSubjectInput(){
 	var selectField = $("#subject");
 
-	var degreeCourse;
-
 	$("#degreeCourse").change(function(){
+		var degreeCourse = $(this).val();
 		selectField.empty(); // remove all previous loaded subjects
-		degreeCourse = $(this).val();
-
+		
 		$.get("index.php?controllerAction=upload&uploadAction=updateSubjectsField&degreeCourse=" + degreeCourse, function(data){
 			data.forEach(function(element){
 				selectField.append("<option>" + element + "</option>");
@@ -75,11 +68,10 @@ function handleSubjectInput(){
 	});	
 }
 
-function handleDescriptionInput(uploadBtn){
+function handleDescriptionInput(uploadBtn, maxNameChars, maxDescriptionChars){
 	var descriptionInput = $("#description");
 	var descriptionTooltip = $("#descriptionTooltip");
 	var default_DescriptionTooltip = descriptionTooltip.text();
-	//var maxCharCount = 10;
 
 	descriptionInput.focus(function(){
 		descriptionTooltip.show("fade",animationTime);
@@ -101,7 +93,7 @@ function handleDescriptionInput(uploadBtn){
 			descriptionTooltip.text("La descrizione non può contenere più di " + maxDescriptionChars + " caratteri").show("fade",animationTime);
 		}
 		else{
-			if(isFormCompleted())
+			if(isFormCompleted(maxNameChars, maxDescriptionChars))
 				uploadBtn.removeAttr("disabled");
 
 			if($(this).parent().hasClass("has-error"))
@@ -113,11 +105,10 @@ function handleDescriptionInput(uploadBtn){
 	});
 }
 
-function handleUploadButton(btn){
+function handleUploadButton(btn, maxNameChars, maxDescriptionChars){
 
-	$("#uploadForm").change(function(){	
-		
-		if(isFormCompleted()){
+	$("#uploadForm").change(function(){			
+		if(isFormCompleted(maxNameChars, maxDescriptionChars)){
 			btn.removeAttr("disabled");
 		}
 		else
@@ -143,7 +134,7 @@ function handleUploadButton(btn){
 	});
 }
 
-function isFormCompleted(){
+function isFormCompleted(maxNameChars, maxDescriptionChars){
 
 	if($("#name").val().length > 0 &&
 	   $("#name").val().length <= maxNameChars && 
