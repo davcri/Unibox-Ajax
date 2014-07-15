@@ -24,8 +24,10 @@ $(function(){
 	});*/			
 });
 
-function initializeTablesorter(){
 
+function initializeTablesorter(){
+	
+	// documentation here : http://mottie.github.io/tablesorter/docs/
 	var pagerOptions = {
     	// target the pager markup
 	    container: $("#tablePager"),
