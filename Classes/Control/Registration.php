@@ -55,15 +55,6 @@ class Registration
 				break;
 		}
 		
-		/*if($this->validateRegistrationFormData() == FALSE)
-		{
-			
-		}
-		else
-		{
-			
-		}*/
-		
 		return $ajaxData;
 	}
 	
@@ -95,7 +86,7 @@ class Registration
 		$name = $elaboratedForm->get('nameUser');
 		$surname = $elaboratedForm->get('surname');
 		$username = $elaboratedForm->get('username');
-		$password = $elaboratedForm->get('password');
+		$password = password_hash($elaboratedForm->get('password'), PASSWORD_DEFAULT);
 		$email = $elaboratedForm->get('email');
 		$degreeCourse = $elaboratedForm->get('degreeCourse');
 		

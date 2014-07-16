@@ -154,7 +154,7 @@ class Session
 		$userDb = new \Foundation\User();
 		$user = $userDb->getByUsername($username);
 			
-		if($user!=false && $user->getPassword()==$password) // If exists a user and the password matches
+		if($user!=false && password_verify($password, $user->getPassword())) // If exists a user and the password matches
 		{
 			$validity = true;
 		}

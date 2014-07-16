@@ -24,18 +24,9 @@ class Login
 			$content = $mainView->fetch("signedIn.tpl");
 			$profile_button=$mainView->fetch("profile_button.tpl");
 			
-			$ajaxReturn = array ('statusCode'=>1,'content'=>$content,'profile'=>$profile_button);
+			$ajaxReturn = array ('statusCode'=>1, 'content'=>$content, 'profile'=>$profile_button);
 			
 			print json_encode($ajaxReturn); // Login ok
-			//$ret = array("1");
-			//$ret[] = ;
-				
-				
-			//$userDb = new \Foundation\User();
-			//$userLoggedIn = $userDb->getByUsername($_SESSION['username']);
-				
-			//$user->set('degreeCourse', $userLoggedIn->getDegreeCourse());
-			//$navigationController=new Navigation($user);
 		}
 		else
 		{

@@ -29,16 +29,6 @@ $(function(){
 					});
 				}
 
-				/*var ratingPanel = $("#ratingPanel");
-				if(ratingPanel.length){
-					if (ratingPanel.hasClass("hidden")) {
-						$("#loginRequiredForResourceRating").hide(animationTime,function(){$(this).remove();});
-						ratingPanel.removeClass("hidden").hide();
-					}
-
-					ratingPanel.show(animationTime);
-				}*/
-
 				// this is needed only to select the correct page when a user fails a login and then logs in correctly
 				if($("#loginFailed").length){ 
 					var currentActivePage = $(".active").attr("id");
