@@ -3,7 +3,10 @@ ALTA
 ----------------------------------------------------    
 - pagina profilo utente
 
-- vedi come ottenere un elenco delle variabili e funzioni definite in javascript (memory leaks)
+- Memory leaks 
+	|
+	|- controlla utilizzo memoria di altre applicazioni web
+	|- vedi come ottenere un elenco delle variabili e funzioni definite in javascript (memory leaks)
 
 - Controlli lato client e server per login, registrazione, upload
   |
@@ -16,15 +19,14 @@ ALTA
   | +- upload server : QUASI FATTO (da testare a fondo). Si devono aggiungere i limiti di lunghezza sui campi (per farlo bisogna prima
        fare un confronto con le lunghezze massime presenti nel database).
 
+- gestire l'upload di 2 risorse con lo stesso nome (vengono caricate nel database ma sul file system vengono sovrascritte)
+
 - pagina risorse : 
   |
   | - fornire all'utente più dettagli sulla struttura della pagina (vedi pagina documentazione di tablesorter)
 
-
-- gestire l'upload di 2 risorse con lo stesso nome (vengono caricate nel database ma sul file system vengono sovrascritte)
-
 - ricompense per risorse particolarmente importanti (achievements)
-- mettere in evidenza risorse ed utenti più attivi nella home 
+- mettere in evidenza utenti più attivi nella home 
 
 - creare pagina "about"
 - creare footer
@@ -55,7 +57,6 @@ BASSA
 ----------------------------------------------------
 
 - Tasto condivisione social (facebook/g+)
-- verificare memory leaks
 - scegliere licensa (GPL, Apache,...)
 
 COMPLETATI

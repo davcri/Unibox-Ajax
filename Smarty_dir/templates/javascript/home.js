@@ -1,9 +1,9 @@
 
 $(function(){
-	var list = $(".mainContent").find(".list-group");
-	list.hide();
+	//var list = $(".mainContent").find(".list-group");
+	//list.hide();
 	
-	$("#moreInfo").click(function(){
+	/*$("#moreInfo").click(function(){
 		var btn = $(this);
 
 		list.slideToggle(animationTime, function(){
@@ -12,5 +12,5 @@ $(function(){
 			else
 				btn.html("<span class=\"glyphicon glyphicon-minus\"></span> Riduci");
 		});		
-	});
+	});*/
 });
