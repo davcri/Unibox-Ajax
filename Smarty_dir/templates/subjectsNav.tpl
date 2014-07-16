@@ -13,7 +13,7 @@
 		{$subjCode = $subject->getCode()}
 		{$subjCount = $resourceDb->countResourcesBySubject($subjCode)}
 
-   		<a class="list-group-item" href="index.php?controllerAction=navigation&degreeCourse={$degreeCourse}&subject={$subjCode}">{$subjName}
+   		<a class="list-group-item" href="index.php?controllerAction=navigation&navigationAction=showResource&degreeCourse={$degreeCourse}&subject={$subjCode}">{$subjName}
    		<span title="{$subjCount} risorse trovate in {$subjName}" class="badge" >{$subjCount}</span></a>
 	{/foreach}
 	<br>

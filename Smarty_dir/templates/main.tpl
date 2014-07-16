@@ -37,7 +37,7 @@
 
 				<ul id="navigationBar" class="nav navbar-nav">
 					<li id="home" class="active"><a href="index.php?controllerAction=home">Home</a></li>
-					<li id="navigation"><a href="index.php?controllerAction=navigation">Risorse</a></li>
+					<li id="navigation"><a href="index.php?controllerAction=navigation&navigationAction=chooseDegreeCourse">Risorse</a></li>
 					<li id="upload"><a href="index.php?controllerAction=upload&uploadAction=getUploadPage">Upload</a></li>
 					{if $loggedIn}
 						<li id="profile"><a href="index.php?controllerAction=profile&profileAction=getProfilePage">Profilo</a></li>

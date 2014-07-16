@@ -24,7 +24,7 @@ class Navigation
 {	
 	public function __construct()
 	{	
-		//$this->session = $session;
+	
 	}
 	
 	/**
@@ -34,6 +34,22 @@ class Navigation
 	 */
 	public function controlNavigation()
 	{
+		$navigationPage = \Utility\Singleton::getInstance('\View\Home');
+		
+		switch($navigationPage->get('navigationAction'))
+		{
+			case 'chooseDegreeCourse':
+				$data=$this->chooseDegreeCourse();
+				break;
+			case 'chooseSubject':
+				$data=$this->chooseSubject();
+				break;
+			case 'showResource':
+				$data=$this->handleNavigation();
+				break;
+		}
+		return $data;
+		/*
 		if(!isset($_REQUEST['degreeCourse']))
 		{
 			$this->chooseDegreeCourse();
@@ -45,7 +61,7 @@ class Navigation
 		else
 		{
 			$this->handleNavigation();
-		}
+		}*/
 	}
 	
 	//funzione che gestisce la visualizzazione di tutti i degree course presenti nel database
@@ -60,7 +76,7 @@ class Navigation
 		$resourceDb = new \Foundation\Resource();
 		$view->assign('resourceDb',$resourceDb);
 		
-		$view->display('degreeCoursesNav.tpl');
+		return $view->fetch('degreeCoursesNav.tpl');
 	}
 	
 	/**
@@ -84,7 +100,7 @@ class Navigation
 		$mainView->assign('resourceDb',$resourceDb); // used to count the number of resources 
 													 // found in a given subject.
 				
-		$mainView->display('subjectsNav.tpl');
+		return $mainView->fetch('subjectsNav.tpl');
 	}
 	
 	/**
@@ -113,7 +129,7 @@ class Navigation
 		$view->assign('subject_name', $subjectName);
 		
 		
-		$view->display('resources.tpl');
+		return $view->fetch('resources.tpl');
 			
 		
 		/*$subject->assign("user",$this->session->get("username"));*/

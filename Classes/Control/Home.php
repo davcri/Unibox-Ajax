@@ -50,12 +50,14 @@ class Home
 				
 			case 'navigation':
 				$navigation = new \Control\Navigation();	
-				$navigation->controlNavigation();	
+				$ajaxData=$navigation->controlNavigation();
+				print $ajaxData;	
 				break;
 			
 			case 'resource':
 				$resourceController = new \Control\Resource();
-				$resourceController->controlResource();
+				$ajaxData=$resourceController->controlResource();
+				print $ajaxData;
 				break;
 				
 			case 'upload':

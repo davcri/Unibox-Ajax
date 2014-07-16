@@ -18,15 +18,10 @@ $(function(){
 	});
 
 	$("#votazione").find("span").click(function(){
-<<<<<<< HEAD
+
 		var actualVote=$(this).attr("id");
 		$.get("index.php?controllerAction=profile?vote=actualVote");
-	})
-=======
-		var actualVote = $(this).attr("id");
-		$.get("index.php?controllerAction=profile?vote=actualVote");
 	});
->>>>>>> branch 'master' of https://github.com/davcri/Unibox-Ajax.git
 });
 
 function colorStar(numero){

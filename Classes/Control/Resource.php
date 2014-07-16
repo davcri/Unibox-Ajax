@@ -126,7 +126,7 @@ class Resource
 	
 		$retCode = $db->updateScores($resId, $res->getQualityScore(), $res->getDifficultyScore()); 
 	
-		print json_encode(array("returnCode"=>$retCode, "newDifficulty"=>$res->getDifficultyScore(), "newQuality"=>$res->getQualityScore(), "voti diff"=>$difficultyVotes, "voti qual"=>$qualityVotes));
+		return json_encode(array("returnCode"=>$retCode, "newDifficulty"=>$res->getDifficultyScore(), "newQuality"=>$res->getQualityScore(), "voti diff"=>$difficultyVotes, "voti qual"=>$qualityVotes));
 	}
 	
 	private function incrementDownloads()
@@ -140,7 +140,7 @@ class Resource
 		
 		$resourceDb->updateDownloadsNumber($resourceId, $resource->getDownloadsNumber());
 		
-		print json_encode(array('newDownloadsCount' => $resource->getDownloadsNumber()));
+		return json_encode(array('newDownloadsCount' => $resource->getDownloadsNumber()));
 	}
 }
 ?>
