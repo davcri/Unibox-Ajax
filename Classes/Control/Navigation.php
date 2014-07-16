@@ -24,7 +24,6 @@ class Navigation
 {	
 	public function __construct()
 	{	
-		$this->controlNavigation();
 		//$this->session = $session;
 	}
 	

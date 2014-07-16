@@ -49,7 +49,8 @@ class Home
 				break;
 				
 			case 'navigation':
-				$navigation = new \Control\Navigation();		
+				$navigation = new \Control\Navigation();	
+				$navigation->controlNavigation();	
 				break;
 			
 			case 'resource':
@@ -66,6 +67,8 @@ class Home
 			case 'profile':
 			  	if($userSession->isLoggedIn()){
 			  		$profile = new \Control\Profile();
+			  		$ajaxData=$profile->controlProfile();
+			  		print $ajaxData;
 			  		break;
 			  	}
 				

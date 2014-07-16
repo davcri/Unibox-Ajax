@@ -39,27 +39,28 @@ class Resource
 		switch($resourcePage->get('resourceAction'))
 		{
 			case 'incrementDownloadsCount':
-				$this->incrementDownloads();
+				$data=$this->incrementDownloads();
 				break;
 			
 			case 'getResourcePage':
-				$this->setTplVariables();
+				$data=$this->setTplVariables();
 				$resourcePage->display('resourcePage.tpl');				
 				break;
 			case 'getResourcePageFromUser':
-				$this->setTplVariablesFromUser();
+				$data=$this->setTplVariablesFromUser();
 				break;
 			case 'rateResource':
 				$userSession = \Utility\Singleton::getInstance('\Control\Session');
 				
 				if ($userSession->isLoggedIn())
 				{
-					$this->rateResource();
+					$data=$this->rateResource();
 				}
 				else
 					print 'Error. The user is not logged in but is still trying to rate a resource.';
 				break;
-		}				
+		}	
+		return $data;			
 	}
 	
 	/**

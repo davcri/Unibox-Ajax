@@ -24,20 +24,30 @@ class Profile
 {
 	public function __construct()
 	{	
-		if(isset($_REQUEST['vote']))
-		{
-			$this->rateUser();
-		}
-		$this->controlProfile();
 	}
 	
 	public function controlProfile(){
+		$profilePage = \Utility\Singleton::getInstance('\View\Home');
+		
+		switch($profilePage->get('profileAction'))
+		{	
+			case 'getProfilePage':
+				$data=$this->setProfileInformation();
+				break;
+			case 'rateUser':
+				$data=$this->rateUser();
+				break;
+		}
+		return $data;
+	}
+	
+	public function setProfileInformation(){
 		$userSession = \Utility\Singleton::getInstance("\Control\Session");
 		$username=$userSession->get('username');
 		$view = \Utility\Singleton::getInstance("\View\Home");
 		$this->setUserInformations($view,$username);
 		$this->setResourcesUploaded($view,$username);
-		$view->display('profile.tpl');
+		return $view->fetch('profile.tpl');
 	}
 	
 	public function setUserInformations($view,$username){
@@ -55,7 +65,6 @@ class Profile
 		$resourceDb=new \Foundation\Resource();
 		$resources=$resourceDb-> getResourcesByUser($username);
 		$view->assign('resource',$resources);
-		
 	}
 	
 	public function rateUser(){

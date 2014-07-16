@@ -40,7 +40,7 @@
 					<li id="navigation"><a href="index.php?controllerAction=navigation">Risorse</a></li>
 					<li id="upload"><a href="index.php?controllerAction=upload&uploadAction=getUploadPage">Upload</a></li>
 					{if $loggedIn}
-						<li id="profile"><a href="index.php?controllerAction=profile">Profilo</a></li>
+						<li id="profile"><a href="index.php?controllerAction=profile&profileAction=getProfilePage">Profilo</a></li>
 					{/if}
 				</ul>
 

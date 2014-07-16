@@ -18,7 +18,7 @@ $(function(){
 	});
 	$("#votazione").find("span").click(function(){
 		var actualVote=$(this).attr("id");
-		$.get("index.php?controllerAction=profile?vote=actualVote"
+		$.get("index.php?controllerAction=profile?vote=actualVote");
 	})
 });
 
