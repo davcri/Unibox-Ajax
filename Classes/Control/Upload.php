@@ -34,8 +34,6 @@ class Upload
 	public function __construct()
 	{		
 		$this->resourceDestinationPath = dirname($_SERVER['SCRIPT_NAME']).'/Resources';
-		
-		//$this->handleUpload();
 	}
 	
 	/**
@@ -63,11 +61,12 @@ class Upload
 				if ($this->validateFormInputData())
 				{	
 					$data = $this->addNewResourceIntoDb();
-					//$data = json_encode("ok");
 				}
 				else
-					$data = json_encode("You're a bad, evil person");
-				
+				{
+					$errorStatus = "You're a bad, evil person";
+					$data = json_encode($errorStatus);
+				}				
 				break;
 			
 			default :
@@ -78,7 +77,9 @@ class Upload
 	}
 	
 	/**
-	 *  @todo 
+	 * Gets the upload form.
+	 * 
+	 *  @return string Rendered template. 
 	 */
 	private function getForm()
 	{		
@@ -96,7 +97,7 @@ class Upload
 	 *  It takes the form's fields from the resource form and create an Entity\Resource with these details and 
 	 *  after stores it into the database.
 	 *  
-	 *  @todo review this method and clean it.
+	 *  @return string Rendered template.
 	 */
 	private function addNewResourceIntoDb()
 	{
@@ -114,13 +115,13 @@ class Upload
 		
 		if ($subj!=false) //if a subject was found
 		{			
-			$currentDate = new \DateTime("now");
-			$this->resourceDestinationPath .= "/".$uploadedFile['name'];
+			//$currentDate = new \DateTime("now");
+			$this->setResourceFileName($uploadedFile);			
 			
-			// @todo This part need to be checked ! 
 			$session = \Utility\Singleton::getInstance("\Control\Session");
 			$username = $session->get("username");
 			
+			$currentDate = new \DateTime("now");
 			$resource = new \Entity\Resource(NULL,$resourceDetail['name'], $resourceDetail['category'], $subj->getCode(), $username, $uploadedFile['type'], 0, 0, $currentDate, 0, false, $this->resourceDestinationPath, $resourceDetail['description']);
 			
 			// taking the absolute path to store the file. Because $this->resourceDestinationPath is relative to the server Document Root. 
@@ -155,6 +156,16 @@ class Upload
 		}
 		
 		return $elaboratedForm->fetch('uploadCompleted.tpl');
+	}
+	
+	/**
+	 * @todo fix the bug 
+	 * Enter description here ...
+	 */
+	private function setResourceFilename($uploadedFile)
+	{
+		// check if uploadedFile is already existing.
+		$this->resourceDestinationPath .= "/".$uploadedFile['name'];		
 	}
 	
 	/**

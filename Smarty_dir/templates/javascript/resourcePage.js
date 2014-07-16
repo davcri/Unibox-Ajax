@@ -50,8 +50,8 @@ function resourceVote(){
 		event.preventDefault();
 
 		var button = $(this);
-		var sliderQ = $('#difficultySlider');
-		var sliderD = $('#qualitySlider');
+		var sliderD = $('#difficultySlider');
+		var sliderQ = $('#qualitySlider');
 
 		var difficulty = sliderD.slider( "option", "value" );
 		var quality = sliderQ.slider( "option", "value" );

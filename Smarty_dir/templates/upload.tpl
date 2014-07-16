@@ -8,8 +8,8 @@
        Nota: È necessario riempire tutti i campi per caricare il file.</p> <br>
 
     
-    <form id="uploadForm" method="POST" enctype="multipart/form-data" action="index.php?controllerAction=upload">
-      
+    <!--  <form id="uploadForm" method="POST" enctype="multipart/form-data" action="index.php?controllerAction=upload"> -->
+    <form id="uploadForm">
       <div class="row">
         <div class="col-md-6">
             <div class="form-group">

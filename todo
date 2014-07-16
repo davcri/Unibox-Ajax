@@ -3,35 +3,42 @@ ALTA
 ----------------------------------------------------    
 - pagina profilo utente
 
-- pagina risorse : 
-  |
-  | - fornire all'utente più dettagli sulla struttura della pagina (vedi pagina documentazione di tablesorter)
+- Memory leaks 
+	|
+	|- controlla utilizzo memoria di altre applicazioni web
+	|- vedi come ottenere un elenco delle variabili e funzioni definite in javascript (memory leaks)
 
 - Controlli lato client e server per login, registrazione, upload
   |
   | - HASH password
-  | - login client : da implementare con javascript
-  | - login server : da implementare (dobbiamo controllare caratteri speciali e lunghezza min/max confrontandola anche con il database).
-  | - registrazione client : 
-  | - registrazione server : 
+  | - login client : da implementare con javascript (hash passwd)
+  | ? login server : da implementare (dobbiamo controllare caratteri speciali e lunghezza min/max confrontandola anche con il database).
+  | +- registrazione client : da decidere le lunghezze max  
+  | +- registrazione server : quasi fatto
   | + upload client : FATTO (da rivedere solo il campo "descrizione") 
   | +- upload server : QUASI FATTO (da testare a fondo). Si devono aggiungere i limiti di lunghezza sui campi (per farlo bisogna prima
        fare un confronto con le lunghezze massime presenti nel database).
 
 - gestire l'upload di 2 risorse con lo stesso nome (vengono caricate nel database ma sul file system vengono sovrascritte)
-- migliorare la grafica del sito 
+
+- pagina risorse : 
+  |
+  | - fornire all'utente più dettagli sulla struttura della pagina (vedi pagina documentazione di tablesorter)
 
 - ricompense per risorse particolarmente importanti (achievements)
-- mettere in evidenza risorse ed utenti più attivi nella home 
-
-- installazione sito
-
-MEDIA
-----------------------------------------------------
+- mettere in evidenza utenti più attivi nella home 
 
 - creare pagina "about"
 - creare footer
 - tasto "ricordami"
+
+- installazione sito
+
+
+MEDIA
+----------------------------------------------------
+
+- Mettere sito online
 - navigazione AJAX con supporto a storia e deep linking
 
 - revisone codice PHP
@@ -40,8 +47,6 @@ MEDIA
   | - creare una classe per gestire invio dati ajax
   | - cambiare il nome della class \View\Home in \View\Main ?
   | - cambiare il nome della class \Control\Home in \Control\Main ?
-
-
 
 - migliorare l'upload :
   |
@@ -52,7 +57,7 @@ BASSA
 ----------------------------------------------------
 
 - Tasto condivisione social (facebook/g+)
-- verificare memory leaks
+- scegliere licensa (GPL, Apache,...)
 
 COMPLETATI
 ----------------------------------------------------

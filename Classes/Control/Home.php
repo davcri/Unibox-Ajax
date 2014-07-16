@@ -84,7 +84,8 @@ class Home
 
 			case 'registration':
 				$reg = new Registration();
-				$reg->handleRegistration();
+				$ajaxData = $reg->handleRegistration();
+				print $ajaxData;
 				break;
 				
 			default:

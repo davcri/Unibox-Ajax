@@ -2,7 +2,7 @@
 	<h1>Unibox</h1>
 	<p class="lead">Benvenuto sulla piattaforma di condivisione di appunti.</p>
 
-	<p><button id="moreInfo" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span> Scopri di pi&ugrave</button></p>
+	<!-- <p><button id="moreInfo" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span> Scopri di pi&ugrave</button></p> -->
 
 	<div class="list-group">				
 		<div class="list-group-item">

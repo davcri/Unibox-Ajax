@@ -5,6 +5,7 @@ var animationTime = 250;
 
 function setNavbarBehaviour(){
 	disableNavbarLinksDefault();
+	cookieCheck();
 	$("#navigationBar").find("li").click(ajaxChangePage);	
 
 	//ajaxLoadingMessage();
@@ -14,6 +15,15 @@ function setNavbarBehaviour(){
 //
 // Utility functions
 //
+function cookieCheck(){
+	if (!cookiesEnabled())
+		$("#cookieAlert").removeClass("hidden").show();
+}
+
+function cookiesEnabled(){
+	return navigator.cookieEnabled;
+}
+
 function toggleActivate(obj){
 	$(".active").toggleClass("active");
 	obj.addClass("active");
@@ -32,8 +42,8 @@ function changePage(newContent){
 	var mainContainer = $("#mainContainer");
 	var footer = $("#footer");
 
-	mainContainer.toggle("fade","linear",animationTime,function(){
-		mainContainer.html(newContent);
+	mainContainer.toggle("fade","linear", animationTime,function(){
+		mainContainer.html(newContent); 
 		mainContainer.toggle("fade", "linear",animationTime);
 	});
 
@@ -62,6 +72,7 @@ function ajaxChangePage()
 	});	
 }
 
+/*
 function userIsLogged()
 {
 	// questa funzione è molto debole ! Basta che un malintenzionato crei un qualsiasi tag html con id="loginForm" per 
@@ -70,7 +81,7 @@ function userIsLogged()
 		return false;
 	else
 		return true;
-}
+}*/
 
 /*
 function ajaxLoadingMessage(){
