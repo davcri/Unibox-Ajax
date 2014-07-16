@@ -54,7 +54,7 @@ $(function(){
 	});
 
 	$("#signInButton").click(function(){
-		$.get("index.php?controllerAction=registration",function(data){
+		$.get("index.php?controllerAction=registration&registrationAction=getRegistrationPage",function(data){
 			changePage(data);
 		});
 	});

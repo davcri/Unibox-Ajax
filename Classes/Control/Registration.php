@@ -19,6 +19,22 @@ require_once $projectDirectory.'/Classes/Foundation/DegreeCourse.php';
  */
 class Registration
 {
+	private $maxCharsAllowed;
+	
+	/**
+	 * 
+	 * Enter description here ...
+	 */
+	public function __construct()
+	{
+		$this->maxCharsAllowed = array("name" => 15,
+								"surname" => 15,
+								"username" => 15,
+								"password" => 30,
+								"email" => 30,
+								"degreeCourse" => 30);		
+	}
+	
 	/**
 	 * Handles the behaviour of the Registration controller.
 	 * 
@@ -26,14 +42,27 @@ class Registration
 	 */
 	public function handleRegistration()
 	{
-		if($this->validateRegistrationFormData() == FALSE)
+		$mainView = \Utility\Singleton::getInstance("\View\Home");
+		
+		switch($mainView->get('registrationAction'))
 		{
-			$ajaxData = $this->getRegistrationForm();
+			case 'getRegistrationPage':
+				$ajaxData = $this->getRegistrationForm();
+				break;
+			
+			case 'addNewUser':
+				$ajaxData = $this->addNewUser();
+				break;
+		}
+		
+		/*if($this->validateRegistrationFormData() == FALSE)
+		{
+			
 		}
 		else
 		{
-			$ajaxData = $this->addNewUser();
-		}
+			
+		}*/
 		
 		return $ajaxData;
 	}
@@ -103,13 +132,21 @@ class Registration
 	private function validateRegistrationFormData()
 	{
 		$valid = false;
+		$registrationForm = \Utility\Singleton::getInstance('\View\Home');
 		
-		if(!empty($_REQUEST['nameUser']) && 
-		   !empty($_REQUEST['surname']) && 
-		   !empty($_REQUEST['email']) && 
-		   !empty($_REQUEST['username']) && 
-		   !empty($_REQUEST['password'])&& 
-		   !empty($_REQUEST['degreeCourse']))
+		$name = $registrationForm->get('nameUser');
+		$surname = $registrationForm->get('surname');
+		$email = $registrationForm->get('email');
+		$username = $registrationForm->get('username');
+		$password = $registrationForm->get('password'); 
+		$degreeCourse = $registrationForm->get('degreeCourse');
+		
+		if(!empty($name) && strlen($name) <= $this->maxCharsAllowed['name'] &&
+		   !empty($surname) && strlen($surname) <= $this->maxCharsAllowed['surname'] && 
+		   !empty($email) && strlen($email) <= $this->maxCharsAllowed['email'] &&
+		   !empty($username) && strlen($username) <= $this->maxCharsAllowed['username'] &&
+		   !empty($password)&& strlen($password) <= $this->maxCharsAllowed['password'] && 
+		   !empty($degreeCourse) && strlen($degreeCourse) <= $this->maxCharsAllowed['degreeCourse'])
 		{
 			$valid = true;
 		}
