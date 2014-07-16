@@ -27,9 +27,9 @@ class Registration
 	 */
 	public function __construct()
 	{
-		$this->maxCharsAllowed = array("name" => 15,
-								"surname" => 15,
-								"username" => 15,
+		$this->maxCharsAllowed = array("name" => 30,
+								"surname" => 30,
+								"username" => 30,
 								"password" => 30,
 								"email" => 30,
 								"degreeCourse" => 30);		
