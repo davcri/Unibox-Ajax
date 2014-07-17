@@ -1,1 +1,1 @@
-<li id="profile"><a href="index.php?controllerAction=profile$profileAction=getProfilePage&userProfile={$username}">Profilo</a></li>
+<li id="profile"><a href="index.php?controllerAction=profile&profileAction=getProfilePage&userProfile={$username}">Profilo</a></li>

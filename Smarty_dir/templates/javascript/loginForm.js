@@ -9,6 +9,8 @@ $(function(){
 		var password = $("#password").val();
 		var loginData = {"username":username, "password":password};
 
+		$("#loginButton").off(); //prevent a bug when clicking quickly on loginButton (or pressing enter quickly)
+
 		$.post("index.php?controllerAction=login", loginData, function(data){
 			if(data.statusCode==1){
 				$("#navbarContent").hide("fade",animationTime, function(){
