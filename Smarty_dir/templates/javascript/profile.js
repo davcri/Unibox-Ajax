@@ -2,11 +2,12 @@
 $(function(){
 
 	var username=$('#userId').html();
-	var hasAlreadyVoted=$('#votato').html();
-	console.log(hasAlreadyVoted);
+	if($('#votato').size()){
+		var hasAlreadyVoted=$('#votato').html();
+		console.log(hasAlreadyVoted);
 	//console.log(hasAlreadyVoted);
-	if (hasAlreadyVoted == true || hasAlreadyVoted == false){
-		$('#votato').css('display','none');
+	//if (hasAlreadyVoted == true || hasAlreadyVoted == false){
+		//$('#votato').css('display','none');
 		if(hasAlreadyVoted==false){
 			var star=$(".glyphicon-star").size();
 
@@ -28,7 +29,9 @@ $(function(){
 				if( confirm("sei sicuro di voler attribuire all'utente "+username+" il voto : "+actualVote)){
 					$.get("index.php?controllerAction=profile&profileAction=rateUser&userProfile="+username+"&vote="+actualVote, function(data){
 						alert(data);
-						hasAlreadyVoted=true; // in questo modo disabilito il mousover dopo che l'utente ha votato
+						$("#votazione").find("span").off();
+						$("#votazione").css('cursor', 'default');
+						 // in questo modo disabilito il mousover dopo che l'utente ha votato
 					});
 				}
 					
