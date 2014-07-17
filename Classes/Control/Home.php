@@ -67,12 +67,10 @@ class Home
 				break;
 				
 			case 'profile':
-			  	if($userSession->isLoggedIn()){
 			  		$profile = new \Control\Profile();
 			  		$ajaxData=$profile->controlProfile();
 			  		print $ajaxData;
 			  		//break;
-			  	}
 			  	break;
 				
 			case 'login':

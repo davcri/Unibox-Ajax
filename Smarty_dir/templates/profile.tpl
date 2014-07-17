@@ -29,6 +29,7 @@
 			<div class="col-md-4">
 				<div id="votazione">
 						<div id="text">{$yourScore}</div>
+						{$wantToVote}
 						{if $wantToVote}
 							<div class="hidden" id="votato">{$hasVoted}</div>
 						{/if}
