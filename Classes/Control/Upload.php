@@ -22,7 +22,7 @@ require_once $projectDirectory.'/Classes/Foundation/Subject.php';
 class Upload
 {
 	/**
-	 * Path to the resource folder on the server file system. This isn't an absolute path but is relative to the server document root.
+	 * Relative path to the resource folder on the server file system. This isn't an absolute path but is relative to the server document root.
 	 * 
 	 * @var string
 	 */
@@ -34,8 +34,9 @@ class Upload
 	 * 	 
 	 */
 	public function __construct()
-	{		
+	{	
 		$this->resourceDestinationPath = dirname($_SERVER['SCRIPT_NAME']).'/Resources';
+		//$this->resourceDestinationPath = dirname($_SERVER['SCRIPT_FILENAME']).'/Resources';
 		
 		$this->maxCharsAllowed = array("name" => 30, 
 									   "description" => 150,
@@ -122,18 +123,22 @@ class Upload
 		$subj = $subjectDb->getByName_DegreeCourse($resourceDetail['subject'], $resourceDetail['degreeCourse']);
 		
 		if ($subj!=false) //if a subject was found
-		{			
-			//$currentDate = new \DateTime("now");
-			$this->setResourceFileName($uploadedFile);			
-			
+		{				
+			$destination = $this->getValidResourceFilename($uploadedFile['name']); // this variable contains ?
+
 			$session = \Utility\Singleton::getInstance("\Control\Session");
 			$username = $session->get("username");
 			
 			$currentDate = new \DateTime("now");
-			$resource = new \Entity\Resource(NULL,$resourceDetail['name'], $resourceDetail['category'], $subj->getCode(), $username, $uploadedFile['type'], 0, 0, $currentDate, 0, false, $this->resourceDestinationPath, $resourceDetail['description']);
+			$resource = new \Entity\Resource(NULL,$resourceDetail['name'], $resourceDetail['category'], $subj->getCode(), $username, $uploadedFile['type'], 0, 0, $currentDate, 0, false, $destination, $resourceDetail['description']);
 			
-			// taking the absolute path to store the file. Because $this->resourceDestinationPath is relative to the server Document Root. 
-			$destination = $_SERVER['DOCUMENT_ROOT'].$this->resourceDestinationPath;
+			/* this should be useless now
+			 * 
+			 * // taking the absolute path to store the file. Because $this->resourceDestinationPath is relative to the server Document Root. 
+			   $destination = $_SERVER['DOCUMENT_ROOT'].$this->resourceDestinationPath;
+			*/
+			//$destination = $this->resourceDestinationPath;
+			$destination = $_SERVER['DOCUMENT_ROOT'].$destination;
 			
 			if(move_uploaded_file($tmpUploadedFile, $destination))
 			{
@@ -167,13 +172,47 @@ class Upload
 	}
 	
 	/**
-	 * @todo fix the bug 
-	 * Enter description here ...
+	 * Gets a valid filename (path+filename) where a resource can safely be stored. 
+	 * 
+	 * This method checks if the name already exists in the folder. In this case, 
+	 * it changes the name of the new file adding a timestamp to it.
+	 * 
+	 * @param string $uploadedFile  
+	 * 
+	 * @return string
 	 */
-	private function setResourceFilename($uploadedFile)
+	private function getValidResourceFilename($uploadedFile)
 	{
-		// check if uploadedFile is already existing.
-		$this->resourceDestinationPath .= "/".$uploadedFile['name'];		
+		$absolutePathToResources = $_SERVER['DOCUMENT_ROOT'].$this->resourceDestinationPath;
+		$fileList = (scandir($absolutePathToResources));
+
+		$nameConflicts = false; // this variable becomes true if two files with the same name
+							    // were found in $this->resourceDestinationPath
+		
+		$newResourceName="";
+		foreach($fileList as $file)
+		{
+			if ($file == $uploadedFile) // check if uploadedFile already exists.
+			{
+				$nameConflicts = true;
+								
+				$currentDate = new \DateTime("now");
+				
+				$fileName = pathinfo($uploadedFile, PATHINFO_FILENAME);
+				$fileExtension = pathinfo($uploadedFile, PATHINFO_EXTENSION);
+				
+				$newResourceName = $fileName.$currentDate->format("y_m_d-h_i_s").".".$fileExtension;
+			}							
+		}
+
+		if($nameConflicts)
+		{
+			$validFileName = $this->resourceDestinationPath."/".$newResourceName;
+		}
+		else
+			$validFileName = $this->resourceDestinationPath."/".$uploadedFile;
+		
+		return $validFileName;
 	}
 	
 	/**
