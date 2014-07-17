@@ -22,16 +22,17 @@ $(function(){
 				colorStar(star);
 			});
 
-			$("#votazione").find("span").click(function(){
+			$("#votazione").find("span").click(function(data){
 				//event.preventDefault();
 				var actualVote=$(this).attr("id");
 				//var username=$('#userId').html();
 				if( confirm("sei sicuro di voler attribuire all'utente "+username+" il voto : "+actualVote)){
-					$.get("index.php?controllerAction=profile&profileAction=rateUser&userProfile="+username+"&vote="+actualVote, function(data){
+					$.get("index.php?controllerAction=profile&profileAction=rateUser&userProfile="+username+"&vote="+actualVote, function(){
 						alert(data);
-						$("#votazione").find("span").off();
-						$("#votazione").css('cursor', 'default');
-						 // in questo modo disabilito il mousover dopo che l'utente ha votato
+						$("#votazione").find("span").off();// in questo modo disabilito il mousover dopo che l'utente ha votato
+						$("#votazione").css('cursor', 'default'); 
+
+
 					});
 				}
 					

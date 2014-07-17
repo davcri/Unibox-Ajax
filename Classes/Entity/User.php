@@ -209,14 +209,14 @@ class User
 		return $db->hasBeenRated($this->username, $username);
 	}
 	
-	/*public function updateReliabilityScore($votes, $score)
+	public function updateReliabilityScore($votes, $score)
 	{
 		// avoiding division by zero
 		if($votes==0)
 			$votes = 1;
 	
-		$newAvg = ($this->qualityScore * ($votes-1) + $score)/$votes;
-		$this->qualityScore = $newAvg;
+		$newAvg = ($this->reliability * ($votes-1) + $score)/$votes;
+		$this->reliability= $newAvg;
 	}
-	*/
+	
 }

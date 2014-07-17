@@ -84,7 +84,6 @@ class Profile
 		if( $username != $userLog){
 			if ($userLog=="")// controllo se l'utente non é loggato
 			{
-				print_r('non sono loggato');
 				$yourScore='Ecco il suo punteggio affidabilitá';
 				$wantToVote=false;
 			}
@@ -122,9 +121,15 @@ class Profile
 		$vote=$view->get('vote');
 		if(!$hasAlreadyRated){
 			//print_r('sto provando a caricare');
-			return $user->usersVotation($username, $userLog, $vote);
-			//$user->usersVotation($username, $userLog, $vote);
-			//$reliabilityVotes = $user->get
+			//return $user->usersVotation($username, $userLog, $vote);
+			$votation=$user->usersVotation($username, $userLog, $vote);
+			$reliabilityVotes = $user->getNumberOfReliabilityVotes($username);
+			print_r($reliabilityVotes);
+			$user2=$user->getByUsername($username);
+			$user2->updateReliabilityScore($reliabilityVotes,$vote);
+			print_r($user2->getReliability());
+			$isUpdated=$user->updateReliabilityScore($username,$user2->getReliability());
+			return $isUpdated;
 		}
 		
 		
