@@ -135,25 +135,40 @@ function handleUsernameInput(submitBtn, formMaxChars){
 	});
 
 	usernameInput.keyup(function(){	// validation function
-		if($(this).val().length==0){
-			$(this).parent().addClass("has-error");
+		var textInput = $(this).val();
+		var input = {'usernameInserted': textInput}
+		var inputForm = $(this).parent();
+
+		if(textInput.length==0){
+			inputForm.addClass("has-error");
 			submitBtn.attr("disabled","disabled");
 			usernameTooltip.text("Il campo username non può essere vuoto").show("fade", animationTime);
 		}
-		else if($(this).val().length > formMaxChars.username){
-			$(this).parent().addClass("has-error");
+		else if(textInput.length > formMaxChars.username){
+			inputForm.addClass("has-error");
 			submitBtn.attr("disabled","disabled");
 			usernameTooltip.text("Il campo username non può contenere più di " + formMaxChars.username + " caratteri").show("fade", animationTime);
 		}
 		else{
-			if(isFormCompleted(formMaxChars))
-				submitBtn.removeAttr("disabled");
+			$.get("index.php?controllerAction=registration&registrationAction=checkUsername", input, function(data){
+				if(data.usernameExists){
+					usernameTooltip.text("L'username è già stato preso.");
+					inputForm.addClass("has-error");
+					submitBtn.attr("disabled","disabled");
+				}
+				else{
+					if(isFormCompleted(formMaxChars))
+						submitBtn.removeAttr("disabled");
 
-			if($(this).parent().hasClass("has-error"))
-			{
-				$(this).parent().removeClass("has-error");
-				usernameTooltip.text(default_usernameTooltip);						
-			}			
+					console.log(inputForm);
+					if(inputForm.hasClass("has-error"))
+					{
+						console.log("asd");
+						inputForm.removeClass("has-error");
+						usernameTooltip.text(default_usernameTooltip);						
+					}		
+				}
+			},"json");				
 		}		
 	});
 }

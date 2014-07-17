@@ -71,6 +71,7 @@ class Home
 			  		$ajaxData=$profile->controlProfile();
 			  		print $ajaxData;
 			  		//break;
+	
 			  	break;
 				
 			case 'login':

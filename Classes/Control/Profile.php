@@ -30,7 +30,7 @@ class Profile
 	public function controlProfile(){
 		$profilePage = \Utility\Singleton::getInstance('\View\Home');
 		$data="";
-		//var_dump($data);
+		
 		switch($profilePage->get('profileAction'))
 		{	
 			case 'hasAlreadyVoted':
@@ -75,12 +75,12 @@ class Profile
 		$user=$userDb->getByUsername($username);
 		$view->assign('user',$user);
 		
-		/*$view->assign('username',$user->getUsername());
+		$view->assign('username',$user->getUsername());
 		$view->assign('name',$user->getName());
 		$view->assign('surname',$user->getsurname());
 		$view->assign('email',$user->getEmail());
 		$view->assign('degreeCourse',$user->getDegreeCourse());
-		$view->assign('votazione',$user->getReliability());*/
+		$view->assign('votazione',$user->getReliability());
 		if( $username != $userLog){
 			if ($userLog=="")// controllo se l'utente non é loggato
 			{
@@ -129,6 +129,7 @@ class Profile
 		
 		
 	}
+	
 	public function hasVoted($username,$userLog){
 		//$view = \Utility\Singleton::getInstance("\View\Home");
 		//$userSession = \Utility\Singleton::getInstance("\Control\Session");

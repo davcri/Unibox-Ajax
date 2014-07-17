@@ -53,6 +53,12 @@ class Registration
 			case 'addNewUser':
 				$ajaxData = $this->addNewUser();
 				break;
+				
+			case 'checkUsername':		
+				$username = $mainView->get('usernameInserted');
+				$data = array("usernameExists" => $this->checkUsername($username));		
+				$ajaxData = json_encode($data); 
+				break;
 		}
 		
 		return $ajaxData;
@@ -144,4 +150,18 @@ class Registration
 		
 		return $valid;		
 	}	
+	
+	private function checkUsername($username)
+	{
+		$userDb= new \Foundation\User();
+		
+		$usernameAlreadyTaken = false;
+		
+		if($userDb->getByUsername($username)==false) // if the username is not already taken
+			$usernameAlreadyTaken = false;
+		else
+			$usernameAlreadyTaken = true;
+		
+		return $usernameAlreadyTaken;
+	}
 }
