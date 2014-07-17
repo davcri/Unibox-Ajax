@@ -49,12 +49,15 @@ class Home
 				break;
 				
 			case 'navigation':
-				$navigation = new \Control\Navigation();		
+				$navigation = new \Control\Navigation();	
+				$ajaxData=$navigation->controlNavigation();
+				print $ajaxData;	
 				break;
 			
 			case 'resource':
 				$resourceController = new \Control\Resource();
-				$resourceController->controlResource();
+				$ajaxData=$resourceController->controlResource();
+				print $ajaxData;
 				break;
 				
 			case 'upload':
@@ -66,6 +69,8 @@ class Home
 			case 'profile':
 			  	if($userSession->isLoggedIn()){
 			  		$profile = new \Control\Profile();
+			  		$ajaxData=$profile->controlProfile();
+			  		print $ajaxData;
 			  		break;
 			  	}
 				

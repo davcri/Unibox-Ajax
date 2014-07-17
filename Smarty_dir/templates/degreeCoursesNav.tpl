@@ -13,7 +13,7 @@
 	{foreach $degreeCourses as $deg}
 		{$name = $deg->getName()}
 		{$count = $resourceDb->countResourcesByDegreeCourse($name)}
-		<a href="index.php?controllerAction=navigation&degreeCourse={$deg->getName()}" class="list-group-item">{$name}
+		<a href="index.php?controllerAction=navigation&navigationAction=chooseSubject&degreeCourse={$deg->getName()}" class="list-group-item">{$name}
 		<span class="badge" title="{$count} risorse trovate in {$name}">{$count}</span></a>
 	{/foreach}
 	</div>
