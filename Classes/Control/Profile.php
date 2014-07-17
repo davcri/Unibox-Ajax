@@ -52,33 +52,54 @@ class Profile
 	}
 	
 	public function setProfileInformation(){
-		$userSession = \Utility\Singleton::getInstance("\Control\Session");
-		$userLog=$userSession->get('username');
 		$view = \Utility\Singleton::getInstance("\View\Home");
 		$username=$view->get('userProfile');
-		$this->setUserInformations($view,$username,$userLog);
-		$this->setResourcesUploaded($view,$username,$userLog);
+		$this->setUserInformations($view,$username);
+		$this->setResourcesUploaded($view,$username);
 		return $view->fetch('profile.tpl');
 	}
 	
-	public function setUserInformations($view,$username,$userLog){
+	public function setUserInformations($view,$username){
+		$userSession = \Utility\Singleton::getInstance("\Control\Session");
+		if($userSession->isLoggedin()){
+			$userLog=$userSession->get('username');
+			//$logged=true;
+		}
+		else 
+		{
+			$userLog="";
+			//$logged=false;
+		}
 		$userDb=new \Foundation\User();
 		$user=$userDb->getByUsername($username);
-		$view->assign('username',$user->getUsername());
+		$view->assign('user',$user);
+		
+		/*$view->assign('username',$user->getUsername());
 		$view->assign('name',$user->getName());
 		$view->assign('surname',$user->getsurname());
 		$view->assign('email',$user->getEmail());
 		$view->assign('degreeCourse',$user->getDegreeCourse());
-		$view->assign('votazione',$user->getReliability());
-		if( $username == $userLog){
-			$infoVote='Ecco il tuo punteggio affidabilitá';
+		$view->assign('votazione',$user->getReliability());*/
+		if( $username != $userLog){
 			
-		}
-		else
-		{
 			$infoVote=$this->hasVoted($username,$userLog);
+			$view->assign('hasVoted',$infoVote );
+			$yourScore='Ecco il suo punteggio affidabilitá';
+			$wantToVote=true;
 		}
-		$view->assign('hasVoted',$infoVote );
+		elseif ($userLog="")
+		{
+		
+			$yourScore='Ecco il suo punteggio affidabilitá';
+			$wantToVote=false;
+		}
+		else {
+			$wantToVote=false;
+			$yourScore='Ecco il tuo punteggio affidabilitá';
+		}
+		
+		$view->assign('yourScore',$yourScore);
+		$view->assign('wantToVote', $wantToVote);
 	}
 	
 	public function setResourcesUploaded($view,$username){
@@ -109,7 +130,5 @@ class Profile
 		//$voted=$_REQUEST['user'];
 		$user=new \Foundation\User();
 		return $user->hasBeenRated($username, $userLog);
-
-	
 	}
 }

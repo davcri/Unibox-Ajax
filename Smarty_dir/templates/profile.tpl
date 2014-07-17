@@ -5,30 +5,33 @@
 				<table>
 					<tr>
 						<th>Username</th>
-						<th>&nbsp<div id="userId">{$username}</div></th>
+						<th>&nbsp<div id="userId">{$user->getUsername()}</div></th>
 					</tr>
 					<tr>
 						<th>Nome</th>
-						<th>&nbsp{$name}</th>
+						<th>&nbsp{$user->getName()}</th>
 					</tr>
 					<tr>
 						<th>cognome</th>
-						<th>&nbsp{$surname}</th>
+						<th>&nbsp{$user->getSurname()}</th>
 					</tr>
 					<tr>
 						<th>E-mail</th>
-						<th>&nbsp{$email}</th>
+						<th>&nbsp{$user->getEmail()}</th>
 					</tr>
 					<tr>
 						<th>Corso di laurea</th>
 						
-						<th>&nbsp{$degreeCourse}</th>
+						<th>&nbsp{$user->getDegreeCourse()}</th>
 					</tr>
 				</table>
 			</div>
 			<div class="col-md-4">
 				<div id="votazione">
-						<div id="votato">{$hasVoted}</div>
+						<div id="text">{$yourScore}</div>
+						{if $wantToVote}
+							<div class="hidden" id="votato">{$hasVoted}</div>
+						{/if}
 					Punteggio :
 					{$votazione=3}
 					<br>
