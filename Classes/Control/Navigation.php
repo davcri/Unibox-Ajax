@@ -35,7 +35,7 @@ class Navigation
 	public function controlNavigation()
 	{
 		$navigationPage = \Utility\Singleton::getInstance('\View\Home');
-		
+		$data="";
 		switch($navigationPage->get('navigationAction'))
 		{
 			case 'chooseDegreeCourse':
@@ -168,3 +168,4 @@ class Navigation
 		return $subjectsList;
 	}	
 }
+?>

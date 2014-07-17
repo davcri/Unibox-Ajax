@@ -11,7 +11,4 @@ $projectDirectory = dirname($_SERVER['SCRIPT_FILENAME']); // $projectDirectory c
 require_once $projectDirectory.'/Classes/Control/Home.php';
 
 $mainController = new \Control\Home();
-
-
-
-
+?>

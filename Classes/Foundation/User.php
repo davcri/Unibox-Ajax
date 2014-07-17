@@ -64,25 +64,36 @@ class User extends Database
 	public function usersVotation($userVoted,$userVoter,$vote)
 	{
 		
-		$insert = "INSERT INTO `users_scores`(`username_voted','username_voter','vote')";
-		$values = "VALUES ($username,$name,$surname)";
+		$insert = "INSERT INTO `users_scores`(`username_voted`,`username_voter`,`vote`)";
+		$values = "VALUES ('$userVoted','$userVoter',$vote);";
 		$queryString = $insert." ".$values;
-		
-		
-		if ($vote>=0 && $vote<=10)
-		{
-			if($this->query($queryString))
-				return true;
+	
+		if ($vote>=1 && $vote<=5){
+			
+
+			if($this->query($queryString)){
+			 
+			return 'complimenti hai votato questo utente';
+				
+				
+			}
+			else
+				return 'ci sono stati dei problemi nella votazione';
 		}
-		else
-			return false;
+		else{
+			print_r('il voto non é valido');
+		}
+		
+				
+		
+		
  	}
  	
  	public function hasBeenRated($voted,$voter)
  	{
  		$select = "SELECT *";
  		$from = "FROM `users_scores`";
- 		$where = "WHERE `username_voted`=$voted AND `username_voter`='$voter'";
+ 		$where = "WHERE `username_voted`='$voted' AND `username_voter`='$voter'";
  	
  		$query = $select." ".$from." ".$where;
  	

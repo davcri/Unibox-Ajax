@@ -5,7 +5,7 @@
 				<table>
 					<tr>
 						<th>Username</th>
-						<th>&nbsp{$username}</th>
+						<th>&nbsp<div id="userId">{$username}</div></th>
 					</tr>
 					<tr>
 						<th>Nome</th>
@@ -26,12 +26,11 @@
 					</tr>
 				</table>
 			</div>
-
 			<div class="col-md-4">
 				<div id="votazione">
-					votazione :
+						<div id="votato">{$hasVoted}</div>
+					Punteggio :
 					{$votazione=3}
-					<div id="vot">{$votazione}</div>
 					<br>
 							{for $i=1 to 5}
 								{if $votazione>=$i}
@@ -50,7 +49,15 @@
 			<div class="resource">
 				<ul>
 					{foreach $resource as $res}
-						<li><a href="index.php?controllerAction=resource&resourceAction=getResourcePage&resourceId=id">{$res->getName()}</li>
+						<tr>
+							<td><a href="index.php?controllerAction=resource&resourceAction=getResourcePage&resourceId={$res->getId()}">{$res->getName()}</a></td>
+							<td>{$res->getCategory()}</td>
+							<td>{$res->getQualityScore()}</td>
+							<td>{$res->getDifficultyScore()}</td>
+							<td>{$res->getType()}</td>
+							<td>{$res->getUploaderUsername()}</td>
+							<td>{$res->getDownloadsNumber()}</td>
+						</tr>		
 					{/foreach}
 				</ul>
 			</div>
@@ -59,4 +66,5 @@
 
 
 </div>
-<script src="Smarty_dir/templates/javascript/profile.js"></script>
+ <script src="Smarty_dir/templates/javascript/profile.js"></script> 
+<script src="Smarty_dir/templates/javascript/resourcePage.js"></script>

@@ -71,8 +71,9 @@ class Home
 			  		$profile = new \Control\Profile();
 			  		$ajaxData=$profile->controlProfile();
 			  		print $ajaxData;
-			  		break;
+			  		//break;
 			  	}
+			  	break;
 				
 			case 'login':
 				$login = new \Control\Login();	
@@ -93,7 +94,7 @@ class Home
 			default:
 				$mainView->display('main.tpl');
 				break;
-		}					
+		}
 	}	
 }
 

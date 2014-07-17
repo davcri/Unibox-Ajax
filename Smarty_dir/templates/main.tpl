@@ -40,8 +40,9 @@
 					<li id="navigation"><a href="index.php?controllerAction=navigation&navigationAction=chooseDegreeCourse">Risorse</a></li>
 					<li id="upload"><a href="index.php?controllerAction=upload&uploadAction=getUploadPage">Upload</a></li>
 					{if $loggedIn}
-						<li id="profile"><a href="index.php?controllerAction=profile&profileAction=getProfilePage">Profilo</a></li>
+						<li id="profile"><a href="index.php?controllerAction=profile&profileAction=getProfilePage&userProfile={$username}">Profilo</a></li>
 					{/if}
+					<li id="prova"><a href="index.php?controllerAction=profile&profileAction=getProfilePage&userProfile=davcri">prova</a></li>
 				</ul>
 
 				{if !$loggedIn}
