@@ -32,7 +32,7 @@
 		</div>
 
 		<div class="navbar navbar-default">
-			<div class="container-fluid">
+			<div id="navbarContent" class="container-fluid">
 				<span class="glyphicon glyphicon-inbox navbar-brand"></span>
 
 				<ul id="navigationBar" class="nav navbar-nav">
@@ -57,10 +57,10 @@
 		</div>
 
 		
-		<!-- <div id="footer" class="navbar-fixed-bottom footer">
+		<!-- <div id="footer" class="col-md-12 footer">
 			<div class="container-fluid">
 				<div class="col-md-4">
-				<p class="text-center">Chi siamo</p>
+					<p class="text-center">Chi siamo</p>
 				</div>
 
 				<div class="col-md-4">

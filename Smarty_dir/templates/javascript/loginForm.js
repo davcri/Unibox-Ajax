@@ -11,7 +11,7 @@ $(function(){
 
 		$.post("index.php?controllerAction=login", loginData, function(data){
 			if(data.statusCode==1){
-				$(".container-fluid").hide("fade",animationTime, function(){
+				$("#navbarContent").hide("fade",animationTime, function(){
 					$("#loginForm").remove();
 					$(this).append(data.content);
 					
