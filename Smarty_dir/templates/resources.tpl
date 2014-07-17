@@ -13,8 +13,8 @@
 
 <ol id="pathBar" class="breadcrumb">
 	<li><span class="glyphicon glyphicon-folder-open"></span></li>
-	<li><a href="index.php?controllerAction=navigation"> Risorse</a></li>
-	<li><a href="index.php?controllerAction=navigation&degreeCourse={$degreeCourse}">{$degreeCourse}</a></li>
+	<li><a href="index.php?controllerAction=navigation&navigationAction=chooseDegreeCourse"> Risorse</a></li>
+	<li><a href="index.php?controllerAction=navigation&navigationAction=chooseSubject&degreeCourse={$degreeCourse}">{$degreeCourse}</a></li>
 	<li>{$subject_name}</li>
 </ol>
 

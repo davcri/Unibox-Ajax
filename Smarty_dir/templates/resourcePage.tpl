@@ -19,9 +19,9 @@
 {if !empty($degreeCourse)}
 	<ol id="pathBar" class="breadcrumb">
 		<li><span class="glyphicon glyphicon-folder-open"></span></li>
-		<li><a href="index.php?controllerAction=navigation"> Risorse</a></li>
-		<li><a href="index.php?controllerAction=navigation&degreeCourse={$degreeCourse}">{$degreeCourse}</a></li>
-		<li><a href="index.php?controllerAction=navigation&degreeCourse={$degreeCourse}&subject={$subject->getCode()}">{$subject->getName()}</a></li>
+		<li><a href="index.php?controllerAction=navigation&navigationAction=chooseDegreeCourse"> Risorse</a></li>
+		<li><a href="index.php?controllerAction=navigation&navigationAction=chooseSubject&degreeCourse={$degreeCourse}">{$degreeCourse}</a></li>
+		<li><a href="index.php?controllerAction=navigation&navigationAction=showResource&degreeCourse={$degreeCourse}&subject={$subject->getCode()}">{$subject->getName()}</a></li>
 		<li>{$resource->getName()}</li>
 	</ol>
 {/if}
