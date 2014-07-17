@@ -11,7 +11,7 @@ $(function(){
 
 		$.post("index.php?controllerAction=login", loginData, function(data){
 			if(data.statusCode==1){
-				$(".container-fluid").hide("fade",animationTime, function(){
+				$("#navbarContent").hide("fade",animationTime, function(){
 					$("#loginForm").remove();
 					$(this).append(data.content);
 					
@@ -29,16 +29,6 @@ $(function(){
 					});
 				}
 
-				/*var ratingPanel = $("#ratingPanel");
-				if(ratingPanel.length){
-					if (ratingPanel.hasClass("hidden")) {
-						$("#loginRequiredForResourceRating").hide(animationTime,function(){$(this).remove();});
-						ratingPanel.removeClass("hidden").hide();
-					}
-
-					ratingPanel.show(animationTime);
-				}*/
-
 				// this is needed only to select the correct page when a user fails a login and then logs in correctly
 				if($("#loginFailed").length){ 
 					var currentActivePage = $(".active").attr("id");
@@ -54,7 +44,7 @@ $(function(){
 	});
 
 	$("#signInButton").click(function(){
-		$.get("index.php?controllerAction=registration",function(data){
+		$.get("index.php?controllerAction=registration&registrationAction=getRegistrationPage",function(data){
 			changePage(data);
 		});
 	});

@@ -19,6 +19,22 @@ require_once $projectDirectory.'/Classes/Foundation/DegreeCourse.php';
  */
 class Registration
 {
+	private $maxCharsAllowed;
+	
+	/**
+	 * 
+	 * Enter description here ...
+	 */
+	public function __construct()
+	{
+		$this->maxCharsAllowed = array("name" => 30,
+								"surname" => 30,
+								"username" => 30,
+								"password" => 30,
+								"email" => 30,
+								"degreeCourse" => 30);		
+	}
+	
 	/**
 	 * Handles the behaviour of the Registration controller.
 	 * 
@@ -26,13 +42,17 @@ class Registration
 	 */
 	public function handleRegistration()
 	{
-		if($this->validateRegistrationFormData() == FALSE)
+		$mainView = \Utility\Singleton::getInstance("\View\Home");
+		
+		switch($mainView->get('registrationAction'))
 		{
-			$ajaxData = $this->getRegistrationForm();
-		}
-		else
-		{
-			$ajaxData = $this->addNewUser();
+			case 'getRegistrationPage':
+				$ajaxData = $this->getRegistrationForm();
+				break;
+			
+			case 'addNewUser':
+				$ajaxData = $this->addNewUser();
+				break;
 		}
 		
 		return $ajaxData;
@@ -66,7 +86,7 @@ class Registration
 		$name = $elaboratedForm->get('nameUser');
 		$surname = $elaboratedForm->get('surname');
 		$username = $elaboratedForm->get('username');
-		$password = $elaboratedForm->get('password');
+		$password = password_hash($elaboratedForm->get('password'), PASSWORD_DEFAULT);
 		$email = $elaboratedForm->get('email');
 		$degreeCourse = $elaboratedForm->get('degreeCourse');
 		
@@ -103,13 +123,21 @@ class Registration
 	private function validateRegistrationFormData()
 	{
 		$valid = false;
+		$registrationForm = \Utility\Singleton::getInstance('\View\Home');
 		
-		if(!empty($_REQUEST['nameUser']) && 
-		   !empty($_REQUEST['surname']) && 
-		   !empty($_REQUEST['email']) && 
-		   !empty($_REQUEST['username']) && 
-		   !empty($_REQUEST['password'])&& 
-		   !empty($_REQUEST['degreeCourse']))
+		$name = $registrationForm->get('nameUser');
+		$surname = $registrationForm->get('surname');
+		$email = $registrationForm->get('email');
+		$username = $registrationForm->get('username');
+		$password = $registrationForm->get('password'); 
+		$degreeCourse = $registrationForm->get('degreeCourse');
+		
+		if(!empty($name) && strlen($name) <= $this->maxCharsAllowed['name'] &&
+		   !empty($surname) && strlen($surname) <= $this->maxCharsAllowed['surname'] && 
+		   !empty($email) && strlen($email) <= $this->maxCharsAllowed['email'] &&
+		   !empty($username) && strlen($username) <= $this->maxCharsAllowed['username'] &&
+		   !empty($password)&& strlen($password) <= $this->maxCharsAllowed['password'] && 
+		   !empty($degreeCourse) && strlen($degreeCourse) <= $this->maxCharsAllowed['degreeCourse'])
 		{
 			$valid = true;
 		}

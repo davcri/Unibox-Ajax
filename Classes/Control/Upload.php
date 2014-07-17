@@ -28,12 +28,20 @@ class Upload
 	 */
 	private $resourceDestinationPath;
 	
+	private $maxCharsAllowed;
+	
 	/**
 	 * 	 
 	 */
 	public function __construct()
 	{		
 		$this->resourceDestinationPath = dirname($_SERVER['SCRIPT_NAME']).'/Resources';
+		
+		$this->maxCharsAllowed = array("name" => 30, 
+									   "description" => 150,
+									   "subject" => 50,
+									   "degreeCourse" => 50,
+									   "category" => 50);
 	}
 	
 	/**
@@ -197,13 +205,20 @@ class Upload
 	private function validateFormInputData()
 	{	
 		$formData = \Utility\Singleton::getInstance("\View\Home");
-		$validate = false;
 		
-		if( !empty($formData->get('name')) && 
-			!empty($formData->get('subject')) &&
-			!empty($formData->get('category')) &&
-			!empty($formData->get('degreeCourse')) &&
-			!empty($formData->get('description')) &&
+		$name = $formData->get('name');
+		$subject = $formData->get('subject');
+		$category = $formData->get('category');
+		$degreeCourse = $formData->get('degreeCourse');
+		$description = $formData->get('description');
+		
+		$validate = false;		
+		
+		if( !empty($name) && strlen($name) <= $this->maxCharsAllowed['name'] && 
+			!empty($subject) && strlen($subject) <= $this->maxCharsAllowed['subject'] &&
+			!empty($category) && strlen($category) <= $this->maxCharsAllowed['category'] &&
+			!empty($degreeCourse) && strlen($degreeCourse) <= $this->maxCharsAllowed['degreeCourse'] &&
+			!empty($description) && strlen($description) <= $this->maxCharsAllowed['description'] &&
 			!empty($formData->getFile('uploadedFile')) )
 		{
 			$validate = true;

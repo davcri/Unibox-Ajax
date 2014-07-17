@@ -1,6 +1,8 @@
 
 $(function(){
-	var maxNameChars = 15;
+
+	/* If you want to change these values, remember to change also the values in Control/Upload.php */
+	var maxNameChars = 30;
 	var maxDescriptionChars = 150;
 
 	var uploadButton = $("#uploadButton");

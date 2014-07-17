@@ -2,10 +2,11 @@
 $(function(){
 	var button = $("#submitButton");
  	
+ 	/* If you want to change these values, remember to change also the values in Control/Registration.php */
  	var formMaxChars = {
- 		name: 15,
- 		surname: 15,
- 		username: 15,
+ 		name: 30,
+ 		surname: 30,
+ 		username: 30,
  		password: 30
  	};
  	
@@ -34,7 +35,7 @@ function submitButton(btn){
 		var formData = new FormData(this);
 
 		$.ajax({
-			url: 'index.php?controllerAction=registration',
+			url: 'index.php?controllerAction=registration&registrationAction=addNewUser',
 			type: 'POST',
 			data: formData,
 			processData: false,
