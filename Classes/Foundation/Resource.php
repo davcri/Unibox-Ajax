@@ -299,6 +299,18 @@ class Resource extends Database
 		
 		return $rated;	
 	}	
+	
+	/**
+	 * 
+	 * 
+	 */
+	public function getMostActiveUsers()
+	{
+		$query = "SELECT `uploaderUsername`, count(`uploaderUsername`) as 'uploadedResources' FROM `resource` WHERE 1 group by `uploaderUsername` order by `uploadedResources` DESC";
+		$result = $this->associativeArrayQuery($query);
+		
+		return $result;
+	}
 }
 
 

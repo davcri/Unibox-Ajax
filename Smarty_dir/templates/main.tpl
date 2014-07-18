@@ -58,7 +58,7 @@
 		</div>
 
 		
-		<!-- <div id="footer" class="col-md-12 footer">
+		<div id="footer" class="col-md-12 footer">
 			<div class="container-fluid">
 				<div class="col-md-4">
 					<p class="text-center">Chi siamo</p>
@@ -72,7 +72,7 @@
 					<p class="text-center">Copyright</p>
 				</div>
 			</div>
-		</div> -->
+		</div>
 
 	</div>
 </body>
