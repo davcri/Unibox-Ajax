@@ -21,7 +21,7 @@ require_once $projectDirectory.'/Classes/Utility/Singleton.php';
  *and it manages these request and call the respective controller 
  * 
  */
-class Home
+class Main
 {
 	/**
 	 * switches the control of the request to the control class expertise

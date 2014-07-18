@@ -93,10 +93,10 @@
 
           <button id="uploadButton"  class="btn btn-primary" disabled="disabled">Invia</button>
         </div>
-
-        <div class="col-md-6 myTooltip">
+        <div class="col-md-6">
+        <!-- <div class="col-md-6 myTooltip">
           tooltip placeholder
-        </div>
+        </div> -->
       </div>
 
     </form>
