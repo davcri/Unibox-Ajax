@@ -1,7 +1,6 @@
 
 ALTA
 ----------------------------------------------------    
-- pagina profilo utente
 
 Upload :
   |
@@ -13,7 +12,6 @@ Upload :
   |
   | - fornire all'utente più dettagli sulla struttura della pagina (vedi pagina documentazione di tablesorter)
 
-- ricompense per risorse particolarmente importanti (achievements)
 - mettere in evidenza utenti più attivi nella home 
 
 - creare pagina "about"
@@ -39,6 +37,8 @@ MEDIA
   |
   | - upload via drag 'n drop 
   | - feedback sulla durata dell'upload
+
+- immagine profilo 
 
 BASSA
 ----------------------------------------------------

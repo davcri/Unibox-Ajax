@@ -13,4 +13,9 @@ $(function(){
 				btn.html("<span class=\"glyphicon glyphicon-minus\"></span> Riduci");
 		});		
 	});*/
+
+	$("#mostActiveUsers").find("a").click(function(event){
+		event.preventDefault();
+		ajaxChangePage($(this).attr("href"));
+	});
 });

@@ -3,12 +3,20 @@ $(setNavbarBehaviour); // when the DOM is ready, run mainFunction()
 
 var animationTime = 250;
 
-function setNavbarBehaviour(){
-	disableNavbarLinksDefault();
+function mainFunction(){
 	cookieCheck();
-	$("#navigationBar").find("li").click(ajaxChangePage);	
+	setNavbarBehaviour();
 
 	//ajaxLoadingMessage();
+}
+
+function setNavbarBehaviour(){
+	disableNavbarLinksDefault();
+	$("#navigationBar").find("li").click(function(){		
+		var url = $(this).children().eq(0).attr("href"); 
+		ajaxChangePage(url);
+		toggleActivate($(this));
+	});
 }
 
 
@@ -35,10 +43,6 @@ function animateSidebar(){
 }
 
 function changePage(newContent){
-	/*$("#mainContainer").slideToggle(animationTime,function(){
-			$("#mainContainer").html(newContent);
-			$("#mainContainer").slideToggle(animationTime);
-		});*/
 	var mainContainer = $("#mainContainer");
 	var footer = $("#footer");
 
@@ -46,6 +50,10 @@ function changePage(newContent){
 		mainContainer.html(newContent); 
 		mainContainer.toggle("fade", "linear",animationTime);
 	});
+	/*$("#mainContainer").slideToggle(animationTime,function(){
+		$("#mainContainer").html(newContent);
+		$("#mainContainer").slideToggle(animationTime);
+	});*/
 
 	footer.toggle("fade","linear",animationTime,function(){
 		footer.toggle("fade","linear",animationTime);
@@ -58,12 +66,8 @@ function disableNavbarLinksDefault(){
 	});
 }
 
-function ajaxChangePage()
+function ajaxChangePage(url)
 {	
-	toggleActivate($(this));		
-	
-	var url = $(this).children().eq(0).attr("href"); 
-	
 	$.get(url, function(data){
 		changePage(data);
 	})

@@ -21,7 +21,7 @@ require_once $projectDirectory.'/Classes/Utility/Singleton.php';
  *and it manages these request and call the respective controller 
  * 
  */
-class Main
+class Home
 {
 	/**
 	 * switches the control of the request to the control class expertise
@@ -51,7 +51,6 @@ class Main
 				
 				$mainView->display('home.tpl');
 				
-				break;
 				break;
 				
 			case 'navigation':
