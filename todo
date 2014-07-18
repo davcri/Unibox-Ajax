@@ -15,7 +15,7 @@ Upload :
 - mettere in evidenza utenti più attivi nella home 
 
 - creare pagina "about"
-- creare footer
+
 - tasto "ricordami"
 
 - installazione sito
@@ -25,6 +25,7 @@ MEDIA
 
 - Mettere sito online
 - navigazione AJAX con supporto a storia e deep linking
+- evidenziare difficoltà risorsa con colori
 
 - revisone codice PHP
   |

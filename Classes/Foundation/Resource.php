@@ -309,7 +309,7 @@ class Resource extends Database
 	 */
 	public function getMostActiveUsers()
 	{
-		$query = "SELECT `uploaderUsername`, count(`uploaderUsername`) as 'uploadedResources' FROM `resource` WHERE 1 group by `uploaderUsername` order by `uploadedResources` DESC";
+		$query = "SELECT `uploaderUsername`, count(`uploaderUsername`) as 'uploadedResources' FROM `resource` WHERE 1 group by `uploaderUsername` order by `uploadedResources` DESC, `uploaderUsername` ASC";
 		$result = $this->associativeArrayQuery($query);
 		
 		$userDb = new \Foundation\User();

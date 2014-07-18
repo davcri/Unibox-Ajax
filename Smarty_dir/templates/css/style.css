@@ -52,12 +52,24 @@
 
 
 .footer {
-	background-color: #000;
+	background-color: #1D1D1D;
 	color: #FFF;
 
 	/*position: absolute;
 	bottom: 0;
 	height: 80px;*/
+}
+
+.easyResource {
+
+}
+
+.mediumResource {
+	
+}
+
+.hardResource {
+
 }
 
 /* From here starts the bootstrap ovverrides css */

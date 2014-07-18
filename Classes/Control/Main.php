@@ -7,6 +7,7 @@
 namespace Control;
 
 require_once $projectDirectory.'/Classes/View/Home.php';
+require_once $projectDirectory.'/Classes/Control/Home.php';
 require_once $projectDirectory.'/Classes/Control/Navigation.php';
 require_once $projectDirectory.'/Classes/Control/Resource.php';
 require_once $projectDirectory.'/Classes/Control/Upload.php';
@@ -45,13 +46,10 @@ class Main
 		switch($controllerAction)
 		{
 			case 'home':
-				$x = new \Foundation\Resource();
-				$greatestUsers = $x->getMostActiveUsers();
-				$mainView->assign('greatestUsers', $greatestUsers);
+				$home = new \Control\Home();
+				$ajaxData = $home->controlHome();
+				print $ajaxData;
 				
-				$mainView->display('home.tpl');
-				
-				break;
 				break;
 				
 			case 'navigation':
@@ -73,10 +71,9 @@ class Main
 				break;
 				
 			case 'profile':
-			  		$profile = new \Control\Profile();
-			  		$ajaxData=$profile->controlProfile();
-			  		print $ajaxData;
-			  		//break;
+		  		$profile = new \Control\Profile();
+		  		$ajaxData=$profile->controlProfile();
+		  		print $ajaxData;
 	
 			  	break;
 				
@@ -97,11 +94,13 @@ class Main
 				break;
 				
 			default:
-				$x = new \Foundation\Resource();
-				$greatestUsers = $x->getMostActiveUsers();
-				$mainView->assign('greatestUsers', $greatestUsers);
-				
-				$mainView->display('main.tpl');
+				/*$home = new \Control\Home();
+				print $home->controlHome();
+				*/
+				$resourceDb = new \Foundation\Resource();
+				$greatestUsers = $resourceDb->getMostActiveUsers();
+				$mainView->assign("greatestUsers",$greatestUsers);
+				$mainView->display("main.tpl");
 				break;
 		}
 	}	
