@@ -31,7 +31,7 @@
 	 	</address>
 	 	<address>
 	 		<strong>Filippo Reggimenti</strong><br>
-	 		email : <br>
+	 		email : <a href="mailto:reggimenti.filippo@gmail.com">reggimenti.filippo@gmail.com</a><br>
 		<address> <br> 	
 		Oppure se sei un programmatore e vuoi aiutarci con lo sviluppo puoi farlo visitando <a href="https://github.com/davcri/Unibox-Ajax">la pagina Github del progetto</a>
 	</div>

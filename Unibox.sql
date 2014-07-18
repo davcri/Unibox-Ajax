@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.6
+-- version 4.1.12
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 12, 2014 at 12:44 PM
--- Server version: 5.6.16
--- PHP Version: 5.5.9
+-- Generation Time: Lug 18, 2014 alle 10:01
+-- Versione del server: 5.6.16
+-- PHP Version: 5.5.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `degreeCourse`
+-- Struttura della tabella `degreeCourse`
 --
 
 CREATE TABLE IF NOT EXISTS `degreeCourse` (
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `degreeCourse` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `degreeCourse`
+-- Dump dei dati per la tabella `degreeCourse`
 --
 
 INSERT INTO `degreeCourse` (`name`, `department`) VALUES
@@ -43,7 +43,7 @@ INSERT INTO `degreeCourse` (`name`, `department`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `degreeCourses_Subjects`
+-- Struttura della tabella `degreeCourses_Subjects`
 --
 
 CREATE TABLE IF NOT EXISTS `degreeCourses_Subjects` (
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `degreeCourses_Subjects` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `degreeCourses_Subjects`
+-- Dump dei dati per la tabella `degreeCourses_Subjects`
 --
 
 INSERT INTO `degreeCourses_Subjects` (`degreeCourse`, `subjectCode`) VALUES
@@ -71,7 +71,7 @@ INSERT INTO `degreeCourses_Subjects` (`degreeCourse`, `subjectCode`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `resource`
+-- Struttura della tabella `resource`
 --
 
 CREATE TABLE IF NOT EXISTS `resource` (
@@ -91,12 +91,20 @@ CREATE TABLE IF NOT EXISTS `resource` (
   PRIMARY KEY (`id`),
   KEY `resource_ibfk_1` (`uploaderUsername`),
   KEY `resource_ibfk_2` (`subjectCode`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dump dei dati per la tabella `resource`
+--
+
+INSERT INTO `resource` (`id`, `name`, `category`, `subjectCode`, `uploaderUsername`, `type`, `difficultyScore`, `qualityScore`, `path`, `uploadingDate`, `visible`, `downloadsNumber`, `description`) VALUES
+(1, 'Sviluppi di taylor', 'teoria', 1, 'filreg', 'pdf', 6, 7, '/public/Unibox-Ajax/Resources/Taylor.pdf', '2014-07-17 16:31:14', 0, 1, 'sviluppi di taylor utili per la risoluzione dei limiti'),
+(2, 'numeri complessi', 'teoria', 1, 'gasby', 'pdf', 0, 0, '/public/Unibox-Ajax/Resources/richiami_teoria_numcompl.pdf', '2014-07-17 18:36:57', 0, 0, 'teoria sui numeri complessi');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `resources_difficultyScores`
+-- Struttura della tabella `resources_difficultyScores`
 --
 
 CREATE TABLE IF NOT EXISTS `resources_difficultyScores` (
@@ -107,10 +115,17 @@ CREATE TABLE IF NOT EXISTS `resources_difficultyScores` (
   KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dump dei dati per la tabella `resources_difficultyScores`
+--
+
+INSERT INTO `resources_difficultyScores` (`resourceId`, `username`, `difficultyScore`) VALUES
+(1, 'filreg', 6);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `resources_scores`
+-- Struttura della tabella `resources_scores`
 --
 
 CREATE TABLE IF NOT EXISTS `resources_scores` (
@@ -122,10 +137,17 @@ CREATE TABLE IF NOT EXISTS `resources_scores` (
   KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dump dei dati per la tabella `resources_scores`
+--
+
+INSERT INTO `resources_scores` (`resourceId`, `username`, `score`) VALUES
+(1, 'filreg', 7);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `subject`
+-- Struttura della tabella `subject`
 --
 
 CREATE TABLE IF NOT EXISTS `subject` (
@@ -135,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `subject` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
--- Dumping data for table `subject`
+-- Dump dei dati per la tabella `subject`
 --
 
 INSERT INTO `subject` (`code`, `name`) VALUES
@@ -150,14 +172,14 @@ INSERT INTO `subject` (`code`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struttura della tabella `user`
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
   `username` varchar(50) NOT NULL,
   `name` varchar(50) NOT NULL,
   `surname` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` text NOT NULL,
   `email` varchar(50) NOT NULL,
   `degreeCourse` varchar(50) DEFAULT NULL,
   `reliability` float NOT NULL,
@@ -166,50 +188,86 @@ CREATE TABLE IF NOT EXISTS `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dump dei dati per la tabella `user`
 --
 
 INSERT INTO `user` (`username`, `name`, `surname`, `password`, `email`, `degreeCourse`, `reliability`) VALUES
-('dav', 'davide', 'cristini', 'asd', 'dav@mail.it', 'Ingegneria Informatica', 0),
-('davcri', 'Davide', 'Cristini', 'asd', 'dav@mail.it', 'Ingegneria Informatica', 0);
+('davcri', 'davide', 'cristini', '$2y$10$6U2VG4iEnn5VZs.KiOTC6.ytPuPGPIlTLLWpCvyrq3.g8LxqGaCb6', 'dav@cri.it', 'Ingegneria Informatica', 3.33333),
+('filreg', 'filippo', 'reggimenti', '$2y$10$PSBMn8WTe5OiriSHkX.j2uX9LfhSVtCzfb.t6ZEhIIZBHzMzWQ.Se', 'reggimenti.filippo@gmail.com', 'Ingegneria Informatica', 4),
+('gasby', 'simone', 'gasbarre', '$2y$10$2HeVWzAqa6o9WNQDfl63QeI0o0aGiMnwcSslFkr7rbrDkQh418aNW', 'asd@asd.it', 'Ingegneria Informatica', 3.5),
+('pasq', 'pasquale', 'salvati', '$2y$10$kLj6h19eBiKi5HZ4o9qnM.0MliH9XVTZQWlKcRqdjiGKwo0Xz2YoS', 'asd@asd.com', 'Ingegneria Informatica', 0);
+
+-- --------------------------------------------------------
 
 --
--- Constraints for dumped tables
+-- Struttura della tabella `users_scores`
+--
+
+CREATE TABLE IF NOT EXISTS `users_scores` (
+  `username_voted` varchar(50) NOT NULL,
+  `username_voter` varchar(50) NOT NULL,
+  `vote` int(11) NOT NULL,
+  PRIMARY KEY (`username_voted`,`username_voter`),
+  KEY `username_voter` (`username_voter`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `users_scores`
+--
+
+INSERT INTO `users_scores` (`username_voted`, `username_voter`, `vote`) VALUES
+('davcri', 'filreg', 2),
+('davcri', 'gasby', 3),
+('davcri', 'pasq', 5),
+('filreg', 'gasby', 3),
+('filreg', 'pasq', 5),
+('gasby', 'filreg', 5),
+('gasby', 'pasq', 3);
+
+--
+-- Limiti per le tabelle scaricate
 --
 
 --
--- Constraints for table `degreeCourses_Subjects`
+-- Limiti per la tabella `degreeCourses_Subjects`
 --
 ALTER TABLE `degreeCourses_Subjects`
   ADD CONSTRAINT `degreeCourses_Subjects_ibfk_1` FOREIGN KEY (`degreeCourse`) REFERENCES `degreeCourse` (`name`),
   ADD CONSTRAINT `degreeCourses_Subjects_ibfk_2` FOREIGN KEY (`subjectCode`) REFERENCES `subject` (`code`);
 
 --
--- Constraints for table `resource`
+-- Limiti per la tabella `resource`
 --
 ALTER TABLE `resource`
   ADD CONSTRAINT `resource_ibfk_1` FOREIGN KEY (`uploaderUsername`) REFERENCES `user` (`username`),
   ADD CONSTRAINT `resource_ibfk_2` FOREIGN KEY (`subjectCode`) REFERENCES `subject` (`code`);
 
 --
--- Constraints for table `resources_difficultyScores`
+-- Limiti per la tabella `resources_difficultyScores`
 --
 ALTER TABLE `resources_difficultyScores`
-  ADD CONSTRAINT `resources_difficultyScores_ibfk_2` FOREIGN KEY (`username`) REFERENCES `user` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `resources_difficultyScores_ibfk_1` FOREIGN KEY (`resourceId`) REFERENCES `resource` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `resources_difficultyScores_ibfk_1` FOREIGN KEY (`resourceId`) REFERENCES `resource` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `resources_difficultyScores_ibfk_2` FOREIGN KEY (`username`) REFERENCES `user` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `resources_scores`
+-- Limiti per la tabella `resources_scores`
 --
 ALTER TABLE `resources_scores`
-  ADD CONSTRAINT `resources_scores_ibfk_2` FOREIGN KEY (`username`) REFERENCES `user` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `resources_scores_ibfk_1` FOREIGN KEY (`resourceId`) REFERENCES `resource` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `resources_scores_ibfk_1` FOREIGN KEY (`resourceId`) REFERENCES `resource` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `resources_scores_ibfk_2` FOREIGN KEY (`username`) REFERENCES `user` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `user`
+-- Limiti per la tabella `user`
 --
 ALTER TABLE `user`
   ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`degreeCourse`) REFERENCES `degreeCourse` (`name`);
+
+--
+-- Limiti per la tabella `users_scores`
+--
+ALTER TABLE `users_scores`
+  ADD CONSTRAINT `users_scores_ibfk_1` FOREIGN KEY (`username_voted`) REFERENCES `user` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `users_scores_ibfk_2` FOREIGN KEY (`username_voter`) REFERENCES `user` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

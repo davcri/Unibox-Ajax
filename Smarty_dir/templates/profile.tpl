@@ -4,23 +4,23 @@
 			<div class="col-md-8">
 				<table>
 					<tr>
-						<th>Username</th>
+						<th><h4>Username</h4></th>
 						<th>&nbsp<div id="userId">{$user->getUsername()}</div></th>
 					</tr>
 					<tr>
-						<th>Nome</th>
+						<th><h4>Nome</h4></th>
 						<th>&nbsp{$user->getName()}</th>
 					</tr>
 					<tr>
-						<th>cognome</th>
+						<th><h4>cognome</h4></th>
 						<th>&nbsp{$user->getSurname()}</th>
 					</tr>
 					<tr>
-						<th>E-mail</th>
+						<th><h4>E-mail</h4></th>
 						<th>&nbsp{$user->getEmail()}</th>
 					</tr>
 					<tr>
-						<th>Corso di laurea</th>
+						<th><h4>Corso di laurea</h4></th>
 						
 						<th>&nbsp{$user->getDegreeCourse()}</th>
 					</tr>
