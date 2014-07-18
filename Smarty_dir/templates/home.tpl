@@ -1,4 +1,4 @@
-<div id="mainContent" class="mainContent">
+<div id="mainContent" class="row mainContent">
 	<h1>Unibox</h1>
 	<p class="lead">Benvenuto sulla piattaforma di condivisione di appunti.</p>
 
@@ -22,7 +22,8 @@
 	</div>
 
 	<br>
-	<div>
+
+	<div class="col-md-12">
 		Questa applicazione web &egrave ancora in via di sviluppo, se trovi qualche bug o hai qualche suggerimento puoi contattarci via e-mail:
 		<br><br>
 		<address>
@@ -35,7 +36,13 @@
 		<address> <br> 	
 		Oppure se sei un programmatore e vuoi aiutarci con lo sviluppo puoi farlo visitando <a href="https://github.com/davcri/Unibox-Ajax">la pagina Github del progetto</a>
 	</div>
-</div>
 
+	<div id="mostActiveUsers" class="col-md-12">
+		<p> Gli utenti pi&ugrave attivi sul sito sono : </p>
+		{foreach $greatestUsers as $user}
+			<a href="index.php?controllerAction=profile&profileAction=getProfilePage&userProfile={$user->getUsername()}"> {$user->getName()}</a> <br> 
+		{/foreach}
+	</div>
+</div>
 
 <script src="Smarty_dir/templates/javascript/home.js"></script>

@@ -45,7 +45,12 @@ class Home
 		switch($controllerAction)
 		{
 			case 'home':
+				$x = new \Foundation\Resource();
+				$greatestUsers = $x->getMostActiveUsers();
+				$mainView->assign('greatestUsers', $greatestUsers);
+				
 				$mainView->display('home.tpl');
+				
 				break;
 				
 			case 'navigation':
@@ -91,6 +96,10 @@ class Home
 				break;
 				
 			default:
+				$x = new \Foundation\Resource();
+				$greatestUsers = $x->getMostActiveUsers();
+				$mainView->assign('greatestUsers', $greatestUsers);
+				
 				$mainView->display('main.tpl');
 				break;
 		}

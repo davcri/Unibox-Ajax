@@ -9,9 +9,12 @@
 
 namespace Foundation;
 
+use Entity\User;
+
 global $projectDirectory;
 require_once $projectDirectory.'/Classes/Foundation/Database.php';
 require_once $projectDirectory.'/Classes/Entity/Resource.php';
+require_once $projectDirectory.'/Classes/Entity/User.php';
 
 /**
  * 
@@ -124,7 +127,7 @@ class Resource extends Database
 			}
 		}
 		else
-		$resources = array(); //empty array
+			$resources = array(); //empty array
 	
 		return $resources;
 	}
@@ -309,7 +312,21 @@ class Resource extends Database
 		$query = "SELECT `uploaderUsername`, count(`uploaderUsername`) as 'uploadedResources' FROM `resource` WHERE 1 group by `uploaderUsername` order by `uploadedResources` DESC";
 		$result = $this->associativeArrayQuery($query);
 		
-		return $result;
+		$userDb = new \Foundation\User();
+		
+		if(!empty($result)) // if there is a match
+		{
+			foreach($result as $userRecord)
+			{
+				$users[] = $userDb->getByUsername($userRecord['uploaderUsername']);
+			}
+		}
+		else
+			$users = array(); //empty array
+		
+		//var_dump($users);
+		
+		return $users;
 	}
 }
 

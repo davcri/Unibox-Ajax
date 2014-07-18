@@ -19,7 +19,7 @@ function checkLogin(){
 		var password = $("#password").val();
 		var loginData = {"username":username, "password":password};
 
-		console.log($("#loginButton").off()); //prevent a bug when clicking quickly on loginButton (or pressing enter quickly)
+		$("#loginButton").off(); //prevent a bug when clicking quickly on loginButton (or pressing enter quickly)
 		
 		$.post("index.php?controllerAction=login", loginData, function(data){
 			if(data.statusCode==1){
@@ -51,7 +51,7 @@ function checkLogin(){
 				}			
 			}
 			else{
-				$("#loginButton").click(checkLogin); 
+			 	checkLogin(); // we need to restore the events handlers
 
 				changePage(data.content);
 			}
