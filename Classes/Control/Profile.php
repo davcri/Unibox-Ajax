@@ -124,12 +124,12 @@ class Profile
 			//return $user->usersVotation($username, $userLog, $vote);
 			$votation=$user->usersVotation($username, $userLog, $vote);
 			$reliabilityVotes = $user->getNumberOfReliabilityVotes($username);
-			print_r($reliabilityVotes);
+			//print_r($reliabilityVotes);
 			$user2=$user->getByUsername($username);
 			$user2->updateReliabilityScore($reliabilityVotes,$vote);
-			print_r($user2->getReliability());
+			//print_r($user2->getReliability());
 			$isUpdated=$user->updateReliabilityScore($username,$user2->getReliability());
-			return $isUpdated;
+			return $votation;
 		}
 		
 		

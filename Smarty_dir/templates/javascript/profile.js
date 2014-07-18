@@ -5,9 +5,6 @@ $(function(){
 	if($('#votato').size()){
 		var hasAlreadyVoted=$('#votato').html();
 		console.log(hasAlreadyVoted);
-	//console.log(hasAlreadyVoted);
-	//if (hasAlreadyVoted == true || hasAlreadyVoted == false){
-		//$('#votato').css('display','none');
 		if(hasAlreadyVoted==false){
 			var star=$(".glyphicon-star").size();
 
@@ -27,7 +24,7 @@ $(function(){
 				var actualVote=$(this).attr("id");
 				//var username=$('#userId').html();
 				if( confirm("sei sicuro di voler attribuire all'utente "+username+" il voto : "+actualVote)){
-					$.get("index.php?controllerAction=profile&profileAction=rateUser&userProfile="+username+"&vote="+actualVote, function(){
+					$.get("index.php?controllerAction=profile&profileAction=rateUser&userProfile="+username+"&vote="+actualVote, function(data){
 						alert(data);
 						$("#votazione").find("span").off();// in questo modo disabilito il mousover dopo che l'utente ha votato
 						$("#votazione").css('cursor', 'default'); 

@@ -81,7 +81,7 @@ class User extends Database
 				return 'ci sono stati dei problemi nella votazione';
 		}
 		else{
-			print_r('il voto non é valido');
+			return 'il voto non é valido';
 		}
 		
 				
