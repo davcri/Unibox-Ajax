@@ -64,6 +64,10 @@
 					  	Data di caricamento <span class="badge">{$resource->getUploadingDate()->format("d/m/y H:i:s")}</span>
 					</li>
 					<li class="list-group-item">
+						username <span class="badge" id="userLink"><a href="index.php?controllerAction=profile&profileAction=getProfilePage&userProfile={$resource->getUploaderUsername()}">{$resource->getUploaderUsername()}</a></span>
+					</li>
+
+					<li class="list-group-item">
 						<div class="text-center">
 							<a id="downloadLink" class="btn btn-success" href="{$resource->getPath()}" download><span class="glyphicon glyphicon-download"></span> Download link</a><br>
 							<label>Scarica questa risorsa !</label>	

@@ -1,6 +1,14 @@
 
 $(function(){
 	initializeTablesorter();
+	/*$('#linkUser').find("a").click(function(event)){
+		event.preventDefault;
+		var url = $(this).attr("href"); 
+				
+		$.get(url, function(data){
+			changePage(data);
+		}); 
+	});*/
 
 	$("#mainContainer").find("a").click(function(event) {
 		event.preventDefault();

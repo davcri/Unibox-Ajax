@@ -68,6 +68,7 @@ class Profile
 		else 
 		{
 			$userLog="";
+			
 			//$logged=false;
 		}
 		$userDb=new \Foundation\User();
@@ -81,17 +82,18 @@ class Profile
 		$view->assign('degreeCourse',$user->getDegreeCourse());
 		$view->assign('votazione',$user->getReliability());
 		if( $username != $userLog){
-			
-			$infoVote=$this->hasVoted($username,$userLog);
-			$view->assign('hasVoted',$infoVote );
-			$yourScore='Ecco il suo punteggio affidabilitá';
-			$wantToVote=true;
-		}
-		elseif ($userLog="")
-		{
+			if ($userLog=="")// controllo se l'utente non é loggato
+			{
+				$yourScore='Ecco il suo punteggio affidabilitá';
+				$wantToVote=false;
+			}
+			else{// siamo nel caso in cui un utente loggato vuole votare un altro utente
+				$infoVote=$this->hasVoted($username,$userLog);
+				$view->assign('hasVoted',$infoVote );
+				$yourScore='Ecco il suo punteggio affidabilitá';
+				$wantToVote=true;
+			}
 		
-			$yourScore='Ecco il suo punteggio affidabilitá';
-			$wantToVote=false;
 		}
 		else {
 			$wantToVote=false;
@@ -119,8 +121,17 @@ class Profile
 		$vote=$view->get('vote');
 		if(!$hasAlreadyRated){
 			//print_r('sto provando a caricare');
-			return $user->usersVotation($username, $userLog, $vote);
+			//return $user->usersVotation($username, $userLog, $vote);
+			$votation=$user->usersVotation($username, $userLog, $vote);
+			$reliabilityVotes = $user->getNumberOfReliabilityVotes($username);
+			//print_r($reliabilityVotes);
+			$user2=$user->getByUsername($username);
+			$user2->updateReliabilityScore($reliabilityVotes,$vote);
+			//print_r($user2->getReliability());
+			$isUpdated=$user->updateReliabilityScore($username,$user2->getReliability());
+			return $votation;
 		}
+		
 		
 	}
 	

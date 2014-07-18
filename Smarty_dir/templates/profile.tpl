@@ -33,10 +33,10 @@
 							<div class="hidden" id="votato">{$hasVoted}</div>
 						{/if}
 					Punteggio :
-					{$votazione=3}
+						{$user->getReliability()}
 					<br>
 							{for $i=1 to 5}
-								{if $votazione>=$i}
+								{if $user->getReliability()>=$i}
 									<span class="glyphicon glyphicon-star" id='{$i}'></span>
 								{else}
 									<span class="glyphicon glyphicon-star-empty" id='{$i}'></span>

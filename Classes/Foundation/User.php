@@ -81,14 +81,50 @@ class User extends Database
 				return 'ci sono stati dei problemi nella votazione';
 		}
 		else{
-			print_r('il voto non é valido');
+			return 'il voto non é valido';
 		}
 		
 				
 		
 		
  	}
+ 	/**
+ 	 * Gets the number of votes  of the reliability of a user.
+ 	 *
+ 	 * @param int $id The id of the resource.
+ 	 */
+ 	public function getNumberOfReliabilityVotes($username)
+ 	{
+ 		$select = "SELECT COUNT(`username_voted`) as `Number of votes`";
+ 		$from = "FROM `users_scores`";
+ 		$where = "WHERE `username_voted`='$username';";
  	
+ 		$query = $select." ".$from." ".$where;
+ 		$res = $this->associativeArrayQuery($query);
+ 	
+ 		return $res[0]['Number of votes'];
+ 	}
+ 	
+ 	/**
+ 	 * Updates reliability score of a useron the database.
+ 	 *
+ 	 * This method doesn't calculate the average. It should be called only after
+ 	 * Entity\Resource::updateQualityScore() and Entity\Resource::updateDifficultyScore().
+ 	 *
+ 	 * @param varchar $username
+ 	 * @param float $qualityScore
+ 	 * @param float $difficultyScore
+ 	 */
+ 	public function updateReliabilityScore($username, $reliabilityScore)
+ 	{
+ 		$updateReliability = "UPDATE `user` SET `reliability` = '$reliabilityScore' WHERE `user`.`username` = '$username';";
+ 	
+ 	
+ 		if ($this->query($updateReliability))
+ 			return true;
+ 		else
+ 			return false;
+ 	}
  	public function hasBeenRated($voted,$voter)
  	{
  		$select = "SELECT *";

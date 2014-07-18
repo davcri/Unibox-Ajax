@@ -67,10 +67,10 @@ class Home
 				break;
 				
 			case 'profile':
-			  	
 			  		$profile = new \Control\Profile();
 			  		$ajaxData=$profile->controlProfile();
 			  		print $ajaxData;
+			  		//break;
 	
 			  	break;
 				
