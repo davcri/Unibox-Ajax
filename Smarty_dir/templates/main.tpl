@@ -16,7 +16,7 @@
 <body>
 	<div class="container">
 		<div class="page-header">
-	  		<h1>Unibox <small> all you need it's me !</small></h1>
+	  		<span><img id="img" src="Smarty_dir/templates/img/logoBox2.jpg"></span> <span><div id="nameApp"><h1>Unibox <small> all you need it's me !</small></h1></div></span>
 		</div>
 			
 		<noscript>
@@ -42,7 +42,6 @@
 					{if $loggedIn}
 						<li id="profile"><a href="index.php?controllerAction=profile&profileAction=getProfilePage&userProfile={$username}">Profilo</a></li>
 					{/if}
-					<li id="prova"><a href="index.php?controllerAction=profile&profileAction=getProfilePage&userProfile=davcri">prova</a></li>
 				</ul>
 
 				{if !$loggedIn}
