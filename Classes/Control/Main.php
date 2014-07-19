@@ -49,7 +49,6 @@ class Main
 				$home = new \Control\Home();
 				$ajaxData = $home->controlHome();
 				print $ajaxData;
-				
 				break;
 				
 			case 'navigation':

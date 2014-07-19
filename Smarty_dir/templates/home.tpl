@@ -1,4 +1,4 @@
-<div id="mainContent" class="mainContent">
+<div id="mainContent" class="row mainContent">
 	<h1>Unibox</h1>
 	<p class="lead">Benvenuto sulla piattaforma di condivisione di appunti.</p>
 
@@ -21,7 +21,7 @@
 		</div>
 	</div>
 
-	<div id="mostActiveUsers">
+	<div id="mostActiveUsers" class="col-md-12">
 		<p> Gli utenti pi&ugrave attivi sul sito sono : </p>
 		{foreach $greatestUsers as $user}
 			<a href="index.php?controllerAction=profile&profileAction=getProfilePage&userProfile={$user->getUsername()}"> {$user->getName()}</a> <br> 			
@@ -30,12 +30,28 @@
 	<br> <br> <br>
 	</div>
 
+	<div class="col-md-12">
 
-	<div>
+						Questa applicazione web &egrave ancora in via di sviluppo, se trovi qualche bug o hai qualche suggerimento puoi contattarci via e-mail
+						<br>
+						oppure se sei un programmatore, puoi aiutarci nell'aggiungere alcune funzionalit&agrave o agiustare alcuni bugs, nel footer puoi trovare il link del progetto su github
+
 		<div class="alert alert-warning" role="alert">
 			Questa applicazione web &egrave ancora in via di sviluppo
 		</div>
-		se trovi qualche bug o hai qualche suggerimento puoi contattarci via e-mail:
+
+	</div>
+<!-- 	<div id="mostActiveUsers" class="col-md-12">
+		<p> Gli utenti pi&ugrave attivi sul sito sono : </p>
+		{foreach $greatestUsers as $user}
+			<a href="index.php?controllerAction=profile&profileAction=getProfilePage&userProfile={$user->getUsername()}"> {$user->getName()}</a> <br> 
+		{/foreach}
+	</div> -->
+
+</div>
+
+<script src="Smarty_dir/templates/javascript/home.js"></script>
+<!-- 		se trovi qualche bug o hai qualche suggerimento puoi contattarci via e-mail:
 		<br><br>
 		<address>
 	  		<strong>Davide Cristini</strong><br>

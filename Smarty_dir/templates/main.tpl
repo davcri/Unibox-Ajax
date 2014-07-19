@@ -4,6 +4,8 @@
 	<script src="Library/jquery-ui/js/jquery-1.10.2.js"></script>
 	<script src="Library/jquery-ui/js/jquery-ui-1.10.4.custom.js"></script>
 	<script src="Smarty_dir/templates/javascript/mainScript.js"></script>
+	<!--<script src="Smarty_dir/templates/javascript/home.js"></script>-->
+
 
 	<!-- <script src="Library/bootstrap-3.1.1-dist/js/bootstrap.js"></script> -->
 
@@ -16,7 +18,7 @@
 <body>
 	<div class="container">
 		<div class="page-header">
-	  		<span><img id="img" src="Smarty_dir/templates/img/logoBox2.jpg"></span> <span><div id="nameApp"><h1>Unibox <small> all you need it's me !</small></h1></div></span>
+	  		<span><img id="img" src="Smarty_dir/templates/img/logoBox2.jpg"></span> <span><div id="nameApp"><h1>Unibox<small> all you need it's me !</small></h1></div></span>
 		</div>
 			
 		<noscript>
@@ -60,11 +62,13 @@
 		<div id="footer" class="col-md-12 footer">
 			<div class="container-fluid">
 				<div class="col-md-4">
-					<p class="text-center">Chi siamo</p>
+					<div id="weAre"><p class="text-center">Chi siamo</p></div>
+
 				</div>
 
 				<div class="col-md-4">
 					<p class="text-center">About</p>
+					 <a href="https://github.com/davcri/Unibox-Ajax">la pagina Github del progetto</a>
 				</div>
 
 				<div class="col-md-4">
@@ -76,3 +80,4 @@
 	</div>
 </body>
 </html>
+
