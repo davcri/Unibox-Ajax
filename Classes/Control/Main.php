@@ -93,9 +93,6 @@ class Main
 				break;
 				
 			default:
-				/*$home = new \Control\Home();
-				print $home->controlHome();
-				*/
 				$resourceDb = new \Foundation\Resource();
 				$greatestUsers = $resourceDb->getMostActiveUsers();
 				$mainView->assign("greatestUsers",$greatestUsers);
