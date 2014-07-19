@@ -31,10 +31,8 @@
 			</tr>
 			</thead>
 			<tbody>
-				{foreach $resource as $res}
-					
-						{displayResource}					
-									
+				{foreach $resource as $res}	
+					{displayResource}					
 				{/foreach}
 			</tbody>
 		</table>	
