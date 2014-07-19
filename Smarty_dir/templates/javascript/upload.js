@@ -139,8 +139,8 @@ function handleUploadButton(btn, maxNameChars, maxDescriptionChars){
 		        xhr.upload.onprogress = function(evt){
 		        	var currentProgress = evt.loaded/evt.total*100; 
 		        	console.log(currentProgress);
-		        	$("#progressBar").css({"width": "100%"});
-		        	$("#progressBar").text(currentProgress);
+		        	$("#progressBar").css({"width": currentProgress+"%"});
+		        	$("#progressBar").text(Math.floor(currentProgress)+"%");
 		        	} ;
 		        
 		        // upload completed
@@ -149,14 +149,10 @@ function handleUploadButton(btn, maxNameChars, maxDescriptionChars){
 		        return xhr;
 		    }
 		})
-		.always(function(){
-			console.log("sono always");
-		})
 		.done(function(data){
-			setTimeout(function(){
+			setTimeout(function(){ // delay the change page to smooth the navigation
 				changePage(data);
-				console.log("Upload completato");
-			}, 1000);
+			}, 500);
 		});
 	});
 }
