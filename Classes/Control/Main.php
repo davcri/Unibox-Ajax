@@ -52,7 +52,6 @@ class Main
 				$mainView->display('home.tpl');
 				
 				break;
-				break;
 				
 			case 'navigation':
 				$navigation = new \Control\Navigation();	

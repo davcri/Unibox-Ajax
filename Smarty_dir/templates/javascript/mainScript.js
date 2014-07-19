@@ -17,25 +17,30 @@ function setNavbarBehaviour(){
 		ajaxChangePage(url);
 		toggleActivate($(this));
 	});
+	//infoFooter();
 
-	$("#footer").find("p").mouseover(function(){
-		$(this).append("<div class="col-md-4"> 
-				<p class="text-center">Chi siamo</p>
-				</div><address>
-					  		<strong>Davide Cristini</strong><br>
-					 		email : <a href="mailto:davcri91@gmail.com">davcri91@gmail.com</a>  
-					 	</address>
-					 	<address>
-					 		<strong>Filippo Reggimenti</strong><br>
-					 		email : <a href="mailto:reggimenti.filippo@gmail.com">reggimenti.filippo@gmail.com</a><br>
-						<address><br>");
-	});
 }
 
 
 //
 // Utility functions
 //
+// function infoFooter(){
+// 	$("#weAre").mouseover(function(event){
+// 		event.preventDefault;
+// 		$(#weAre).append("<br><br>
+// 		<address>
+// 	  		<strong>Davide Cristini</strong><br>
+// 	 		email : <a href="mailto:davcri91@gmail.com">davcri91@gmail.com</a>  
+// 	 	</address>
+// 	 	<address>
+// 	 		<strong>Filippo Reggimenti</strong><br>
+// 	 		email : <a href="mailto:reggimenti.filippo.com">reggimenti.filippo.com</a><br>
+// 		<address> <br> 	");
+// 	});
+
+// }
+
 function cookieCheck(){
 	if (!cookiesEnabled())
 		$("#cookieAlert").removeClass("hidden").show();
@@ -88,6 +93,7 @@ function ajaxChangePage(url)
 		changePage("Errore di connessione.");
 	});	
 }
+
 
 /*
 function userIsLogged()
