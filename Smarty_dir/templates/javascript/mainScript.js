@@ -1,5 +1,5 @@
 
-$(setNavbarBehaviour); // when the DOM is ready, run mainFunction()
+$(mainFunction); // when the DOM is ready, run mainFunction()
 
 var animationTime = 250;
 
@@ -17,7 +17,7 @@ function setNavbarBehaviour(){
 		ajaxChangePage(url);
 		toggleActivate($(this));
 	});
-	infoFooter();
+	//infoFooter();
 
 }
 
@@ -25,6 +25,11 @@ function setNavbarBehaviour(){
 //
 // Utility functions
 //
+/*
+1 - l'html non andrebbe mischiato nel javascript
+2 - c'è un errore di sintassi. Devi fare l'escape degli apici "" con lo slash altrimenti ti chiude la stringa.
+3- è più facile fare altre 3 pagine. Direi di creare altri tpl per quante pagine vogliamo. così è tutto più facile e ordinato
+
 function infoFooter(){
 	$("#weAre").mouseover(function(event){
 		event.preventDefault;
@@ -39,7 +44,7 @@ function infoFooter(){
 		<address> <br> 	");
 	});
 
-}
+}*/
 
 function cookieCheck(){
 	if (!cookiesEnabled())

@@ -32,9 +32,9 @@
 
 	<div class="col-md-12">
 
-						Questa applicazione web &egrave ancora in via di sviluppo, se trovi qualche bug o hai qualche suggerimento puoi contattarci via e-mail
-						<br>
-						oppure se sei un programmatore, puoi aiutarci nell'aggiungere alcune funzionalit&agrave o agiustare alcuni bugs, nel footer puoi trovare il link del progetto su github
+		Questa applicazione web &egrave ancora in via di sviluppo, se trovi qualche bug o hai qualche suggerimento puoi contattarci via e-mail
+		<br>
+		oppure se sei un programmatore, puoi aiutarci nell'aggiungere alcune funzionalit&agrave o agiustare alcuni bugs, nel footer puoi trovare il link del progetto su github
 
 		<div class="alert alert-warning" role="alert">
 			Questa applicazione web &egrave ancora in via di sviluppo
@@ -67,4 +67,4 @@
 
 </div>
 
-<script src="Smarty_dir/templates/javascript/home.js"></script>
+<script src="Smarty_dir/templates/javascript/home.js"></script> --!>
