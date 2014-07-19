@@ -250,6 +250,7 @@ class Upload
 		$category = $formData->get('category');
 		$degreeCourse = $formData->get('degreeCourse');
 		$description = $formData->get('description');
+		$uploadedFile = $formData->getFile('uploadedFile');
 		
 		$validate = false;		
 		
@@ -258,7 +259,7 @@ class Upload
 			!empty($category) && strlen($category) <= $this->maxCharsAllowed['category'] &&
 			!empty($degreeCourse) && strlen($degreeCourse) <= $this->maxCharsAllowed['degreeCourse'] &&
 			!empty($description) && strlen($description) <= $this->maxCharsAllowed['description'] &&
-			!empty($formData->getFile('uploadedFile')) )
+			!empty($uploadedFile))
 		{
 			$validate = true;
 		}
