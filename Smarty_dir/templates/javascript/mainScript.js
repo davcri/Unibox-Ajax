@@ -17,6 +17,19 @@ function setNavbarBehaviour(){
 		ajaxChangePage(url);
 		toggleActivate($(this));
 	});
+
+	$("#footer").find("p").mouseover(function(){
+		$(this).append("<div class="col-md-4"> 
+				<p class="text-center">Chi siamo</p>
+				</div><address>
+					  		<strong>Davide Cristini</strong><br>
+					 		email : <a href="mailto:davcri91@gmail.com">davcri91@gmail.com</a>  
+					 	</address>
+					 	<address>
+					 		<strong>Filippo Reggimenti</strong><br>
+					 		email : <a href="mailto:reggimenti.filippo@gmail.com">reggimenti.filippo@gmail.com</a><br>
+						<address><br>");
+	});
 }
 
 

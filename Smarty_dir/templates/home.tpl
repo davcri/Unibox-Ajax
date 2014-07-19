@@ -20,23 +20,11 @@
 			<p class="list-group-item-text">Aiutaci a migliorare il sito, caricando i file che ritieni utili oppure votando le risorse caricate dagli altri utenti</p>
 		</div>
 	</div>
-
-	<br>
-
 	<div class="col-md-12">
-		Questa applicazione web &egrave ancora in via di sviluppo, se trovi qualche bug o hai qualche suggerimento puoi contattarci via e-mail:
-		<br><br>
-		<address>
-	  		<strong>Davide Cristini</strong><br>
-	 		email : <a href="mailto:davcri91@gmail.com">davcri91@gmail.com</a>  
-	 	</address>
-	 	<address>
-	 		<strong>Filippo Reggimenti</strong><br>
-	 		email : <a href="mailto:reggimenti.filippo@gmail.com">reggimenti.filippo@gmail.com</a><br>
-		<address> <br> 	
-		Oppure se sei un programmatore e vuoi aiutarci con lo sviluppo puoi farlo visitando <a href="https://github.com/davcri/Unibox-Ajax">la pagina Github del progetto</a>
+						Questa applicazione web &egrave ancora in via di sviluppo, se trovi qualche bug o hai qualche suggerimento puoi contattarci via e-mail
+						<br>
+						oppure se sei un programmatore, puoi aiutarci nell'aggiungere alcune funzionalit&agrave o agiustare alcuni bugs, nel footer puoi trovare il link del progetto su github
 	</div>
-
 	<div id="mostActiveUsers" class="col-md-12">
 		<p> Gli utenti pi&ugrave attivi sul sito sono : </p>
 		{foreach $greatestUsers as $user}
