@@ -1,4 +1,4 @@
-<div id="mainContent" class="row mainContent">
+<div id="mainContent" class="mainContent">
 	<h1>Unibox</h1>
 	<p class="lead">Benvenuto sulla piattaforma di condivisione di appunti.</p>
 
@@ -21,7 +21,7 @@
 		</div>
 	</div>
 
-	<div id="mostActiveUsers" class="col-md-12">
+	<div id="mostActiveUsers">
 		<p> Gli utenti pi&ugrave attivi sul sito sono : </p>
 		{foreach $greatestUsers as $user}
 			<a href="index.php?controllerAction=profile&profileAction=getProfilePage&userProfile={$user->getUsername()}"> {$user->getName()}</a> <br> 			
@@ -31,7 +31,7 @@
 	</div>
 
 
-	<div class="col-md-12">
+	<div>
 		<div class="alert alert-warning" role="alert">
 			Questa applicazione web &egrave ancora in via di sviluppo
 		</div>

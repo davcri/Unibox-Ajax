@@ -101,7 +101,7 @@ function handleSurnameInput(submitBtn, formMaxChars){
 		if($(this).val().length==0){
 			$(this).parent().addClass("has-error");
 			submitBtn.attr("disabled","disabled");
-			surnameTooltip.text("Il nome non può essere vuoto").show("fade", animationTime);
+			surnameTooltip.text("Il cognome non può essere vuoto").show("fade", animationTime);
 		}
 		else if($(this).val().length > formMaxChars.surname){
 			$(this).parent().addClass("has-error");

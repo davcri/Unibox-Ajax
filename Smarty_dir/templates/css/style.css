@@ -10,6 +10,7 @@
 	background-color: #F5F5F5;
     box-shadow: 0px 3px 25px rgba(180, 180, 180, 1);
 }
+
 .page-header{
  height: 80px;
 }
@@ -19,11 +20,13 @@
 	width: 70px;
 	height: 70px;
 }
+
 #nameApp{
 	float: left;
 	margin-left: 20px;
 	width: 400px;
 }
+
 .myTooltip{
 	padding: 6px 12px;
 	margin-top: 26px;
@@ -50,29 +53,39 @@
 	position: relative;
 }*/
 
-
 .footer {
 	background-color: #1D1D1D;
 	color: #FFF;
+	border-radius: 6px;
 
 	/*position: absolute;
 	bottom: 0;
 	height: 80px;*/
 }
 
-.easyResource {
+#text {
+	font-size: 20px;
+}
 
+.difficultyLabel {
+	border-radius: 4px;
+}
+
+.easyResource {
+	background-color: #6FD16F;
 }
 
 .mediumResource {
-	
+	background-color: #EAD853;
 }
 
 .hardResource {
-
+	background-color: #C9302C;
 }
 
-/* From here starts the bootstrap ovverrides css */
+/* ------------------------------------------------*/
+/* From here starts the bootstrap ovverrides css   */
+/* ------------------------------------------------*/
 
 body{
     background-color:#F2F2F2;     
@@ -87,6 +100,7 @@ body{
 	background-color: #F8F8F8;
 	border: 1px solid #d8d8d8 ;
 }
-#text {
-	font-size: 20px;
-}
+
+/* ------------------------------------------------*/
+
+
