@@ -1,6 +1,6 @@
 
 {function name=displayRatingPanel visibility=true}
-	<div id="ratingPanel" class="panel panel-warning {if $visibility==0}hidden{/if}">
+	<div id="ratingPanel" class="panel panel-info {if $visibility==0}hidden{/if}">
 		<div class="panel-heading">Pannello per la votazione</div>
 	  	<div class="panel-body">			  		
 		  	<div class="col-md-2 center">
