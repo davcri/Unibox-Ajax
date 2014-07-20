@@ -55,9 +55,6 @@
 					    Dimensione <span class="badge">{$resource->getSize()} MB</span>
 					</li>
 					<li class="list-group-item">
-					  	Uploader <span class="badge">{$resource->getUploaderUsername()}</span>
-					</li>
-					<li class="list-group-item">
 					  	# Downloads <span id="downloadsCount" class="badge">{$resource->getDownloadsNumber()}</span>
 					</li>
 					<li class="list-group-item">

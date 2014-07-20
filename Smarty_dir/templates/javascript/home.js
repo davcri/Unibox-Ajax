@@ -17,4 +17,11 @@ $(function(){
 		event.preventDefault();
 		ajaxChangePage($(this).attr("href"));
 	});
+
+	// $("#footer").find("a").click(function(event){
+	// 		event.preventDefault();
+	// 		var url = $(this).attr("href"); 
+	// 		//console.log(url);
+	// 		ajaxChangePage(url);
+	// });
 });

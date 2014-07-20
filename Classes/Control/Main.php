@@ -13,6 +13,8 @@ require_once $projectDirectory.'/Classes/Control/Resource.php';
 require_once $projectDirectory.'/Classes/Control/Upload.php';
 require_once $projectDirectory.'/Classes/Control/Login.php';
 require_once $projectDirectory.'/Classes/Control/Profile.php';
+require_once $projectDirectory.'/Classes/Control/DevelopersPage.php';
+require_once $projectDirectory.'/Classes/Control/AboutPage.php';
 require_once $projectDirectory.'/Classes/Utility/Session.php';
 require_once $projectDirectory.'/Classes/Foundation/User.php';
 require_once $projectDirectory.'/Classes/Utility/Singleton.php';
@@ -50,7 +52,6 @@ class Main
 				$ajaxData = $home->controlHome();
 				print $ajaxData;
 				break;
-				
 			case 'navigation':
 				$navigation = new \Control\Navigation();	
 				$ajaxData=$navigation->controlNavigation();
@@ -92,6 +93,17 @@ class Main
 				print $ajaxData;
 				break;
 				
+			case 'getDevelopersPage':
+				$ourPage=new DevelopersPage();
+				$ajaxData=$ourPage->controlDevelopersPage();
+				print $ajaxData;
+				break;
+				
+			case 'getAboutPage':
+				$about=new AboutPage();
+				$ajaxData=$about->controlAboutPage();
+				print $ajaxData;
+				break;
 			default:
 				$resourceDb = new \Foundation\Resource();
 				$greatestUsers = $resourceDb->getMostActiveUsers();
