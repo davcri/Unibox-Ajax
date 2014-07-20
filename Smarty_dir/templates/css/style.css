@@ -83,8 +83,8 @@
 	background-color: #C9302C;
 }
 
-#progressBar {
-	/*margin-top: 50px;*/
+#progressBarContainer { 
+	margin-top: 50px;
 }
 
 /* ------------------------------------------------*/

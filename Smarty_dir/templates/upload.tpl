@@ -86,7 +86,7 @@
               </div>
               <div class="col-md-6">
               
-              <div class="progress">
+              <div id="progressBarContainer" class="progress">
                  <div id="progressBar" class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
                     0%
                  </div>
