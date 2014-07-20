@@ -10,26 +10,26 @@ ALTA
 
 - tasto "ricordami"
 
-+- installazione sito : quasi completata, manca il controllo versione di php 
+- Migliorare navigazione AJAX
+  |
+  | - supporto a storia e deep linking con : http://www.asual.com/jquery/address/ Mi sembra molto valido
+  | - feedback cambiamento pagina. Forse con : http://jquery.malsup.com/block/#overview. Mi sembra abbastanza buono
 
 MEDIA
 ----------------------------------------------------
 
-- Mettere sito online
-- navigazione AJAX con supporto a storia e deep linking
-- evidenziare difficoltà risorsa con colori
 
 - revisone codice PHP
   |
   | - phpDoc da completare
   | - creare una classe per gestire invio dati ajax
   | - cambiare il nome della class \View\Home in \View\Main ?
-  | - cambiare il nome della class \Control\Home in \Control\Main ?
+  | + cambiare il nome della class \Control\Home in \Control\Main ?
 
 - migliorare l'upload :
   |
   | - upload via drag 'n drop 
-  | - feedback sulla durata dell'upload
+  | + feedback sulla durata dell'upload
 
 - immagine profilo 
 
@@ -71,3 +71,7 @@ COMPLETATI
   | + upload client : FATTO (da rivedere solo il campo "descrizione") 
   | +- upload server : QUASI FATTO (da testare a fondo). Si devono aggiungere i limiti di lunghezza sui campi (per farlo bisogna prima
        fare un confronto con le lunghezze massime presenti nel database).
+
++ Mettere sito online
++ installazione sito : quasi completata, manca il controllo versione di php 
++ evidenziare difficoltà risorsa con colori
