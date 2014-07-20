@@ -15,9 +15,7 @@
 				<div class="hardResource difficultyLabel"> Difficile </div>
 			{/if}
 		</td>
-		
 		<td>{$res->getType()}</td>
-		<td>{$res->getUploaderUsername()}</td>
 		<td>{$res->getDownloadsNumber()}</td>
 		<td><div id="linkUser"><a href="index.php?controllerAction=profile&profileAction=getProfilePage&userProfile={$res->getUploaderUsername()}">{$res->getUploaderUsername()}</a></div></td>
 	</tr>				   
@@ -38,7 +36,7 @@
 		<table id="tableS" class="tablesorter">
 			<thead>
 			<tr>
-				<th>Nome</th> <th>Categoria</th> <th>Qualità</th> <th>Difficoltà</th> <th>Tipo</th> <th>Uploader</th> <th># Downloads</th><th>username</th>
+				<th>Nome</th> <th>Categoria</th> <th>Qualità</th> <th>Difficoltà</th> <th>Tipo</th> <th># Downloads</th><th>username</th>
 			</tr>
 			</thead>
 			<tbody>

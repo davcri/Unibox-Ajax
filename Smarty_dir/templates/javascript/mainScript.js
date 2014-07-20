@@ -6,6 +6,7 @@ var animationTime = 250;
 function mainFunction(){
 	cookieCheck();
 	setNavbarBehaviour();
+	setFooterBehaviour();
 
 	//ajaxLoadingMessage();
 }
@@ -17,12 +18,17 @@ function setNavbarBehaviour(){
 		ajaxChangePage(url);
 		toggleActivate($(this));
 	});
-	//infoFooter();
-
 }
 
+function setFooterBehaviour(){
+	$("#footer").find("a").click(function(event){
+			event.preventDefault();
+			var url = $(this).attr("href"); 
+			console.log(url);
+			ajaxChangePage(url);
+	});
+}
 
-//
 // Utility functions
 //
 /*

@@ -58,7 +58,6 @@
 					<th>Qualità</th>
 					<th>Difficoltà</th>
 					<th>Tipo</th>
-					<th>Uploader</th>
 					<th>#Downloads</th>
 				</thead>
 				{foreach $resource as $res}
@@ -68,7 +67,6 @@
 						<td>{$res->getQualityScore()}</td>
 						<td>{$res->getDifficultyScore()}</td>
 						<td>{$res->getType()}</td>
-						<td>{$res->getUploaderUsername()}</td>
 						<td>{$res->getDownloadsNumber()}</td>
 					</tr>		
 				{/foreach}

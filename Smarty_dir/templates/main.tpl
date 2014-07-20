@@ -62,7 +62,7 @@
 		<div id="footer" class="col-md-12 footer">
 			<div class="container-fluid">
 				<div class="col-md-4">
-					<div id="weAre"><p class="text-center">Chi siamo</p></div>
+					<a href="index.php?controllerAction=getDevelopersPage">Chi siamo</a>
 
 				</div>
 
