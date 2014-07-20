@@ -84,7 +84,7 @@ class Installer
 	
 	public function getForm($displayErrorMessage)
 	{	
-		$installPage = \Utility\Singleton::getInstance("\View\SmartyConfiguration");
+		$installPage = \Utility\Singleton::getInstance("\View\Home");
 		
 		if($displayErrorMessage)
 			$installPage->assign('allFieldsRequired_Error', true); //enable error message
@@ -123,10 +123,19 @@ class Installer
 		$templateContent =  file_get_contents($configFileTemplate);
 		$templateContent = "<?php\n".$templateContent;
 		
-		$processedTemplate = str_replace("your_user", "root", $templateContent);
-		$processedTemplate = str_replace("your_password", "1323", $processedTemplate);
-		$processedTemplate = str_replace("your_host", "localhost", $processedTemplate);
-		$processedTemplate = str_replace("your_database_name", "Unibox", $processedTemplate);
+		
+		$installPage = \Utility\Singleton::getInstance("\View\Home");
+		
+		$user = $installPage->get("user");
+		$password = $installPage->get("password");
+		$host = $installPage->get("host");
+		$database = $installPage->get("databaseName");
+		
+		
+		$processedTemplate = str_replace("your_user", $user, $templateContent);
+		$processedTemplate = str_replace("your_password", $password, $processedTemplate);
+		$processedTemplate = str_replace("your_host", $host, $processedTemplate);
+		$processedTemplate = str_replace("your_database_name", $database, $processedTemplate);
 		
 		$configFile = fopen($this->configurationDirectory."/"."databaseConfig.php", "w");
 		

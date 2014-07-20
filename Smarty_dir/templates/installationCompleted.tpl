@@ -13,11 +13,16 @@
 
 		<div id="mainContainer" class="col-md-12">
 							
-			<div class="jumbotron">
+			<div class="mainContent">
+				<br><br>
 				<div class="alert alert-success"> Installazione completata con successo <span class="glyphicon glyphicon-ok"></span></div>
 				<br>
-				<p>Dal prossimo accessso potrai utilizzare Unibox.</p>
+				<p> Dal prossimo accessso potrai utilizzare Unibox.</p>
 				<p> Se vuoi accedere al sito ti basta aggiornare la pagina premendo <kbd>F5</kbd></p>
+
+				<p> Se incontri problemi, controlla che il file <code>./Configuration Files/databaseConfig.php</code> contenga i valori corretti per la connessione al database. 
+				    Se vuoi ripetere l'installazione cancella <code>./Configuration Files/databaseConfig.php</code>
+				</p>
 			</div>	
 		
 	</div>
