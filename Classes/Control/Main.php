@@ -14,6 +14,7 @@ require_once $projectDirectory.'/Classes/Control/Upload.php';
 require_once $projectDirectory.'/Classes/Control/Login.php';
 require_once $projectDirectory.'/Classes/Control/Profile.php';
 require_once $projectDirectory.'/Classes/Control/DevelopersPage.php';
+require_once $projectDirectory.'/Classes/Control/AboutPage.php';
 require_once $projectDirectory.'/Classes/Utility/Session.php';
 require_once $projectDirectory.'/Classes/Foundation/User.php';
 require_once $projectDirectory.'/Classes/Utility/Singleton.php';
@@ -98,6 +99,11 @@ class Main
 				print $ajaxData;
 				break;
 				
+			case 'getAboutPage':
+				$about=new AboutPage();
+				$ajaxData=$about->controlAboutPage();
+				print $ajaxData;
+				break;
 			default:
 				$resourceDb = new \Foundation\Resource();
 				$greatestUsers = $resourceDb->getMostActiveUsers();
