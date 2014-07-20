@@ -2,23 +2,15 @@
 ALTA
 ----------------------------------------------------    
 
-Upload :
-  |
-  | - controlla che il campo [nome della risorsa]+[data y m d-h i s] non superi il numero di caratteri del nome presente nel database. 
-  | + gestire l'upload di 2 risorse con lo stesso nome (vengono caricate nel database ma sul file system vengono sovrascritte)
-
-
 - pagina risorse : 
   |
   | - fornire all'utente più dettagli sulla struttura della pagina (vedi pagina documentazione di tablesorter)
 
 - mettere in evidenza utenti più attivi nella home 
 
-- creare pagina "about"
-
 - tasto "ricordami"
 
-- installazione sito
++- installazione sito : quasi completata, manca il controllo versione di php 
 
 MEDIA
 ----------------------------------------------------
@@ -41,6 +33,11 @@ MEDIA
 
 - immagine profilo 
 
+Upload :
+  |
+  | - controlla che il campo [nome della risorsa]+[data y m d-h i s] non superi il numero di caratteri del nome presente nel database. 
+  | + gestire l'upload di 2 risorse con lo stesso nome (vengono caricate nel database ma sul file system vengono sovrascritte)
+
 BASSA
 ----------------------------------------------------
 
@@ -59,6 +56,7 @@ COMPLETATI
 + visualizzazione pdf 
 + implementare codice javascript per aggiornare il numero di downloads 
 
++ creare pagina "about"
 
 + pagina risorsa : 
   | 

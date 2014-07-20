@@ -28,8 +28,7 @@ class Installer
 	 * 
 	 * @var array
 	 */
-	private $projectDetails = array("phpVersion" => "5.5.9");
-	
+	private $projectDetails;
 	/**
 	 * Path to the directory that contains the configuration files.
 	 * 
@@ -50,8 +49,14 @@ class Installer
 	 * Gets informations about the server's software.
 	 */
 	public function __construct()
-	{
-		$this->serverDetails = array("phpVersion" => phpversion());
+	{	
+		$this->serverDetails = array("phpVersion" => phpversion(),
+									 "Server software" => $_SERVER["SERVER_SOFTWARE"],
+								     "Upload_max_filesize" => ini_get("upload_max_filesize"));
+		
+		$this->projectDetails = array("phpVersion" => "5.5.9",
+									  "Server software" => "Apache/2.4.7 (Unix) OpenSSL/1.0.1f PHP/5.5.9 mod_perl/2.0.8-dev Perl/v5.16.3",
+									  "Upload_max_filesize" => "128M");
 	}
 	
 	/**
