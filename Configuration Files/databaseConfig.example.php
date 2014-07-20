@@ -1,12 +1,7 @@
-<?php
-
-
-
-
 global $mysqlConfig;
 
-$mysqlConfig['user'] = 'root';
-$mysqlConfig['password'] = 'your password';
-$mysqlConfig['host'] = 'your host';
-$mysqlConfig['database'] = 'database name';
+$mysqlConfig['user'] = 'your_user';
+$mysqlConfig['password'] = 'your_password';
+$mysqlConfig['host'] = 'your_host';
+$mysqlConfig['database'] = 'your_database_name';
 

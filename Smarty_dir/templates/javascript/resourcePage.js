@@ -1,15 +1,7 @@
 
 $(function(){
-	/*$(span).find("a").click(function(event)){
-		event.preventDefault();
-
-		var url=$(this).attr("href");
-		$.get(url, function(data){
-			changePage(data);
-		});
-	});
-	*/
-	$(".list-group").find("a").click(function(event){		
+	
+	$("#userLink").find("a").click(function(event){		
 		event.preventDefault();
 		var url = $(this).attr("href"); 
 				
@@ -17,6 +9,7 @@ $(function(){
 			changePage(data);
 		});
 	});
+
 	$("#pathBar").find("a").click(function(event){		
 		event.preventDefault();
 

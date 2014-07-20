@@ -89,8 +89,7 @@
 /* From here starts the bootstrap ovverrides css   */
 /* ------------------------------------------------*/
 
-body{
-    background-color:#F2F2F2;     
+body{  
     height: 100%;
 }
 
