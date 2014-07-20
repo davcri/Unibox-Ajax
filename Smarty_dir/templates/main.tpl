@@ -63,15 +63,15 @@
 		<div id="footer" class="col-md-12 footer">
 			<div class="container-fluid">
 				<div class="col-md-4">
-					<a href="index.php?controllerAction=getDevelopersPage">Chi siamo</a>
+					<p class="text-center"><a href="index.php?controllerAction=getDevelopersPage">Chi siamo</a></p>
 				</div>
 
 				<div class="col-md-4">
-					<a href="index.php?controllerAction=getAboutPage">About</a>
+					<p class="text-center"><a href="index.php?controllerAction=getAboutPage">About</a></p>
 				</div>
 
 				<div class="col-md-4">
-					<p class="text-center">Copyright</p>
+					<p class="text-center">da decidere</p>
 				</div>
 			</div>
 		</div>

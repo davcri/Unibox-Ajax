@@ -46,7 +46,16 @@ class Installer
 		{
 			case "createConfigFile":
 				if ($this->formCompleted())
-					$this->createConfigFile();
+				{
+					if ($this->createConfigFile() == false) //error while creating the configuration file
+					{
+						print "error while creating the configuration file";						
+					}					
+					else
+					{
+						$installPage->display("installationCompleted.tpl");
+					}
+				}					
 				else
 				{
 					$this->getForm(true);
@@ -107,6 +116,8 @@ class Installer
 	
 	public function createConfigFile()
 	{
+		$confiFileCreated = false;
+		
 		$configFileTemplate = $this->configurationDirectory."/"."databaseConfig.example.php";
 		
 		$templateContent =  file_get_contents($configFileTemplate);
@@ -116,14 +127,19 @@ class Installer
 		$processedTemplate = str_replace("your_password", "1323", $processedTemplate);
 		$processedTemplate = str_replace("your_host", "localhost", $processedTemplate);
 		$processedTemplate = str_replace("your_database_name", "Unibox", $processedTemplate);
-
-		print $templateContent;
-		print "<br> <br>";
-		print $processedTemplate;
+		
+		$configFile = fopen($this->configurationDirectory."/"."databaseConfig.php", "w");
+		
+		if($configFile!=false)
+		{
+			fwrite($configFile, $processedTemplate);
+			fclose($configFile);
 			
-		$myfile = fopen($this->configurationDirectory."/"."databaseConfig.php", "w") or die("Unable to open file!");
-		fwrite($myfile, $processedTemplate);
-		fclose($myfile);
+			$confiFileCreated = true;
+		}
+		
+		
+		return $confiFileCreated;
 	}
 	
 	public function __toString()
