@@ -1,27 +1,33 @@
 <div id="developersPage">
 	<div id="mainContent" class="row mainContent">
-		<div class="divEsterno">
+		
 			<div class="row">
 				<div class="col-lg-6">
-					<img id="imgdev" src="Smarty_dir/templates/img/dav.png">
-					<ul class="list-group">
-						  <li class="list-group-item">Davide Cristini</li>
-						  <li class="list-group-item">Laurendo in Ingegneria Informatic</li>
-						  <li class="list-group-item">Universitá degli studi dell'Aquila</li>
+				 	<div class="divEsterno">
+						<div id="imgdev"><img  src="Smarty_dir/templates/img/dav.png"></div>
+						<div id="infoList">
+							<ul class="list-group">
+							  <li class="list-group-item">Davide Cristini</li>
+							  <li class="list-group-item">Laurendo in Ingegneria Informatic</li>
+							  <li class="list-group-item">Universitá degli studi dell'Aquila</li>
 
-						</ul>
-
+							</ul>
+						</div>
+					</div>
 				</div>
 				<div class="col-lg-6">
-						<img id="imgdev" src="Smarty_dir/templates/img/phil.png">
-						<ul class="list-group">
-						  <li class="list-group-item">Filippo Reggimenti</li>
-						  <li class="list-group-item">Laurendo in Ingegneria Informatica</li>
-						  <li class="list-group-item">Universitá degli studi dell'Aquila</li>
-						</ul>
+					<div class="divEsterno">
+						<div id="imgdev"><img  src="Smarty_dir/templates/img/phil.png"></div>
+						<div id="infoList">
+							<ul class="list-group">
+							  <li class="list-group-item">Filippo Reggimenti</li>
+							  <li class="list-group-item">Laurendo in Ingegneria Informatica</li>
+							  <li class="list-group-item">Universitá degli studi dell'Aquila</li>
+							</ul>
+						</div>
+					</div>	
 				</div>
 			</div>
-		</div>
 	</div>
 </div>
 

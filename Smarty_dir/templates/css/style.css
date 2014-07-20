@@ -122,13 +122,16 @@ body{
 /* ------------------------------------------------*/
 /* css per la pagina developersPage   					   */
 /* ------------------------------------------------*/
+.divEsterno{
+	float: left;
+}
 #imgdev{
 	width: 124px;
 	height: 170px;
 	float: left;
 	
 }
-.list-group{
+#infoList{
 	margin-left: 10px;
 	float: left;
 }
