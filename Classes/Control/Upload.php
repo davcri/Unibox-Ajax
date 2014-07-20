@@ -21,14 +21,14 @@ require_once $projectDirectory.'/Classes/Foundation/Subject.php';
 */
 class Upload
 {
+	private $resourcesFolderName = "Resources";
+	
 	/**
-	 * Relative path to the resource folder on the server file system. This isn't an absolute path but is relative to the server document root.
+	 * Relative path to the resource folder on the server file system. This isn't an absolute path but is relative to the @todo
 	 * 
 	 * @var string
 	 */
-	private $resourceDestinationPath;
-	
-
+	private $resourceDestinationPath ;
 	
 	private $maxCharsAllowed;
 	
@@ -37,7 +37,7 @@ class Upload
 	 */
 	public function __construct()
 	{	
-		$this->resourceDestinationPath = "./Resources";
+		$this->resourceDestinationPath = "./".$this->resourcesFolderName;
 		
 		$fileList = (scandir($this->resourceDestinationPath));
 		
@@ -57,7 +57,7 @@ class Upload
 	{
 		$mainView = \Utility\Singleton::getInstance("\View\Home");
 		$data = "";
-		
+				
 		switch($mainView->get('uploadAction'))
 		{
 			case 'getUploadPage' :
@@ -124,20 +124,25 @@ class Upload
 		$subj = $subjectDb->getByName_DegreeCourse($resourceDetail['subject'], $resourceDetail['degreeCourse']);
 		
 		if ($subj!=false) //if a subject was found
-		{				
-			$destination = $this->getValidResourceFilename($uploadedFile['name']); // this variable contains a valid filename string.
-			
+		{			
+			$newFileName = $this->getValidResourceFilename($uploadedFile['name']);
+			$destination = $this->resourceDestinationPath."/".$newFileName; // this variable contains a valid filename string.
+					
 			$session = \Utility\Singleton::getInstance("\Control\Session");
 			$username = $session->get("username");
 			
 			$currentDate = new \DateTime("now");
-			$resource = new \Entity\Resource(NULL,$resourceDetail['name'], $resourceDetail['category'], $subj->getCode(), $username, $uploadedFile['type'], 0, 0, $currentDate, 0, false, $destination, $resourceDetail['description']);
+			$pathRelativeToDocumentRoot = dirname($_SERVER['SCRIPT_NAME'])."/".$this->resourcesFolderName."/".$newFileName;
+			
+			print "<br><br>".$pathRelativeToDocumentRoot ;
+			
+			$resource = new \Entity\Resource(NULL,$resourceDetail['name'], $resourceDetail['category'], $subj->getCode(), $username, $uploadedFile['type'], 0, 0, $currentDate, 0, false, $pathRelativeToDocumentRoot, $resourceDetail['description']);
 			
 			if(move_uploaded_file($tmpUploadedFile, $destination))
 			{
 				chmod($destination, 0644); // all read permission given to the uploaded file. 				
 				
-				$resourceDb = new \Foundation\Resource($destination);
+				$resourceDb = new \Foundation\Resource();
 				
 				if($resourceDb->store($resource))
 				{
@@ -157,15 +162,13 @@ class Upload
 		else
 		{
 			$elaboratedForm->assign('problem', 'please check if the subject inserted is correct');
-			// no subject found
-			// we need to create it...maybe
 		}
 		
 		return $elaboratedForm->fetch('uploadCompleted.tpl');
 	}
 	
 	/**
-	 * Gets a valid filename (path+filename) where a resource can safely be stored. 
+	 * Gets a valid filename with which a resource can safely be stored. 
 	 * 
 	 * This method checks if the name already exists in the folder. In this case, 
 	 * it changes the name of the new file adding a timestamp to it.
@@ -193,16 +196,19 @@ class Upload
 				$fileName = pathinfo($uploadedFile, PATHINFO_FILENAME);
 				$fileExtension = pathinfo($uploadedFile, PATHINFO_EXTENSION);
 				
-				$newResourceName = $fileName.$currentDate->format("y_m_d-h_i_s").".".$fileExtension;
+				if(!empty($fileExtension))
+					$newResourceName = $fileName.$currentDate->format("y_m_d-h_i_s").".".$fileExtension;
+				else
+					$newResourceName = $fileName.$currentDate->format("y_m_d-h_i_s");
 			}							
 		}
 
 		if($nameConflicts)
 		{
-			$validFileName = $this->resourceDestinationPath."/".$newResourceName;
+			$validFileName = $newResourceName;
 		}
 		else
-			$validFileName = $this->resourceDestinationPath."/".$uploadedFile;
+			$validFileName = $uploadedFile;
 		
 		return $validFileName;
 	}
