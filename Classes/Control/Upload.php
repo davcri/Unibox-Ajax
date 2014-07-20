@@ -158,7 +158,7 @@ class Upload
 			}
 			else
 			{
-				//handle returns exceptions.
+				$elaboratedForm->assign('problem', "Error while moving the tmp_uploaded file from $tmpUploadedFile to $destination");
 			}
 		}
 		else
