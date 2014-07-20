@@ -107,8 +107,23 @@ class Installer
 	
 	public function createConfigFile()
 	{
-		print "work in progress";
-		//todo
+		$configFileTemplate = $this->configurationDirectory."/"."databaseConfig.example.php";
+		
+		$templateContent =  file_get_contents($configFileTemplate);
+		$templateContent = "<?php\n".$templateContent;
+		
+		$processedTemplate = str_replace("your_user", "root", $templateContent);
+		$processedTemplate = str_replace("your_password", "1323", $processedTemplate);
+		$processedTemplate = str_replace("your_host", "localhost", $processedTemplate);
+		$processedTemplate = str_replace("your_database_name", "Unibox", $processedTemplate);
+
+		print $templateContent;
+		print "<br> <br>";
+		print $processedTemplate;
+			
+		$myfile = fopen($this->configurationDirectory."/"."databaseConfig.php", "w") or die("Unable to open file!");
+		fwrite($myfile, $processedTemplate);
+		fclose($myfile);
 	}
 	
 	public function __toString()
