@@ -28,6 +28,8 @@ class Upload
 	 */
 	private $resourceDestinationPath;
 	
+
+	
 	private $maxCharsAllowed;
 	
 	/**
@@ -35,8 +37,9 @@ class Upload
 	 */
 	public function __construct()
 	{	
-		$this->resourceDestinationPath = dirname($_SERVER['SCRIPT_NAME']).'/Resources';
-		//$this->resourceDestinationPath = dirname($_SERVER['SCRIPT_FILENAME']).'/Resources';
+		$this->resourceDestinationPath = "./Resources";
+		
+		$fileList = (scandir($this->resourceDestinationPath));
 		
 		$this->maxCharsAllowed = array("name" => 30, 
 									   "description" => 150,
@@ -110,8 +113,6 @@ class Upload
 	 */
 	private function addNewResourceIntoDb()
 	{
-		//print dirname($_SERVER['SCRIPT_NAME']).'/Resources';
-		
 		$elaboratedForm = \Utility\Singleton::getInstance("\View\Home");
 		
 		$resourceDetail = $this->getUploadFormData();
@@ -124,21 +125,13 @@ class Upload
 		
 		if ($subj!=false) //if a subject was found
 		{				
-			$destination = $this->getValidResourceFilename($uploadedFile['name']); // this variable contains ?
-
+			$destination = $this->getValidResourceFilename($uploadedFile['name']); // this variable contains a valid filename string.
+			
 			$session = \Utility\Singleton::getInstance("\Control\Session");
 			$username = $session->get("username");
 			
 			$currentDate = new \DateTime("now");
 			$resource = new \Entity\Resource(NULL,$resourceDetail['name'], $resourceDetail['category'], $subj->getCode(), $username, $uploadedFile['type'], 0, 0, $currentDate, 0, false, $destination, $resourceDetail['description']);
-			
-			/* this should be useless now
-			 * 
-			 * // taking the absolute path to store the file. Because $this->resourceDestinationPath is relative to the server Document Root. 
-			   $destination = $_SERVER['DOCUMENT_ROOT'].$this->resourceDestinationPath;
-			*/
-			//$destination = $this->resourceDestinationPath;
-			$destination = $_SERVER['DOCUMENT_ROOT'].$destination;
 			
 			if(move_uploaded_file($tmpUploadedFile, $destination))
 			{
@@ -153,7 +146,7 @@ class Upload
 				}
 				else
 				{
-					$elaboratedForm->assign('problem','Error while storing the resource on the database');
+					$elaboratedForm->assign('problem', 'Error while storing the resource on the database');
 				}							
 			}
 			else
@@ -163,7 +156,7 @@ class Upload
 		}
 		else
 		{
-			$elaboratedForm->assign('problem','please check if the subject inserted is correct');
+			$elaboratedForm->assign('problem', 'please check if the subject inserted is correct');
 			// no subject found
 			// we need to create it...maybe
 		}
@@ -183,8 +176,7 @@ class Upload
 	 */
 	private function getValidResourceFilename($uploadedFile)
 	{
-		$absolutePathToResources = $_SERVER['DOCUMENT_ROOT'].$this->resourceDestinationPath;
-		$fileList = (scandir($absolutePathToResources));
+		$fileList = (scandir($this->resourceDestinationPath));
 
 		$nameConflicts = false; // this variable becomes true if two files with the same name
 							    // were found in $this->resourceDestinationPath
