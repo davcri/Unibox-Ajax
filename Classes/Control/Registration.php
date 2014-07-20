@@ -92,7 +92,10 @@ class Registration
 		$name = $elaboratedForm->get('nameUser');
 		$surname = $elaboratedForm->get('surname');
 		$username = $elaboratedForm->get('username');
-		$password = password_hash($elaboratedForm->get('password'), PASSWORD_DEFAULT);
+		
+		// NOT SUPPORTED IN PHP 5.3.x
+		//$password = password_hash($elaboratedForm->get('password'), PASSWORD_DEFAULT);
+		$password = md5($elaboratedForm->get('password'));
 		$email = $elaboratedForm->get('email');
 		$degreeCourse = $elaboratedForm->get('degreeCourse');
 		

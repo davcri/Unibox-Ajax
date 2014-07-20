@@ -3,7 +3,7 @@
 	<br>
 	
 	{if $problem}
-		$problem
+		{$problem}
 	{else}
 		<p>La risorsa è stata caricata.</p>
 	{/if}	

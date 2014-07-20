@@ -109,6 +109,8 @@ function handleDescriptionInput(uploadBtn, maxNameChars, maxDescriptionChars){
 
 function handleUploadButton(btn, maxNameChars, maxDescriptionChars){
 
+	//$("#progressBar").hide();
+
 	$("#uploadForm").change(function(){			
 		if(isFormCompleted(maxNameChars, maxDescriptionChars)){
 			btn.removeAttr("disabled");
@@ -129,9 +131,28 @@ function handleUploadButton(btn, maxNameChars, maxDescriptionChars){
 			type: 'POST',
 			data: formData,
 			processData: false,
-			contentType: false
-		}).done(function(data){
-			changePage(data);
+			contentType: false,
+			xhr: function(){
+		        // get the native XmlHttpRequest object
+		        var xhr = $.ajaxSettings.xhr() ;
+		        
+		        xhr.upload.onprogress = function(evt){
+		        	var currentProgress = evt.loaded/evt.total*100; 
+		        	console.log(currentProgress);
+		        	$("#progressBar").css({"width": currentProgress+"%"});
+		        	$("#progressBar").text(Math.floor(currentProgress)+"%");
+		        	} ;
+		        
+		        // upload completed
+		        xhr.upload.onload = function(){ console.log('DONE!'); } ;
+		      
+		        return xhr;
+		    }
+		})
+		.done(function(data){
+			setTimeout(function(){ // delay the change page to smooth the navigation
+				changePage(data);
+			}, 500);
 		});
 	});
 }

@@ -81,6 +81,10 @@
 	background-color: #C9302C;
 }
 
+#progressBarContainer { 
+	margin-top: 50px;
+}
+
 /* ------------------------------------------------*/
 /* From here starts the bootstrap ovverrides css   */
 /* ------------------------------------------------*/

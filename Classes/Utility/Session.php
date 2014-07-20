@@ -149,12 +149,14 @@ class Session
 	 * @param string $username
 	 * @param string $password
 	 */
-	public function validate($username,$password)
+	public function validate($username, $password)
 	{
 		$userDb = new \Foundation\User();
 		$user = $userDb->getByUsername($username);
-			
-		if($user!=false && password_verify($password, $user->getPassword())) // If exists a user and the password matches
+
+		//NOT SUPPORTED IN PHP 5.3.x
+		//if($user!=false && password_verify($password, $user->getPassword()))
+		if($user!=false && md5($password) == $user->getPassword()) // If exists a user and the password matches
 		{
 			$validity = true;
 		}

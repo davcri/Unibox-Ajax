@@ -61,6 +61,6 @@ function initializeTablesorter(){
       	widthFixed: true,
       	widgets: ['zebra','filter']
 	})
-	.tablesorterPager(pagerOptions).show("fade",animationTime+500);
+	.tablesorterPager(pagerOptions).show("fade",animationTime+100);
 	//.tablesorterPager(pagerOptions).delay(500).show("slide",animationTime+500);
 }
