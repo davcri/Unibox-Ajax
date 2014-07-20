@@ -166,5 +166,3 @@ class Session
 		return $validity;
 	}					
 }
-
-?>
