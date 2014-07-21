@@ -134,8 +134,6 @@ class Upload
 			$currentDate = new \DateTime("now");
 			$pathRelativeToDocumentRoot = dirname($_SERVER['SCRIPT_NAME'])."/".$this->resourcesFolderName."/".$newFileName;
 			
-			print "<br><br>".$pathRelativeToDocumentRoot ;
-			
 			$resource = new \Entity\Resource(NULL,$resourceDetail['name'], $resourceDetail['category'], $subj->getCode(), $username, $uploadedFile['type'], 0, 0, $currentDate, 0, false, $pathRelativeToDocumentRoot, $resourceDetail['description']);
 			
 			if(move_uploaded_file($tmpUploadedFile, $destination))
@@ -236,7 +234,7 @@ class Upload
 	/**
 	 * Validates the input data from the upload form page.
 	 * 
-	 * @todo add controls on string length and max file size
+	 * @todo add controls on max file size
 	 * @return boolean True if the form is valid, false otherwise
 	 */
 	private function validateFormInputData()
