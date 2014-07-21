@@ -79,7 +79,14 @@ function ajaxChangePage(url)
 {	
 	$('#mainContainer').block();
 
-	$.get(url, function(data){
+	/*$.get(url, function(data){
+		$('#mainContainer').unblock();
+		changePage(data);
+	})*/
+	
+	
+	$.get(url)
+	.done(function(data){
 		$('#mainContainer').unblock();
 		changePage(data);
 	})
