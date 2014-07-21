@@ -77,11 +77,25 @@ function disableNavbarLinksDefault(){
 
 function ajaxChangePage(url)
 {	
+	$('#mainContainer').block();
+
 	$.get(url, function(data){
+		$('#mainContainer').unblock();
 		changePage(data);
 	})
 	.fail(function(){
-		changePage("Errore di connessione.");
+
+		/* block is a function of blockUI library */
+        $('#mainContainer').block({ 
+            message: '<h3>Errore di connessione</h3>', 
+            css: { border: '1px solid #000' } 
+        }); 
+        
+        $('body').click(function() { 
+            $('#mainContainer').unblock(); /* unblock is a function of blockUI library */
+        }); 
+
+		//changePage("Errore di connessione.");
 	});	
 }
 

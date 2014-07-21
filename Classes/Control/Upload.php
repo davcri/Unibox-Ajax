@@ -99,7 +99,8 @@ class Upload
 		$degreeCourses = $degreeCourseDb->getDegreeCourses();
 
 		$uploadPage = \Utility\Singleton::getInstance("\View\Home");
-		$uploadPage->assign("degreeCourses",$degreeCourses);
+		$uploadPage->assign("degreeCourses", $degreeCourses);
+		$uploadPage->assign("maxFileSize", ini_get("upload_max_filesize"));
 				
 		//$uploadPage->display("upload.tpl");
 		return $uploadPage->fetch("upload.tpl");

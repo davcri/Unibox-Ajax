@@ -4,6 +4,7 @@
 	<script src="Library/jquery-ui/js/jquery-1.10.2.js"></script>
 	<script src="Library/jquery-ui/js/jquery-ui-1.10.4.custom.js"></script>
 	<script src="Smarty_dir/templates/javascript/mainScript.js"></script>
+	<script src="Library/jquery.blockUI.js"></script>
 	<!--<script src="Smarty_dir/templates/javascript/home.js"></script>-->
 
 

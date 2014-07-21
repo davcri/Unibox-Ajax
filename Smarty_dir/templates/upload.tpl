@@ -79,6 +79,7 @@
               <div class="col-md-6">
                  <div class="form-group">
                     <p class="help-block">Seleziona il file da caricare</p>
+                    <p> Non puoi caricare file più grandi di <span id="maxFileSize"><b>{$maxFileSize}</span>B</b> per limiti del server.</p>
                     <label>File input</label>
                     <input type="file" id="inputFile" name="uploadedFile">
                  </div>
