@@ -7,11 +7,11 @@
 namespace Control;
 
 global $projectDirectory;
-require_once $projectDirectory.'/Classes/View/Main.php';
-require_once $projectDirectory.'/Classes/Foundation/Resource.php';
-require_once $projectDirectory.'/Classes/Entity/Resource.php';
-require_once $projectDirectory.'/Classes/Foundation/Subject.php';
-require_once $projectDirectory.'/Classes/Utility/Singleton.php';
+require_once './Classes/View/Main.php';
+require_once './Classes/Foundation/Resource.php';
+require_once './Classes/Entity/Resource.php';
+require_once './Classes/Foundation/Subject.php';
+require_once './Classes/Utility/Singleton.php';
 
 
 /**
@@ -85,13 +85,14 @@ class Navigation
 	public function chooseSubject()
 	{
 		// this should be removed and replaced with $view = \Utility\Singleton::getInstance('\View\Home');
-		$navigation=new \View\Navigation();		
-		$degreeCourse=$navigation->getCourseDegree();
-			
-		$subjectsList=$this->processSubjectList($degreeCourse);
-		$navigation->setSubjectList($subjectsList,$degreeCourse);
+		$mainView = \Utility\Singleton::getInstance('\View\Main');		
+		$degreeCourse=$mainView->get('degreeCourse');
 		
-		$mainView = \Utility\Singleton::getInstance('\View\Main');
+		
+		$subjectsList=$this->processSubjectList($degreeCourse);
+		
+		//$mainView->assign('content_navigation_sidebar', $subjectsList);
+		$mainView->assign('degreeCourse',$degreeCourse);
 		$mainView->assign('degreeCourse',$degreeCourse);
 		$mainView->assign('subjects',$subjectsList);
 		

@@ -1,9 +1,9 @@
 <?php
 
 namespace Control;
-require_once $projectDirectory.'/Classes/View/Main.php';
-require_once $projectDirectory.'/Classes/Utility/Session.php';
-require_once $projectDirectory.'/Classes/Utility/Singleton.php';
+require_once './Classes/View/Main.php';
+require_once './Classes/Utility/Session.php';
+require_once './Classes/Utility/Singleton.php';
 
 class Login
 {

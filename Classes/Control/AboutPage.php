@@ -6,11 +6,11 @@
  */
 namespace Control;
 
-require_once $projectDirectory.'/Classes/View/Main.php';
-require_once $projectDirectory.'/Classes/Control/Upload.php';
-require_once $projectDirectory.'/Classes/Control/Navigation.php';
-require_once $projectDirectory.'/Classes/Utility/Session.php';
-require_once $projectDirectory.'/Classes/Foundation/User.php';
+require_once './Classes/View/Main.php';
+require_once './Classes/Control/Upload.php';
+require_once './Classes/Control/Navigation.php';
+require_once './Classes/Utility/Session.php';
+require_once './Classes/Foundation/User.php';
 
 /**
  *is the about's page controller, every request passes through it

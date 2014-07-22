@@ -6,18 +6,18 @@
  */
 namespace Control;
 
-require_once $projectDirectory.'/Classes/View/Main.php';
-require_once $projectDirectory.'/Classes/Control/Home.php';
-require_once $projectDirectory.'/Classes/Control/Navigation.php';
-require_once $projectDirectory.'/Classes/Control/Resource.php';
-require_once $projectDirectory.'/Classes/Control/Upload.php';
-require_once $projectDirectory.'/Classes/Control/Login.php';
-require_once $projectDirectory.'/Classes/Control/Profile.php';
-require_once $projectDirectory.'/Classes/Control/DevelopersPage.php';
-require_once $projectDirectory.'/Classes/Control/AboutPage.php';
-require_once $projectDirectory.'/Classes/Utility/Session.php';
-require_once $projectDirectory.'/Classes/Foundation/User.php';
-require_once $projectDirectory.'/Classes/Utility/Singleton.php';
+require_once './Classes/View/Main.php';
+require_once './Classes/Control/Home.php';
+require_once './Classes/Control/Navigation.php';
+require_once './Classes/Control/Resource.php';
+require_once './Classes/Control/Upload.php';
+require_once './Classes/Control/Login.php';
+require_once './Classes/Control/Profile.php';
+require_once './Classes/Control/DevelopersPage.php';
+require_once './Classes/Control/AboutPage.php';
+require_once './Classes/Utility/Session.php';
+require_once './Classes/Foundation/User.php';
+require_once './Classes/Utility/Singleton.php';
 
 /**
  *is the main project controller, every request passes through it
