@@ -7,9 +7,9 @@
 namespace Control;
 
 use Utility\Singleton;
-require_once $projectDirectory.'/Classes/View/Main.php';
-require_once $projectDirectory.'/Classes/Foundation/Resource.php';
-require_once $projectDirectory.'/Classes/Foundation/Subject.php';
+require_once './Classes/View/Main.php';
+require_once './Classes/Foundation/Resource.php';
+require_once './Classes/Foundation/Subject.php';
 
 /**
  * Handles the AJAX requests of the resource page.

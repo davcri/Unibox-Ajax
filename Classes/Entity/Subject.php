@@ -6,7 +6,6 @@
 
 namespace Entity;
 
-//use Control\DegreeCourse;
 
 /**
  * Enter description here ...

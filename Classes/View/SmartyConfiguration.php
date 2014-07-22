@@ -7,8 +7,8 @@
  */
 namespace View;	
 
-require_once $projectDirectory.'/Library/Smarty-3.1.17/Smarty.class.php';
-require_once $projectDirectory.'/Configuration Files/smartyConfig.php';
+require_once './Library/Smarty-3.1.17/Smarty.class.php';
+require_once './Configuration Files/smartyConfig.php';
 
 /**
  * 

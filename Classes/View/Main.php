@@ -6,7 +6,7 @@
  */
 namespace View;
 
-require_once $projectDirectory.'/Classes/View/SmartyConfiguration.php';
+require_once './Classes/View/SmartyConfiguration.php';
 
 class Main extends \View\SmartyConfiguration
 {

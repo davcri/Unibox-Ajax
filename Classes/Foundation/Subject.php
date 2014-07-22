@@ -2,10 +2,10 @@
 	
 namespace Foundation;
 
-global $projectDirectory;
 
-require_once $projectDirectory.'/Classes/Foundation/Database.php';
-require_once $projectDirectory.'/Classes/Entity/Subject.php';
+
+require_once './Classes/Foundation/Database.php';
+require_once './Classes/Entity/Subject.php';
 
 class Subject extends Database
 {

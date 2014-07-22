@@ -11,10 +11,10 @@ namespace Foundation;
 
 use Entity\User;
 
-global $projectDirectory;
-require_once $projectDirectory.'/Classes/Foundation/Database.php';
-require_once $projectDirectory.'/Classes/Entity/Resource.php';
-require_once $projectDirectory.'/Classes/Entity/User.php';
+
+require_once './Classes/Foundation/Database.php';
+require_once './Classes/Entity/Resource.php';
+require_once './Classes/Entity/User.php';
 
 /**
  * 

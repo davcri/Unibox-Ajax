@@ -7,7 +7,7 @@
 
 namespace Control;
 
-require_once $projectDirectory.'/Classes/Foundation/User.php';
+require_once './Classes/Foundation/User.php';
 
 /**
  * Utility class used to handle login and logout using PHP sessions. For details : http://www.php.net/manual/en/intro.session.php

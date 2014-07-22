@@ -6,13 +6,13 @@
 
 namespace Control;
 
-global $projectDirectory;
-require_once $projectDirectory.'/Classes/View/Main.php';
-require_once $projectDirectory.'/Classes/Foundation/Resource.php';
-require_once $projectDirectory.'/Classes/Entity/Resource.php';
-require_once $projectDirectory.'/Classes/Foundation/Subject.php';
-require_once $projectDirectory.'/Classes/Utility/Singleton.php';
-require_once $projectDirectory.'/Classes/Foundation/User.php';
+
+require_once './Classes/View/Main.php';
+require_once './Classes/Foundation/Resource.php';
+require_once './Classes/Entity/Resource.php';
+require_once './Classes/Foundation/Subject.php';
+require_once './Classes/Utility/Singleton.php';
+require_once './Classes/Foundation/User.php';
 
 /**
  * it is the profile control class,
