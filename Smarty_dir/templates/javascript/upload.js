@@ -178,9 +178,17 @@ function isFormCompleted(maxNameChars, maxDescriptionChars){
 
 	var maxFileSize = $("#maxFileSize").text(); // get the max file size in Mega Bytes
 	maxFileSize = parseInt(maxFileSize); 
+	
+	if($("#inputFile").prop("files").length==0) // if no file is selected
+		var uploadedFileSize=0;
+	else
+	{
+		var uploadedFileSize = $("#inputFile").prop("files")[0].size;
+		uploadedFileSize = uploadedFileSize/(1000*1000); // uploadedFileSize in Mega Bytes	
+	}
 
-	var uploadedFileSize = $("#inputFile").prop("files")[0].size;
-	uploadedFileSize = uploadedFileSize/(1000*1000); // uploadedFileSize in Mega Bytes
+
+	
 
 	if($("#name").val().length > 0 &&
 	   $("#name").val().length <= maxNameChars && 
