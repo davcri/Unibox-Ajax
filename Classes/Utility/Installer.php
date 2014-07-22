@@ -75,18 +75,25 @@ class Installer
 			case "createConfigFile":
 				if ($this->formCompleted())
 				{
-					if ($this->createConfigFile() == false) //error while creating the configuration file
+					if($this->testConfig())
 					{
-						$installPage_Result = "Error while creating the configuration file";						
-					}					
+						if ($this->createConfigFile() == false) // if error occurred on creating the configuration file
+						{
+							$installPage_Result = "Error while creating the configuration file";
+						}
+						else
+						{
+							$installPage_Result = $installPage->fetch("installationCompleted.tpl");
+						}						
+					}
 					else
 					{
-						$installPage_Result = $installPage->fetch("installationCompleted.tpl");
-					}
+						$installPage_Result = $this->getForm("La configurazione immessa non &egrave valida");
+					}					
 				}					
 				else
 				{
-					$installPage_Result = $this->getForm(true);
+					$installPage_Result = $this->getForm("Tutti i campi sono obbligatori");
 				}
 				
 				break;
@@ -124,14 +131,12 @@ class Installer
 	 * @param bool $displayErrorMessage
 	 * @return string Rendered template.
 	 */
-	public function getForm($displayErrorMessage)
+	public function getForm($errorMessage)
 	{	
 		$installPage = \Utility\Singleton::getInstance("\View\Home");
 		
-		if($displayErrorMessage)
-			$installPage->assign('allFieldsRequired_Error', true); //enable error message
-		else
-			$installPage->assign('allFieldsRequired_Error', false); //disable error message
+		//if(!empty($errorMessage))
+			$installPage->assign('errorMessage', $errorMessage); //enable error message
 		
 		$installPage->assign("projectDetails", $this->projectDetails);
 		$installPage->assign("serverDetails", $this->serverDetails);
@@ -226,5 +231,19 @@ class Installer
 		{
 			print "$key => $value <br>";
 		}
+	}
+	
+	public function testConfig()
+	{		
+		$installPage = \Utility\Singleton::getInstance("\View\Home");
+		
+		$user = $installPage->get("user");
+		$password = $installPage->get("password");
+		$host = $installPage->get("host");
+		$database = $installPage->get("databaseName");
+		
+		$db = new \mysqli($host, $user, $password, $database);
+		
+		return $db->ping();		
 	}
 }

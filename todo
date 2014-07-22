@@ -22,6 +22,7 @@ MEDIA
 - revisone codice PHP
   |
   | - phpDoc da completare
+  | - rimuovere $projectDirectory ?
   | - creare una classe per gestire invio dati ajax
   | - cambiare il nome della class \View\Home in \View\Main ?
   | + cambiare il nome della class \Control\Home in \Control\Main ?
