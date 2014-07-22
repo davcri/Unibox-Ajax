@@ -1,7 +1,7 @@
 <?php
 
 namespace Control;
-
+require_once $projectDirectory.'/Classes/View/Main.php';
 require_once $projectDirectory.'/Classes/Utility/Session.php';
 require_once $projectDirectory.'/Classes/Utility/Singleton.php';
 
@@ -9,7 +9,7 @@ class Login
 {
 	public function __construct()
 	{
-		$mainView = \Utility\Singleton::getInstance("\View\Home");
+		$mainView = \Utility\Singleton::getInstance("\View\Main");
 		$user = \Utility\Singleton::getInstance("\Control\Session");
 		
 		$username = $mainView->getUsername();

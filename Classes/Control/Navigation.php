@@ -7,8 +7,7 @@
 namespace Control;
 
 global $projectDirectory;
-
-require_once $projectDirectory.'/Classes/View/Navigation.php';
+require_once $projectDirectory.'/Classes/View/Main.php';
 require_once $projectDirectory.'/Classes/Foundation/Resource.php';
 require_once $projectDirectory.'/Classes/Entity/Resource.php';
 require_once $projectDirectory.'/Classes/Foundation/Subject.php';
@@ -34,7 +33,7 @@ class Navigation
 	 */
 	public function controlNavigation()
 	{
-		$navigationPage = \Utility\Singleton::getInstance('\View\Home');
+		$navigationPage = \Utility\Singleton::getInstance('\View\Main');
 		$data="";
 		switch($navigationPage->get('navigationAction'))
 		{
@@ -70,7 +69,7 @@ class Navigation
 		$db = new \Foundation\DegreeCourse();
 		$degreeCourses = $db->getDegreeCourses();
 		
-		$view = \Utility\Singleton::getInstance('\View\Home');
+		$view = \Utility\Singleton::getInstance('\View\Main');
 		$view->assign('degreeCourses',$degreeCourses);
 		
 		$resourceDb = new \Foundation\Resource();
@@ -92,7 +91,7 @@ class Navigation
 		$subjectsList=$this->processSubjectList($degreeCourse);
 		$navigation->setSubjectList($subjectsList,$degreeCourse);
 		
-		$mainView = \Utility\Singleton::getInstance('\View\Home');
+		$mainView = \Utility\Singleton::getInstance('\View\Main');
 		$mainView->assign('degreeCourse',$degreeCourse);
 		$mainView->assign('subjects',$subjectsList);
 		
@@ -109,7 +108,7 @@ class Navigation
 	public function handleNavigation()
 	{	
 		$resource = new \Foundation\Resource();
-		$view = \Utility\Singleton::getInstance("\View\Home");
+		$view = \Utility\Singleton::getInstance("\View\Main");
 		
 		$selectedSubject = $view->get("subject"); //ritorna l'id della materia
 		$allResources = $resource->getResourcesBySubjectCode($selectedSubject);

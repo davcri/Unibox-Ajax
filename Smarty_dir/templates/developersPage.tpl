@@ -4,12 +4,13 @@
 			<div class="row">
 				<div class="col-lg-6">
 				 	<div class="divEsterno">
-						<div id="imgdev"><img  src="Smarty_dir/templates/img/dav.png"></div>
+						<div id="imgdev"><img id="imgdev"  src="Smarty_dir/templates/img/dav.png"></div>
 						<div id="infoList">
 							<ul class="list-group">
 							  <li class="list-group-item">Davide Cristini</li>
-							  <li class="list-group-item">Laurendo in Ingegneria Informatic</li>
+							  <li class="list-group-item">Laurendo in Ingegneria Informatica</li>
 							  <li class="list-group-item">Universitá degli studi dell'Aquila</li>
+							  <li class="list-group-item"><address><a href="mailto:davcri91@gmail.com">davcri91@gmail.com</a></address></li>
 
 							</ul>
 						</div>
@@ -17,12 +18,13 @@
 				</div>
 				<div class="col-lg-6">
 					<div class="divEsterno">
-						<div id="imgdev"><img  src="Smarty_dir/templates/img/phil.png"></div>
+						<div id="imgdev"><img id="imgdev" src="Smarty_dir/templates/img/phil.png"></div>
 						<div id="infoList">
 							<ul class="list-group">
 							  <li class="list-group-item">Filippo Reggimenti</li>
 							  <li class="list-group-item">Laurendo in Ingegneria Informatica</li>
 							  <li class="list-group-item">Universitá degli studi dell'Aquila</li>
+							  <li class="list-group-item"><address><a href="mailto:reggimenti.filippo@gmail.com">reggimenti.filippo@gmail.com</a></address></li>
 							</ul>
 						</div>
 					</div>	

@@ -7,8 +7,7 @@
 namespace Control;
 
 global $projectDirectory;
-
-require_once $projectDirectory.'/Classes/View/Navigation.php';
+require_once $projectDirectory.'/Classes/View/Main.php';
 require_once $projectDirectory.'/Classes/Foundation/Resource.php';
 require_once $projectDirectory.'/Classes/Entity/Resource.php';
 require_once $projectDirectory.'/Classes/Foundation/Subject.php';
@@ -28,7 +27,7 @@ class Profile
 	}
 	
 	public function controlProfile(){
-		$profilePage = \Utility\Singleton::getInstance('\View\Home');
+		$profilePage = \Utility\Singleton::getInstance('\View\Main');
 		$data="";
 		
 		switch($profilePage->get('profileAction'))
@@ -52,7 +51,7 @@ class Profile
 	}
 	
 	public function setProfileInformation(){
-		$view = \Utility\Singleton::getInstance("\View\Home");
+		$view = \Utility\Singleton::getInstance("\View\Main");
 		$username=$view->get('userProfile');
 		$this->setUserInformations($view,$username);
 		$this->setResourcesUploaded($view,$username);
@@ -114,7 +113,7 @@ class Profile
 		$userSession = \Utility\Singleton::getInstance("\Control\Session");
 		$userLog=$userSession->get('username');
 		$user=new \Foundation\User();
-		$view = \Utility\Singleton::getInstance("\View\Home");
+		$view = \Utility\Singleton::getInstance("\View\Main");
 		$username=$view->get('userProfile');
 		//print_r($username);
 		$hasAlreadyRated=$this->hasVoted($username,$userLog);

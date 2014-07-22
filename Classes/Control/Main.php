@@ -6,7 +6,7 @@
  */
 namespace Control;
 
-require_once $projectDirectory.'/Classes/View/Home.php';
+require_once $projectDirectory.'/Classes/View/Main.php';
 require_once $projectDirectory.'/Classes/Control/Home.php';
 require_once $projectDirectory.'/Classes/Control/Navigation.php';
 require_once $projectDirectory.'/Classes/Control/Resource.php';
@@ -33,7 +33,7 @@ class Main
 	public function __construct()
 	{		
 		$userSession = \Utility\Singleton::getInstance("\Control\Session");
-		$mainView = \Utility\Singleton::getInstance("\View\Home");
+		$mainView = \Utility\Singleton::getInstance("\View\Main");
 		
 		if ($userSession->isLoggedIn())
 		{

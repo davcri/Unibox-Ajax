@@ -6,7 +6,7 @@
 
 namespace Utility;
 
-require_once './Classes/View/Home.php';
+require_once './Classes/View/Main.php';
 require_once './Classes/Utility/Singleton.php';
 
 /**
@@ -66,7 +66,7 @@ class Installer
 	 */
 	public function handleInstallation()
 	{
-		$installPage = \Utility\Singleton::getInstance("\View\Home");
+		$installPage = \Utility\Singleton::getInstance("\View\Main");
 		
 		$installPage_Result = "";
 		
@@ -133,7 +133,7 @@ class Installer
 	 */
 	public function getForm($errorMessage)
 	{	
-		$installPage = \Utility\Singleton::getInstance("\View\Home");
+		$installPage = \Utility\Singleton::getInstance("\View\Main");
 		
 		//if(!empty($errorMessage))
 			$installPage->assign('errorMessage', $errorMessage); //enable error message
@@ -155,7 +155,7 @@ class Installer
 	{
 		$formCompleted = false;
 		
-		$installPage = \Utility\Singleton::getInstance("\View\Home");
+		$installPage = \Utility\Singleton::getInstance("\View\Main");
 		
 		$user = $installPage->get("user");
 		$passw = $installPage->get("password");
@@ -185,7 +185,7 @@ class Installer
 		$templateContent = "<?php\n".$templateContent;
 		
 		
-		$installPage = \Utility\Singleton::getInstance("\View\Home");
+		$installPage = \Utility\Singleton::getInstance("\View\Main");
 		
 		$user = $installPage->get("user");
 		$password = $installPage->get("password");

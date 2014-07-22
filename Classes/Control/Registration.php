@@ -5,11 +5,8 @@
  */
 
 namespace Control;
-
-global $projectDirectory;
-require_once $projectDirectory.'/Classes/View/Registration.php';
-require_once $projectDirectory.'/Classes/View/Navigation.php';
 //require_once $projectDirectory.'/Classes/Entity/Resource.php';
+require_once $projectDirectory.'/Classes/View/Main.php';
 require_once $projectDirectory.'/Classes/Foundation/Subject.php';
 require_once $projectDirectory.'/Classes/Foundation/DegreeCourse.php';
 
@@ -42,7 +39,7 @@ class Registration
 	 */
 	public function handleRegistration()
 	{
-		$mainView = \Utility\Singleton::getInstance("\View\Home");
+		$mainView = \Utility\Singleton::getInstance("\View\Main");
 		
 		switch($mainView->get('registrationAction'))
 		{
@@ -71,7 +68,7 @@ class Registration
 	 */
 	public function getRegistrationForm()
 	{		
-		$registrationPage = \Utility\Singleton::getInstance("\View\Home");
+		$registrationPage = \Utility\Singleton::getInstance("\View\Main");
 		$degreeCourseDb = new \Foundation\DegreeCourse();
 		$degreeCourses = $degreeCourseDb->getDegreeCourses();
 		$registrationPage->assign('degreeCourses',$degreeCourses);
@@ -87,7 +84,7 @@ class Registration
 	 */
 	public function addNewUser()
 	{
-		$elaboratedForm = \Utility\Singleton::getInstance("\View\Home");
+		$elaboratedForm = \Utility\Singleton::getInstance("\View\Main");
 		
 		$name = $elaboratedForm->get('nameUser');
 		$surname = $elaboratedForm->get('surname');
@@ -132,7 +129,7 @@ class Registration
 	private function validateRegistrationFormData()
 	{
 		$valid = false;
-		$registrationForm = \Utility\Singleton::getInstance('\View\Home');
+		$registrationForm = \Utility\Singleton::getInstance('\View\Main');
 		
 		$name = $registrationForm->get('nameUser');
 		$surname = $registrationForm->get('surname');

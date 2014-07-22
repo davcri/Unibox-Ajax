@@ -30,7 +30,13 @@ function checkLogin(){
 					$('#navigationBar').append(data.profile);
 					
 					disableNavbarLinksDefault();
-					$('#profile').click(ajaxChangePage);
+
+					$('#profile').find("a").click(function(){
+						var url = $(this).attr("href"); 
+						ajaxChangePage(url);
+						console.log($(this).parent());
+						toggleActivate($(this).parent());
+					});
 
 					$(this).show(animationTime);
 				});

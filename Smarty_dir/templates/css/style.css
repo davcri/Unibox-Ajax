@@ -110,16 +110,17 @@ body{
 
 
 /* ------------------------------------------------*/
-/* css per la pagina del profilo 					   */
+/* css per la pagina del profilo 				   */
 /* ------------------------------------------------*/
 #votazione{
 	font-size: 50px;
+	width: 310px;
 }
 /* ------------------------------------------------*/
 
 
 /* ------------------------------------------------*/
-/* css per la pagina developersPage   					   */
+/* css per la pagina developersPage   			   */
 /* ------------------------------------------------*/
 .divEsterno{
 	float: left;

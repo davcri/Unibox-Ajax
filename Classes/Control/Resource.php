@@ -7,7 +7,7 @@
 namespace Control;
 
 use Utility\Singleton;
-
+require_once $projectDirectory.'/Classes/View/Main.php';
 require_once $projectDirectory.'/Classes/Foundation/Resource.php';
 require_once $projectDirectory.'/Classes/Foundation/Subject.php';
 
@@ -34,7 +34,7 @@ class Resource
 	 */
 	public function controlResource()
 	{
-		$resourcePage = \Utility\Singleton::getInstance('\View\Home');
+		$resourcePage = \Utility\Singleton::getInstance('\View\Main');
 		
 		switch($resourcePage->get('resourceAction'))
 		{
@@ -70,7 +70,7 @@ class Resource
 	 */
 	private function setTplVariables()
 	{
-		$resourcePage = \Utility\Singleton::getInstance('\View\Home');		
+		$resourcePage = \Utility\Singleton::getInstance('\View\Main');		
 		$resourceId = $resourcePage->get('resourceId');
 		$degreeCourse = $resourcePage->get('degreeCourse');
 		
@@ -131,7 +131,7 @@ class Resource
 	
 	private function incrementDownloads()
 	{
-		$resourcePage = \Utility\Singleton::getInstance('\View\Home');
+		$resourcePage = \Utility\Singleton::getInstance('\View\Main');
 		$resourceId = $resourcePage->get("resourceId");
 		$resourceDb = new \Foundation\Resource();
 		$resource = $resourceDb->getById($resourceId);
