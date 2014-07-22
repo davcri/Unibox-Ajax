@@ -9,8 +9,8 @@
 namespace Foundation;
 
 // Loading of the configuration file.
-global $projectDirectory;
-require_once $projectDirectory.'/Configuration Files/databaseConfig.php';
+
+require_once './Configuration Files/databaseConfig.php';
 
 /**
  * 

@@ -7,7 +7,7 @@
 
 namespace Control;
 
-global $projectDirectory;
+
 require_once './Classes/View/Main.php';
 require_once './Classes/Control/Registration.php';
 require_once './Classes/Entity/Resource.php';

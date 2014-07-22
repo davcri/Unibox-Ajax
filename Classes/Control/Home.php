@@ -5,7 +5,7 @@
  *
  */
 namespace Control;
-require_once $projectDirectory.'/Classes/View/Main.php';
+require_once './Classes/View/Main.php';
 
 class Home
 {

@@ -5,7 +5,7 @@
  */
 
 namespace Control;
-//require_once $projectDirectory.'/Classes/Entity/Resource.php';
+
 require_once './Classes/View/Main.php';
 require_once './Classes/Foundation/Subject.php';
 require_once './Classes/Foundation/DegreeCourse.php';

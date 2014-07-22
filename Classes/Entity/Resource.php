@@ -9,9 +9,9 @@
 
 namespace Entity;
 
-global $projectDirectory;
 
-require_once $projectDirectory."/Classes/Foundation/Resource.php";
+
+require_once "./Classes/Foundation/Resource.php";
 
 /**
  * This class models a resource. 
