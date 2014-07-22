@@ -2,44 +2,41 @@
 ALTA
 ----------------------------------------------------    
 
-Upload :
-  |
-  | - controlla che il campo [nome della risorsa]+[data y m d-h i s] non superi il numero di caratteri del nome presente nel database. 
-  | + gestire l'upload di 2 risorse con lo stesso nome (vengono caricate nel database ma sul file system vengono sovrascritte)
-
-
 - pagina risorse : 
   |
   | - fornire all'utente più dettagli sulla struttura della pagina (vedi pagina documentazione di tablesorter)
 
 - mettere in evidenza utenti più attivi nella home 
 
-- creare pagina "about"
-
 - tasto "ricordami"
 
-- installazione sito
+- Migliorare navigazione AJAX
+  |
+  | - supporto a storia e deep linking con : http://www.asual.com/jquery/address/ Mi sembra molto valido
+  | +- feedback cambiamento pagina. Forse con : http://jquery.malsup.com/block/#overview. Mi sembra abbastanza buono
+
 
 MEDIA
 ----------------------------------------------------
-
-- Mettere sito online
-- navigazione AJAX con supporto a storia e deep linking
-- evidenziare difficoltà risorsa con colori
 
 - revisone codice PHP
   |
   | - phpDoc da completare
   | - creare una classe per gestire invio dati ajax
   | - cambiare il nome della class \View\Home in \View\Main ?
-  | - cambiare il nome della class \Control\Home in \Control\Main ?
+  | + cambiare il nome della class \Control\Home in \Control\Main ?
 
 - migliorare l'upload :
   |
   | - upload via drag 'n drop 
-  | - feedback sulla durata dell'upload
+  | + feedback sulla durata dell'upload
 
 - immagine profilo 
+
+Upload :
+  |
+  | - controlla che il campo [nome della risorsa]+[data y m d-h i s] non superi il numero di caratteri del nome presente nel database. 
+  | + gestire l'upload di 2 risorse con lo stesso nome (vengono caricate nel database ma sul file system vengono sovrascritte)
 
 BASSA
 ----------------------------------------------------
@@ -59,6 +56,7 @@ COMPLETATI
 + visualizzazione pdf 
 + implementare codice javascript per aggiornare il numero di downloads 
 
++ creare pagina "about"
 
 + pagina risorsa : 
   | 
@@ -73,3 +71,7 @@ COMPLETATI
   | + upload client : FATTO (da rivedere solo il campo "descrizione") 
   | +- upload server : QUASI FATTO (da testare a fondo). Si devono aggiungere i limiti di lunghezza sui campi (per farlo bisogna prima
        fare un confronto con le lunghezze massime presenti nel database).
+
++ Mettere sito online
++ installazione sito : quasi completata, manca il controllo versione di php 
++ evidenziare difficoltà risorsa con colori

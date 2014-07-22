@@ -1,3 +1,4 @@
+// TODO metti le variabili dentro un JSON
 
 $(function(){
 
@@ -12,6 +13,7 @@ $(function(){
 	handleNameInput(uploadButton, maxNameChars, maxDescriptionChars);
 	handleSubjectInput();
 	handleDescriptionInput(uploadButton, maxNameChars, maxDescriptionChars); 
+	handleUploadInput(uploadButton, maxNameChars, maxDescriptionChars);
 
 	handleUploadButton(uploadButton, maxNameChars, maxDescriptionChars);	
 });
@@ -107,6 +109,21 @@ function handleDescriptionInput(uploadBtn, maxNameChars, maxDescriptionChars){
 	});
 }
 
+function handleUploadInput(btn, maxNameChars, maxDescriptionChars){ 
+	$("#inputFile").change(function(){
+		var maxFileSize = $("#maxFileSize").text(); // get the max file size in Mega Bytes
+		maxFileSize = parseInt(maxFileSize); 
+
+		var uploadedFileSize = $("#inputFile").prop("files")[0].size;
+		uploadedFileSize = uploadedFileSize/(1000*1000); // uploadedFileSize in Mega Bytes
+
+		if(uploadedFileSize > maxFileSize)
+		{
+			$.growlUI('Errore', 'File troppo grande'); 
+		}
+	})
+}
+
 function handleUploadButton(btn, maxNameChars, maxDescriptionChars){
 
 	//$("#progressBar").hide();
@@ -159,6 +176,12 @@ function handleUploadButton(btn, maxNameChars, maxDescriptionChars){
 
 function isFormCompleted(maxNameChars, maxDescriptionChars){
 
+	var maxFileSize = $("#maxFileSize").text(); // get the max file size in Mega Bytes
+	maxFileSize = parseInt(maxFileSize); 
+
+	var uploadedFileSize = $("#inputFile").prop("files")[0].size;
+	uploadedFileSize = uploadedFileSize/(1000*1000); // uploadedFileSize in Mega Bytes
+
 	if($("#name").val().length > 0 &&
 	   $("#name").val().length <= maxNameChars && 
        $("#category").val().length!=0 && 
@@ -166,8 +189,9 @@ function isFormCompleted(maxNameChars, maxDescriptionChars){
 	   $("#subject").val().length!=0 &&
 	   $("#description").val().length!=0 &&
 	   $("#description").val().length <= maxDescriptionChars &&
-	   $("#inputFile").val().length!=0 &&  	   	   // if a file is selected
-	   $("#inputFile").prop("files")[0].size > 0)  // and it isn't empty
+	   $("#inputFile").val().length!=0 && // if a file is selected
+	   uploadedFileSize > 0 && // and it isn't empty
+	   uploadedFileSize < maxFileSize)  
 	{
 		return true;
 	}

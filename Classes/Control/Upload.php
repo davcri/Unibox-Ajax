@@ -99,7 +99,8 @@ class Upload
 		$degreeCourses = $degreeCourseDb->getDegreeCourses();
 
 		$uploadPage = \Utility\Singleton::getInstance("\View\Home");
-		$uploadPage->assign("degreeCourses",$degreeCourses);
+		$uploadPage->assign("degreeCourses", $degreeCourses);
+		$uploadPage->assign("maxFileSize", ini_get("upload_max_filesize"));
 				
 		//$uploadPage->display("upload.tpl");
 		return $uploadPage->fetch("upload.tpl");
@@ -133,8 +134,6 @@ class Upload
 			
 			$currentDate = new \DateTime("now");
 			$pathRelativeToDocumentRoot = dirname($_SERVER['SCRIPT_NAME'])."/".$this->resourcesFolderName."/".$newFileName;
-			
-			print "<br><br>".$pathRelativeToDocumentRoot ;
 			
 			$resource = new \Entity\Resource(NULL,$resourceDetail['name'], $resourceDetail['category'], $subj->getCode(), $username, $uploadedFile['type'], 0, 0, $currentDate, 0, false, $pathRelativeToDocumentRoot, $resourceDetail['description']);
 			
@@ -236,7 +235,7 @@ class Upload
 	/**
 	 * Validates the input data from the upload form page.
 	 * 
-	 * @todo add controls on string length and max file size
+	 * @todo add controls on max file size
 	 * @return boolean True if the form is valid, false otherwise
 	 */
 	private function validateFormInputData()

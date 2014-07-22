@@ -13,29 +13,15 @@
 
 		<div id="mainContainer" class="col-md-12">
 			<div class="mainContent row">
-				<div class="col-md-6">
-					<p class="lead"> Dettagli del server </p>				
-					{foreach $serverDetails as $key=>$val}
-						{$key} => {$val} <br>
-					{/foreach}
-				</div>
-				
-				<div class="col-md-6">
-					<p class="lead"> Dettagli del progetto </p>				
-					{foreach $projectDetails as $key=>$val}
-						{$key} => {$val} <br>
-					{/foreach}
-				</div>
-
 				<div class="col-md-12">
 					<br> <br> 
-					<hr>
 					<p class="lead"> Configurazione</p>
 					<p> Prima di utilizzare questa applicazione web configura le impostazioni di connessione al database : </p>
 				</div>
 
+				<div class="col-md-4">
 				<form action="index.php?installAction=createConfigFile" method="POST">
-					<div class="col-md-4">
+					
 						
 						<div class="form-group">
 					    	<label>User</label>
@@ -66,10 +52,57 @@
 						<!-- <button id="submitButton" type="submit" class="btn btn-success">Invia configurazione</button> -->
 					</div>
 				</form>
+
 				
+				
+				<div class="col-md-12">
+					<br> <hr>
+
+					<div class="alert alert-info">
+						<p> Di seguito viene riportata una tabella comparativa tra le tecnologie utilizzate in fase di sviluppo di Unibox
+						    e quelle trovate sul server su cui si sta installando l'applicazione.</p>
+						<p> Se sul server c'&egrave qualche versione molto differente da quelle utilizzate in fase di sviluppo,
+						    l'applicazione potrebbe non funzionare correttamente.</p>	
+					</div>
+
+					<table class="table">
+						<thead>
+						<th>
+							
+						</th>
+						{foreach $serverDetails as $key=>$val}
+							<th>
+								{$key}
+							</th>
+						{/foreach}
+						</thead>
+						
+						<tbody>
+						<tr>
+							<td>
+								<b>Server</b>
+							</td>
+							{foreach $serverDetails as $key=>$val}
+								<td>
+									{$val}	
+								</td>
+							{/foreach}	
+						</tr>
+						<tr>
+							<td>
+								<b>Unibox</b>
+							</td>
+							{foreach $projectDetails as $key=>$val}
+								<td>
+									{$val}	
+								</td>
+							{/foreach}
+						</tr>							
+						</tbody>
+					</table>	
+				</div>						
 			<div>			
-		</div>	
-		
+		</div>			
 	</div>
 </body>
 </html>
