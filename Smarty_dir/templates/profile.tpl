@@ -28,13 +28,10 @@
 			</div>
 			<div class="col-md-4">
 				<div id="votazione">
-					<div id="text">{$yourScore}</div>
+					<div id="text"><h2>{$yourScore}:</h2></div>
 					{if $wantToVote}
 						<div class="hidden" id="votato">{$hasVoted}</div>
 					{/if}
-					Punteggio :
-						{$user->getReliability()}
-					<br>
 					{for $i=1 to 5}
 						{if $user->getReliability()>=$i}
 							<span class="glyphicon glyphicon-star" id='{$i}'></span>
