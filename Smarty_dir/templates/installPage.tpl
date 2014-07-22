@@ -44,9 +44,9 @@
 						  	
 						</div>
 						
-						{if $allFieldsRequired_Error}
-							<div class="alert alert-danger">Riempi tutti i campi prima di inviare la form ! </div>
-						{/if}
+					
+							<div class="alert alert-danger">{$errorMessage}</div>
+						
 						
 						<input type="submit" value="Submit">
 						<!-- <button id="submitButton" type="submit" class="btn btn-success">Invia configurazione</button> -->
