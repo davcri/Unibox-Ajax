@@ -73,25 +73,25 @@ class Installer
 		switch($installPage->get("installAction"))
 		{
 			case "createConfigFile":
-				if ($this->formCompleted())
+				if ($this->formCompleted()) // if all fields are inserted
 				{
-					if($this->testConfig())
+					if($this->testConfig()) // if the connection parameters are correct
 					{
 						if ($this->createConfigFile() == false) // if error occurred on creating the configuration file
 						{
 							$installPage_Result = "Error while creating the configuration file";
 						}
-						else
+						else // everything ok
 						{
 							$installPage_Result = $installPage->fetch("installationCompleted.tpl");
 						}						
 					}
-					else
+					else // bad configuration 
 					{
 						$installPage_Result = $this->getForm("La configurazione immessa non &egrave valida");
 					}					
 				}					
-				else
+				else // some input form field is empty
 				{
 					$installPage_Result = $this->getForm("Tutti i campi sono obbligatori");
 				}

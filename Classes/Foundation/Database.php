@@ -16,7 +16,7 @@ require_once $projectDirectory.'/Configuration Files/databaseConfig.php';
  * 
  * Handles the connection to the mysql database, extending the php's mysqli class.
  * 
- * @todo Exceptions handling (try/catch blocks)
+ * @todo This class depends on databaseConfig.php. It is correct ? 
  */
 class Database extends \mysqli
 {
@@ -68,46 +68,10 @@ class Database extends \mysqli
 		return $returnArray;
 	}
 	
-	/**
-	 * 
-	 * Stores an object in a databaseTable. 
-	 *  
-	 * This function is very useful but has a drawback : To use this function correctly there must be a one to one correspondence between the object properties and the 
-	 * table field names. Moreover the object must have a method called getProperties() that returns an associative array containing the 
-	 * couples "key=>value".
-	 * 
-	 * @param object $object An object that has a public getProperties() method.
-	 * @param string $databaseTable The table on which the $object will be stored.
-	 * @return mixed 
-	 * @todo Doesn't work actually
-	 */
-	/*public function store($object,$databaseTable)
+	public function installDatabase($sqlScript)
 	{
-		$values='';
-		$fields='';
-		$arr = $object->getProperties();
-		$i=0;
-		
-		foreach ($arr as $key=>$value) 
-		{						
-			if ($i==0) 
-			{
-				$fields.='`'.$key.'`';
-				$values.='\''.$value.'\'';
-			} 
-			else 
-			{
-				$fields.=', `'.$key.'`';
-				$values.=', \''.$value.'\'';
-			}
-			$i++;
-		}
-				
-		$query='INSERT INTO '."`".$databaseTable."`".'('.$fields.') VALUES ('.$values.')';
-		print $query ;
-		
-		return $this->query($query);
-	}*/
+		$this->multi_query($query);
+	}
 	
 	/**
 	 * 
