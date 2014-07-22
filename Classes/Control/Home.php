@@ -21,6 +21,9 @@ class Home
 		$resourceDb = new \Foundation\Resource();
 		$greatestUsers = $resourceDb->getMostActiveUsers();
 		
+		$greatestResources=$resourceDb->getMostDownloaded();
+
+		$mainView->assign('greatestResources',$greatestResources);
 		$mainView->assign('greatestUsers', $greatestUsers);
 		return $mainView->fetch('home.tpl');
 	}

@@ -107,6 +107,10 @@ class Main
 			default:
 				$resourceDb = new \Foundation\Resource();
 				$greatestUsers = $resourceDb->getMostActiveUsers();
+				
+				$greatestResources=$resourceDb->getMostDownloaded();
+				
+				$mainView->assign('greatestResources',$greatestResources);
 				$mainView->assign("greatestUsers",$greatestUsers);
 				$mainView->display("main.tpl");
 				break;

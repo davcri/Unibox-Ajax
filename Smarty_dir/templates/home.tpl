@@ -26,13 +26,19 @@
 		{foreach $greatestUsers as $user}
 			<a href="index.php?controllerAction=profile&profileAction=getProfilePage&userProfile={$user->getUsername()}"> {$user->getName()}</a> <br> 			
 		{/foreach}
+		<br>
+		<p> Le risorse pi&ugrave scaricate sul sito sono : </p>
+		{foreach $greatestResources as $res}
+			<span><a href="index.php?controllerAction=resource&resourceAction=getResourcePage&resourceId={$res->getId()}">{$res->getName()}</a><br></span> 	
+			<span><h3>{$res->getDownloadsNumber()}</h3></span>
+		{/foreach}
 		
 	<br> <br> <br>
 	</div>
 
 	<div class="col-md-12">
 <br>
-		oppure se sei un programmatore, puoi aiutarci nell'aggiungere alcune funzionalit&agrave o aggiustare alcuni bugs, nel footer puoi trovare il link del progetto su github
+		Se sei un programmatore, puoi aiutarci nell'aggiungere alcune funzionalit&agrave o aggiustare alcuni bugs, nel footer puoi trovare il link del progetto su github
 
 		<div class="alert alert-warning" role="alert">
 			Questa applicazione web &egrave ancora in via di sviluppo, se trovi qualche bug o hai qualche suggerimento puoi contattarci via e-mail
