@@ -6,7 +6,7 @@
  */
 namespace Control;
 
-require_once $projectDirectory.'/Classes/View/Home.php';
+require_once $projectDirectory.'/Classes/View/Main.php';
 require_once $projectDirectory.'/Classes/Control/Upload.php';
 require_once $projectDirectory.'/Classes/Control/Navigation.php';
 require_once $projectDirectory.'/Classes/Utility/Session.php';
@@ -24,7 +24,7 @@ class AboutPage
 	}
 	
 	public function controlAboutPage(){
-		$mainView = \Utility\Singleton::getInstance("\View\Home");
+		$mainView = \Utility\Singleton::getInstance("\View\Main");
 		return $mainView->fetch('aboutPage.tpl');
 	}
 }

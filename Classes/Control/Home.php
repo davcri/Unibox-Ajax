@@ -5,7 +5,7 @@
  *
  */
 namespace Control;
-
+require_once $projectDirectory.'/Classes/View/Main.php';
 
 class Home
 {
@@ -16,7 +16,7 @@ class Home
 	
 	public function controlHome()
 	{
-		$mainView = \Utility\Singleton::getInstance("\View\Home");
+		$mainView = \Utility\Singleton::getInstance("\View\Main");
 		
 		$resourceDb = new \Foundation\Resource();
 		$greatestUsers = $resourceDb->getMostActiveUsers();

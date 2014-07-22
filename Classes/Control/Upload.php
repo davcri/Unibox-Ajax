@@ -8,8 +8,8 @@
 namespace Control;
 
 global $projectDirectory;
+require_once $projectDirectory.'/Classes/View/Main.php';
 require_once $projectDirectory.'/Classes/Control/Registration.php';
-require_once $projectDirectory.'/Classes/View/Upload.php';
 require_once $projectDirectory.'/Classes/Entity/Resource.php';
 require_once $projectDirectory.'/Classes/Foundation/Resource.php';
 require_once $projectDirectory.'/Classes/Foundation/DegreeCourse.php';
@@ -55,7 +55,7 @@ class Upload
 	 */
 	public function handleUpload()
 	{
-		$mainView = \Utility\Singleton::getInstance("\View\Home");
+		$mainView = \Utility\Singleton::getInstance("\View\Main");
 		$data = "";
 				
 		switch($mainView->get('uploadAction'))
@@ -98,7 +98,7 @@ class Upload
 		$degreeCourseDb = new \Foundation\DegreeCourse();
 		$degreeCourses = $degreeCourseDb->getDegreeCourses();
 
-		$uploadPage = \Utility\Singleton::getInstance("\View\Home");
+		$uploadPage = \Utility\Singleton::getInstance("\View\Main");
 		$uploadPage->assign("degreeCourses", $degreeCourses);
 		$uploadPage->assign("maxFileSize", ini_get("upload_max_filesize"));
 				
@@ -114,7 +114,7 @@ class Upload
 	 */
 	private function addNewResourceIntoDb()
 	{
-		$elaboratedForm = \Utility\Singleton::getInstance("\View\Home");
+		$elaboratedForm = \Utility\Singleton::getInstance("\View\Main");
 		
 		$resourceDetail = $this->getUploadFormData();
 							
@@ -240,7 +240,7 @@ class Upload
 	 */
 	private function validateFormInputData()
 	{	
-		$formData = \Utility\Singleton::getInstance("\View\Home");
+		$formData = \Utility\Singleton::getInstance("\View\Main");
 		
 		$name = $formData->get('name');
 		$subject = $formData->get('subject');
@@ -266,7 +266,7 @@ class Upload
 	
 	private function getUploadFormData()
 	{
-		$uploadForm = \Utility\Singleton::getInstance("\View\Home");
+		$uploadForm = \Utility\Singleton::getInstance("\View\Main");
 		
 		$resourceDetail['name'] = $uploadForm->get('name');
 		$resourceDetail['category'] = $uploadForm->get('category');

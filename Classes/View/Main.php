@@ -8,7 +8,7 @@ namespace View;
 
 require_once $projectDirectory.'/Classes/View/SmartyConfiguration.php';
 
-class Home extends \View\SmartyConfiguration
+class Main extends \View\SmartyConfiguration
 {
 	public function __construct()
 	{
