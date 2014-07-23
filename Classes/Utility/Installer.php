@@ -44,6 +44,13 @@ class Installer
 	private $configurationFile = "databaseConfig.php";
 	
 	/**
+	 * Name of the database script.
+	 * 
+	 * @var string
+	 */
+	private $databaseScriptName = "Unibox_install.sql";
+	
+	/**
 	 * Installer constructor.
 	 * 
 	 * Gets informations about the server's software.
@@ -83,12 +90,15 @@ class Installer
 						}
 						else // everything ok
 						{
-							$installPage_Result = $installPage->fetch("installationCompleted.tpl");
+							if($this->installDatabase())
+								$installPage_Result = $installPage->getForm("Errore durante l'installazione del database.");
+							else
+								$installPage_Result = $installPage->fetch("installationCompleted.tpl");
 						}						
 					}
 					else // bad configuration 
 					{
-						$installPage_Result = $this->getForm("La configurazione immessa non &egrave valida");
+						$installPage_Result = $this->getForm("La configurazione immessa non &egrave valida. Ricontrolla tutti i campi.");
 					}					
 				}					
 				else // some input form field is empty
@@ -235,7 +245,7 @@ class Installer
 	
 	public function testConfig()
 	{		
-		$installPage = \Utility\Singleton::getInstance("\View\Home");
+		$installPage = \Utility\Singleton::getInstance("\View\Main");
 		
 		$user = $installPage->get("user");
 		$password = $installPage->get("password");
@@ -245,5 +255,28 @@ class Installer
 		$db = new \mysqli($host, $user, $password, $database);
 		
 		return $db->ping();		
+	}
+	
+	/**
+	 * 
+	 * @todo review this method
+	 */
+	public function installDatabase()
+	{
+		require_once dirname(dirname(__FILE__)).'/Foundation/Database.php';
+		
+		$database = new \Foundation\Database();
+
+		$databaseCreationScript = file_get_contents(dirname(dirname(dirname(__FILE__)))."/".$this->databaseScriptName);
+		
+		$error = true;
+		if ($databaseCreationScript)
+		{
+			$database->multi_query($databaseCreationScript);
+			$error = false;
+		}
+
+		$database->closeConnection();		
+		return $error;
 	}
 }

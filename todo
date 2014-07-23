@@ -10,6 +10,14 @@ ALTA
 
 - tasto "ricordami"
 
+- redirezionare tutti i login e logout alla home
+
+- Decidere quali estensioni supportare :
+  |
+  | accettate : PDF
+  | da decidere : immagini, documentippt
+  | 
+
 - Migliorare navigazione AJAX
   |
   | - supporto a storia e deep linking con : http://www.asual.com/jquery/address/ Mi sembra molto valido

@@ -19,41 +19,39 @@
 					<p> Prima di utilizzare questa applicazione web configura le impostazioni di connessione al database : </p>
 				</div>
 
-				<div class="col-md-4">
-				<form action="index.php?installAction=createConfigFile" method="POST">
-					
-						
+				<div class="col-md-5">
+					<form action="index.php?installAction=createConfigFile" method="POST">						
 						<div class="form-group">
 					    	<label>User</label>
 					    	<input type="text" name="user" class="form-control" placeholder="user del database">
-						  	
 						</div>
+						
 						<div class="form-group">
 					    	<label>Password</label>
 					    	<input type="password" name="password" class="form-control" placeholder="password">
-						  	
 						</div>
+						
 						<div class="form-group">
 					    	<label>host</label>
 					    	<input type="text" name="host" class="form-control" placeholder="es: localhost">
-						  	
 						</div>
+
 						<div class="form-group">
 					    	<label>Nome del database</label>
 					    	<input type="text" name="databaseName" class="form-control" placeholder="es: Unibox">
-						  	
-						</div>
-						
-					
-							<div class="alert alert-danger">{$errorMessage}</div>
-						
+						</div>	
 						
 						<input type="submit" value="Submit">
-						<!-- <button id="submitButton" type="submit" class="btn btn-success">Invia configurazione</button> -->
+						
+
 					</div>
 				</form>
 
-				
+				<div class="col-md-5">
+					{if !empty($errorMessage)}
+						<div class="alert alert-danger">{$errorMessage}</div>
+					{/if}
+				</div>				
 				
 				<div class="col-md-12">
 					<br> <hr>
