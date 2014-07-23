@@ -3,16 +3,27 @@
 	<tr>
 		<td><a href="index.php?controllerAction=resource&resourceAction=getResourcePage&degreeCourse={$degreeCourse}&resourceId={$res->getId()}">{$res->getName()}</a></td>
 		<td>{$res->getCategory()}</td>
-		<td>{$res->getQualityScore()}</td>
+		
+		<td>
+			{if $res->countQualityVotes()==0}
+				<div class="difficultyLabel"> Nessun voto</div>
+			{else}
+				{$res->getQualityScore()}
+			{/if}
+		</td>
 		
 		{$difficulty = $res->getDifficultyScore()}
 		<td>
-			{if $difficulty>=0 && $difficulty<=3} 
-		 		<div class="easyResource difficultyLabel"> Facile </div>
-			{elseif $difficulty>=4 && $difficulty<=7}
-				<div class="mediumResource difficultyLabel"> Normale </div>
-			{elseif $difficulty>=8 && $difficulty<=10}
-				<div class="hardResource difficultyLabel"> Difficile </div>
+			{if $res->countDifficultyVotes()==0}
+				<div class="difficultyLabel"> Nessun voto</div>
+			{else}
+				{if $difficulty>=0 && $difficulty<=3} 
+			 		<div class="easyResource difficultyLabel"> Facile </div>
+				{elseif $difficulty>=4 && $difficulty<=7}
+					<div class="mediumResource difficultyLabel"> Normale </div>
+				{elseif $difficulty>=8 && $difficulty<=10}
+					<div class="hardResource difficultyLabel"> Difficile </div>
+				{/if}
 			{/if}
 		</td>
 		<td>{$res->getType()}</td>

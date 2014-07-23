@@ -446,6 +446,20 @@ class Resource
 		
 		return $db->hasBeenRated($this->id, $username);
 	}
+	
+	public function countDifficultyVotes()
+	{
+		$db = new \Foundation\Resource();
+	
+		return $db->getNumberOfDifficultyVotes($this->id);
+	}
+	
+	public function countQualityVotes()
+	{
+		$db = new \Foundation\Resource();
+	
+		return $db->getNumberOfVotes($this->id);
+	}
 }
 
 ?>	

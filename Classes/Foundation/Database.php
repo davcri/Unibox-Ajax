@@ -30,7 +30,7 @@ class Database extends \mysqli
 		global $mysqlConfig; // this variable is defined in databaseConfig.php
 
 		parent::__construct($mysqlConfig["host"],$mysqlConfig["user"],$mysqlConfig["password"],$mysqlConfig["database"]);    
-		
+
 		if (mysqli_connect_error()) 
 		{
 			die('Connect Error (' . mysqli_connect_errno() . ') '. mysqli_connect_error());
@@ -68,10 +68,10 @@ class Database extends \mysqli
 		return $returnArray;
 	}
 	
-	public function installDatabase($sqlScript)
+	/*public function installDatabase($sqlScript)
 	{
 		$this->multi_query($query);
-	}
+	}*/
 	
 	/**
 	 * 
