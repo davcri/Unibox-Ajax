@@ -8,8 +8,6 @@ function mainFunction(){
 	cookieCheck();
 	setNavbarBehaviour();
 	setFooterBehaviour();
-
-	//ajaxLoadingMessage();
 }
 
 function setNavbarBehaviour(){
@@ -30,6 +28,8 @@ function setFooterBehaviour(){
 	});
 }
 
+
+//
 // Utility functions
 //
 
@@ -48,10 +48,10 @@ function toggleActivate(obj){
 }
 
 // unused
-function animateSidebar(){
+/*function animateSidebar(){
 	$("#mainContent").switchClass("col-md-12","col-md-9",animationTime);
 	$("#sidebar").show(animationTime*1.5);
-}
+}*/
 
 function changePage(newContent){
 	var mainContainer = $("#mainContainer");
@@ -108,7 +108,6 @@ function ajaxChangePage(url)
 	});	
 }
 
-
 /*function infoFooter(){
 	$("#weAre").mouseover(function(event){
 		event.preventDefault;
@@ -124,18 +123,3 @@ function ajaxChangePage(url)
 	});
 
 }*/
-
-/*
-function ajaxLoadingMessage(){
-	body = $("body");
-
-	$(document).on({
-		ajaxStart: function() { 
-			body.addClass("loading");
-		 },
-		 ajaxStop: function() { 
-		 	body.removeClass("loading"); 
-		 }    
-	});
-}
-*/

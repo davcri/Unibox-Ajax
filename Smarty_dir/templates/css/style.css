@@ -28,6 +28,10 @@
 	width: 400px;
 }
 
+#resourcesContainer{
+	overflow: auto;
+}
+
 .myTooltip{
 	padding: 6px 12px;
 	margin-top: 26px;

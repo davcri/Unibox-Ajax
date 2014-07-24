@@ -4,7 +4,7 @@ $(function(){
 	var username=$('#userId').html();
 	if($('#votato').size()){
 		var hasAlreadyVoted=$('#votato').html();
-		console.log(hasAlreadyVoted);
+		//console.log(hasAlreadyVoted);
 		if(hasAlreadyVoted==false){
 			var star=$(".glyphicon-star").size();
 
