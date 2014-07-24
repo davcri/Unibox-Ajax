@@ -5,19 +5,20 @@
 		<td>{$res->getCategory()}</td>
 		
 		<td>
+			<!-- In this functin, hidden span are used to enable sorting of the table with the tablesorter plugin -->
+
 			{if $res->countQualityVotes()==0}
-				<div class="difficultyLabel"> Nessun voto</div>
+				<div class="difficultyLabel"> <span class="hidden">0</span> Nessun voto</div> 
 			{else}
-				{$res->getQualityScore()}
+				<span class="hidden">{$res->getQualityScore()}</span>
 				
-				{*
 				{for $i=1 to 5}
 					{if $res->getQualityScore() >= $i*2}
 						<span class="glyphicon glyphicon-star" id='{$i}'></span>
 					{else}
 						<span class="glyphicon glyphicon-star-empty" id='{$i}'></span>
 					{/if}			
-				{/for}	*}
+				{/for}	
 			{/if}
 		</td>
 		
@@ -27,11 +28,11 @@
 				<div class="difficultyLabel text-center"> Nessun voto</div>
 			{else}
 				{if $difficulty>=0 && $difficulty<=3} 
-			 		<div class="easyResource difficultyLabel text-center"> {$difficulty} - Facile </div>
+			 		<div class="easyResource difficultyLabel text-center"> <span class="hidden">{$difficulty}</span> Facile </div>
 				{elseif $difficulty>=4 && $difficulty<=7}
-					<div class="mediumResource difficultyLabel text-center"> {$difficulty} - Normale </div>
+					<div class="mediumResource difficultyLabel text-center"> <span class="hidden">{$difficulty}</span> Normale </div>
 				{elseif $difficulty>=8 && $difficulty<=10}
-					<div class="hardResource difficultyLabel text-center"> {$difficulty} - Difficile </div>
+					<div class="hardResource difficultyLabel text-center"> <span class="hidden">{$difficulty}</span> Difficile </div>
 				{/if}
 			{/if}
 		</td>
