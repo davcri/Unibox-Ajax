@@ -1,5 +1,8 @@
 
 {function name=displayRatingPanel visibility=true}
+	
+	<div id="loginRequiredForResourceRating" class="alert alert-danger text-center {if $visibility==true}hidden{/if}">Effettua il login per votare questa risorsa</div>
+
 	<div id="ratingPanel" class="panel panel-info {if $visibility==0}hidden{/if}">
 		<div class="panel-heading">Pannello per la votazione</div>
 	  	<div class="panel-body">			  		
@@ -82,7 +85,6 @@
 				{/if}
 
 			{else}
-				<div id="loginRequiredForResourceRating" class="alert alert-danger text-center">Effettua il login per votare questa risorsa</div>
 				{displayRatingPanel visibility=false}
 			{/if}
 		</div>

@@ -16,21 +16,23 @@ $(document).ready(function(){
 		});
 
 		if($("#uploadForm").length){ // if there is the upload form, then update the page
-			$.get("index.php?controllerAction=upload",function(data){
+			$.get("index.php?controllerAction=upload", function(data){
 				changePage(data);
 			});
 		}
 
 		if($("#profilePage").length){
-			$.get("index.php?controllerAction=home",function(data){
+			$.get("index.php?controllerAction=home", function(data){
 				changePage(data);
 			});
 		}
 
 		var ratingPanel = $("#ratingPanel");
 		if(ratingPanel.length){
-			$(ratingPanel).hide(animationTime);
+			$(ratingPanel).addClass("hidden", animationTime);
 		}
+
+		$("#loginRequiredForResourceRating").removeClass("hidden").hide().show(animationTime);
 
 	});
 });

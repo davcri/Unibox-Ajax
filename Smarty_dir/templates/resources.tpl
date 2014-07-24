@@ -9,6 +9,15 @@
 				<div class="difficultyLabel"> Nessun voto</div>
 			{else}
 				{$res->getQualityScore()}
+				
+				{*
+				{for $i=1 to 5}
+					{if $res->getQualityScore() >= $i*2}
+						<span class="glyphicon glyphicon-star" id='{$i}'></span>
+					{else}
+						<span class="glyphicon glyphicon-star-empty" id='{$i}'></span>
+					{/if}			
+				{/for}	*}
 			{/if}
 		</td>
 		
@@ -41,8 +50,9 @@
 
 <div id="mainContent" class="mainContent">
 	<br>
-	<div id="resourcesContainer">
+	<div id="resourcesContainer" class="row">
 		<h3>{$subject_name}</h3> <br>
+		
 		
 		<table id="tableS" class="tablesorter">
 			<thead>
@@ -65,38 +75,13 @@
 				<img src="Library/tablesorter-master/addons/pager/icons/next.png" class="next"/>
 				<img src="Library/tablesorter-master/addons/pager/icons/last.png" class="last"/>
 				<select class="pagesize">
+				  <option value="5">5</option>
 				  <option selected="selected" value="10">10</option>
-				  <option value="4">4</option>
 				  <option value="30">30</option>
 				  <option value="40">40</option>
 				</select>
 			</form>
-		</div>					
-
-		<!-- <h3>Esercizi</h3>
-		<table class="table">
-			<tr>
-				<th>Nome</th> <th>Qualità</th> <th>Difficoltà</th> <th>Tipo</th> <th>Uploader</th> <th># Downloads</th>
-				{foreach $resource as $res}
-					{if $res->getcategory()=='esercizi'}
-						{displayResource}		
-					{/if}
-
-				{/foreach}
-			</tr>
-		</table>
-
-		<h3>Laboratorio</h3>	
-		<table class="table">
-			<tr>
-				<th>Nome</th> <th>Qualità</th> <th>Difficoltà</th> <th>Tipo</th> <th>Uploader</th> <th># Downloads</th>
-			{foreach $resource as $res}	
-				{if $res->getCategory()=='laboratorio'}
-					{displayResource}		
-				{/if}
-			{/foreach}
-			</tr>
-		</table> -->		
+		</div>							
 	</div>
 </div>
 
