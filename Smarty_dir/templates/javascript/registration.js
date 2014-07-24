@@ -160,10 +160,8 @@ function handleUsernameInput(submitBtn, formMaxChars){
 					if(isFormCompleted(formMaxChars))
 						submitBtn.removeAttr("disabled");
 
-					console.log(inputForm);
 					if(inputForm.hasClass("has-error"))
 					{
-						console.log("asd");
 						inputForm.removeClass("has-error");
 						usernameTooltip.text(default_usernameTooltip);						
 					}		
