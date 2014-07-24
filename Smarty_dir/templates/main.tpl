@@ -24,12 +24,12 @@
 			<div class="alert alert-danger" role="alert"> 
 				<p>Nel tuo tuo browser &egrave disabilitato Javascript. 
 				Questa applicazione web non pu&ograve funzionare senza Javascript, quindi ti preghiamo di abilitarlo. 
-				Qui ci sono tutte le <a href="http://www.enable-javascript.com/it/" target="_blank"> istruzioni su come abilitare JavaScript nel tuo browser</a></p>
+				Qui ci sono tutte le <a href="http://www.enable-javascript.com/it/" target="_blank"> istruzioni su come abilitare Javascript nel tuo browser</a></p>
 			</div>
 		</noscript>
 
 		<div id="cookieAlert" class="alert alert-warning hidden" role="alert"> 
-			I cookie sono disabilitati. Ti preghiamo di attivarli e ricaricare la pagina per consentire il corretto funzionamento di questa applicazione. Puoi attivare i cookie dalle impostazioni del tuo browser 
+			I cookie sono disabilitati. Ti preghiamo di attivarli e ricaricare la pagina per consentire il corretto funzionamento di questa applicazione. Puoi attivare i cookie dalle impostazioni del tuo browser.
 		</div>
 
 		<div class="navbar navbar-default">
@@ -56,7 +56,6 @@
 		<div id="mainContainer" class="col-md-12">			
 			{include 'home.tpl'}
 		</div>
-
 		
 		<div id="footer" class="col-md-12 footer">
 			<div class="container-fluid">
@@ -65,7 +64,7 @@
 				</div>
 
 				<div class="col-md-4">
-					<p class="text-center"><a href="index.php?controllerAction=getAboutPage">About</a></p>
+					<p class="text-center"><a href="index.php?controllerAction=getAboutPage">Informazioni sul progetto</a></p>
 				</div>
 
 				<div class="col-md-4">

@@ -10,7 +10,7 @@
 			<p>Il codice è disponibile tramite <a href="https://github.com/davcri/Unibox-Ajax"> il repository Github</a>. 
 			Tutti quanti possono contribuire al progetto suggerendoci miglioramenti, segnalando eventuali bug o aiutandoci con lo sviluppo.</p>
 
-			<h3>Informazioni per sviluppatori</h3>
+			<h3>Informazioni per sviluppatori</h3> 
 			<p>Lavorando su questa applicazione abbiamo voluto approfondire lo studio delle tecnologie attualmente più utilizzate nell'ambito dello sviluppo web.</p>
 			<p>Qui sotto trovate un elenco delle varie tecnologie e librerie esterne utilizzate per realizzare questa applicazione</p>
 
@@ -89,7 +89,10 @@
 		      <div class="thumbnail">
 		         <div class="caption">
 			         <h4>Altre librerie</h4>
-					 <p> jquery.blockUI, tablesorter, jquery.address </p>
+					 <ul>
+						 <li> <a href="http://jquery.malsup.com/block/#overview">jquery.blockUI</a> </li>
+						 <li> <a href="http://mottie.github.io/tablesorter/docs/index.html">tablesorter</a> </li>
+					 <ul>
 		         </div>
 		      </div>
 		   </div>

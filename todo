@@ -10,12 +10,10 @@ ALTA
 
 - tasto "ricordami"
 
-- redirezionare tutti i login e logout alla home
-
 - Decidere quali estensioni supportare :
   |
   | accettate : PDF
-  | da decidere : immagini, documentippt
+  | da decidere : immagini, documenti ppt, doc ?
   | 
 
 - Migliorare navigazione AJAX
@@ -31,17 +29,15 @@ MEDIA
 - revisone codice PHP
   |
   | - phpDoc da completare
-  | - rimuovere $projectDirectory ?
   | - creare una classe per gestire invio dati ajax
-  | - cambiare il nome della class \View\Home in \View\Main ?
+  | + rimuovere $projectDirectory ?
+  | + cambiare il nome della class \View\Home in \View\Main ?
   | + cambiare il nome della class \Control\Home in \Control\Main ?
 
 - migliorare l'upload :
   |
   | - upload via drag 'n drop 
   | + feedback sulla durata dell'upload
-
-- aumenta dimensione footer
 
 - immagine profilo 
 
@@ -87,3 +83,4 @@ COMPLETATI
 + Mettere sito online
 + installazione sito : quasi completata, manca il controllo versione di php 
 + evidenziare difficoltà risorsa con colori
++ aumenta dimensione footer
