@@ -1,7 +1,8 @@
 
 $(mainFunction); // when the DOM is ready, run mainFunction()
 
-var animationTime = 250;
+var animationTime = 250; // 250 milliseconds
+var simulateConnectionDelay = 0; // in milliseconds
 
 function mainFunction(){
 	cookieCheck();
@@ -74,12 +75,26 @@ function disableNavbarLinksDefault(){
 
 function ajaxChangePage(url)
 {	
-	$('#mainContainer').block();
+	var spinner = $("<div class=\"spinner\"><div> </div></div>");
+
+	// for info about this method look here : http://jquery.malsup.com/block/#options
+	$('#mainContainer').block({message:spinner, 
+							   fadeIn: 300,
+							   css:{ 	
+							        textAlign:      '', 
+							        color:          '#000', 
+							        border:         '1px solid #aaa', 
+							        backgroundColor:'#fff'
+							    }}
+	);
 
 	$.get(url)
 	.done(function(data){
-		$('#mainContainer').unblock();
-		changePage(data);
+		setTimeout(function(){
+			$('#mainContainer').unblock();
+			changePage(data);
+		}, simulateConnectionDelay); 
+		
 	})
 	.fail(function(){
         $('#mainContainer').block({ /* block is a function of blockUI library */

@@ -172,7 +172,7 @@ function handleUploadButton(btn, maxNameChars, maxDescriptionChars){
 				$('#progressBarContainer').addClass("hidden");
 				$.unblockUI();
 				changePage(data);
-			}, 3000);
+			}, simulateConnectionDelay+1000); // at least 1s of delay to smooth the animation
 		});
 	});
 }
@@ -189,9 +189,6 @@ function isFormCompleted(maxNameChars, maxDescriptionChars){
 		var uploadedFileSize = $("#inputFile").prop("files")[0].size;
 		uploadedFileSize = uploadedFileSize/(1000*1000); // uploadedFileSize in Mega Bytes	
 	}
-
-
-	
 
 	if($("#name").val().length > 0 &&
 	   $("#name").val().length <= maxNameChars && 

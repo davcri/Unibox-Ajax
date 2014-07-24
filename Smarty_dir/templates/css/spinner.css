@@ -1,0 +1,45 @@
+.spinner{
+  width:7em;
+  margin:3em auto;
+}
+.spinner div{
+  width:7em;
+  height:7em;
+  margin:3em auto;
+  padding:3em 0;
+  position:relative;
+  border-radius:50%;
+  border:2px solid #2f416f;
+  border-top:2px solid transparent;
+  border-bottom:2px solid transparent;
+  -webkit-animation:rotate 1s ease infinite;
+  -moz-animation:rotate 1s ease infinite;
+  -o-animation:rotate 1s ease infinite;
+  animation:rotate 1s ease infinite;
+}
+.spinner:before{
+  content:"Caricamento";
+  position:absolute;
+  color:#2f416f;
+  font:.9em sans-serif;
+  width:8em;
+  line-height:8em;
+  text-align:center;
+  -webkit-animation:wink 1.4s ease infinite;
+}
+@-webkit-keyframes rotate {
+0%{-webkit-transform:rotate(360deg)}
+}
+@-moz-keyframes rotate {
+0%{-moz-transform:rotate(360deg)}
+}
+@-o-keyframes rotate {
+0%{-o-transform:rotate(360deg)}
+}
+@keyframes rotate {
+0%{transform:rotate(360deg)}
+}
+@-webkit-keyframes wink{50%{opacity:0}}
+@-moz-keyframes wink{50%{opacity:0}}
+@-o-keyframes wink{50%{opacity:0}}
+@keyframes wink{50%{opacity:0}}

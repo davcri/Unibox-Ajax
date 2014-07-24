@@ -13,6 +13,7 @@
 	
 	<link href="Library/bootstrap-3.1.1-dist/css/bootstrap.css" rel="stylesheet" type="text/css">
 	<link href="Smarty_dir/templates/css/style.css" rel="stylesheet" type="text/css">
+	<link href="Smarty_dir/templates/css/spinner.css" rel="stylesheet" type="text/css">
 	<link href="Library/jquery-ui/css/start/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" type="text/css">
 
 </head>
