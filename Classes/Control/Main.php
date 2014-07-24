@@ -52,6 +52,7 @@ class Main
 				$ajaxData = $home->controlHome();
 				print $ajaxData;
 				break;
+				
 			case 'navigation':
 				$navigation = new \Control\Navigation();	
 				$ajaxData=$navigation->controlNavigation();
@@ -73,8 +74,7 @@ class Main
 			case 'profile':
 		  		$profile = new \Control\Profile();
 		  		$ajaxData=$profile->controlProfile();
-		  		print $ajaxData;
-	
+		  		print $ajaxData;	
 			  	break;
 				
 			case 'login':
@@ -104,10 +104,12 @@ class Main
 				$ajaxData=$about->controlAboutPage();
 				print $ajaxData;
 				break;
+				
 			default:
 				$resourceDb = new \Foundation\Resource();
 				$greatestUsers = $resourceDb->getMostActiveUsers();
 				$mainView->assign("greatestUsers",$greatestUsers);
+				$mainView->assign("templateToDisplay","home.tpl");
 				$mainView->display("main.tpl");
 				break;
 		}

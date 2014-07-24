@@ -54,7 +54,7 @@
 		</div>
 
 		<div id="mainContainer" class="col-md-12">			
-			{include 'home.tpl'}
+			{include $templateToDisplay}
 		</div>
 		
 		<div id="footer" class="col-md-12 footer">

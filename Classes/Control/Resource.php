@@ -43,12 +43,9 @@ class Resource
 				break;
 			
 			case 'getResourcePage':
-				$data=$this->setTplVariables();
-				$resourcePage->display('resourcePage.tpl');				
+				$data=$this->getResourcePage();				
 				break;
-			case 'getResourcePageFromUser':
-				$data=$this->setTplVariablesFromUser();
-				break;
+										
 			case 'rateResource':
 				$userSession = \Utility\Singleton::getInstance('\Control\Session');
 				
@@ -59,7 +56,14 @@ class Resource
 				else
 					print 'Error. The user is not logged in but is still trying to rate a resource.';
 				break;
+			
+			case 'getResource_StaticPage':
+				$resourcePage->assign('templateToDisplay', "resourcePage.tpl");
+				$this->getResourcePage(); // sets the tpl variables ! 
+				$data = $resourcePage->fetch("main.tpl"); // shows the page
+				break;
 		}	
+		
 		return $data;			
 	}
 	
@@ -68,7 +72,7 @@ class Resource
 	 * 
 	 * Assigns all the requested smarty variables.
 	 */
-	private function setTplVariables()
+	private function getResourcePage()
 	{
 		$resourcePage = \Utility\Singleton::getInstance('\View\Main');		
 		$resourceId = $resourcePage->get('resourceId');
@@ -95,6 +99,8 @@ class Resource
 		$resourcePage->assign('subject',$subject);
 		$resourcePage->assign('resource',$res);	
 		$resourcePage->assign('user',$user);
+		
+		return $resourcePage->fetch('resourcePage.tpl');
 	}
 	
 	/**

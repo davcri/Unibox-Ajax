@@ -42,14 +42,17 @@
 					<blockquote>
 					  <p><em>{$resource->getDescription()}</em></p>
 					</blockquote>
+
+					<b>Link alla risorsa : </b> <a href="index.php?controllerAction=resource&resourceAction=getResource_StaticPage&resourceId={$resource->getId()}">index.php?controllerAction=resource&resourceAction=getResourcePage&resourceId={$resource->getId()}</a>
+					<p>Condividi questo link con i tuoi amici per segnalare questa risorsa. </p>
 				</div>
 
 				<ul class="list-group">
 					<li class="list-group-item" title="Punteggio qualità in decimi">
-					Qualità <span  id="qualityScore" class="badge">{$resource->getQualityScore()}</span>
+					Qualit&agrave <span  id="qualityScore" class="badge">{$resource->getQualityScore()}</span>
 					</li>
 					<li class="list-group-item" title="Punteggio difficoltà in decimi">
-						Difficoltà <span id="difficultyScore" class="badge">{$resource->getDifficultyScore()}</span> 
+						Difficolt&agrave <span id="difficultyScore" class="badge">{$resource->getDifficultyScore()}</span> 
 					</li>
 					<li class="list-group-item">
 						Tipo <span class="badge">{$resource->getType()}</span>
@@ -64,7 +67,7 @@
 					  	Data di caricamento <span class="badge">{$resource->getUploadingDate()->format("d/m/y H:i:s")}</span>
 					</li>
 					<li class="list-group-item">
-						Username <span class="badge" id="userLink"><a href="index.php?controllerAction=profile&profileAction=getProfilePage&userProfile={$resource->getUploaderUsername()}">{$resource->getUploaderUsername()}</a></span>
+						Username <span class="badge" id="userLink"><a href="index.php?controllerAction=profile&profileAction=getProfilePage&userProfile={$resource->getUploaderUsername()}"> <b>{$resource->getUploaderUsername()}</b></a></span>
 					</li>
 
 					<li class="list-group-item">
@@ -81,7 +84,7 @@
 				{if !$resource->hasBeenRated($user->getUsername())}
 					{displayRatingPanel visibility=true}
 				{else}
-					 <div class="alert alert-warning text-center">Hai già votato questa risorsa</div>
+					 <div class="alert alert-warning text-center">Hai gi&agrave votato questa risorsa</div>
 				{/if}
 
 			{else}
