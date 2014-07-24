@@ -1,6 +1,7 @@
 
 $(function(){
-	
+	$("#mainContent").tooltip({position:{my:"center+50px", at:"center"}});
+
 	$("#userLink").find("a").click(function(event){		
 		event.preventDefault();
 		var url = $(this).attr("href"); 

@@ -42,10 +42,10 @@
 				</div>
 
 				<ul class="list-group">
-					<li class="list-group-item">
-					Qualità <span id="qualityScore" class="badge">{$resource->getQualityScore()}</span>
+					<li class="list-group-item" title="Punteggio qualità in decimi">
+					Qualità <span  id="qualityScore" class="badge">{$resource->getQualityScore()}</span>
 					</li>
-					<li class="list-group-item">
+					<li class="list-group-item" title="Punteggio difficoltà in decimi">
 						Difficoltà <span id="difficultyScore" class="badge">{$resource->getDifficultyScore()}</span> 
 					</li>
 					<li class="list-group-item">
@@ -61,7 +61,7 @@
 					  	Data di caricamento <span class="badge">{$resource->getUploadingDate()->format("d/m/y H:i:s")}</span>
 					</li>
 					<li class="list-group-item">
-						username <span class="badge" id="userLink"><a href="index.php?controllerAction=profile&profileAction=getProfilePage&userProfile={$resource->getUploaderUsername()}">{$resource->getUploaderUsername()}</a></span>
+						Username <span class="badge" id="userLink"><a href="index.php?controllerAction=profile&profileAction=getProfilePage&userProfile={$resource->getUploaderUsername()}">{$resource->getUploaderUsername()}</a></span>
 					</li>
 
 					<li class="list-group-item">

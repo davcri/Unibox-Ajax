@@ -15,14 +15,14 @@
 		{$difficulty = $res->getDifficultyScore()}
 		<td>
 			{if $res->countDifficultyVotes()==0}
-				<div class="difficultyLabel"> Nessun voto</div>
+				<div class="difficultyLabel text-center"> Nessun voto</div>
 			{else}
 				{if $difficulty>=0 && $difficulty<=3} 
-			 		<div class="easyResource difficultyLabel"> Facile </div>
+			 		<div class="easyResource difficultyLabel text-center"> {$difficulty} - Facile </div>
 				{elseif $difficulty>=4 && $difficulty<=7}
-					<div class="mediumResource difficultyLabel"> Normale </div>
+					<div class="mediumResource difficultyLabel text-center"> {$difficulty} - Normale </div>
 				{elseif $difficulty>=8 && $difficulty<=10}
-					<div class="hardResource difficultyLabel"> Difficile </div>
+					<div class="hardResource difficultyLabel text-center"> {$difficulty} - Difficile </div>
 				{/if}
 			{/if}
 		</td>

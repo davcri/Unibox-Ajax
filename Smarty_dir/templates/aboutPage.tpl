@@ -1,3 +1,6 @@
+
+{*include "forkMeOnGithub.tpl"*}
+
 <div id="aboutPage">
 	<div id="mainContent" class="row mainContent">
 		<div class="divEsterno">
@@ -94,4 +97,5 @@
 
 	</div>
 </div>
+
 <script src="Smarty_dir/templates/javascript/home.js"></script>
