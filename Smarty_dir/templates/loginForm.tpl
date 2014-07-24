@@ -6,11 +6,11 @@
 	<div class="form-group">
 		<input type="password" class="form-control input-sm" id="password" name="password" placeholder="Password">
 	</div>
-	<!-- <div class="checkbox">
+	<div class="checkbox">
 		<label>
-			<input name="rememberMe" type="checkbox"> Ricordami
+			<input id="rememberMe" name="rememberMe" title="Ricordami" type="checkbox"> Ricordami
 		</label>
-	</div> -->
+	</div>
 	<button id="loginButton" class="btn btn-primary">Login</button>
 	<button id="signInButton" class="btn btn-success">Registrati</button>
 </form>

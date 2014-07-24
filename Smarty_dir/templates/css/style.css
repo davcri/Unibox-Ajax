@@ -22,8 +22,9 @@
 }
 
 #nameApp{
-	float: left;
+	/*float: left;*/
 	margin-left: 20px;
+	padding-top: 6px;
 	width: 400px;
 }
 
@@ -108,6 +109,10 @@ body{
 
 .container{
 	width: 77%;
+}
+
+.navbar-form .form-control{
+	width:130px;
 }
 
 /* ------------------------------------------------*/

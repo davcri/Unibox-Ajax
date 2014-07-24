@@ -8,14 +8,12 @@ ALTA
 
 - mettere in evidenza utenti più attivi nella home 
 
-- tasto "ricordami"
-
 - Decidere quali estensioni supportare :
   |
   | accettate : PDF
   | da decidere : immagini, documenti ppt, doc ?
   | 
-
+  
 - Migliorare navigazione AJAX
   |
   | - supporto a storia e deep linking con : http://www.asual.com/jquery/address/ Mi sembra molto valido
@@ -84,3 +82,4 @@ COMPLETATI
 + installazione sito : quasi completata, manca il controllo versione di php 
 + evidenziare difficoltà risorsa con colori
 + aumenta dimensione footer
++ tasto "ricordami"

@@ -12,9 +12,17 @@ class Login
 		$mainView = \Utility\Singleton::getInstance("\View\Main");
 		$user = \Utility\Singleton::getInstance("\Control\Session");
 		
-		$username = $mainView->getUsername();
-		$password = $mainView->getPassword();
-				
+		$username = $mainView->get("username");
+		$password = $mainView->get("password");
+		$rememberMe = $mainView->get("rememberMe"); // rememberMe is a string (I don't understand why
+													// javascript send it as a string) 		
+		if ($rememberMe==="true")
+			$rememberMe=true;
+		elseif($rememberMe==="false")
+			$rememberMe=false;
+		
+		$user->setRememberMe($rememberMe);
+		
 		if($user->validate($username, $password))
 		{
 			$user->login($username, $password);

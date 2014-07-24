@@ -31,20 +31,38 @@ class Session
 	 */
 	public function __construct()
 	{
-		$this->lifetime = 60*60*24; // 1 day
-		
+		$this->lifetime = 60*60*24*30; // 30 days
+		//$this->lifetime = 10; //seconds
 		session_start();
 		
-		/* Overwriting of the cookie created by session_start().*/
-		setcookie(session_name(),session_id(),time()+$this->lifetime,"/");
-		/* 
-		 * This is needed to update (on page refresh) the expiration date of a valid cookie.
-		 *
-		 * Example : cookie with a lifetime of 30 minutes.
-		 * -> at 17:00 cookie created (expire date : someday at 17:30)
-		 * -> at 17:05 page refreshed (expire date : someday at 17:35).
-		 *    without setcookie() the expiration date would not be changed
-		 */
+		$this->updateSessionCookie();		
+	}
+	
+	/**
+	 *  Updates the cookie.
+	 *  
+	 *  When the "rememberMe" session variable is changed, this method should be called to 
+	 *  update the cookie. 
+	 */
+	private function updateSessionCookie()
+	{
+		if($this->get("rememberMe"))
+		{
+			/* Overwriting of the cookie created by session_start().*/
+			setcookie(session_name(), session_id(), time()+$this->lifetime, "/");
+			/*
+			 * 
+			*
+			* Example : cookie with a lifetime of 30 minutes.
+			* -> at 17:00 cookie created (expire date : someday at 17:30)
+			* -> at 17:05 page refreshed (expire date : someday at 17:35).
+			*    without setcookie() the expiration date would not be changed
+			*/
+		}
+		else
+		{
+			setcookie(session_name(), session_id(), 0, "/"); // expires on browser close
+		}		
 	}
 	
 	/**
@@ -59,6 +77,12 @@ class Session
 		$_SESSION[$key]=$value;		
 	}
 	
+	public function setRememberMe($value)
+	{
+		$_SESSION["rememberMe"]=$value;
+		$this->updateSessionCookie();
+	}
+	
 	/**
 	 * Gets a value saved in the session corresponding to the key passed.
 	 * 
@@ -67,32 +91,11 @@ class Session
 	 */
 	public function get($key)
 	{
-		return $_SESSION[$key];
-	}
-	
-	/**
-	 * Gets the current logged in user.
-	 * 
-	 * If there is a session, returns an \Entity\User
-	 * 
-	 * @return \Entity\User
-	 */
-	/*public function getUser()
-	{
-		if($this->isLoggedIn())
-		{
-			$username = $_SESSION["username"];
-			$db = new \Foundation\User();
-			$user = $db->getByUsername($username);
-		}
+		if(isset($_SESSION[$key]))
+			return $_SESSION[$key];
 		else
-		{
-			print "error";
-			$user = null;
-		}
-		
-		return $user;
-	}*/
+			return false;
+	}
 	
 	/**
 	 * Checks if the user is logged in.
@@ -128,11 +131,14 @@ class Session
 	{
 		unset($_SESSION["username"]);
 		unset($_SESSION["password"]);
+		unset($_SESSION["rememberMe"]);
 		unset($_SESSION["degreeCourse"]);
+		
+		$this->updateSessionCookie();
 	}
 	
 	/**
-	 * Logs a user in for the lifetime of the session.
+	 * Logs a user in.
 	 * 
 	 * @param string $username
 	 * @param string $password

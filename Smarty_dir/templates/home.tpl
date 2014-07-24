@@ -1,6 +1,6 @@
 <div id="mainContent" class="row mainContent">
-	<h1>Unibox</h1>
-	<p class="lead">Benvenuto sulla piattaforma di condivisione di appunti.</p>
+	<br>
+	<p class="lead">Benvenuto su Unibox, un'applicazione per trovare e condivere materiale didattico.</p>
 
 	<!-- <p><button id="moreInfo" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span> Scopri di pi&ugrave</button></p> -->
 
