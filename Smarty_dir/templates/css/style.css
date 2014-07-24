@@ -84,6 +84,9 @@
 
 #progressBarContainer { 
 	margin-top: 50px;
+	
+	width: 90%;
+	margin-left: 5%; /* used to center align the progress bar*/
 }
 
 /* ------------------------------------------------*/

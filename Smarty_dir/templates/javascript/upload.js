@@ -9,7 +9,7 @@ $(function(){
 	var uploadButton = $("#uploadButton");
 
 	$(".myTooltip").hide(); // hide all tooltips div
-	
+
 	handleNameInput(uploadButton, maxNameChars, maxDescriptionChars);
 	handleSubjectInput();
 	handleDescriptionInput(uploadButton, maxNameChars, maxDescriptionChars); 
@@ -126,8 +126,6 @@ function handleUploadInput(btn, maxNameChars, maxDescriptionChars){
 
 function handleUploadButton(btn, maxNameChars, maxDescriptionChars){
 
-	//$("#progressBar").hide();
-
 	$("#uploadForm").change(function(){			
 		if(isFormCompleted(maxNameChars, maxDescriptionChars)){
 			btn.removeAttr("disabled");
@@ -138,6 +136,9 @@ function handleUploadButton(btn, maxNameChars, maxDescriptionChars){
 
 	$("#uploadForm").submit(function(event) {
 		event.preventDefault();	
+
+		$('#progressBarContainer').removeClass("hidden");
+		$.blockUI({ message: $('#progressBarContainer') }); 
 
 		var formData = new FormData(this);
 
@@ -168,8 +169,10 @@ function handleUploadButton(btn, maxNameChars, maxDescriptionChars){
 		})
 		.done(function(data){
 			setTimeout(function(){ // delay the change page to smooth the navigation
+				$('#progressBarContainer').addClass("hidden");
+				$.unblockUI();
 				changePage(data);
-			}, 500);
+			}, 3000);
 		});
 	});
 }
