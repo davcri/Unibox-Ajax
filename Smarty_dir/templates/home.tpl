@@ -21,23 +21,63 @@
 		</div>
 	</div>
 
-	<div id="mostActiveUsers" class="col-md-12">
-		<p> Gli utenti pi&ugrave attivi sul sito sono : </p>
-		{foreach $greatestUsers as $user}
-			<a href="index.php?controllerAction=profile&profileAction=getProfilePage&userProfile={$user->getUsername()}"> {$user->getName()}</a> <br> 			
-		{/foreach}
-	<br> <br> <br>
-	</div>
+	<br><br>
+	<div id="mostActiveUsers" class="col-md-6">
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				<span class="glyphicon glyphicon-user"></span> Utenti pi&ugrave attivi
+			</div>	
 
-	<div class="col-md-12">
-
-		<br>
-
-		<div class="alert alert-warning" role="alert">
-			Questa applicazione web &egrave ancora in via di sviluppo, se trovi qualche bug o hai qualche suggerimento contattaci. Trovi tutte le informazioni qui sotto, in fondo alla pagina.
+			<div class="panel-body">
+				<table class="table"> 
+					<thead>
+						<th>
+							Username
+						</th>	
+					</thead>
+					<tbody>
+						{foreach $greatestUsers as $user}
+							<tr>
+								<td>
+									<a href="index.php?controllerAction=profile&profileAction=getProfilePage&userProfile={$user->getUsername()}"> {$user->getName()}</a> <br> 			
+								</td>
+							</tr>	
+						{/foreach}					
+					</tbody>				
+				</table>				
+			</div>
 		</div>
-
 	</div>
+
+	<div id="mostDownloadedResources" class="col-md-6">
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				<span class="glyphicon glyphicon-book"></span> Risorse pi&ugrave scaricate
+			</div>
+
+			<div class="panel-body">
+				<table class="table"> 
+					<thead>
+						<th>
+							Risorsa
+						</th>	
+					</thead>
+					<tbody>
+					
+					</tbody>				
+				</table>
+			</div>
+		</div>
+	</div>
+	
+
+	<br>
+	<div class="col-md-12">
+		<br> <br>
+		<div class="alert alert-warning" role="alert">
+			<span class="glyphicon glyphicon-warning-sign"></span> <b>Attenzione </b><br> Questa applicazione web &egrave ancora in via di sviluppo, se trovi qualche bug o hai qualche suggerimento contattaci. Trovi tutte le informazioni qui sotto, in fondo alla pagina.
+		</div>
+	</div>	
 </div>
 
 <script src="Smarty_dir/templates/javascript/home.js"></script>
