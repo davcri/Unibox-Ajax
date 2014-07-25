@@ -1,16 +1,31 @@
 # Unibox README
 
+
 # Introduction
 
-Unibox is a work in progress web application developed as universitary project.
+Unibox is a web application developed for an Italian college project.
 
-The main goal of this web application is to give a place where users can upload
-or download resources organized by degree course.
+_**Note**: All the web application user interface is in Italian, but both code and documentation are in English. I hope to have time to finish this application and translate it._
 
+The main goal of this web application is to give a place where users can upload and download resources.
 
-# Installation
-Note : this app is currently under heavy development.
-We are using
+# Installation (local installation)
+If you want to install Unibox on your pc follow these steps :
+
+1. Create an empty database on your DBMS (ie: 'mysql') and name it as you want (ie: ```unibox```).
+2. Put all the source code in a folder accessible from the web. You can do that by putting the source code in your HTTP server's document root. 
+3. Open the browser and go to the path where you stored the source code (ie: ```localhost/path/to/unibox```) 
+4. Follow the guided installation.
+
+If something goes wrong you should check if you have write permission for all users on ```configurationFiles``` directory. If you're on a Unix PC you should try to run the ```permissionScript.sh``` with administrative priviledges.
+
+**Reinstallation**
+
+You can repeat the installation procedure by deleting ```configurationFiles/databaseConfig.php``` file.
+
+# Development 
+We developed Unibox using : 
+
 * XAMPP : [2014-02-13] XAMPP for Linux 64bit 1.8.3-3
 This version of XAMPP includes:
   - Updated PHP to 5.5.9
@@ -18,11 +33,9 @@ This version of XAMPP includes:
   - phpMyAdmin 4.1.6
   - Server web : Apache/2.4.7 (Unix)
 * Smarty-3.1.17
+* Jquery 1.10 + JqueryUI 1.10
+* Bootstrap 3 
+* tablesorter 2.17.4 : https://github.com/Mottie/tablesorter/tree/6de1009af887e6023f414a99a4b97189e3640275
+* jquery.blockUI 2.66.0: https://github.com/malsup/blockui/
 
-In order to run smoothly this application you need to :
-
-1. Import `Unibox.sql` script to create the database. Assuming you are using mysql, you can do that in 2 ways:
-  1. __phpMyAdmin__ : From the GUI, click on the `import` tab and import `Unibox.sql`.
-  2. __Terminal__ : Open the terminal in the Unibox folder, then : `mysql db_name < Unibox.sql`. Look at the official documentation for details : http://dev.mysql.com/doc/refman/5.6/en/mysql-batch-commands.html
-2. Go in ___/Configuration Files___ and rename `databaseConfig.example.php` in `databaseConfig.php`.
-3. In the file just renamed, change the values of the array $mysqlConfig according to your mysql database configuration.
+A big thanks to all the guys behind these wonderful tools. 
