@@ -5,7 +5,7 @@
 		<td>{$res->getCategory()}</td>
 		
 		<td>
-			<!-- In this functin, hidden span are used to enable sorting of the table with the tablesorter plugin -->
+			<!-- In this function, hidden spans are used to enable sorting of the table with the tablesorter plugin -->
 
 			{if $res->countQualityVotes()==0}
 				<div class="difficultyLabel"> <span class="hidden">0</span> Nessun voto</div> 
@@ -28,11 +28,11 @@
 				<div class="difficultyLabel text-center"> Nessun voto</div>
 			{else}
 				{if $difficulty>=0 && $difficulty<=3} 
-			 		<div class="easyResource difficultyLabel text-center"> <span class="hidden">{$difficulty}</span> Facile </div>
+			 		<div class="easyResource difficultyLabel text-center"> <span class="hiddena">{$difficulty}</span> Facile </div>
 				{elseif $difficulty>=4 && $difficulty<=7}
-					<div class="mediumResource difficultyLabel text-center"> <span class="hidden">{$difficulty}</span> Normale </div>
+					<div class="mediumResource difficultyLabel text-center"> <span class="hiddena">{$difficulty}</span> Normale </div>
 				{elseif $difficulty>=8 && $difficulty<=10}
-					<div class="hardResource difficultyLabel text-center"> <span class="hidden">{$difficulty}</span> Difficile </div>
+					<div class="hardResource difficultyLabel text-center"> <span class="hiddena">{$difficulty}</span> Difficile </div>
 				{/if}
 			{/if}
 		</td>
@@ -54,25 +54,29 @@
 	<div id="resourcesContainer" class="row">
 		<h3>{$subject_name}</h3> <br>
 
+		<p>Mostra risorse : </p>
 		<div class="btn-group">
-			<button type="button" class="btn btn-success" filter-value="Facile" data-filter-column="3">Mostra risorse facili</button> 
-			<button type="button" class="btn btn-warning" filter-value="Normale" data-filter-column="3">Mostra risorse normali</button>
-			<button type="button" class="btn btn-danger" filter-value="Difficile" data-filter-column="3">Mostra risorse difficili</button>
+			<button type="button" class="btn btn-primary" filter-value="0 - 3" data-filter-column="3">Facili</button> 
+			<button type="button" class="btn btn-primary" filter-value="4 - 7" data-filter-column="3">Normali</button>
+			<button type="button" class="btn btn-primary" filter-value="8 - 10" data-filter-column="3">Difficili</button>
 		</div>
-		<br>
+			<button id="resetFilter" class="btn btn-primary active">Tutte le risorse (default)</button>
+		<br><br>
 
-		<table id="tableS" class="tablesorter">
-			<thead>
-			<tr>
-				<th>Nome</th> <th>Categoria</th> <th>Qualità</th> <th>Difficoltà</th> <th>Tipo</th> <th># Downloads</th><th>username</th>
-			</tr>
-			</thead>
-			<tbody>
-				{foreach $resource as $res}	
-					{displayResource}					
-				{/foreach}
-			</tbody>
-		</table>	
+		<div class="tableOverflow">
+			<table id="tableS" class="tablesorter">
+				<thead>
+				<tr>
+					<th>Nome</th> <th>Categoria</th> <th>Qualità</th> <th>Difficoltà</th> <th>Tipo</th> <th># Downloads</th><th>username</th>
+				</tr>
+				</thead>
+				<tbody>
+					{foreach $resource as $res}	
+						{displayResource}					
+					{/foreach}
+				</tbody>
+			</table>
+		</div>	
 		
 		<div id="tablePager" class="pager">
 			<form>
@@ -88,7 +92,19 @@
 				  <option value="40">40</option>
 				</select>
 			</form>
-		</div>							
+		</div>	
+
+		<br>
+		<p id="tablesorterInfoLink"> <span class="fakeLink"><span class="glyphicon glyphicon-info-sign" href="#"></span> <b>Informazioni sulla tabella</b></span> </p>
+
+		<div id="tablesorterInfo" class"col-md-12">
+			<p>La tabella permette molte opzioni di ordinamento :</p>
+			<ul>
+				<li> <b>Ordinamento di una colonna</b> : Clicca sulla colonna che vuoi ordinare. Clicca un'altra volta se vuoi ordinare in senso contrario</li>
+				<li> <b>Ordinamento su più colonne</b> : Tieni premuto il tasto <kbd>SHIFT</kbd> e clicca sulle colonne.</li>
+				<li> <b>Ricerca per nome</b> : Scrivi il nome della risorsa che stai cercando nel box al di sotto della colonna desiderata</li>
+			</ul>
+		</div>
 	</div>
 </div>
 

@@ -43,7 +43,7 @@
 					  <p><em>{$resource->getDescription()}</em></p>
 					</blockquote>
 
-					<b>Link alla risorsa : </b> <a href="index.php?controllerAction=resource&resourceAction=getResource_StaticPage&resourceId={$resource->getId()}">index.php?controllerAction=resource&resourceAction=getResourcePage&resourceId={$resource->getId()}</a>
+					<b>Link alla risorsa : </b> <a href="index.php?controllerAction=resource&resourceAction=getResource_StaticPage&resourceId={$resource->getId()}">Link</a>
 					<p>Condividi questo link con i tuoi amici per segnalare questa risorsa. </p>
 				</div>
 

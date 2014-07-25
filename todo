@@ -2,23 +2,7 @@
 ALTA
 ----------------------------------------------------    
 
-- pagina risorse : 
-  |
-  | - fornire all'utente più dettagli sulla struttura della pagina (vedi pagina documentazione di tablesorter)
-
 - mettere in evidenza utenti più attivi nella home 
-
-- Decidere quali estensioni supportare :
-  |
-  | accettate : PDF
-  | da decidere : immagini, documenti ppt, doc ?
-  | 
-  
-- Migliorare navigazione AJAX
-  |
-  | - supporto a storia e deep linking con : http://www.asual.com/jquery/address/ Mi sembra molto valido
-  | +- feedback cambiamento pagina. Forse con : http://jquery.malsup.com/block/#overview. Mi sembra abbastanza buono
-
 
 MEDIA
 ----------------------------------------------------
@@ -83,3 +67,19 @@ COMPLETATI
 + evidenziare difficoltà risorsa con colori
 + aumenta dimensione footer
 + tasto "ricordami"
+
+- Decidere quali estensioni supportare :
+  |
+  | accettate : PDF
+  | da decidere : immagini, documenti ppt, doc ?
+  | 
+
+
+- Migliorare navigazione AJAX
+  |
+  | - supporto a storia e deep linking con : http://www.asual.com/jquery/address/ Mi sembra molto valido
+  | +- feedback cambiamento pagina. Forse con : http://jquery.malsup.com/block/#overview. Mi sembra abbastanza buono
+
+  - pagina risorse : 
+  |
+  | - fornire all'utente più dettagli sulla struttura della pagina (vedi pagina documentazione di tablesorter)

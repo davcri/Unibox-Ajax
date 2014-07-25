@@ -28,9 +28,7 @@
 	width: 400px;
 }
 
-#resourcesContainer{
-	overflow: auto;
-}
+
 
 .myTooltip{
 	padding: 6px 12px;
@@ -85,6 +83,14 @@
 
 .hardResource {
 	background-color: #C9302C;
+}
+
+.tableOverflow {
+	overflow: auto;
+}
+
+.fakeLink {
+	cursor: pointer;
 }
 
 #progressBarContainer { 
