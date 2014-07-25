@@ -1,11 +1,8 @@
-# Unibox README
-
-
 # Introduction
 
-Unibox is a web application developed for an Italian college project.
+Unibox is a web application developed for an Italian college project developed by [davcri](https://github.com/davcri) and [filreg](https://github.com/filreg).
 
-_**Note**: All the web application user interface is in Italian, but both code and documentation are in English. I hope to have time to finish this application and translate it._
+_**Note**: All the web application user interface is in Italian, but both code and documentation are in English. We hope to have time to finish this application and translate it._
 
 The main goal of this web application is to give a place where users can upload and download resources.
 
