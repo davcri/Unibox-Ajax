@@ -32,17 +32,31 @@
 				<table class="table"> 
 					<thead>
 						<th>
+							#
+						</th>
+						<th>
 							Username
 						</th>	
 					</thead>
 					<tbody>
-						{foreach $greatestUsers as $user}
+						{if count($greatestUsers)==0}
 							<tr>
 								<td>
-									<a href="index.php?controllerAction=profile&profileAction=getProfilePage&userProfile={$user->getUsername()}"> {$user->getName()}</a> <br> 			
+									Non &egrave stata trovata attivit&agrave da parte di alcun utente
 								</td>
 							</tr>	
-						{/foreach}					
+						{else}
+							{foreach $greatestUsers as $user}
+								<tr>
+									<td>
+										{$user@iteration}
+									</td>
+									<td>
+										<a href="index.php?controllerAction=profile&profileAction=getProfilePage&userProfile={$user->getUsername()}"> {$user->getUsername()}</a> <br>
+									</td>
+								</tr>	
+							{/foreach}					
+						{/if}
 					</tbody>				
 				</table>				
 			</div>
@@ -58,6 +72,9 @@
 			<div class="panel-body">
 				<table class="table"> 
 					<thead>
+						<th>
+							#
+						</th>
 						<th>
 							Risorsa
 						</th>	
