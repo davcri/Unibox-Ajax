@@ -12,7 +12,9 @@ If you want to install Unibox on your pc follow these steps :
 1. Create an empty database on your DBMS (ie: 'mysql') and name it as you want (ie: ```unibox```).
 2. Put all the source code in a folder accessible from the web. You can do that by putting the source code in your HTTP server's document root. 
 3. Open the browser and go to the path where you stored the source code (ie: ```localhost/path/to/unibox```) 
-4. Follow the guided installation.
+4. Follow the guided installation. 
+
+Now the installation is complete. Refresh the page and start using Unibox !
 
 If something goes wrong you should check if you have write permission for all users on ```configurationFiles``` directory. If you're on a Unix PC you should try to run the ```permissionScript.sh``` with administrative priviledges.
 
