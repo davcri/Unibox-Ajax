@@ -32,12 +32,13 @@ class Home
 		$mainView = \Utility\Singleton::getInstance("\View\Main");
 		
 		$resourceDb = new \Foundation\Resource();
-		$greatestUsers = $resourceDb->getMostActiveUsers();
+		$greatestUsers = $resourceDb->getMostActiveUsers(3);
 		
-		$greatestResources=$resourceDb->getMostDownloaded();
+		$greatestResources=$resourceDb->getMostDownloaded(3);
 
 		$mainView->assign('greatestResources',$greatestResources);
 		$mainView->assign('greatestUsers', $greatestUsers);
+		
 		return $mainView->fetch('home.tpl');
 	}
 }

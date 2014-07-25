@@ -80,7 +80,24 @@
 						</th>	
 					</thead>
 					<tbody>
-					
+					{if count($greatestResources)==0}
+						<tr>
+							<td>
+								Non &egrave stata trovata attivit&agrave da parte di alcun utente
+							</td>
+						</tr>	
+					{else}
+						{foreach $greatestResources as $resource}
+							<tr>
+								<td>
+									{$resource@iteration}
+								</td>
+								<td>
+									<a href="index.php?controllerAction=resource&resourceAction=getResourcePage&resourceId={$resource->getId()}"> {$resource->getName()}</a> <br>
+								</td>
+							</tr>	
+						{/foreach}					
+					{/if}
 					</tbody>				
 				</table>
 			</div>

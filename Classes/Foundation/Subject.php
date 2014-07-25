@@ -87,7 +87,7 @@ class Subject extends Database
 	 * @param string $subjectName Name of the subject.
 	 * @param string $degreeCourse Name of the degree course.
 	 */
-	public function getByName_DegreeCourse($subjectName,$degreeCourse)
+	public function getByName_DegreeCourse($subjectName, $degreeCourse)
 	{
 		$subjectName = '"'.$subjectName.'"';
 		$degreeCourse = '"'.$degreeCourse.'"';
@@ -97,7 +97,7 @@ class Subject extends Database
 		$where = "WHERE `name`=$subjectName AND `degreeCourse`=$degreeCourse";
 		
 		$query = $select." ".$from." ".$where;
-		
+				
 		$res = $this->associativeArrayQuery($query);
 				
 		if (count($res)!=0)

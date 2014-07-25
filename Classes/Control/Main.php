@@ -2,7 +2,7 @@
 /**
  * Main controller File
  * 
- * is the file that contain the home controller
+ * is the file that contains the home controller
  */
 namespace Control;
 
@@ -29,8 +29,8 @@ require_once './Classes/Utility/Singleton.php';
 class Main
 {
 	/**
-	 * switches the control of the request to the control class expertise
-	 * the first time that is called it show the homepage
+	 * Switches the control of the request to the control class expertise.
+	 * The first time that is called it show the homepage
 	 */
 	public function __construct()
 	{		
@@ -111,9 +111,8 @@ class Main
 				
 			default:
 				$resourceDb = new \Foundation\Resource();
-				$greatestUsers = $resourceDb->getMostActiveUsers();
-				
-				$greatestResources=$resourceDb->getMostDownloaded();
+				$greatestUsers = $resourceDb->getMostActiveUsers(3);				
+				$greatestResources=$resourceDb->getMostDownloaded(3);
 				
 				$mainView->assign('greatestResources',$greatestResources);
 				$mainView->assign("greatestUsers",$greatestUsers);

@@ -9,7 +9,7 @@ $(function(){
 		$(this).find(".table").hide("slide", {direction:"up"}, animationTime*2);
 	});*/
 
-	$("#mostActiveUsers").find("a").click(function(event){
+	$(".panel").find("a").click(function(event){
 		event.preventDefault();
 		ajaxChangePage($(this).attr("href"));
 	});
