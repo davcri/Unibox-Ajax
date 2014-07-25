@@ -28,6 +28,7 @@ class AboutPage
 	 * 
 	 * This function controls the visualization of the about Page.
 	 * 
+	 * @return string Rendered template output
 	 */
 	
 	public function controlAboutPage(){

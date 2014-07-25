@@ -13,20 +13,21 @@ require_once './Classes/Utility/Singleton.php';
  *It is then Login control class,
  *
  *It controls the login's behaviour
- *
- *
  */
 class Login
 {
-	/**
-	 * 
-	 * 
-	 */
+
 	public function __construct()
 	{
 	
 	}
-	
+	/**
+	 *It is the Login control class, 
+	 * 
+	 *It controls the login's behaviour
+	 *
+	 *@return json
+	 */
 	public function controlLogin(){
 		$mainView = \Utility\Singleton::getInstance("\View\Main");
 		$user = \Utility\Singleton::getInstance("\Control\Session");

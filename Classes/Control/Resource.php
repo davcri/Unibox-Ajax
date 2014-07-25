@@ -1,7 +1,8 @@
 <?php
 /**
- * Contains the Resource controller.
+ * the control resource file
  *
+ *It contains the resource control file
  */
 
 namespace Control;
@@ -12,7 +13,9 @@ require_once './Classes/Foundation/Resource.php';
 require_once './Classes/Foundation/Subject.php';
 
 /**
- * Handles the AJAX requests of the resource page.
+ * the resource control class
+ * 
+ * it Handles the AJAX requests of the resource page.
  * 
  *
  */
@@ -31,6 +34,8 @@ class Resource
 	 * Handles the resource page.
 	 * 
 	 * Sends the tpl file requested through AJAX.
+	 * 
+	 * @return string Rendered template output
 	 */
 	public function controlResource()
 	{
@@ -71,6 +76,8 @@ class Resource
 	 * Sets the smarty variables of resourcePage.tpl
 	 * 
 	 * Assigns all the requested smarty variables.
+	 * 
+	 * @return string Rendered template output
 	 */
 	private function getResourcePage()
 	{
@@ -107,6 +114,8 @@ class Resource
 	 * Rates a resource.
 	 *
 	 * This method should be called only by AJAX.
+	 * 
+	 * @return json
 	 */
 	private function rateResource()
 	{
@@ -135,6 +144,13 @@ class Resource
 		return json_encode(array("returnCode"=>$retCode, "newDifficulty"=>$res->getDifficultyScore(), "newQuality"=>$res->getQualityScore(), "voti diff"=>$difficultyVotes, "voti qual"=>$qualityVotes));
 	}
 	
+	/**
+	 * function increemetnDownloads
+	 *
+	 * this function controls the increment of downloads of given resource
+	 *
+	 * @return json
+	 */
 	private function incrementDownloads()
 	{
 		$resourcePage = \Utility\Singleton::getInstance('\View\Main');

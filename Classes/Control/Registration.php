@@ -1,6 +1,8 @@
 <?php
 /**
- *this file contains the Registration class,
+ *It is the Control Registration file
+ * 
+ *this file contains the  Registration control class,
  *
  */
 
@@ -11,7 +13,9 @@ require_once './Classes/Foundation/Subject.php';
 require_once './Classes/Foundation/DegreeCourse.php';
 
 /**
- * it is the Registration control class, it manages the registration of a new user
+ * It is the Registration control class
+ * 
+ * It control the registration of a new user
  *
  */
 class Registration
@@ -20,7 +24,7 @@ class Registration
 	
 	/**
 	 * 
-	 * Enter description here ...
+	 * inizialize all the class variable
 	 */
 	public function __construct()
 	{
@@ -33,7 +37,9 @@ class Registration
 	}
 	
 	/**
-	 * Handles the behaviour of the Registration controller.
+	 * Function handleRegistration
+	 * 
+	 *It Handles the behaviour of the Registration controller.
 	 * 
 	 * @return string Rendered template output
 	 */
@@ -62,7 +68,9 @@ class Registration
 	}
 	
 	/**
-	 * Gets the registration form
+	 * Function getRegistrationForm
+	 * 
+	 *It Gets the registration form
 	 * 
 	 * @return string Rendered template output
 	 */
@@ -77,6 +85,8 @@ class Registration
 	}
 	
 	/**
+	 * fucntion addNewUser
+	 * 
 	 *  It takes the form's fields from the user form and create an Entity\User with these details and
 	 *  after tries to store it into the database.
 	 *
@@ -122,7 +132,9 @@ class Registration
 	}
 	
 	/**
-	 * Checks the validity of the registration values.
+	 * function validateRegistrationFormData
+	 * 
+	 * It Checks the validity of the registration values.
 	 * 
 	 * @return bool 
 	 */
@@ -151,6 +163,14 @@ class Registration
 		return $valid;		
 	}	
 	
+	/**
+	 * function checkUsername
+	 * 
+	 * Checks the validity of the registration values.
+	 *
+	 * @return bool
+	 * @param String @username
+	 */
 	private function checkUsername($username)
 	{
 		$userDb= new \Foundation\User();
