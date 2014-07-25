@@ -8,7 +8,7 @@
 <body>
 	<div class="container">
 		<div class="page-header">
-	  		<span><img id="img" src="Smarty_dir/templates/img/logoBox2.jpg"></span> <span><div id="nameApp"><h1>Unibox<small> Pagina di installazione</small></h1></div></span>
+	  		<span><img id="img" src="Smarty_dir/templates/img/logoBox2.jpg"></span> <div id="nameApp"><h1>Unibox<small> pagina di installazione</small></h1></div>
 		</div>
 
 		<div id="mainContainer" class="col-md-12">

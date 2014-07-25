@@ -3,10 +3,11 @@ ALTA
 ----------------------------------------------------    
 
 - mettere in evidenza utenti più attivi nella home 
+- creare database
 
 MEDIA
 ----------------------------------------------------
-- scarica immagine "fork me on github" e aggiungila sulla pagina del progetto
+
 
 - revisone codice PHP
   |
@@ -20,8 +21,6 @@ MEDIA
   |
   | - upload via drag 'n drop 
   | + feedback sulla durata dell'upload
-
-- immagine profilo 
 
 Upload :
   |
@@ -37,6 +36,8 @@ BASSA
   |
   |- controlla utilizzo memoria di altre applicazioni web
   |- vedi come ottenere un elenco delle variabili e funzioni definite in javascript (memory leaks)
+
+  
 
 COMPLETATI
 ----------------------------------------------------
@@ -83,3 +84,5 @@ COMPLETATI
   - pagina risorse : 
   |
   | - fornire all'utente più dettagli sulla struttura della pagina (vedi pagina documentazione di tablesorter)
+
+  + scarica immagine "fork me on github" e aggiungila sulla pagina del progetto
