@@ -1,5 +1,9 @@
 @charset "utf-8";
 
+
+/* ------------------------------------------------*/
+/* Main page css   								   */
+/* ------------------------------------------------*/
 .mainContent{
 	padding-left: 40px;
 	padding-right: 40px;
@@ -28,8 +32,6 @@
 	width: 400px;
 }
 
-
-
 .myTooltip{
 	padding: 6px 12px;
 	margin-top: 26px;
@@ -37,22 +39,6 @@
 	background-color: #FFFDCC;
 	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(119, 122, 107, 0.6);
 }
-
-
-
-/*html, body{
-	height: 100%;
-}
-
-.container{
-	height: 100%;
-	
-}
-
-#mainContainer{
-	min-height: 100%;
-	position: relative;
-}*/
 
 .footer {
 	background-color: #1D1D1D;
@@ -69,6 +55,9 @@
 	font-size: 20px;
 }
 
+/* ------------------------------------------------*/
+/* Resources page css                              */
+/* ------------------------------------------------*/
 .difficultyLabel {
 	border-radius: 4px;
 }
@@ -93,12 +82,16 @@
 	cursor: pointer;
 }
 
+/* ------------------------------------------------*/
+/* Upload page    								   */
+/* ------------------------------------------------*/
 #progressBarContainer { 
 	margin-top: 50px;
 	
 	width: 90%;
 	margin-left: 5%; /* used to center align the progress bar*/
 }
+
 
 /* ------------------------------------------------*/
 /* From here starts the bootstrap ovverrides css   */
@@ -125,8 +118,6 @@ body{
 	width:130px;
 }
 
-/* ------------------------------------------------*/
-
 
 /* ------------------------------------------------*/
 /* css per la pagina del profilo 				   */
@@ -135,7 +126,7 @@ body{
 	font-size: 50px;
 	width: 310px;
 }
-/* ------------------------------------------------*/
+
 
 
 /* ------------------------------------------------*/
@@ -154,4 +145,4 @@ body{
 	margin-left: 10px;
 	float: left;
 }
-/* ------------------------------------------------*/
+
