@@ -1,8 +1,8 @@
 <?php
 /**
- * is the file that contain the aboutPage controller
+ * AboutPage Controller File
  * 
- *
+ *It is the file that contain the aboutPage controller
  */
 namespace Control;
 
@@ -13,8 +13,9 @@ require_once './Classes/Utility/Session.php';
 require_once './Classes/Foundation/User.php';
 
 /**
- *is the about's page controller, every request passes through it
- *and it manages these request and call the respective controller 
+ *It is the  about's page control class
+ * 
+ *This class controls the visualization of the about Page of this web application.
  * 
  */
 class AboutPage
@@ -22,6 +23,12 @@ class AboutPage
 	public function __construct(){
 		
 	}
+	/**
+	 * Main function controlAboutPage
+	 * 
+	 * This function controls the visualization of the about Page.
+	 * 
+	 */
 	
 	public function controlAboutPage(){
 		$mainView = \Utility\Singleton::getInstance("\View\Main");

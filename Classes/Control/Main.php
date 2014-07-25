@@ -79,6 +79,8 @@ class Main
 				
 			case 'login':
 				$login = new \Control\Login();	
+				$ajaxData=$login->controlLogin();
+				print $ajaxData;
 				break;
 			
 			case 'logout':
