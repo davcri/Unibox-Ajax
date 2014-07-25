@@ -309,7 +309,7 @@ class Resource extends Database
 	 */
 	public function getMostActiveUsers()
 	{
-		$query = "SELECT `uploaderUsername`, count(`uploaderUsername`) as 'uploadedResources' FROM `resource` WHERE 1 group by `uploaderUsername` order by `uploadedResources` DESC, `uploaderUsername` ASC";
+		$query = "SELECT `uploaderUsername`, count(`uploaderUsername`) as 'uploadedResources' FROM `resource` group by `uploaderUsername` order by `uploadedResources` DESC, `uploaderUsername` ASC";
 		$result = $this->associativeArrayQuery($query);
 		
 		$userDb = new \Foundation\User();
@@ -328,6 +328,24 @@ class Resource extends Database
 		
 		return $users;
 	}
+	
+	public function getMostDownloaded()
+	{
+		$query= "SELECT `id` FROM `resource` group by `id` order by `downloadsNumber` ASC";
+		$result=$this->associativeArrayQuery($query);
+		$resourceDb= new \Foundation\Resource();
+		if(!empty($result))
+		{
+			foreach($result as $resourceRecord)
+			{
+				$resource[]=$resourceDb->getById($resourceRecord['id']);
+			}
+		}	
+		else
+			$resource=array();	
+		return  $resource;
+	}
+	
 }
 
 

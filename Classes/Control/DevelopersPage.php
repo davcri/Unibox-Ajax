@@ -1,8 +1,8 @@
 <?php
 /**
- * is the file that contain the DevelopersPage controller
+ * DevelopersPage Controller File
  * 
- *
+ * It is the file that contain the DevelopersPage controller
  */
 namespace Control;
 
@@ -13,8 +13,9 @@ require_once './Classes/Utility/Session.php';
 require_once './Classes/Foundation/User.php';
 
 /**
- *is the developer's page controller, every request passes through it
- *and it manages these request and call the respective controller 
+ *It is the DevelopersPage control class
+ * 
+ *This class controls the visualization of the developersPage of this web application.
  * 
  */
 class DevelopersPage
@@ -23,6 +24,12 @@ class DevelopersPage
 		
 	}
 	
+	/**
+	 * Main Function controlDevelopersPage
+	 * 
+	 * This function controls the visualization of the developersPage.
+	 * 
+	 */
 	public function controlDevelopersPage(){
 		$mainView = \Utility\Singleton::getInstance("\View\Main");
 		return $mainView->fetch('developersPage.tpl');
