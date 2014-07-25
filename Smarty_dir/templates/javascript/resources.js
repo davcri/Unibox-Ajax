@@ -10,6 +10,8 @@ $(function(){
 		}); 
 	});*/
 
+	handleTableButton();
+
 	$("#mainContainer").find("a").click(function(event) {
 		event.preventDefault();
 	});
@@ -63,4 +65,13 @@ function initializeTablesorter(){
 	})
 	.tablesorterPager(pagerOptions).show("fade",animationTime+100);
 	//.tablesorterPager(pagerOptions).delay(500).show("slide",animationTime+500);
+}
+
+function handleTableButton(){
+	$('button').click(function(){
+		var columns = [];
+		columns[3] = $(this).attr("filter-value");
+				
+		$('table').trigger('search', [ columns ]);
+	});
 }

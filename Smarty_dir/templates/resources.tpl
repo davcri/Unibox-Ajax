@@ -53,8 +53,14 @@
 	<br>
 	<div id="resourcesContainer" class="row">
 		<h3>{$subject_name}</h3> <br>
-		
-		
+
+		<div class="btn-group">
+			<button type="button" class="btn btn-success" filter-value="Facile" data-filter-column="3">Mostra risorse facili</button> 
+			<button type="button" class="btn btn-warning" filter-value="Normale" data-filter-column="3">Mostra risorse normali</button>
+			<button type="button" class="btn btn-danger" filter-value="Difficile" data-filter-column="3">Mostra risorse difficili</button>
+		</div>
+		<br>
+
 		<table id="tableS" class="tablesorter">
 			<thead>
 			<tr>
