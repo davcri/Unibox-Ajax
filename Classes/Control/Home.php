@@ -24,6 +24,8 @@ class Home
 	 * Main function controlHome
 	 * 
 	 * It is the main function that actually controls the homepage
+	 * 
+	 * @return string Rendered template output
 	 */
 	public function controlHome()
 	{

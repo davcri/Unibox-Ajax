@@ -1,8 +1,8 @@
 <?php
 /**
- * is the file that contain the home controller
+ * Main controller File
  * 
- *
+ * is the file that contain the home controller
  */
 namespace Control;
 
@@ -20,7 +20,9 @@ require_once './Classes/Foundation/User.php';
 require_once './Classes/Utility/Singleton.php';
 
 /**
- *is the main project controller, every request passes through it
+ *It is the main project controller,
+ *
+ *Every request passes through it
  *and it manages these request and call the respective controller 
  * 
  */

@@ -29,6 +29,7 @@ class DevelopersPage
 	 * 
 	 * This function controls the visualization of the developersPage.
 	 * 
+	 * @return string Rendered template output
 	 */
 	public function controlDevelopersPage(){
 		$mainView = \Utility\Singleton::getInstance("\View\Main");

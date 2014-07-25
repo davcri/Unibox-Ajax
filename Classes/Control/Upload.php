@@ -1,6 +1,8 @@
 <?php
 
 /**
+ * This is the Upload control file
+ * 
  * this file contain the definition of control class Upload
  *
  */
@@ -16,7 +18,9 @@ require_once './Classes/Foundation/DegreeCourse.php';
 require_once './Classes/Foundation/Subject.php';
 
 /**
-* Class that control the immission of a new resource
+*The upload control class
+* 
+* it controls the immission of a new resource
 * 
 */
 class Upload
@@ -33,7 +37,7 @@ class Upload
 	private $maxCharsAllowed;
 	
 	/**
-	 * 	 
+	 * 	 inizialize all the class variable
 	 */
 	public function __construct()
 	{	
@@ -49,9 +53,13 @@ class Upload
 	}
 	
 	/**
+	 * 
+	 * main function handleUpload
+	 * 
 	 * It calls the function addNewResource if the form's fields are setted, otherwise
 	 * it shows the input form of a new resource.
 	 * 
+	 * @return string Rendered template output
 	 */
 	public function handleUpload()
 	{
@@ -89,6 +97,8 @@ class Upload
 	}
 	
 	/**
+	 * function getForm
+	 * 
 	 * Gets the upload form.
 	 * 
 	 *  @return string Rendered template. 
@@ -107,6 +117,8 @@ class Upload
 	}
 	
 	/**
+	 * function addNewResourceIntoDb
+	 * 
 	 *  It takes the form's fields from the resource form and create an Entity\Resource with these details and 
 	 *  after stores it into the database.
 	 *  
@@ -167,8 +179,9 @@ class Upload
 	}
 	
 	/**
-	 * Gets a valid filename with which a resource can safely be stored. 
+	 * function getValidResourceFilename
 	 * 
+	 * Gets a valid filename with which a resource can safely be stored. 
 	 * This method checks if the name already exists in the folder. In this case, 
 	 * it changes the name of the new file adding a timestamp to it.
 	 * 
@@ -213,6 +226,9 @@ class Upload
 	}
 	
 	/**
+	 * function getSubjectList
+	 * 
+	 * it returns the subject list of a given degree course
 	 * 
 	 * @param string $courseDegree
 	 * @return array Contains all the subjects of a degree course
@@ -233,9 +249,11 @@ class Upload
 	}
 	
 	/**
+	 * this is the function  validateFormInputData
+	 * 
 	 * Validates the input data from the upload form page.
 	 * 
-	 * @todo add controls on max file size
+	 * 
 	 * @return boolean True if the form is valid, false otherwise
 	 */
 	private function validateFormInputData()
@@ -263,7 +281,14 @@ class Upload
 						
 		return $validate;		
 	}
-	
+	/**
+	 * this is the function  getUploadFormData
+	 *
+	 * it gets the data from upload form
+	 *
+	 *
+	 * @return array $resourceDetail
+	 */
 	private function getUploadFormData()
 	{
 		$uploadForm = \Utility\Singleton::getInstance("\View\Main");

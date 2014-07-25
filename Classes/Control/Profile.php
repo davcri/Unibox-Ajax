@@ -1,6 +1,8 @@
 <?php
 /**
-*this file contains the Profile class,
+*It is the Control Profile File 
+*
+*this file contains the Profile control class,
 *
 */
 
@@ -16,8 +18,8 @@ require_once './Classes/Foundation/User.php';
 
 /**
  * it is the profile control class,
- *
- *
+ * 
+ * this class control the profile page's behaviour
  */
 class Profile
 {
@@ -25,7 +27,12 @@ class Profile
 	{	
 		
 	}
-	
+	/**
+	 * This is the main function cotrolProfile
+	 * 
+	 * It swhitches to others fuction that controls all possible cases in the profile page 
+	 * @return string Rendered template output
+	 */
 	public function controlProfile(){
 		$profilePage = \Utility\Singleton::getInstance('\View\Main');
 		$data="";
@@ -49,16 +56,31 @@ class Profile
 		return $data;
 		
 	}
-	
+	/**
+	 * This is a function SetProfileInformation.
+	 * 
+	 * this function set all information of a user
+	 * 
+	 * @return string Rendered template output
+	 */
 	public function setProfileInformation(){
 		$view = \Utility\Singleton::getInstance("\View\Main");
 		$username=$view->get('userProfile');
-		$this->setUserInformations($view,$username);
+		$this->getUserInformations($view,$username);
 		$this->setResourcesUploaded($view,$username);
 		return $view->fetch('profile.tpl');
 	}
 	
-	public function setUserInformations($view,$username){
+	/**
+	 *This is the function getUserInformations
+	 * 
+	 *This function get the informations of a given user
+	 *It also controls if the user is watching his profile page or an other one profile page
+	 * 
+	 * @param \View\Main $view
+	 * @param String $username
+	 */
+	public function getUserInformations($view,$username){
 		$userSession = \Utility\Singleton::getInstance("\Control\Session");
 		if($userSession->isLoggedin()){
 			$userLog=$userSession->get('username');
@@ -103,12 +125,30 @@ class Profile
 		$view->assign('wantToVote', $wantToVote);
 	}
 	
+	/**
+	 * This is a function setResourcesUploaded
+	 * 
+	 * This function set all resources uploaded by give user
+	 * 
+	 * @param \View\Main $view
+	 * @param String $username
+	 */
 	public function setResourcesUploaded($view,$username){
 		$resourceDb=new \Foundation\Resource();
 		$resources=$resourceDb-> getResourcesByUser($username);
 		$view->assign('resource',$resources);
 	}
-	
+	/**
+	 * This is a function rateUser
+	 *
+	 * This function control the rating of a user, obviously the vote unique, so it controls if a watching user 
+	 * has already voted a user
+	 *
+	 * @param \View\Main $view
+	 * @param String $username
+	 * 
+	 * @return string $votation
+	 */
 	public function rateUser(){
 		$userSession = \Utility\Singleton::getInstance("\Control\Session");
 		$userLog=$userSession->get('username');
@@ -134,6 +174,16 @@ class Profile
 		
 	}
 	
+	/**
+	 * This is a function hasVoted
+	 * 
+	 * This function controls if a user has already voted the user  profile's page 
+	 * 
+	 * @param unknown_type $username
+	 * @param unknown_type $userLog
+	 * 
+	 * @return bool
+	 */
 	public function hasVoted($username,$userLog){
 		//$view = \Utility\Singleton::getInstance("\View\Home");
 		//$userSession = \Utility\Singleton::getInstance("\Control\Session");

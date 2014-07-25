@@ -1,5 +1,7 @@
 <?php
 /**
+ *Navigation Controller file
+ * 
  *this file contains the navigation class,   
  *
  */
@@ -15,9 +17,10 @@ require_once './Classes/Utility/Singleton.php';
 
 
 /**
- * it is the navigation control class, it manages the navigation of the web appplication and every view of any resource
+ *It is the Navigation control class 
  * 
- *
+ *It manages the navigation of the web appplication 
+ *and every view of any resource
  */
 class Navigation
 {	
@@ -27,9 +30,13 @@ class Navigation
 	}
 	
 	/**
-	 * this function populates the upper part of the body, the menú.
+	 * Main function controlNavigation.
+	 * 
+	 * This function populates the upper part of the body, the menú.
 	 * it brings the values of course degree, and insert the corrisponding subject into
 	 * a select list( calling an Foundation Function that perform a sql query to the db)
+	 * 
+	 * @return string Rendered template output
 	 */
 	public function controlNavigation()
 	{
@@ -48,22 +55,18 @@ class Navigation
 				break;
 		}
 		return $data;
-		/*
-		if(!isset($_REQUEST['degreeCourse']))
-		{
-			$this->chooseDegreeCourse();
-		}
-		else if(!isset($_REQUEST['subject']))
-		{
-			$this->chooseSubject();
-		}
-		else
-		{
-			$this->handleNavigation();
-		}*/
+
 	}
 	
 	//funzione che gestisce la visualizzazione di tutti i degree course presenti nel database
+	/**
+	 * This is the function chooseDegreeCourse.
+	 * 
+	 * this function control the visualization of every DegreeCourses in the DB, and the corresponding number 
+	 * of resources that contain
+	 * 
+	 * @return string Rendered template output
+	 */
 	public function chooseDegreeCourse()
 	{
 		$db = new \Foundation\DegreeCourse();
@@ -79,8 +82,12 @@ class Navigation
 	}
 	
 	/**
-	 *
+	 * This is the function chooseSubject.
 	 * 
+	 * this function controls the visualization of each subject in a given degreeCourse and 
+	 * the corresponding number of resources that has
+	 * 
+	 * @return string Rendered template output
 	 */
 	public function chooseSubject()
 	{
@@ -104,7 +111,11 @@ class Navigation
 	}
 	
 	/**
+	 * this is the function handleNavigation
 	 * 
+	 * this function controls the visualization of each resouces of a given subject
+	 * 
+	 * @return string Rendered template outputs
 	 */
 	public function handleNavigation()
 	{	
@@ -132,33 +143,17 @@ class Navigation
 		return $view->fetch('resources.tpl');
 			
 		
-		/*$subject->assign("user",$this->session->get("username"));*/
-	
-	
-		/*if($this->userLoggedIn)
-		 $subject->assign("loggedin",true);
-		else
-			$subject->assign("loggedin",false);*/
-		
 	}
 	
 	
-	public function controlLoginNavigation()
-	{
-		if(!isset($_SESSION['degreeCourse']))
-		{
-			return $this->chooseDegreeCourse();
-		}
-		else
-		{
-			return $this->chooseSubject();
-		}		
-	}	
-	
 	/**
+	 * this is a function processSubjectList
 	 * 
+	 * this function process the subject list of a given Degree course 
 	 *
 	 * @param string $courseDegree
+	 * 
+	 * @return array $subjectList
 	 */
 	public function processSubjectList($courseDegree)
 	{
