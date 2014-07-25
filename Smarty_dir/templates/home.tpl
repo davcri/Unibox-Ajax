@@ -26,12 +26,13 @@
 		{foreach $greatestUsers as $user}
 			<a href="index.php?controllerAction=profile&profileAction=getProfilePage&userProfile={$user->getUsername()}"> {$user->getName()}</a> <br> 			
 		{/foreach}
-		
 	<br> <br> <br>
 	</div>
 
 	<div class="col-md-12">
+
 		<br>
+
 		<div class="alert alert-warning" role="alert">
 			Questa applicazione web &egrave ancora in via di sviluppo, se trovi qualche bug o hai qualche suggerimento contattaci. Trovi tutte le informazioni qui sotto, in fondo alla pagina.
 		</div>

@@ -26,8 +26,8 @@
 					</tr>
 				</table>
 			</div>
-			<div class="col-md-4">
-				<div id="votazione">
+			<div class="col-md-4" id="votazione">
+				
 					<div id="text"><h2>{$yourScore}:</h2></div>
 					{if $wantToVote}
 						<div class="hidden" id="votato">{$hasVoted}</div>
@@ -41,7 +41,6 @@
 				
 					{/for}	
 
-				</div>	
 			</div>	
 		</div>
 		<div class="row">

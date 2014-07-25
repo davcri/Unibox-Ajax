@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This should be the starting point of the web application.
+ * This is the starting point of the web application.
  * 
  */
 
