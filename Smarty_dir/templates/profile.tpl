@@ -1,7 +1,7 @@
 <div id="profilePage">
 	<div id="mainContent" class="mainContent">
 		<div class="row">
-			<div class="col-md-8">
+			<div class="col-md-6" id="info">
 				<table>
 					<tr>
 						<th><h4>Username</h4></th>
@@ -31,7 +31,8 @@
 					<div id="text"><h2>{$yourScore}:</h2></div>
 					{if $wantToVote}
 						<div class="hidden" id="votato">{$hasVoted}</div>
-					{/if}
+					{/if} 
+					<div id="star"> 
 					{for $i=1 to 5}
 						{if $user->getReliability()>=$i}
 							<span class="glyphicon glyphicon-star" id='{$i}'></span>
@@ -40,7 +41,7 @@
 						{/if}
 				
 					{/for}	
-
+					</div>
 			</div>	
 		</div>
 		<div class="row">
