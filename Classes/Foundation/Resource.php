@@ -349,14 +349,8 @@ class Resource extends Database
 		return $rated;	
 	}	
 	
-	/**
-	 * function getMostActiveUsers
-	 * 
-	 * it returns an array with the most active user into DB
-	 * 
-	 * @return array $user 
-	 */
-	public function getMostActiveUsers()
+
+	public function getMostActiveUsers($userCount)
 	{
 		$query = "SELECT `uploaderUsername`, count(`uploaderUsername`) as 'uploadedResources' FROM `resource` group by `uploaderUsername` order by `uploadedResources` DESC, `uploaderUsername` ASC";
 		$result = $this->associativeArrayQuery($query);
@@ -369,35 +363,42 @@ class Resource extends Database
 			{
 				$users[] = $userDb->getByUsername($userRecord['uploaderUsername']);
 			}
+			$users = array_slice($users, 0, $userCount);
 		}
 		else
 			$users = array(); //empty array
 		
 		
+			$users = array(); //empty array		
+				
 		return $users;
 	}
 	
 	/**
-	 * function getMostDownloaded
-	 *
-	 * it returns an array with the most downloaded resources
-	 *
-	 * @return array $resource
+	 * Gets the most downloaded resources.
+	 * 
+	 * Returns an array containing the most downloaded resources.
+	 * Example : getMostDownloaded(3) returns the top 3 downloaded resources.
+	 * 
+	 * @param int $resourceCount Max lenght of the returned array.
+	 * @return array
 	 */
-	public function getMostDownloaded()
+	public function getMostDownloaded($resourceCount)
 	{
-		$query= "SELECT `id` FROM `resource` group by `id` order by `downloadsNumber` ASC";
-		$result=$this->associativeArrayQuery($query);
-		$resourceDb= new \Foundation\Resource();
+		$query = "SELECT `id` FROM `resource` group by `id` order by `downloadsNumber` ASC";
+		$result = $this->associativeArrayQuery($query);
+				
 		if(!empty($result))
 		{
 			foreach($result as $resourceRecord)
 			{
-				$resource[]=$resourceDb->getById($resourceRecord['id']);
+				$resource[]=$this->getById($resourceRecord['id']);
 			}
+			$resource = array_slice($resource, 0, $resourceCount);
 		}	
 		else
 			$resource=array();	
+				
 		return  $resource;
 	}
 	
