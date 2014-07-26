@@ -9,6 +9,24 @@ _**Note**: All the web application user interface is in Italian, but both code a
 The main goal of this web application is to give a place where users can upload and download resources.
 
 
+# Documentation 
+
+PHP : http://uniboxaq.altervista.org/Documentation/PHP/
+UML Diagrams : In ./Documentation/UML/
+
+# File hierarchy
+
+* `Classes/` : Contains the server side application. All the PHP classes are here.
+* `Configuration Files/` : Contains the configuration file of the application. Generally you don't need to edit these files.
+* `Documentation/` : Contains all the documentation stuff as PHPDoc and UML diagrams.  
+* `Library/` : Contains all the required external libraries. 
+* `Resources/` : By default, Unibox moves the uploaded resources here.
+* `Smarty Dir/` : Contains the required smarty folders and also all the .tpl, css, javascript and images ! 
+  * `Smarty Dir/templates/` : All the tpl files are here.
+  * `Smarty Dir/templates/javascript/` : All the javascript files are here.
+  * `Smarty Dir/templates/css` : All the css files are here. 
+  
+
 # Installation
 **Requirements**
 
@@ -35,22 +53,6 @@ If you're on a Unix PC and you're trying to install Unibox in your localhost, yo
 
 You can repeat the installation procedure by deleting ```configurationFiles/databaseConfig.php``` file.
 
-# Documentation 
-
-PHP : http://uniboxaq.altervista.org/Documentation/PHP/
-UML Diagrams : 
-
-# File hierarchy
-
-* `Classes/` : Contains the server side application. All the PHP classes are here.
-* `Configuration Files/` : Contains the configuration file of the application. Generally you don't need to edit these files.
-* `Documentation/` : Contains all the documentation stuff as PHPDoc and UML diagrams.  
-* `Library/` : Contains all the required external libraries. 
-* `Resources/` : By default, Unibox moves the uploaded resources here.
-* `Smarty Dir/` : Contains the required smarty folders and also all the .tpl, css, javascript and images ! 
-  * `Smarty Dir/templates/` : All the tpl files are here.
-  * `Smarty Dir/templates/javascript/` : All the javascript files are here.
-  * `Smarty Dir/templates/css` : All the css files are here. 
 
 
 # Development 
