@@ -172,7 +172,7 @@ class Upload
 		}
 		else
 		{
-			$elaboratedForm->assign('problem', 'please check if the subject inserted is correct');
+			$elaboratedForm->assign('problem', 'Error, check if the inserted subject is correct');
 		}
 		
 		return $elaboratedForm->fetch('uploadCompleted.tpl');

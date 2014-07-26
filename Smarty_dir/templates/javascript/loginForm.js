@@ -7,9 +7,11 @@ $(function(){
 	checkLogin();
 	
 	$("#signInButton").click(function(){
-		$.get("index.php?controllerAction=registration&registrationAction=getRegistrationPage",function(data){
+		ajaxChangePage("index.php?controllerAction=registration&registrationAction=getRegistrationPage");
+
+		/*$.get(,function(data){
 			changePage(data);
-		});
+		});*/
 	});
 });
 

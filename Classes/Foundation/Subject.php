@@ -1,5 +1,12 @@
 <?php
-	
+/**
+ *
+ * Foundation Subject File
+ *
+ * it contain the foundation subject class that Stores and loads a subject with a connection to a mysql's database.
+ *
+ */
+
 namespace Foundation;
 
 
@@ -7,10 +14,19 @@ namespace Foundation;
 require_once './Classes/Foundation/Database.php';
 require_once './Classes/Entity/Subject.php';
 
+/**
+ * Foundation class Subject
+ *
+ * this class represent the Foundation Subject, it can stores and loads a Subject, also it performs
+ * all the needed query
+ *
+ */
 class Subject extends Database
 {
 	/**
-	 * Constructor. Calls the parent constructor to initialize the connection to the database.
+	 * Constructor.
+	 * 
+	 *  Calls the parent constructor to initialize the connection to the database.
 	 */
 	public function __construct()
 	{
@@ -18,9 +34,12 @@ class Subject extends Database
 	}
 	
 	/**
+	 * function store
+	 * 
 	 * Stores a subject on the database.
 	 * 
 	 * @param $subject \Entity\Subject
+	 * @return bool
 	 */
 	public function store($subject)
 	{
@@ -33,6 +52,8 @@ class Subject extends Database
 	}
 	
 	/**
+	 * function getByCode
+	 * 
 	 * Gets a subject by his code. 
 	 * 
 	 * @return mixed \Entity\Subject on success, false if no Subject was found.
@@ -51,10 +72,12 @@ class Subject extends Database
 	}
 	
 	/**
+	 * function getByDegreeCourse
+	 * 
 	 * Gets an array of subjects by degree course name.
 	 * 
 	 * @param string $degreeCourse
-	 * @return array 
+	 * @return array  $subject
 	 */
 	public function getByDegreeCourse($degreeCourse)
 	{
@@ -82,12 +105,16 @@ class Subject extends Database
 	}
 	
 	/**
+	 * function getByName_DegreeCourse
+	 * 
 	 * Find in the database the unique subject with the given name and degree course.
 	 * 
 	 * @param string $subjectName Name of the subject.
 	 * @param string $degreeCourse Name of the degree course.
+	 * 
+	 * @return mixed \Entity\Subject on success, false if no Subject was found.
 	 */
-	public function getByName_DegreeCourse($subjectName,$degreeCourse)
+	public function getByName_DegreeCourse($subjectName, $degreeCourse)
 	{
 		$subjectName = '"'.$subjectName.'"';
 		$degreeCourse = '"'.$degreeCourse.'"';
@@ -97,7 +124,7 @@ class Subject extends Database
 		$where = "WHERE `name`=$subjectName AND `degreeCourse`=$degreeCourse";
 		
 		$query = $select." ".$from." ".$where;
-		
+				
 		$res = $this->associativeArrayQuery($query);
 				
 		if (count($res)!=0)

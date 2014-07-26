@@ -1,8 +1,9 @@
 <?php
 /**
  * 
- * Smarty configuration class. 
+ * Smarty configuration File
  * 
+ * it contains the smartu ocnfiguration class
  *
  */
 namespace View;	
@@ -11,6 +12,7 @@ require_once './Library/Smarty-3.1.17/Smarty.class.php';
 require_once './Configuration Files/smartyConfig.php';
 
 /**
+ * Smarty configuration class
  * 
  * This class simply extends Smarty and sets its working directories.
  *
@@ -18,6 +20,7 @@ require_once './Configuration Files/smartyConfig.php';
 class SmartyConfiguration extends \Smarty
 {
 	/**
+	 * constructor
 	 * 
 	 * Sets the smarty working directories.
 	 * 

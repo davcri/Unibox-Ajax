@@ -1,15 +1,8 @@
 
 $(function(){
 	initializeTablesorter();
-	/*$('#linkUser').find("a").click(function(event)){
-		event.preventDefault;
-		var url = $(this).attr("href"); 
-				
-		$.get(url, function(data){
-			changePage(data);
-		}); 
-	});*/
-
+	handleTableButtons();
+	
 	$("#mainContainer").find("a").click(function(event) {
 		event.preventDefault();
 	});
@@ -22,14 +15,7 @@ $(function(){
 		});
 	});
 
-	/*
-	$("#resourcesContainer").find("a").click(function(){
-		var url = $(this).attr("href"); 
-
-		$.get(url, function(data){
-			changePage(data);
-		});
-	});*/			
+	handleTablesorterInfoLink();
 });
 
 
@@ -61,6 +47,30 @@ function initializeTablesorter(){
       	widthFixed: true,
       	widgets: ['zebra','filter']
 	})
-	.tablesorterPager(pagerOptions).show("fade",animationTime+100);
-	//.tablesorterPager(pagerOptions).delay(500).show("slide",animationTime+500);
+	.tablesorterPager(pagerOptions)
+	.show("fade",animationTime+100);
+}
+
+function handleTableButtons(){
+	$('button').click(function(){
+		var columns = [];
+		columns[3] = $(this).attr("filter-value");
+
+		$('button').removeClass("active");
+		$(this).addClass("active");
+
+		if($(this).attr("id")=="resetFilter")
+			$('table').trigger('filterReset');
+				
+		$('table').trigger('search', [ columns ]);
+	});
+}
+
+function handleTablesorterInfoLink(){
+	$("#tablesorterInfoLink").off("click");
+	$("#tablesorterInfo").hide();
+	
+	$("#tablesorterInfoLink").click(function(){
+		$("#tablesorterInfo").slideToggle(animationTime);
+	});
 }

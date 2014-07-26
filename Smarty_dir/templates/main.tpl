@@ -68,7 +68,7 @@
 				</div>
 
 				<div class="col-md-4">
-					<p class="text-center">da decidere</p>
+					<p class="text-center">Ottimizza il tuo tempo di studio con <a href="http://www.testketchup.altervista.org/index.php">Ketchup</a> </p>
 				</div>
 			</div>
 		</div>

@@ -1,19 +1,23 @@
 
-{*include "forkMeOnGithub.tpl"*}
+{include "forkMeOnGithub.tpl"}
 
 <div id="aboutPage">
 	<div id="mainContent" class="row mainContent">
 		<div class="divEsterno">
+			<br>
 			<h1>Informazioni sul progetto Unibox</h1>
 			<p class="lead">Introduzione</p>
 			<p>L'applicazione web è stata sviluppata come progetto universitario, ed è ancora in via di sviluppo.</p>
 			<p>Il codice è disponibile tramite <a href="https://github.com/davcri/Unibox-Ajax"> il repository Github</a>. 
 			Tutti quanti possono contribuire al progetto suggerendoci miglioramenti, segnalando eventuali bug o aiutandoci con lo sviluppo.</p>
 
+
+			<br>
 			<h3>Informazioni per sviluppatori</h3> 
 			<p>Lavorando su questa applicazione abbiamo voluto approfondire lo studio delle tecnologie attualmente più utilizzate nell'ambito dello sviluppo web.</p>
 			<p>Qui sotto trovate un elenco delle varie tecnologie e librerie esterne utilizzate per realizzare questa applicazione</p>
 
+			<br>
 			<h3>Tecnologie</h3>
 			<div class="row">
 			   <div class="col-md-4">

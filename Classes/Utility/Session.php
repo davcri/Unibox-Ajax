@@ -1,8 +1,8 @@
 <?php
 /**
- * Contains the definition of the Registration utility class 
+ * Utility Sesssion File
  * 
- *
+ *Contains the definition of the Registration utility class
  */
 
 namespace Control;
@@ -10,6 +10,8 @@ namespace Control;
 require_once './Classes/Foundation/User.php';
 
 /**
+ * Utility Session Class
+ * 
  * Utility class used to handle login and logout using PHP sessions. For details : http://www.php.net/manual/en/intro.session.php
  * 
  * @todo : Maybe we should change the name of this class ? 
@@ -66,6 +68,8 @@ class Session
 	}
 	
 	/**
+	 * function set
+	 * 
 	 * Stores a value in an associative array. This values can be reused in all the duration of the session.
 	 *  
 	 * @todo this method shouldn't be in Registration class.
@@ -84,6 +88,8 @@ class Session
 	}
 	
 	/**
+	 * function get 
+	 * 
 	 * Gets a value saved in the session corresponding to the key passed.
 	 * 
 	 * @param mixed $key
@@ -122,6 +128,8 @@ class Session
 	}
 	
 	/**
+	 * function logout
+	 * 
 	 * Removes the data of the session frome the server's file system.
 	 * 
 	 * @todo The file is truncated (to 0 byte) but it is not deleted from the file system. I think that the garbage collector
@@ -138,6 +146,8 @@ class Session
 	}
 	
 	/**
+	 * function login
+	 * 
 	 * Logs a user in.
 	 * 
 	 * @param string $username
@@ -150,6 +160,8 @@ class Session
 	}
 	
 	/**
+	 * function validate
+	 * 
 	 * Validates logins data comparing with the one founded on the application database. 
 	 * 
 	 * @param string $username

@@ -1,13 +1,15 @@
 <?php
 /**
  * 
- * Foundation class for the resource. 
+ * Foundation Resource File
  * 
- * Stores and loads a resource with a connection to a mysql's database. 
+ * it contain the foundation resource class that Stores and loads a resource with a connection to a mysql's database. 
  * 
  */
 
 namespace Foundation;
+
+use Entity\DegreeCourse;
 
 use Entity\User;
 
@@ -17,9 +19,10 @@ require_once './Classes/Entity/Resource.php';
 require_once './Classes/Entity/User.php';
 
 /**
+ * Foundation Resource Class
  * 
  * Stores and loads a resource using a connection to a mysql's database. 
- * 
+ * and performs all the needed query 
  * Extends the Foundation\Database class that handles the configuration to the database.
  *
  */
@@ -27,9 +30,9 @@ class Resource extends Database
 {
 		
 	/**
-	 * Initializes the object, setting the path property.
+	 * Constructor
 	 * 
-	 * @param string $path If the variable is considered empty, then a default path is setted.
+	 * Initializes the object, setting the path property.
 	 */
 	public function __construct()
 	{
@@ -37,6 +40,8 @@ class Resource extends Database
 	}
 		
 	/**
+	 * function store
+	 * 
 	 * Stores a \Entity\Resource object on the database.
 	 * 
 	 * @param \Entity\Resource $resource
@@ -65,6 +70,8 @@ class Resource extends Database
 	}	
 	
 	/**
+	 * function getById
+	 * 
 	 * Finds a resource by its $id and then returns it. 
 	 * 
 	 * @param int $id
@@ -87,9 +94,13 @@ class Resource extends Database
 	}
 	
 	/**
+	 * function getResourcesBySubjectCode
+	 * 
 	 * Gets an array of resources relative to a subject.
 	 * 
 	 * @param int $subjectCode The code of the subject.
+	 * 
+	 * @return mixed \Entity\Resource on success, false on failure.
 	 */
 	public function getResourcesBySubjectCode($subjectCode)
 	{
@@ -110,9 +121,13 @@ class Resource extends Database
 	}
 	
 	/**
+	* function getResourcesByUser
+	* 
 	* Gets an array of resources uploaded by a certain user.
 	*
 	* @param string $username 
+	* 
+	* @return mixed \Entity\Resource on success, false on failure.
 	*/
 	public function getResourcesByUser($username)
 	{
@@ -133,9 +148,13 @@ class Resource extends Database
 	}
 	
 	/**
+	 * function getNumberOfVotes
+	 * 
 	 * Gets the number of votes of a resource.
 	 * 
 	 * @param int $id The id of the resource.
+	 * 
+	 * @return array $res number of votes of a resource
 	 */
 	public function getNumberOfVotes($id)
 	{
@@ -150,9 +169,12 @@ class Resource extends Database
 	}
 	
 	/**
+	* Function getNumberOfDifficultyVotes
+	* 
 	* Gets the number of votes  of the difficulty of a resource.
 	*
 	* @param int $id The id of the resource.
+	* @return array $res number of votes of a resource
 	*/
 	public function getNumberOfDifficultyVotes($id)
 	{
@@ -167,9 +189,13 @@ class Resource extends Database
 	}
 	
 	/**
+	 * function countResourcesByDegreeCourse
 	 * 
-	 * @todo is this method used ? 
+	 * it return the number of resources of a given degree course
+	 * 
 	 * @param string $degCourse
+	 * 
+	 * @return array $res number of resource in a DegreeCourse
 	 */
 	public function countResourcesByDegreeCourse($degCourse)
 	{
@@ -184,6 +210,8 @@ class Resource extends Database
 	}
 	
 	/**
+	 * function countResourcesBySubject
+	 * 
 	 * Counts the resources found in a certain subject.
 	 * 
 	 * @param int $subjId Code of the subject
@@ -198,14 +226,17 @@ class Resource extends Database
 	}
 	
 	/**
-	 * Updates quality and difficulty score of a resource on the database.
+	 * function updateScores
 	 * 
+	 * Updates quality and difficulty score of a resource on the database.
 	 * This method doesn't calculate the average. It should be called only after 
 	 * Entity\Resource::updateQualityScore() and Entity\Resource::updateDifficultyScore(). 
 	 * 
 	 * @param int $id
 	 * @param float $qualityScore
 	 * @param float $difficultyScore
+	 * 
+	 * @return bool
 	 */
 	public function updateScores($id, $qualityScore, $difficultyScore)
 	{
@@ -219,8 +250,11 @@ class Resource extends Database
 	}
 		
 	/**
+	 * function updateDownloadNumber
 	 * 
-	 * Enter description here ...
+	 * updates the downloads number of a resource 
+	 * 
+	 * @param int $id
 	 * @param int $newDownloadsNumber
 	 */
 	public function updateDownloadsNumber($id, $newDownloadsNumber)
@@ -234,11 +268,15 @@ class Resource extends Database
 	}
 	
    /**
+    * function addResourceQualityScore
+    * 
 	* Registers the quality score given by a user.
 	*
 	* @param string $username Who is rating the resource.
 	* @param int $id The id of the resource beeing rated.
 	* @param float $qualityScore Score assigned to the resource.
+	* 
+	* @return bool
 	*/
 	public function addResourceQualityScore($username,$id,$qualityScore)
 	{
@@ -257,11 +295,15 @@ class Resource extends Database
 	}
 	
    /**
+    * function addResourceDifficultyScore
+    * 
 	* Registers the difficulty score given by a user.
 	*
 	* @param string $username Who is rating the resource.
 	* @param int $id The id of the resource beeing rated.
 	* @param float $difficultyScore Score assigned to the resource.
+	* 
+	* @return bool
 	*/
 	public function addResourceDifficultyScore($username,$id,$difficultyScore)
 	{
@@ -280,10 +322,14 @@ class Resource extends Database
 	}
 	
 	/**
+	 * function hasBeenRated
+	 * 
 	 * Checks if the resource has been rated from a user.
 	 * 
 	 * @param int $id
 	 * @param string $username
+	 * 
+	 * @return bool $rated if the resource has been rated or not
 	 */
 	public function hasBeenRated($id,$username)
 	{
@@ -304,8 +350,11 @@ class Resource extends Database
 	}	
 	
 	/**
+	 * function getMostActiveUsers
 	 * 
+	 * it returns an array with the most active user into DB
 	 * 
+	 * @return array $user 
 	 */
 	public function getMostActiveUsers()
 	{
@@ -324,11 +373,17 @@ class Resource extends Database
 		else
 			$users = array(); //empty array
 		
-		//var_dump($users);
 		
 		return $users;
 	}
 	
+	/**
+	 * function getMostDownloaded
+	 *
+	 * it returns an array with the most downloaded resources
+	 *
+	 * @return array $resource
+	 */
 	public function getMostDownloaded()
 	{
 		$query= "SELECT `id` FROM `resource` group by `id` order by `downloadsNumber` ASC";

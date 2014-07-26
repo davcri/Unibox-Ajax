@@ -1,5 +1,7 @@
 <?php
 /**
+ * Utility Installer File
+ * 
  * Contains the Installer class which is responsible of setting up the configuration files used by this project
  * 
  */
@@ -10,8 +12,9 @@ require_once './Classes/View/Main.php';
 require_once './Classes/Utility/Singleton.php';
 
 /**
- * Handles the first configuration of the application.
+ * Utility class Installer 
  * 
+ * Handles the first configuration of the application.
  * His main task is to check if the application is installed and if it isn't, run a guided installation (via browser).
  */
 class Installer

@@ -1,10 +1,13 @@
 <?php
 /**
+ * Entity User File
+ * 
  * this file contain the definition of entity class User
  * 
  */
 namespace Entity;
 /**
+ * Entity class User
  * 
  * class that contain the definition of a registred user 
  *
@@ -54,7 +57,9 @@ class User
 	private $degreeCourse;
 	
 	/**
+	 * 
 	 * this is the constructor of a user
+	 * 
 	 * @param string $name
 	 * @param string $surname
 	 * @param string $username
@@ -77,7 +82,10 @@ class User
 	
 
 	/**
-	 * return the name of the user
+	 * function getName
+	 * 
+	 * it returns the name of the user
+	 * 
 	 * @return string
 	 */
 	public function getName()
@@ -86,7 +94,10 @@ class User
 	}
 	
 	/**
+	 * function getSurname
+	 * 
 	 * return the surname of the user
+	 * 
 	 * @return string
 	 */
 	public function getSurname()
@@ -95,7 +106,11 @@ class User
 	}
 	
 	/**
-	 * return the username of the user
+	 *function getUsername
+	 * 
+	 *return the username of the user
+	 * 
+	 * 
 	 * @return string
 	 */
 	public function getUsername()
@@ -104,7 +119,10 @@ class User
 	}
 	
 	/**
+	 * function getPassword
+	 * 
 	 * return the password of the user
+	 * 
 	 * @return string
 	 */
 	public function getPassword()
@@ -113,7 +131,10 @@ class User
 	}
 	
 	/**
+	 *function getEmail
+	 * 
 	 * return the email of the user
+	 * 
 	 * @return string
 	 */
 	public function getEmail()
@@ -122,7 +143,10 @@ class User
 	}
 	
 	/**
+	 * function getReliability
+	 * 
 	 * return the reliability of the user
+	 * 
 	 * @return float
 	 */
 	public function getReliability()
@@ -131,7 +155,10 @@ class User
 	}
 	
 	/**
+	 * function getDegreeCourse
+	 * 
 	 * return the degree course of the user
+	 * 
 	 * @return string
 	 */
 	public function getDegreeCourse()
@@ -140,7 +167,10 @@ class User
 	}
 	
 	/**
+	 * function setName
+	 * 
 	 * set the name of the user
+	 * 
 	 * @param string $name
 	 */
 	public function setName($name)
@@ -149,7 +179,10 @@ class User
 	}
 	
 	/**
+	 * function setSurname
+	 * 
 	 * set the surname of the user
+	 * 
 	 * @param string $surname
 	 */
 	public function setSurame($surname)
@@ -158,16 +191,22 @@ class User
 	}
 	
 	/**
+	 * function setUsername
+	 * 
 	 * set the username of the user
+	 * 
 	 * @param string $username
 	 */
-	public function setUserame($username)
+	public function setUsername($username)
 	{
 		$this->username-$username;
 	}
 	
 	/**
+	 * function setPassword
+	 * 
 	 * set the password of the user
+	 * 
 	 * @param string $password
 	 */
 	public function setPassword($password)
@@ -176,7 +215,10 @@ class User
 	}
 	
 	/**
+	 * function setEmail
+	 * 
 	 * set the email of the user
+	 *
 	 * @param string $email
 	 */
 	public function setEmail($email)
@@ -185,7 +227,10 @@ class User
 	}
 	
 	/**
+	 * function setReliability
+	 * 
 	 * set the departement name of the user
+	 * 
 	 * @param string $departement
 	 */
 	public function setReliability($reliability)
@@ -194,7 +239,10 @@ class User
 	}
 	
 	/**
+	 * function setDegreeCourse
+	 * 
 	 * set the degree course of the user
+	 * 
 	 * @param string $degreeCourse
 	 */
 	public function setDegreeCourse($degreeCourse)
@@ -202,6 +250,14 @@ class User
 		$this->degreeCourse-$degreeCourse;
 	}
 	
+	/**
+	 * function hasBeenRated
+	 *
+	 * this function control if this user is already voted by a given username
+	 *
+	 * @param string $username
+	 * @return bool
+	 */
 	public function hasBeenRated($username)
 	{
 		$db = new \Foundation\Resource();
@@ -209,6 +265,14 @@ class User
 		return $db->hasBeenRated($this->username, $username);
 	}
 	
+	/**
+	 * function updateReliabilityScore
+	 *
+	 * this function update the reliability score of this user, using the old averange votes
+	 *
+	 * @param int $votes number of votes given to this user
+	 * @param int $score  old AVG votes
+	 */
 	public function updateReliabilityScore($votes, $score)
 	{
 		// avoiding division by zero

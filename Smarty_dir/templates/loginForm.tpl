@@ -11,7 +11,7 @@
 			<input id="rememberMe" name="rememberMe" title="Ricordami" type="checkbox"> Ricordami
 		</label>
 	</div>
-	<button id="loginButton" class="btn btn-primary">Login</button>
+	<button id="loginButton" class="btn btn-primary">Login <span class="glyphicon glyphicon-log-in"></span></button>
 	<button id="signInButton" class="btn btn-success">Registrati</button>
 </form>
 

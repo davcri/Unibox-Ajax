@@ -1,6 +1,8 @@
 <?php
 
 /**
+ * starting php file
+ * 
  * This is the starting point of the web application.
  * 
  */

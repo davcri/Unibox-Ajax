@@ -177,10 +177,10 @@ class Profile
 	/**
 	 * This is a function hasVoted
 	 * 
-	 * This function controls if a user has already voted the user  profile's page 
+	 * This function controls if a userLogged has already voted the user into his profile's page 
 	 * 
-	 * @param unknown_type $username
-	 * @param unknown_type $userLog
+	 * @param String $username
+	 * @param String $userLog
 	 * 
 	 * @return bool
 	 */

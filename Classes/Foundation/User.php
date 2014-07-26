@@ -1,5 +1,11 @@
 <?php
-
+/**
+ *
+ * Foundation User File
+ *
+ * it contain the foundation user class that Stores and loads a user with a connection to a mysql's database.
+ *
+ */
 namespace Foundation;
 
 require_once './Classes/Foundation/Database.php';
@@ -8,7 +14,9 @@ require_once './Classes/Entity/User.php';
 class User extends Database
 {
 	/**
-	 * Constructor. Calls the parent constructor to initialize the connection to the database.
+	 * Constructor
+	 * 
+	 * Calls the parent constructor to initialize the connection to the database.
 	 */
 	public function __construct()
 	{
@@ -16,9 +24,13 @@ class User extends Database
 	}
 
 	/**
+	 * function store
+	 * 
 	 * Stores a user on the database.
 	 *
 	 * @param \Entity\User $user
+	 * 
+	 * @return bool
 	 */
 	public function store($user)
 	{
@@ -42,6 +54,8 @@ class User extends Database
 	}
 	
 	/**
+	 * function getByUsername
+	 * 
 	 * Gets a user by his username. NOTE : this method assume that 'username' is a primary key for User.
 	 *
 	 * @todo Add warning if there is more than one result !
@@ -59,7 +73,16 @@ class User extends Database
 			
 		return $user;
 	}
-	
+	/**
+	 * function usersVotation
+	 * 
+	 * it store a vote of a given user($userVoted) by another user($userVoter)
+	 * @param String $userVoted
+	 * @param String $userVoter
+	 * @param Int $vote
+	 * 
+	 * @return string
+	 */
 	public function usersVotation($userVoted,$userVoter,$vote)
 	{
 		
@@ -88,9 +111,13 @@ class User extends Database
 		
  	}
  	/**
+ 	 * function getNumberOfReliabilityVotes
+ 	 * 
  	 * Gets the number of votes  of the reliability of a user.
  	 *
  	 * @param int $id The id of the resource.
+ 	 * 
+ 	 * @return array $res 
  	 */
  	public function getNumberOfReliabilityVotes($username)
  	{
@@ -105,14 +132,16 @@ class User extends Database
  	}
  	
  	/**
- 	 * Updates reliability score of a useron the database.
+ 	 * function updateReliabilityScore
  	 *
- 	 * This method doesn't calculate the average. It should be called only after
+ 	 * Updates reliability score of a useron the database. This method doesn't calculate the average. It should be called only after
  	 * Entity\Resource::updateQualityScore() and Entity\Resource::updateDifficultyScore().
  	 *
  	 * @param varchar $username
  	 * @param float $qualityScore
  	 * @param float $difficultyScore
+ 	 * 
+ 	 * @return bool
  	 */
  	public function updateReliabilityScore($username, $reliabilityScore)
  	{
@@ -124,6 +153,16 @@ class User extends Database
  		else
  			return false;
  	}
+ 	
+ 	/**
+ 	 * function hasBeenRated
+ 	 * 
+ 	 * function that controls if a user($voter) has already voted a user($voted)
+ 	 * 
+ 	 * @param String $voted
+ 	 * @param String $voter
+ 	 * @return bool $rated
+ 	 */
  	public function hasBeenRated($voted,$voter)
  	{
  		$select = "SELECT *";

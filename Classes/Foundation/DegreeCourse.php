@@ -1,11 +1,23 @@
 <?php
-
+/**
+ * Foundation DegreeCourse File
+ *
+ * Foundation class that  Stores and loads a DegreeCourse with a connection to a mysql's database. 
+ *
+ * The configuraton parameters are stored in a global variable that is defined in /Configuration Files/databaseConfig.php'.
+ */
 namespace Foundation;
 
 
 require_once './Classes/Foundation/Database.php';
 require_once './Classes/Entity/DegreeCourse.php';
-
+/**
+ * Foundation class DegreCourse
+ * 
+ * this class represent the Foundation DegreeCourse, it can stores and loads a degreeCourse, also it performs
+ * all the needed query 
+ *
+ */
 class DegreeCourse extends Database
 {
 	/**
@@ -17,9 +29,13 @@ class DegreeCourse extends Database
 	}
 	
 	/**
+	 * function store
+	 * 
 	 * Stores a degree course on the database. 
 	 *  
 	 * @param \Entity\DegreeCourse $degreeCourse
+	 * 
+	 * @return bool
 	 */
 	public function store($degreeCourse)
 	{
@@ -32,6 +48,8 @@ class DegreeCourse extends Database
 	}
 	
 	/**
+	 * function getByName
+	 * 
 	 * Gets a degree course by his name. NOTE : this method assume that 'name' is a primary key for DegreeCourse.
 	 * 
 	 * @todo Add warning if there is more than one result ! 
@@ -51,9 +69,11 @@ class DegreeCourse extends Database
 	}
 	
 	/**
+	 * function getDegreeCourses
+	 * 
 	 * Gets an array containing all the degree courses.
 	 * 
-	 * @return array
+	 * @return array $degreeCourses
 	 */
 	public function getDegreeCourses()
 	{
@@ -78,11 +98,13 @@ class DegreeCourse extends Database
 	}	
 	
 	/**
+	 * function getSubjects
+	 * 
 	 * Gets all the subjects of a degree course.
 	 * 
 	 * @param string $degreeCourseName
+	 *
 	 * @return array
-	 * @todo test this method
 	 */
 	public function getSubjects($degreeCourseName)
 	{

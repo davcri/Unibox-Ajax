@@ -8,7 +8,7 @@
 <body>
 	<div class="container">
 		<div class="page-header">
-	  		<span><img id="img" src="Smarty_dir/templates/img/logoBox2.jpg"></span> <span><div id="nameApp"><h1>Unibox<small> Pagina di installazione</small></h1></div></span>
+	  		<span><img id="img" src="Smarty_dir/templates/img/logoBox2.jpg"></span> <div id="nameApp"><h1>Unibox<small> pagina di installazione</small></h1></div>
 		</div>
 
 		<div id="mainContainer" class="col-md-12">
@@ -37,7 +37,7 @@
 						</div>
 
 						<div class="form-group">
-					    	<label>Nome del database</label>
+					    	<label>Nome del database (creato in precedenza nel dbms)</label>
 					    	<input type="text" name="databaseName" class="form-control" placeholder="es: Unibox">
 						</div>	
 						

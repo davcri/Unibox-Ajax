@@ -1,10 +1,9 @@
 <?php
 
 /** 
+ * Entity Resource file
  * 
  * Contains the definition of the Resource enitity class. 
- * 
- * @todo remove 'type' property from this class ?  
  */
 
 namespace Entity;
@@ -14,14 +13,16 @@ namespace Entity;
 require_once "./Classes/Foundation/Resource.php";
 
 /**
- * This class models a resource. 
+ * Entity class resource
+ * 
+ * This class model a resource. 
+ * 
  *
  */
 class Resource 
 {	
 	/**
-	 * 
-	 * Enter description here ...
+	 * this is the unique identifier for a resource
 	 * @var int
 	 */
 	private $id;
@@ -126,7 +127,6 @@ class Resource
 	 * @param string $path
 	 * @param string $description
 	 * 
-	 * @todo Exceptions handling. Many parameters need to be checked.
 	 */
 	public function __construct($id, $name, $category, $subjectCode, $uploaderUsername, $type, $qualityScore, $difficultyScore, $uploadingDate, $downloadsNumber, $visible, $path, $description)
 	{
@@ -144,13 +144,21 @@ class Resource
 		$this->path = $path;
 		$this->description = $description;
 	}
-	
+	/**
+	 * function getId
+	 * 
+	 * it return the id of a resources
+	 * 
+	 * @return int $id
+	 */
 	public function getId()
 	{
 		return $this->id;
 	}
 	
 	/** 
+	 * function getName
+	 * 
 	 * Returns the name of the resource.
 	 * 
 	 * @return string Name of the resource.
@@ -161,6 +169,8 @@ class Resource
 	}
 	
 	/**
+	*function getCategory 
+	* 
 	* Returns the category of the resource.
 	*
 	* @return string Category of the resource.
@@ -171,6 +181,8 @@ class Resource
 	}
 	
 	/**
+	*function getSubjectCode
+	*
 	* Returns the subject code of the resource.
 	*
 	* @return int Subject code of the resource.
@@ -181,6 +193,8 @@ class Resource
 	}
 	
 	/**
+	* function getType
+	* 
 	* Returns the type of the resource.
 	*
 	* @return string Type of the resource.
@@ -192,6 +206,8 @@ class Resource
 	}
 	
 	/**
+	* function getUploaderUsername
+	* 
 	* Returns the uploader's name of the resource.
 	*
 	* @return string Uploader's name.
@@ -202,6 +218,8 @@ class Resource
 	}
 	
 	/**
+	* function getQualityScore
+	* 
 	* Returns the quality score of the resource.
 	*
 	* @return float Quality score of the resource.
@@ -212,6 +230,8 @@ class Resource
 	}
 	
 	/**
+	* function getDifficultyScore
+	* 
 	* Returns the difficulty score of the resource.
 	*
 	* @return float Difficulty score of the resource.
@@ -222,6 +242,8 @@ class Resource
 	}
 	
 	/**
+	* function getUploadingDate
+	* 
 	* Returns the uploading date of the resource.
 	*
 	* @return \DateTime Uploading date of the resource.
@@ -232,6 +254,8 @@ class Resource
 	}
 	
 	/**
+	* function getDownloadsNumber
+	* 
 	* Returns the downloads number of the resource.
 	*
 	* @return int Downloads number of the resource.
@@ -242,6 +266,8 @@ class Resource
 	}
 	
 	/**
+	 * function getPath
+	 * 
 	 * Returns the path where the resource is stored.
 	 * 
 	 * @return string
@@ -250,13 +276,21 @@ class Resource
 	{
 		return $this->path;
 	}
-	
+	/**
+	 * function getDescription
+	 *
+	 * Returns the description of a resource
+	 *
+	 * @return string
+	 */
 	public function getDescription()
 	{
 		return $this->description;
 	}
 	
 	/**
+	 * function getSize
+	 * 
 	 * Get the size of the resource in Megabytes, with a precision of 2 decimal digits.
 	 * 
 	 * @return float 
@@ -271,6 +305,8 @@ class Resource
 	}
 	
 	/**
+	* function isVisible
+	* 
 	* Returns the visibility of the resource.
 	*
 	* @return bool TRUE if the resource is visible, FALSE otherwise.
@@ -281,6 +317,8 @@ class Resource
 	}
 	
 	/**
+	 *function __toString
+	 * 
 	 * Override of the php's magic method __toString.
 	 * 
 	 * @return string A string representing the name of the resource.
@@ -291,6 +329,8 @@ class Resource
 	}
 	
 	/**
+	 * function setName
+	 * 
 	 * Sets the name of the resource.
 	 * 
 	 * @param string $name
@@ -301,6 +341,8 @@ class Resource
 	}
 	
 	/**
+	 * function setCategory
+	 * 
 	 * Sets the category of the resource.
 	 * 
 	 * @param string $category
@@ -311,6 +353,8 @@ class Resource
 	}
 	
 	/**
+	 * setSubjectCode
+	 * 
 	 * Sets the subject of the resource.
 	 * 
 	 * @param string $subject
@@ -321,6 +365,8 @@ class Resource
 	}
 
 	/**
+	 * setUploaderName
+	 * 
 	 * Sets the uploader's name of the resource.
 	 * 
 	 * @param string $uploaderName
@@ -331,6 +377,8 @@ class Resource
 	}
 	
 	/**
+	 * function setQualityScore
+	 * 
 	 * Sets the quality score of the resource.
 	 * 
 	 * @param float $qualityScore
@@ -341,6 +389,8 @@ class Resource
 	}
 	
 	/**
+	 * function setDifficultyScore
+	 * 
 	 * Sets the difficulty score of the resource.
 	 * 
 	 * @param float $difficultyScore
@@ -351,6 +401,8 @@ class Resource
 	}
 	
 	/**
+	 * function updateQualityScore
+	 * 
 	 * Updates the quality score of the resource with the average between the current 
 	 * quality score and the new score given (according to the number of votes).
 	 * 
@@ -368,6 +420,8 @@ class Resource
 	}
 	
 	/**
+	* function updateDifficultyScore
+	* 
 	* Updates the difficulty score of the resource with the average between the current
 	* difficulty score and the new score given (according to the number of votes).
 	*
@@ -386,6 +440,8 @@ class Resource
 	}	
 	
 	/**
+	 * function incrementDownloadsNumber
+	 * 
 	 * Increments the downloads number.
 	 * 
 	 */
@@ -395,6 +451,8 @@ class Resource
 	}
 	
 	/**
+	 * function setUploadingDate
+	 * 
 	 * Sets the uploading date of the resource.
 	 * 
 	 * @param \DateTime $uploadingDate
@@ -405,6 +463,8 @@ class Resource
 	}
 	
 	/**
+	 * function setDownloadNumber
+	 * 
 	 * Sets the downloads number of the resource.
 	 *
 	 * @param int $downloadsNumber
@@ -415,6 +475,8 @@ class Resource
 	}
 	
 	/**
+	 * function setVisibility
+	 * 
 	 * Sets the visibility of the resource.
 	 * 
 	 * @param bool $visibility
@@ -425,6 +487,8 @@ class Resource
 	}
 	
 	/**
+	 * function setDescription
+	 * 
 	 * Sets the description of a resource.
 	 *  
 	 * @param string $desc
@@ -435,6 +499,8 @@ class Resource
 	}
 	
 	/**
+	 * function hasBeenRated
+	 * 
 	 * Checks if the resource has been rated by a certain user.
 	 * 
 	 * @param string $username
@@ -447,6 +513,13 @@ class Resource
 		return $db->hasBeenRated($this->id, $username);
 	}
 	
+	/**
+	 * function countDifficultyVotes
+	 *
+	 * it returns the number of difficultyVotes of a resource
+	 *
+	 * @return int
+	 */
 	public function countDifficultyVotes()
 	{
 		$db = new \Foundation\Resource();
@@ -454,6 +527,13 @@ class Resource
 		return $db->getNumberOfDifficultyVotes($this->id);
 	}
 	
+	/**
+	 * function countQualityVotes
+	 *
+	 * it returns the number of difficultyVotes of a resource
+	 *
+	 * @return int
+	 */
 	public function countQualityVotes()
 	{
 		$db = new \Foundation\Resource();

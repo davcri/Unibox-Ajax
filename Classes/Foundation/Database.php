@@ -1,5 +1,6 @@
 <?php
 /**
+ * Foundation Database File
  * 
  * Foundation base class to communicate with a mysql database.
  * 
@@ -13,14 +14,15 @@ namespace Foundation;
 require_once './Configuration Files/databaseConfig.php';
 
 /**
+ * Database Foundation class
  * 
  * Handles the connection to the mysql database, extending the php's mysqli class.
  * 
- * @todo This class depends on databaseConfig.php. It is correct ? 
  */
 class Database extends \mysqli
 {
 	/**
+	 * contructor
 	 * 
 	 * Reads the configuration parameters from the $mysqlConfig (defined in databaseConfig.php) global variable and tries to establish a connection to the database.
 	 *
@@ -38,6 +40,7 @@ class Database extends \mysqli
 	}
 	
 	/**
+	 * function associativeArrayQuery
 	 * 
 	 * Performs a query on the database, returns an associative array containing the results of the query.
 	 * 
@@ -67,15 +70,13 @@ class Database extends \mysqli
 		
 		return $returnArray;
 	}
-	
-	/*public function installDatabase($sqlScript)
-	{
-		$this->multi_query($query);
-	}*/
+
 	
 	/**
+	 * function closeConnection
 	 * 
 	 * Closes the connection to the database.
+	 * 
 	 */
 	public function closeConnection()
 	{
