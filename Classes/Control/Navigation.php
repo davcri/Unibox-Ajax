@@ -24,6 +24,10 @@ require_once './Classes/Utility/Singleton.php';
  */
 class Navigation
 {	
+	/**
+	 * Empty constructor
+	 * 
+	 */
 	public function __construct()
 	{	
 	

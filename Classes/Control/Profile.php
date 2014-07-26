@@ -23,6 +23,10 @@ require_once './Classes/Foundation/User.php';
  */
 class Profile
 {
+	/**
+	 * Empty constructor.
+	 * 
+	 */
 	public function __construct()
 	{	
 		
@@ -31,6 +35,7 @@ class Profile
 	 * This is the main function cotrolProfile
 	 * 
 	 * It swhitches to others fuction that controls all possible cases in the profile page 
+	 * 
 	 * @return string Rendered template output
 	 */
 	public function controlProfile(){

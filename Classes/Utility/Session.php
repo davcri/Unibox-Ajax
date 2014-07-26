@@ -2,7 +2,7 @@
 /**
  * Utility Sesssion File
  * 
- *Contains the definition of the Registration utility class
+ * Contains the definition of the Registration utility class
  */
 
 namespace Control;
@@ -13,8 +13,6 @@ require_once './Classes/Foundation/User.php';
  * Utility Session Class
  * 
  * Utility class used to handle login and logout using PHP sessions. For details : http://www.php.net/manual/en/intro.session.php
- * 
- * @todo : Maybe we should change the name of this class ? 
  */
 class Session
 {	

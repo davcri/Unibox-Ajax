@@ -20,9 +20,15 @@ require_once './Classes/Foundation/User.php';
  */
 class AboutPage
 {
-	public function __construct(){
+	/**
+	 * Empty constructor
+	 * 
+	 */
+	public function __construct()
+	{
 		
 	}
+	
 	/**
 	 * Main function controlAboutPage
 	 * 
@@ -30,8 +36,8 @@ class AboutPage
 	 * 
 	 * @return string Rendered template output
 	 */
-	
-	public function controlAboutPage(){
+	public function controlAboutPage()
+	{
 		$mainView = \Utility\Singleton::getInstance("\View\Main");
 		return $mainView->fetch('aboutPage.tpl');
 	}

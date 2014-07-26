@@ -3,7 +3,7 @@
  *
  * Foundation User File
  *
- * it contain the foundation user class that Stores and loads a user with a connection to a mysql's database.
+ * Contains the foundation user class that handles the connection and queries to a mysql database.
  *
  */
 namespace Foundation;
@@ -11,6 +11,11 @@ namespace Foundation;
 require_once './Classes/Foundation/Database.php';
 require_once './Classes/Entity/User.php';
 
+/**
+ * Provides the methods to handle persistence of \Entity\User
+ * 
+ *
+ */
 class User extends Database
 {
 	/**
@@ -24,8 +29,6 @@ class User extends Database
 	}
 
 	/**
-	 * function store
-	 * 
 	 * Stores a user on the database.
 	 *
 	 * @param \Entity\User $user
@@ -54,8 +57,6 @@ class User extends Database
 	}
 	
 	/**
-	 * function getByUsername
-	 * 
 	 * Gets a user by his username. NOTE : this method assume that 'username' is a primary key for User.
 	 *
 	 * @todo Add warning if there is more than one result !
@@ -74,42 +75,36 @@ class User extends Database
 		return $user;
 	}
 	/**
-	 * function usersVotation
+	 * Stores a vote of a given user($userVoted) by another user($userVoter)
 	 * 
-	 * it store a vote of a given user($userVoted) by another user($userVoter)
 	 * @param String $userVoted
 	 * @param String $userVoter
 	 * @param Int $vote
 	 * 
 	 * @return string
 	 */
-	public function usersVotation($userVoted,$userVoter,$vote)
+	public function usersVotation($userVoted, $userVoter, $vote)
 	{
 		
 		$insert = "INSERT INTO `users_scores`(`username_voted`,`username_voter`,`vote`)";
 		$values = "VALUES ('$userVoted','$userVoter',$vote);";
 		$queryString = $insert." ".$values;
 	
-		if ($vote>=1 && $vote<=5){
-			
-
-			if($this->query($queryString)){
-			 
-			return 'complimenti hai votato questo utente';
-				
-				
+		if ($vote>=1 && $vote<=5)
+		{
+			if($this->query($queryString))
+			{
+				return 'complimenti hai votato questo utente';				
 			}
 			else
 				return 'ci sono stati dei problemi nella votazione';
 		}
-		else{
+		else
+		{
 			return 'il voto non é valido';
-		}
-		
-				
-		
-		
+		}		
  	}
+ 	
  	/**
  	 * function getNumberOfReliabilityVotes
  	 * 

@@ -20,7 +20,11 @@ require_once './Classes/Foundation/User.php';
  */
 class DevelopersPage
 {
-	public function __construct(){
+	/**
+	 * Empty constructor
+	 */
+	public function __construct()
+	{
 		
 	}
 	

@@ -20,11 +20,20 @@ require_once './Classes/Foundation/DegreeCourse.php';
  */
 class Registration
 {
+	/**
+	 * Contains the server-side limitations for the registration form.
+	 * 
+	 * Associative array containing the couples ("form field" => "max chars allowed").
+	 * When changing these values remember to change also the values on the javascript code! 
+	 * 
+	 * @example array("name" => 30)
+	 * @var array
+	 */
 	private $maxCharsAllowed;
 	
 	/**
+	 * Inizializes the $maxCharsAllowed variable.
 	 * 
-	 * inizialize all the class variable
 	 */
 	public function __construct()
 	{
@@ -70,7 +79,7 @@ class Registration
 	/**
 	 * Function getRegistrationForm
 	 * 
-	 *It Gets the registration form
+	 * It gets the registration form
 	 * 
 	 * @return string Rendered template output
 	 */
@@ -132,9 +141,9 @@ class Registration
 	}
 	
 	/**
-	 * function validateRegistrationFormData
+	 * Validates the registration data.
 	 * 
-	 * It Checks the validity of the registration values.
+	 * Checks the validity of the registration values, comparing them with the $maxCharsAllowed variable.
 	 * 
 	 * @return bool 
 	 */
@@ -164,12 +173,12 @@ class Registration
 	}	
 	
 	/**
-	 * function checkUsername
-	 * 
-	 * Checks the validity of the registration values.
+	 * Checks if the username is valid.
+	 *  
+	 * If the username is already taken then return false. Otherwise it returns true.
 	 *
 	 * @return bool
-	 * @param String @username
+	 * @param string $username
 	 */
 	private function checkUsername($username)
 	{
