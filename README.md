@@ -11,8 +11,9 @@ The main goal of this web application is to give a place where users can upload 
 
 # Documentation 
 
-PHP : http://uniboxaq.altervista.org/Documentation/PHP/
-UML Diagrams : In ./Documentation/UML/
+**PHP** : http://uniboxaq.altervista.org/Documentation/PHP/
+
+**UML Diagrams** : In ./Documentation/UML/
 
 # File hierarchy
 
