@@ -377,8 +377,7 @@ class Resource extends Database
 		else
 			$users = array(); //empty array
 		
-		
-			$users = array(); //empty array		
+					$users = array(); //empty array		
 				
 		return $users;
 	}

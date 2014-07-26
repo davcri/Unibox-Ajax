@@ -45,7 +45,7 @@ class Main
 		else
 			$mainView->assign('loggedIn',false);
 		
-		$controllerAction= $mainView->getController();		
+		$controllerAction= $mainView->get('controllerAction');	
 		
 		switch($controllerAction)
 		{
