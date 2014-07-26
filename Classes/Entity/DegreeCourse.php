@@ -50,14 +50,14 @@ class DegreeCourse
 	{
 		return $this->name;
 	}
+	
 	/**
 	 * function getDepartement
 	 *
 	 * return the Departement name of a degreecourse
 	 *
 	 * @return string
-	 */
-	
+	 */	
 	public function getDepartment()
 	{
 		return $this->department;
@@ -68,9 +68,8 @@ class DegreeCourse
 	 *
 	 * set the name of a Degre Course
 	 *
-	 * @param string 
-	 */
-	
+	 * @param string $name 
+	 */	
 	public function setName($name)
 	{
 		$this->name = $name;
@@ -81,7 +80,7 @@ class DegreeCourse
 	 *
 	 * set the Departement name of a degreecourse
 	 *
-	 * @param string
+	 * @param string $department
 	 */
 	public function setDepartment($department)
 	{

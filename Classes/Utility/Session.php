@@ -79,6 +79,13 @@ class Session
 		$_SESSION[$key]=$value;		
 	}
 	
+	/**
+	 * Sets the desired behaviour of the session.
+	 * 
+	 * If $value is true the session will last $this->lifetime, otherwise it will last only until browser quit.
+	 * 
+	 * @param bool $value
+	 */
 	public function setRememberMe($value)
 	{
 		$_SESSION["rememberMe"]=$value;

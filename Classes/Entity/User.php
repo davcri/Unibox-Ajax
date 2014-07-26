@@ -6,6 +6,7 @@
  * 
  */
 namespace Entity;
+
 /**
  * Entity class User
  * 
@@ -45,7 +46,7 @@ class User
 	private $email;
 	
 	/**
-	 * 
+	 * Reliability of the user 
 	 * @var float
 	 */
 	private $reliability;
@@ -66,6 +67,7 @@ class User
 	 * @param string $password
 	 * @param string $email
 	 * @param string $degreeCourse
+	 * @param float $reliability
 	 */
 	public function __construct($name, $surname, $username, $password, $email, $degreeCourse, $reliability)
 	{
@@ -75,11 +77,8 @@ class User
 	 	$this->password = $password;
 	 	$this->email = $email;
 	 	$this->degreeCourse = $degreeCourse;
-	 	$this->reliability = $reliability;
-	 	
-	 		
-	}
-	
+	 	$this->reliability = $reliability;	 		
+	}	
 
 	/**
 	 * function getName
@@ -231,7 +230,7 @@ class User
 	 * 
 	 * set the departement name of the user
 	 * 
-	 * @param string $departement
+	 * @param string $reliability
 	 */
 	public function setReliability($reliability)
 	{

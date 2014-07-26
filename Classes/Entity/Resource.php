@@ -114,6 +114,7 @@ class Resource
 	/**
 	 * Creates a resource and initializes all its attributes.
 	 * 
+	 * @param int $id
 	 * @param string $name
 	 * @param string $category
 	 * @param int $subjectCode
@@ -357,7 +358,7 @@ class Resource
 	 * 
 	 * Sets the subject of the resource.
 	 * 
-	 * @param string $subject
+	 * @param string $subjectCode
 	 */
 	public function setSubjectCode($subjectCode)
 	{
@@ -365,11 +366,12 @@ class Resource
 	}
 
 	/**
-	 * setUploaderName
+	 * setUploaderUsername
 	 * 
 	 * Sets the uploader's name of the resource.
 	 * 
-	 * @param string $uploaderName
+	 * @param string $uploaderUsername
+	 * @todo fix the name of this method ! 
 	 */
 	public function setUploaderName($uploaderUsername)
 	{

@@ -46,8 +46,8 @@ class Main extends \View\SmartyConfiguration
 	 * 
 	 * function for insert a new resource
 	 * 
-	 * @param unknown_type $key
-	 * @return ?
+	 * @param string|int $key
+	 * @return mixed
 	 */
 	public function getFile($key)
 	{

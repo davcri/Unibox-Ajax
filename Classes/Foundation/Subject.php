@@ -55,6 +55,8 @@ class Subject extends Database
 	 * function getByCode
 	 * 
 	 * Gets a subject by his code. 
+	 *
+	 * @param int $code
 	 * 
 	 * @return mixed \Entity\Subject on success, false if no Subject was found.
 	 */

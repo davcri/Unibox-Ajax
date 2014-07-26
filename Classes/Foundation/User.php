@@ -60,6 +60,8 @@ class User extends Database
 	 * Gets a user by his username. NOTE : this method assume that 'username' is a primary key for User.
 	 *
 	 * @todo Add warning if there is more than one result !
+	 * @param string $username
+	 * 
 	 * @return \Entity\User|bool A \Entity\User on success, false if no user was found.
 	 */
 	public function getByUsername($username)
@@ -110,9 +112,9 @@ class User extends Database
  	 * 
  	 * Gets the number of votes  of the reliability of a user.
  	 *
- 	 * @param int $id The id of the resource.
+ 	 * @param string $username
  	 * 
- 	 * @return array $res 
+ 	 * @return int  
  	 */
  	public function getNumberOfReliabilityVotes($username)
  	{
@@ -132,9 +134,8 @@ class User extends Database
  	 * Updates reliability score of a useron the database. This method doesn't calculate the average. It should be called only after
  	 * Entity\Resource::updateQualityScore() and Entity\Resource::updateDifficultyScore().
  	 *
- 	 * @param varchar $username
- 	 * @param float $qualityScore
- 	 * @param float $difficultyScore
+ 	 * @param string $username
+ 	 * @param int $reliabilityScore
  	 * 
  	 * @return bool
  	 */
@@ -154,8 +155,8 @@ class User extends Database
  	 * 
  	 * function that controls if a user($voter) has already voted a user($voted)
  	 * 
- 	 * @param String $voted
- 	 * @param String $voter
+ 	 * @param string $voted
+ 	 * @param string $voter
  	 * @return bool $rated
  	 */
  	public function hasBeenRated($voted,$voter)
