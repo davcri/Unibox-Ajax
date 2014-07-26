@@ -1,18 +1,23 @@
 # Introduction
 
+**Try it online** : http://uniboxaq.altervista.org/ (v0.1)
+
 Unibox is a web application developed developed by [davcri](https://github.com/davcri) and [filreg](https://github.com/filreg) for an Italian college project.
 
 _**Note**: All the web application user interface is in Italian, but both code and documentation are in English. We hope to have time to finish this application and translate it._
 
 The main goal of this web application is to give a place where users can upload and download resources.
 
+
 # Installation
 **Requirements**
-Unibox depends on :
+
+Unibox runs on server with :
 * Apache
 * mysql
 * php
 
+**Installation steps**
 If you want to install Unibox follow these steps :
 
 1. Create an empty database on your DBMS (ie: 'mysql') and name it as you want (ie: ```unibox```).
@@ -28,6 +33,23 @@ If you're on a Unix PC and you're trying to install Unibox in your localhost, yo
 **Reinstallation**
 
 You can repeat the installation procedure by deleting ```configurationFiles/databaseConfig.php``` file.
+
+# Documentation 
+PHP : 
+UML Diagrams :  
+
+# File hierarchy
+
+* Classes/ : Contains the server side application. All the PHP classes are here.
+* Configuration Files/ : Contains the configuration file of the application. Generally you don't need to edit these files.
+* Documentation/ : Contains all the documentation stuff as PHPDoc and UML diagrams.  
+* Library/ : Contains all the required external libraries. 
+* Resources/ : By default, Unibox moves the uploaded resources here.
+* Smarty Dir/ : Contains the required smarty folders and also all the .tpl, css, javascript and images ! 
+  * Smarty Dir/templates/ : All the tpl files are here.
+  * Smarty Dir/templates/javascript/ : All the javascript files are here.
+  * Smarty Dir/templates/css/ : All the css files are here. 
+
 
 # Development 
 We developed Unibox using : 
