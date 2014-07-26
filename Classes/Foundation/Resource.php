@@ -350,6 +350,15 @@ class Resource extends Database
 	}	
 	
 
+	/**
+	 * Gets the most active users.
+	 * 
+	 * Returns an array containing the users that have the highest upload count.
+	 * Example : getMostActiveUsers(3) returns the top 3 users.
+	 * 
+	 * @param int $userCount Max lenght of the returned array.
+	 * @return array 
+	 */
 	public function getMostActiveUsers($userCount)
 	{
 		$query = "SELECT `uploaderUsername`, count(`uploaderUsername`) as 'uploadedResources' FROM `resource` group by `uploaderUsername` order by `uploadedResources` DESC, `uploaderUsername` ASC";
