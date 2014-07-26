@@ -1,6 +1,6 @@
 # Introduction
 
-Unibox is a web application developed for an Italian college project developed by [davcri](https://github.com/davcri) and [filreg](https://github.com/filreg).
+Unibox is a web application developed developed by [davcri](https://github.com/davcri) and [filreg](https://github.com/filreg) for an Italian college project.
 
 _**Note**: All the web application user interface is in Italian, but both code and documentation are in English. We hope to have time to finish this application and translate it._
 
