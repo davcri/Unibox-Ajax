@@ -13,7 +13,9 @@ The main goal of this web application is to give a place where users can upload 
 
 **PHP** : http://uniboxaq.altervista.org/Documentation/PHP/
 
-**UML Diagrams** : In ./Documentation/UML/
+**UML Diagrams and XMI file** : Can be found in ./Documentation/UML/ 
+
+Look: https://github.com/davcri/Unibox-Ajax/tree/master/Documentation/UML%20Diagrams for more info.
 
 # File hierarchy
 
