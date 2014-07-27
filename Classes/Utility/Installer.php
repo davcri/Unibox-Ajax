@@ -15,7 +15,7 @@ require_once './Classes/Utility/Singleton.php';
  * Utility class Installer 
  * 
  * Handles the first configuration of the application.
- * His main task is to check if the application is installed and if it isn't, run a guided installation (via browser).
+ * Its main task is to check if the application is installed and if it isn't, run a guided installation (via browser).
  */
 class Installer
 {
@@ -27,11 +27,12 @@ class Installer
 	private $serverDetails;
 	
 	/**
-	 * Contains informations about the this application.
+	 * Contains informations about this application.
 	 * 
 	 * @var array
 	 */
 	private $projectDetails;
+	
 	/**
 	 * Path to the directory that contains the configuration files.
 	 * 
@@ -72,7 +73,7 @@ class Installer
 	/**
 	 * Controls the installation navigation.
 	 * 
-	 * It handles the installation behaviour looking at the GET (POST) request.	 * 
+	 * It handles the installation behaviour looking at the GET (POST) request.
 	 */
 	public function handleInstallation()
 	{

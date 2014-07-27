@@ -31,10 +31,12 @@ The main goal of this web application is to give a place where users can upload 
 # Installation
 **Requirements**
 
-Unibox runs on server with :
+Unibox runs on server that supports :
 * Apache
 * mysql
 * php
+
+It hasn't been tested on others HTTP server.
 
 **Installation steps**
 
