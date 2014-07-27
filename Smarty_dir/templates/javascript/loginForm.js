@@ -19,9 +19,10 @@ function checkLogin(){
 	$("#loginButton").click(function(){
 		var username = $("#username").val();
 		var password = $("#password").val();
-		var rememberMe = $("#rememberMe").prop("checked");
-	
+		var rememberMe = $("#rememberMe").prop("checked");	
 		var loginData = {"username": username, "password": password, "rememberMe": rememberMe};
+
+		setLoadingMessage();
 
 		$("#loginButton").off(); //prevent a bug when clicking quickly on loginButton (or pressing enter quickly)
 		

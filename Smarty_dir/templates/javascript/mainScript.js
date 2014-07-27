@@ -75,18 +75,7 @@ function disableNavbarLinksDefault(){
 
 function ajaxChangePage(url)
 {	
-	var spinner = $("<div class=\"spinner\"><div> </div></div>");
-
-	// for info about this method look here : http://jquery.malsup.com/block/#options
-	$('#mainContainer').block({message:spinner, 
-							   fadeIn: 300,
-							   css:{ 	
-							        textAlign:      '', 
-							        color:          '#000', 
-							        border:         '1px solid #aaa', 
-							        backgroundColor:'#fff'
-							    }}
-	);
+	setLoadingMessage();
 
 	$.get(url)
 	.done(function(data){
@@ -106,6 +95,22 @@ function ajaxChangePage(url)
             $('#mainContainer').unblock(); /* unblock is a function of blockUI library */
         }); 
 	});	
+}
+
+// This method blocks the UI ! Remember to unblock it with .unblock();
+function setLoadingMessage(){
+	var spinner = $("<div class=\"spinner\"><div> </div></div>");
+	
+	// for info about this method look here : http://jquery.malsup.com/block/#options
+	$('#mainContainer').block({message:spinner, 
+							   fadeIn: 300,
+							   css:{ 	
+							        textAlign:      '', 
+							        color:          '#000', 
+							        border:         '1px solid #aaa', 
+							        backgroundColor:'#fff'
+							    }}
+	);
 }
 
 /*function infoFooter(){
