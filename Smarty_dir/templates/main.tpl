@@ -60,15 +60,15 @@
 		<div id="footer" class="col-md-12 footer">
 			<div class="container-fluid">
 				<div class="col-md-4">
-					<p class="text-center"><a href="index.php?controllerAction=getDevelopersPage">Chi siamo</a></p>
+					<p class="text-center"><a ajax="true" href="index.php?controllerAction=getDevelopersPage">Chi siamo</a></p>
 				</div>
 
 				<div class="col-md-4">
-					<p class="text-center"><a href="index.php?controllerAction=getAboutPage">Informazioni sul progetto</a></p>
+					<p class="text-center"><a ajax="true" href="index.php?controllerAction=getAboutPage">Informazioni sul progetto</a></p>
 				</div>
 
 				<div class="col-md-4">
-					<p class="text-center">Ottimizza il tuo tempo di studio con <a href="http://www.testketchup.altervista.org/index.php">Ketchup</a> </p>
+					<p class="text-center">Ottimizza il tuo tempo di studio con <a ajax="false" href="http://www.testketchup.altervista.org/index.php">Ketchup</a> </p>
 				</div>
 			</div>
 		</div>

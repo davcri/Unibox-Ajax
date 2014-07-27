@@ -21,7 +21,7 @@ function setNavbarBehaviour(){
 }
 
 function setFooterBehaviour(){
-	$("#footer").find("a").click(function(event){
+	$("#footer").find("a[ajax='true']").click(function(event){
 		event.preventDefault();
 		var url = $(this).attr("href"); 
 		ajaxChangePage(url);
