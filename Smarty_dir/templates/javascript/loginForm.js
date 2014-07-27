@@ -27,6 +27,11 @@ function checkLogin(){
 		$("#loginButton").off(); //prevent a bug when clicking quickly on loginButton (or pressing enter quickly)
 		
 		$.post("index.php?controllerAction=login", loginData, function(data){
+
+			//used to simulate slow connections
+			setTimeout(function(){
+				$('#mainContainer').unblock();
+			}, simulateConnectionDelay); 
 			
 			if(data.statusCode==1){ // login correct 
 				$("#navbarContent").hide("fade",animationTime, function(){

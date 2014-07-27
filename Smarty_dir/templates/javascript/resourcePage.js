@@ -15,10 +15,11 @@ $(function(){
 		event.preventDefault();
 
 		var url = $(this).attr("href"); 
-				
-		$.get(url, function(data){
+		ajaxChangePage(url);
+
+		/*$.get(url, function(data){
 			changePage(data);
-		});
+		});*/
 	});
 
 	downloadLinkBehaviour();

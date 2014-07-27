@@ -82,8 +82,7 @@ function ajaxChangePage(url)
 		setTimeout(function(){
 			$('#mainContainer').unblock();
 			changePage(data);
-		}, simulateConnectionDelay); 
-		
+		}, simulateConnectionDelay); 		
 	})
 	.fail(function(){
         $('#mainContainer').block({ /* block is a function of blockUI library */
