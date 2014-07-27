@@ -154,7 +154,11 @@ class Upload
 			$username = $session->get("username");
 			
 			$currentDate = new \DateTime("now");
-			$pathRelativeToDocumentRoot = dirname($_SERVER['SCRIPT_NAME'])."/".$this->resourcesFolderName."/".$newFileName;
+			
+			if(dirname($_SERVER['SCRIPT_NAME'])!="/") 
+				$pathRelativeToDocumentRoot = dirname($_SERVER['SCRIPT_NAME'])."/".$this->resourcesFolderName."/".$newFileName;
+			else //	dirname($_SERVER['SCRIPT_NAME']) == "/"
+				$pathRelativeToDocumentRoot = "/".$this->resourcesFolderName."/".$newFileName;
 			
 			$resource = new \Entity\Resource(NULL,$resourceDetail['name'], $resourceDetail['category'], $subj->getCode(), $username, $uploadedFile['type'], 0, 0, $currentDate, 0, false, $pathRelativeToDocumentRoot, $resourceDetail['description']);
 			
@@ -289,6 +293,7 @@ class Upload
 						
 		return $validate;		
 	}
+	
 	/**
 	 * this is the function  getUploadFormData
 	 *
