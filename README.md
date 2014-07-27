@@ -12,9 +12,7 @@ _**Note**: All the web application user interface is in Italian, but both code a
 
 **PHP** : http://uniboxaq.altervista.org/Documentation/PHP/
 
-**UML Diagrams and XMI file** : Can be found in ```Documentation/UML/ ```
-
-Look: [The readme in ```Documentation/UML/```](https://github.com/davcri/Unibox-Ajax/tree/master/Documentation/UML%20Diagrams) for more info.
+**UML Diagrams and XMI file** : Can be found in ```Documentation/UML/ ```. Look: [The readme in ```Documentation/UML/```](https://github.com/davcri/Unibox-Ajax/tree/master/Documentation/UML%20Diagrams) for more info.
 
 # File hierarchy
 
@@ -49,7 +47,6 @@ If you want to install Unibox follow these steps :
   * ```Smarty_dir/templates_c``` : rwx for others
   * ```Smarty_dir/cache``` : rwx for others
   * ```Resources``` : rwx for others
-
 2. Create an empty database on your DBMS (ie: 'mysql') and name it as you want (ie: ```unibox```).
 3. Put all the source code in a folder accessible from your HTTP server (remote host or local host).  
 4. Open the browser and go to the path where you stored the source code (ie: ```localhost/path/to/unibox```) 
