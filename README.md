@@ -54,8 +54,7 @@ If you're on a Unix PC and you're trying to install Unibox in your localhost, yo
 
 **Reinstallation**
 
-You can repeat the installation procedure by deleting ```configurationFiles/databaseConfig.php``` file.
-
+You can repeat the installation procedure by deleting ```Configuration Files/databaseConfig.php``` file and dropping the old database. 
 
 
 # Development 
