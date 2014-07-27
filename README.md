@@ -12,18 +12,16 @@ _**Note**: All the web application user interface is in Italian, but both code a
 
 **PHP** : http://uniboxaq.altervista.org/Documentation/PHP/
 
-**UML Diagrams and XMI file** : Can be found in ```Documentation/UML/ ```
-
-Look: [The readme in ```Documentation/UML/```](https://github.com/davcri/Unibox-Ajax/tree/master/Documentation/UML%20Diagrams) for more info.
+**UML Diagrams and XMI file** : Can be found in ```Documentation/UML/ ```. Look: [The readme in ```Documentation/UML/```](https://github.com/davcri/Unibox-Ajax/tree/master/Documentation/UML%20Diagrams) for more info.
 
 # File hierarchy
 
-* `Classes/` : Contains the server side application. All the PHP classes are here.
+* `Classes/` : Contains the server side application. All the **PHP** classes are here.
 * `Configuration Files/` : Contains the configuration file of the application. Generally you don't need to edit these files.
-* `Documentation/` : Contains all the documentation stuff as PHPDoc and UML diagrams.  
+* `Documentation/` : Contains all the documentation stuff as **PHPDoc** and UML diagrams.  
 * `Library/` : Contains all the required external libraries. 
 * `Resources/` : By default, Unibox moves the uploaded resources here.
-* `Smarty_dir/` : Contains the required smarty folders and also all the .tpl, css, javascript and images ! 
+* `Smarty_dir/` : Contains the required smarty folders and also all the **.tpl**, **css**, **javascript** and images ! 
   * `Smarty_dir/templates/` : All the tpl files are here.
   * `Smarty_dir/templates/javascript/` : All the javascript files are here.
   * `Smarty_dir/templates/css` : All the css files are here. 
@@ -44,12 +42,10 @@ It hasn't been tested on others HTTP server.
 If you want to install Unibox follow these steps :
 
 1. Unibox needs some permissions to run smoothly : If you're on a Unix PC and you're trying to install Unibox in your localhost, you should try to run the ```permissionScript.sh``` with administrative priviledges. It will sets all the required permissions.  
-
   * ```Configuration Files``` : rwx for others
   * ```Smarty_dir/templates_c``` : rwx for others
   * ```Smarty_dir/cache``` : rwx for others
   * ```Resources``` : rwx for others
-
 2. Create an empty database on your DBMS (ie: 'mysql') and name it as you want (ie: ```unibox```).
 3. Put all the source code in a folder accessible from your HTTP server (remote host or local host).  
 4. Open the browser and go to the path where you stored the source code (ie: ```localhost/path/to/unibox```) 
