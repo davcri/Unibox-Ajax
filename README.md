@@ -7,8 +7,7 @@ The main goal of this web application is to give a place where users can upload 
 Unibox is a web application developed developed by [davcri](https://github.com/davcri) and [filreg](https://github.com/filreg) for an Italian college project. The purpose of the course was to learn the basics of web languages such as PHP, MySQL, JavaScript and the principles of software engineering (MVC pattern). 
 
 _**Note**: All the web application user interface is in Italian, but both code and documentation are in English. We hope to have time to finish this application and translate it._
-
-
+ 
 # Documentation 
 
 **PHP** : http://uniboxaq.altervista.org/Documentation/PHP/
@@ -58,6 +57,8 @@ If you want to install Unibox follow these steps :
 
 Now the installation is complete. Refresh the page and start using Unibox !
 
+If something goes wrong you should check if you have write permission for all users on ```configurationFiles``` directory. 
+If you're on a Unix PC and you're trying to install Unibox in your localhost, you should try to run the ```permissionScript.sh``` with administrative priviledges.
 
 **Reinstallation**
 
