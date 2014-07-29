@@ -375,9 +375,7 @@ class Resource extends Database
 			$users = array_slice($users, 0, $userCount);
 		}
 		else
-			$users = array(); //empty array
-		
-					$users = array(); //empty array		
+			$users = array(); //empty array	
 				
 		return $users;
 	}
@@ -393,7 +391,7 @@ class Resource extends Database
 	 */
 	public function getMostDownloaded($resourceCount)
 	{
-		$query = "SELECT `id` FROM `resource` group by `id` order by `downloadsNumber` ASC";
+		$query = "SELECT `id` FROM `resource` group by `id` order by `downloadsNumber` DESC";
 		$result = $this->associativeArrayQuery($query);
 				
 		if(!empty($result))

@@ -19,13 +19,19 @@ function checkLogin(){
 	$("#loginButton").click(function(){
 		var username = $("#username").val();
 		var password = $("#password").val();
-		var rememberMe = $("#rememberMe").prop("checked");
-	
+		var rememberMe = $("#rememberMe").prop("checked");	
 		var loginData = {"username": username, "password": password, "rememberMe": rememberMe};
+
+		setLoadingMessage();
 
 		$("#loginButton").off(); //prevent a bug when clicking quickly on loginButton (or pressing enter quickly)
 		
 		$.post("index.php?controllerAction=login", loginData, function(data){
+
+			//used to simulate slow connections
+			setTimeout(function(){
+				$('#mainContainer').unblock();
+			}, simulateConnectionDelay); 
 			
 			if(data.statusCode==1){ // login correct 
 				$("#navbarContent").hide("fade",animationTime, function(){

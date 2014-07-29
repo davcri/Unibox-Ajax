@@ -77,7 +77,10 @@
 						</th>
 						<th>
 							Risorsa
-						</th>	
+						</th>
+						<th>
+							Downloads
+						</th>		
 					</thead>
 					<tbody>
 					{if count($greatestResources)==0}
@@ -94,6 +97,9 @@
 								</td>
 								<td>
 									<a href="index.php?controllerAction=resource&resourceAction=getResourcePage&resourceId={$resource->getId()}"> {$resource->getName()}</a> <br>
+								</td>
+								<td>
+									{$resource->getDownloadsNumber()}
 								</td>
 							</tr>	
 						{/foreach}					

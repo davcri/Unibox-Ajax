@@ -16,6 +16,9 @@ require_once './Classes/View/Main.php';
  */
 class Home
 {
+	/**
+	 * Empty constructor.
+	 */
 	public function __construct()
 	{	
 	}

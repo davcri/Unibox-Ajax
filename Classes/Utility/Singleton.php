@@ -1,17 +1,38 @@
 <?php
-
+/**
+ * Singleton class definition.
+ * 
+ */
 namespace Utility;
 
+/**
+ * Singleton class.
+ * 
+ */
 class Singleton
 {
+	/**
+	 * Contains all the references to the objects created with Singleton.
+	 * 
+	 * @var array
+	 */
 	private static $instances = array();
 
+	/**
+	 * Gets an instance of a certain class.
+	 * 
+	 * The object returned is unique during the execution of the script.
+	 * 
+	 * @param $obj string The name of the class
+	 * @return mixed An object instance
+	 */
 	public static function getInstance($obj)
 	{
 		if(!isset(self::$instances[$obj]))
 		{
 			self::$instances[$obj] = new $obj;
 		}
+		
 		return self::$instances[$obj];
 	}
 }

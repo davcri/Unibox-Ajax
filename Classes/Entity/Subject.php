@@ -33,7 +33,7 @@ class Subject
 	 * Constructor.
 	 * 
 	 * @param string $name
-	 * @param \Entity\DegreeCourse $degreeCourse
+	 * @param string $code
 	 */
 	public function __construct($name, $code)
 	{		
@@ -94,7 +94,7 @@ class Subject
 	 *
 	 * this function set the code of a subject
 	 *
-	 * @param int $name
+	 * @param int $code
 	 */
 	public function setCode($code)
 	{

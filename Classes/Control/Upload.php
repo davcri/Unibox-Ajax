@@ -25,6 +25,11 @@ require_once './Classes/Foundation/Subject.php';
 */
 class Upload
 {
+	/**
+	 * Folder where this class will store the uploaded resources.
+	 * 
+	 * @var string
+	 */
 	private $resourcesFolderName = "Resources";
 	
 	/**
@@ -34,16 +39,26 @@ class Upload
 	 */
 	private $resourceDestinationPath ;
 	
+	/**
+	 * Contains the server-side limitations for the upload form.
+	 * 
+	 * Associative array containing the couples ("form field" => "max chars allowed").
+	 * When changing these values remember to change also the values on the javascript code! 
+	 * 
+	 * @example array("name" => 30)
+	 * @var array
+	 */
 	private $maxCharsAllowed;
 	
 	/**
-	 * 	 inizialize all the class variable
+	 * Inizializes all the class variable
+	 * 
 	 */
 	public function __construct()
 	{	
 		$this->resourceDestinationPath = "./".$this->resourcesFolderName;
 		
-		$fileList = (scandir($this->resourceDestinationPath));
+		$fileList = (scandir($this->resourceDestinationPath)); //@todo remove this useless line of code ? 
 		
 		$this->maxCharsAllowed = array("name" => 30, 
 									   "description" => 150,
@@ -53,11 +68,9 @@ class Upload
 	}
 	
 	/**
+	 * Controller for "uploadAction" requests.
 	 * 
-	 * main function handleUpload
-	 * 
-	 * It calls the function addNewResource if the form's fields are setted, otherwise
-	 * it shows the input form of a new resource.
+	 * Switches the control to the appropriate private method, according to the "uploadAction" value.
 	 * 
 	 * @return string Rendered template output
 	 */
@@ -97,11 +110,9 @@ class Upload
 	}
 	
 	/**
-	 * function getForm
-	 * 
 	 * Gets the upload form.
 	 * 
-	 *  @return string Rendered template. 
+	 * @return string Rendered template. 
 	 */
 	private function getForm()
 	{		
@@ -110,19 +121,17 @@ class Upload
 
 		$uploadPage = \Utility\Singleton::getInstance("\View\Main");
 		$uploadPage->assign("degreeCourses", $degreeCourses);
-		$uploadPage->assign("maxFileSize", ini_get("upload_max_filesize"));
+		$uploadPage->assign("maxFileSize", ini_get("upload_max_filesize")); //gets the server max uploadfilesize.
 				
-		//$uploadPage->display("upload.tpl");
 		return $uploadPage->fetch("upload.tpl");
 	}
 	
 	/**
-	 * function addNewResourceIntoDb
+	 * Stores the resource on the database.
 	 * 
-	 *  It takes the form's fields from the resource form and create an Entity\Resource with these details and 
-	 *  after stores it into the database.
+	 * Creates an Entity\Resource with the upload form data and tries to store it on the database.
 	 *  
-	 *  @return string Rendered template.
+	 * @return string Rendered template.
 	 */
 	private function addNewResourceIntoDb()
 	{
@@ -145,7 +154,11 @@ class Upload
 			$username = $session->get("username");
 			
 			$currentDate = new \DateTime("now");
-			$pathRelativeToDocumentRoot = dirname($_SERVER['SCRIPT_NAME'])."/".$this->resourcesFolderName."/".$newFileName;
+			
+			if(dirname($_SERVER['SCRIPT_NAME'])!="/") 
+				$pathRelativeToDocumentRoot = dirname($_SERVER['SCRIPT_NAME'])."/".$this->resourcesFolderName."/".$newFileName;
+			else //	dirname($_SERVER['SCRIPT_NAME']) == "/"
+				$pathRelativeToDocumentRoot = "/".$this->resourcesFolderName."/".$newFileName;
 			
 			$resource = new \Entity\Resource(NULL,$resourceDetail['name'], $resourceDetail['category'], $subj->getCode(), $username, $uploadedFile['type'], 0, 0, $currentDate, 0, false, $pathRelativeToDocumentRoot, $resourceDetail['description']);
 			
@@ -179,13 +192,12 @@ class Upload
 	}
 	
 	/**
-	 * function getValidResourceFilename
+	 * Gets a valid filename with which a resource can safely be stored.  
 	 * 
-	 * Gets a valid filename with which a resource can safely be stored. 
-	 * This method checks if the name already exists in the folder. In this case, 
+	 * This method checks if the given name already exists in the folder. In this case, 
 	 * it changes the name of the new file adding a timestamp to it.
 	 * 
-	 * @param string $uploadedFile  
+	 * @param string $uploadedFile Initial filename. 
 	 * 
 	 * @return string
 	 */
@@ -281,6 +293,7 @@ class Upload
 						
 		return $validate;		
 	}
+	
 	/**
 	 * this is the function  getUploadFormData
 	 *

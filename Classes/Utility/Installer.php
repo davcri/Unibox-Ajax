@@ -15,7 +15,7 @@ require_once './Classes/Utility/Singleton.php';
  * Utility class Installer 
  * 
  * Handles the first configuration of the application.
- * His main task is to check if the application is installed and if it isn't, run a guided installation (via browser).
+ * Its main task is to check if the application is installed and if it isn't, run a guided installation (via browser).
  */
 class Installer
 {
@@ -27,11 +27,12 @@ class Installer
 	private $serverDetails;
 	
 	/**
-	 * Contains informations about the this application.
+	 * Contains informations about this application.
 	 * 
 	 * @var array
 	 */
 	private $projectDetails;
+	
 	/**
 	 * Path to the directory that contains the configuration files.
 	 * 
@@ -72,7 +73,7 @@ class Installer
 	/**
 	 * Controls the installation navigation.
 	 * 
-	 * It handles the installation behaviour looking at the GET (POST) request.	 * 
+	 * It handles the installation behaviour looking at the GET (POST) request.
 	 */
 	public function handleInstallation()
 	{
@@ -139,17 +140,20 @@ class Installer
 	}
 	
 	/**
+	 * Gets installation form.
 	 * 
+	 * If $errorMessage contains a string, the installPage.tpl will display an error. If $errorMessage 
+	 * is false or an empty string, the form is displayed without errors.
 	 * 
-	 * @param bool $displayErrorMessage
+	 * @param string $errorMessage 
 	 * @return string Rendered template.
 	 */
 	public function getForm($errorMessage)
 	{	
 		$installPage = \Utility\Singleton::getInstance("\View\Main");
 		
-		//if(!empty($errorMessage))
-			$installPage->assign('errorMessage', $errorMessage); //enable error message
+		
+		$installPage->assign('errorMessage', $errorMessage); //enable error message
 		
 		$installPage->assign("projectDetails", $this->projectDetails);
 		$installPage->assign("serverDetails", $this->serverDetails);
@@ -246,6 +250,13 @@ class Installer
 		}
 	}
 	
+	/**
+	 * Tests the database configuration.
+	 * 
+	 * Gets the form's values and tries to ping the database to test the configuration.
+	 * 
+	 * @return bool true on success, false on failure
+	 */
 	public function testConfig()
 	{		
 		$installPage = \Utility\Singleton::getInstance("\View\Main");
@@ -261,8 +272,13 @@ class Installer
 	}
 	
 	/**
+	 * Runs the sql installation script.
+	 * 
+	 * The installation script selected is the one contained in project root with the name $this->databaseScriptName.
+	 * (default is $databaseScriptName = "Unibox_install.sql")
 	 * 
 	 * @todo review this method
+	 * @return bool true on success, false on failure
 	 */
 	public function installDatabase()
 	{

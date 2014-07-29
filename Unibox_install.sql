@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 25, 2014 at 08:31 PM
+-- Generation Time: Jul 27, 2014 at 10:12 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.9
 
@@ -204,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `resource` (
   PRIMARY KEY (`id`),
   KEY `resource_ibfk_1` (`uploaderUsername`),
   KEY `resource_ibfk_2` (`subjectCode`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=33 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -267,7 +267,7 @@ INSERT INTO `subject` (`code`, `name`) VALUES
 (13, 'Calcolo delle probabilita'),
 (14, 'Elettrotecnica'),
 (15, 'Teoria dei Sistemi'),
-(16, 'Analisi ed Elaborazione dei Segnali	'),
+(16, 'Analisi ed Elaborazione dei Segnali'),
 (17, 'Calcolatori elettronici'),
 (18, 'Elettronica I'),
 (19, 'Controlli Automatici'),

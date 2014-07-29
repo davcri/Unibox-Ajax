@@ -48,11 +48,13 @@ class DegreeCourse extends Database
 	}
 	
 	/**
-	 * function getByName
+	 * Gets a degree course by his name.
 	 * 
-	 * Gets a degree course by his name. NOTE : this method assume that 'name' is a primary key for DegreeCourse.
+	 * NOTE : this method assume that 'name' is a primary key for DegreeCourse.
 	 * 
-	 * @todo Add warning if there is more than one result ! 
+	 * @todo Add warning if there is more than one result !
+	 *  
+	 * @param string $name Name of the degree course.
 	 * @return \Entity\DegreeCourse|bool \Entity\DegreeCourse on success, false if no degreeCourse was found.
 	 */
 	public function getByName($name)
