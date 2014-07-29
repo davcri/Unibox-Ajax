@@ -10,7 +10,7 @@ require_once './Classes/Utility/Session.php';
 require_once './Classes/Utility/Singleton.php';
 
 /**
- *It is then Login control class,
+ *It is the Login control class,
  *
  *It controls the login's behaviour
  */
