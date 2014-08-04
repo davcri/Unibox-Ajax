@@ -1,13 +1,12 @@
 <?php
 /**
-*It is the Control Profile File 
+* It is the Control Profile File 
 *
-*this file contains the Profile control class,
+* This file contains the Profile control class
 *
 */
 
 namespace Control;
-
 
 require_once './Classes/View/Main.php';
 require_once './Classes/Foundation/Resource.php';
@@ -17,9 +16,9 @@ require_once './Classes/Utility/Singleton.php';
 require_once './Classes/Foundation/User.php';
 
 /**
- * it is the profile control class,
+ * It is the profile control class
  * 
- * this class control the profile page's behaviour
+ * This class controls the profile page's behaviour
  */
 class Profile
 {
@@ -64,12 +63,13 @@ class Profile
 	/**
 	 * This is a function SetProfileInformation.
 	 * 
-	 * this function set all information of a user
+	 * Sets all user's informations 
 	 * 
 	 * @return string Rendered template output
 	 */
-	public function setProfileInformation(){
-		$view = \Utility\Singleton::getInstance("\View\Main");
+	public function setProfileInformation()
+    {
+        $view = \Utility\Singleton::getInstance("\View\Main");
 		$username=$view->get('userProfile');
 		$this->getUserInformations($view,$username);
 		$this->setResourcesUploaded($view,$username);
@@ -77,15 +77,16 @@ class Profile
 	}
 	
 	/**
-	 *This is the function getUserInformations
+	 * This is the function getUserInformations
 	 * 
-	 *This function get the informations of a given user
-	 *It also controls if the user is watching his profile page or an other one profile page
+	 * This function get the informations of a given user
+	 * It also controls if the user is watching his profile page or an other one profile page
 	 * 
 	 * @param \View\Main $view
 	 * @param String $username
 	 */
-	public function getUserInformations($view,$username){
+	public function getUserInformations($view,$username)
+    {
 		$userSession = \Utility\Singleton::getInstance("\Control\Session");
 		if($userSession->isLoggedin()){
 			$userLog=$userSession->get('username');
@@ -138,63 +139,60 @@ class Profile
 	 * @param \View\Main $view
 	 * @param String $username
 	 */
-	public function setResourcesUploaded($view,$username){
+	public function setResourcesUploaded($view,$username)
+    {
 		$resourceDb=new \Foundation\Resource();
 		$resources=$resourceDb-> getResourcesByUser($username);
 		$view->assign('resource',$resources);
 	}
+    
 	/**
-	 * This is a function rateUser
+	 * Votes a user.
 	 *
-	 * This function control the rating of a user, obviously the vote unique, so it controls if a watching user 
-	 * has already voted a user
-	 *
-	 * @param \View\Main $view
-	 * @param String $username
+	 * Votes a user, checking if the voting user hasn't yet voted the other user. 
 	 * 
 	 * @return string $votation
 	 */
-	public function rateUser(){
+	public function rateUser()
+    {
 		$userSession = \Utility\Singleton::getInstance("\Control\Session");
-		$userLog=$userSession->get('username');
-		$user=new \Foundation\User();
+		$userLog = $userSession->get('username');
+		$user = new \Foundation\User();
 		$view = \Utility\Singleton::getInstance("\View\Main");
 		$username=$view->get('userProfile');
-		//print_r($username);
-		$hasAlreadyRated=$this->hasVoted($username,$userLog);
+		
+		$hasAlreadyRated=$this->hasVoted($username, $userLog);
 		$vote=$view->get('vote');
-		if(!$hasAlreadyRated){
-			//print_r('sto provando a caricare');
-			//return $user->usersVotation($username, $userLog, $vote);
-			$votation=$user->usersVotation($username, $userLog, $vote);
-			$reliabilityVotes = $user->getNumberOfReliabilityVotes($username);
-			//print_r($reliabilityVotes);
-			$user2=$user->getByUsername($username);
-			$user2->updateReliabilityScore($reliabilityVotes,$vote);
-			//print_r($user2->getReliability());
-			$isUpdated=$user->updateReliabilityScore($username,$user2->getReliability());
-			return $votation;
+		
+        if(!$hasAlreadyRated)
+            {			
+                $votation=$user->usersVotation($username, $userLog, $vote);
+                $reliabilityVotes = $user->getNumberOfReliabilityVotes($username);
+             
+                $user2=$user->getByUsername($username);
+                $user2->updateReliabilityScore($reliabilityVotes,$vote);
+             
+                $isUpdated=$user->updateReliabilityScore($username,$user2->getReliability());
+
+                return $votation; /**  @todo add a return for the else statement*/
 		}
-		
-		
+        // else return something
 	}
 	
 	/**
-	 * This is a function hasVoted
+	 * Checks if a user has been voted.
 	 * 
-	 * This function controls if a userLogged has already voted the user into his profile's page 
+	 * Controls if a userLogged has already voted another user 
 	 * 
 	 * @param String $username
 	 * @param String $userLog
 	 * 
 	 * @return bool
 	 */
-	public function hasVoted($username,$userLog){
-		//$view = \Utility\Singleton::getInstance("\View\Home");
-		//$userSession = \Utility\Singleton::getInstance("\Control\Session");
-		//$voter=$userSession->get('username');
-		//$voted=$_REQUEST['user'];
-		$user=new \Foundation\User();
+	public function hasVoted($username, $userLog)
+    {
+		$user = new \Foundation\User();
+        
 		return $user->hasBeenRated($username, $userLog);
 	}
 }

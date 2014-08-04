@@ -2,7 +2,7 @@
 /**
  * AboutPage Controller File
  * 
- *It is the file that contain the aboutPage controller
+ * It is the file that contain the aboutPage controller
  */
 namespace Control;
 
@@ -13,21 +13,21 @@ require_once './Classes/Utility/Session.php';
 require_once './Classes/Foundation/User.php';
 
 /**
- *It is the  about's page control class
+ * It is the  about's page control class
  * 
- *This class controls the visualization of the about Page of this web application.
+ * This class controls the visualization of the about Page of this web application.
  * 
  */
 class AboutPage
 {
-	/**
-	 * Empty constructor
-	 * 
-	 */
-	public function __construct()
-	{
+    /**
+    * Empty constructor
+    * 
+    */
+    public function __construct()
+    {
 		
-	}
+    }
 	
 	/**
 	 * Main function controlAboutPage

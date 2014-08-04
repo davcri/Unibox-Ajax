@@ -13,9 +13,9 @@ require_once './Classes/Utility/Session.php';
 require_once './Classes/Foundation/User.php';
 
 /**
- *It is the DevelopersPage control class
+ * It is the DevelopersPage control class
  * 
- *This class controls the visualization of the developersPage of this web application.
+ * This class controls the visualization of the developersPage of this web application.
  * 
  */
 class DevelopersPage
@@ -35,7 +35,8 @@ class DevelopersPage
 	 * 
 	 * @return string Rendered template output
 	 */
-	public function controlDevelopersPage(){
+	public function controlDevelopersPage()
+    {
 		$mainView = \Utility\Singleton::getInstance("\View\Main");
 		return $mainView->fetch('developersPage.tpl');
 	}
