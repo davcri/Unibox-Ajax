@@ -70,18 +70,6 @@ class Database extends \mysqli
 		
 		return $returnArray;
 	}
-
-	
-	/**
-	 * function closeConnection
-	 * 
-	 * Closes the connection to the database.
-	 * 
-	 */
-	public function closeConnection()
-	{
-		parent::close();
-	}
 }
 
-?>
+

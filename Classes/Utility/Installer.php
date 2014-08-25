@@ -294,8 +294,9 @@ class Installer
 			$database->multi_query($databaseCreationScript);
 			$error = false;
 		}
-
-		$database->closeConnection();		
+        
+		$database->close();	
+        
 		return $error;
 	}
 }
