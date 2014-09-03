@@ -4,7 +4,13 @@
 	<script src="Library/jquery-ui/js/jquery-1.10.2.js"></script>
 	<script src="Library/jquery-ui/js/jquery-ui-1.10.4.custom.js"></script>
 	<script src="Library/jquery.blockUI.js"></script>
-
+        
+        <!-- This libraries are used in the resources.tpl -->
+        <script src="Library/tablesorter-master/js/jquery.tablesorter.js"></script>
+        <script src="Library/tablesorter-master/js/jquery.tablesorter.widgets.min.js"></script>
+        <script src="Library/tablesorter-master/addons/pager/jquery.tablesorter.pager.min.js"></script>
+        <!-- _______________________________________________________________________________        -->
+        
 	<script src="Smarty_dir/templates/javascript/mainScript.js"></script>
 	<!-- <script src="Library/bootstrap-3.1.1-dist/js/bootstrap.js"></script> -->
 	

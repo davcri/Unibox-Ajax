@@ -112,10 +112,12 @@
 <link rel="stylesheet" href="Library/tablesorter-master/css/theme.metro-dark.css">
 <link rel="stylesheet" href="Library/tablesorter-master/addons/pager/jquery.tablesorter.pager.css">
 
-<script src="Library/tablesorter-master/js/jquery.tablesorter.js"></script>
-<script src="Library/tablesorter-master/js/jquery.tablesorter.widgets.min.js"></script>
-<script src="Library/tablesorter-master/addons/pager/jquery.tablesorter.pager.min.js"></script>
-<script src="Smarty_dir/templates/javascript/resources.js"></script> 
+<!--
+    <script src="Library/tablesorter-master/js/jquery.tablesorter.js"></script>
+    <script src="Library/tablesorter-master/js/jquery.tablesorter.widgets.min.js"></script>
+    <script src="Library/tablesorter-master/addons/pager/jquery.tablesorter.pager.min.js"></script>
+-->
 
+<script src="Smarty_dir/templates/javascript/resources.js"></script> 
 <!-- <link rel="stylesheet" href="Library/jquery-ui/css/custom-theme/jquery-ui-1.10.4.custom.css">
 -->
