@@ -1,0 +1,9 @@
+# Do not execute any file in this directory
+# Keep in mind that this directive can be overridden in subfolders with another
+# .htaccess file. But this shouldn't happen with this application.
+#
+# http://httpd.apache.org/docs/2.4/handler.html
+# http://stackoverflow.com/a/18948152
+<Files *>
+    SetHandler default-handler
+</Files>
