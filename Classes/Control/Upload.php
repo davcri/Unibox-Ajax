@@ -51,6 +51,11 @@ class Upload
 	private $maxCharsAllowed;
 	
 	/**
+	 * Array containing the accepted file extensions.
+	 */
+	private $whitelist = array('pdf', 'txt', 'odt', 'doc', 'zip', '7z', 'tar', 'gz', 'bz');
+
+	/**
 	 * Inizializes all the class variable
 	 * 
 	 */
@@ -97,7 +102,7 @@ class Upload
 				}
 				else
 				{
-					$errorStatus = "You're a bad, evil person";
+					$errorStatus = "There was an error loading the resource. Remember that the accepted file types are:" . "<br> - " . implode("<br> - ", $this->whitelist);
 					$data = json_encode($errorStatus);
 				}				
 				break;
@@ -288,10 +293,22 @@ class Upload
 			!empty($description) && strlen($description) <= $this->maxCharsAllowed['description'] &&
 			!empty($uploadedFile))
 		{
-			$validate = true;
+			$isValid = true;
 		}
-						
-		return $validate;		
+
+		// file type verification
+		$isTypeValid = false;
+		$fileExtension = pathinfo($uploadedFile['name'], PATHINFO_EXTENSION);
+
+		foreach ($this->whitelist as $type)
+		{
+			if (strtolower($fileExtension) == $type)
+			{
+				$isTypeValid = true;
+			}
+		}
+
+		return $isValid && $isTypeValid;
 	}
 	
 	/**
