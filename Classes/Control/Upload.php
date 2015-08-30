@@ -52,6 +52,10 @@ class Upload
 	
 	/**
 	 * Array containing the accepted file extensions.
+	 *
+	 * NOTE: if you modify this variable, remember to modify also the file
+	 * ./Smarty_dir/templates/javascript/upload.js, it has a variable whitelist
+	 * in the isExtensionSupported() function. 
 	 */
 	private $whitelist = array('pdf', 'txt', 'odt', 'doc', 'zip', '7z', 'tar', 'gz', 'bz');
 
