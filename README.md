@@ -2,7 +2,7 @@
 
 The main goal of this web application is to give a place where users can upload and download resources.
 
-**Try it online** [v0.1](https://github.com/davcri/Unibox-Ajax/releases/tag/v0.1): http://uniboxaq.altervista.org/ 
+**Try it online** [v0.1.2](https://github.com/davcri/Unibox-Ajax/releases/tag/v0.1.2): http://uniboxaq.altervista.org/ 
 
 Unibox is a web application developed by [davcri](https://github.com/davcri) and [filreg](https://github.com/filreg) for an Italian college project. The purpose of the course was to learn the basics of web languages such as PHP, MySQL, JavaScript and the principles of software engineering (MVC pattern). 
 
