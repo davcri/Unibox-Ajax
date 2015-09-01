@@ -6,4 +6,5 @@
 # http://stackoverflow.com/a/18948152
 <Files *>
     SetHandler default-handler
+    ForceType text/plain
 </Files>
