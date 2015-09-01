@@ -120,6 +120,12 @@ function handleUploadInput(btn, maxNameChars, maxDescriptionChars){
 		if(uploadedFileSize > maxFileSize)
 		{
 			$.growlUI('Errore', 'File troppo grande'); 
+			$.growlUI('Error', 'File too big!');
+		}
+
+		if(!isExtensionSupported())
+		{
+			$.growlUI('Error', 'Extension not supported!');
 		}
 	})
 }
@@ -200,6 +206,8 @@ function isFormCompleted(maxNameChars, maxDescriptionChars){
 	   $("#inputFile").val().length!=0 && // if a file is selected
 	   uploadedFileSize > 0 && // and it isn't empty
 	   uploadedFileSize < maxFileSize)  
+	   uploadedFileSize < maxFileSize &&
+	   isExtensionSupported() )
 	{
 		return true;
 	}
@@ -207,3 +215,27 @@ function isFormCompleted(maxNameChars, maxDescriptionChars){
 		return false;
 }
 
+function isExtensionSupported(){
+	/*
+	 * NOTE: if you modify this variable, remember to modify also the file
+	 * ./Classes/Control/Upload.php, it has a "whitelist" property.
+	 */
+	var whitelist = ['pdf', 'txt', 'odt', 'doc', 'zip', '7z', 'tar', 'gz', 'bz'];
+	var fileName = $("#inputFile").prop("value");
+	var extensionValid = false;
+
+	for (index = 0, len = whitelist.length; index < len; index++){
+		if (getExtension(fileName) == whitelist[index]){
+			extensionValid = true;
+		}
+	}
+
+	return extensionValid;
+}
+
+/*
+* function copy-pasted from http://stackoverflow.com/questions/190852/how-can-i-get-file-extensions-with-javascript/1203361#1203361
+*/
+function getExtension(fname){
+	return fname.substr((~-fname.lastIndexOf(".") >>> 0) + 2);
+}

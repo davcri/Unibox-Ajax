@@ -51,6 +51,15 @@ class Upload
 	private $maxCharsAllowed;
 	
 	/**
+	 * Array containing the accepted file extensions.
+	 *
+	 * NOTE: if you modify this variable, remember to modify also the file
+	 * ./Smarty_dir/templates/javascript/upload.js, it has a variable whitelist
+	 * in the isExtensionSupported() function. 
+	 */
+	private $whitelist = array('pdf', 'txt', 'odt', 'doc', 'zip', '7z', 'tar', 'gz', 'bz');
+
+	/**
 	 * Inizializes all the class variable
 	 * 
 	 */
@@ -97,7 +106,7 @@ class Upload
 				}
 				else
 				{
-					$errorStatus = "You're a bad, evil person";
+					$errorStatus = "There was an error loading the resource. Remember that the accepted file types are:" . "<br> - " . implode("<br> - ", $this->whitelist);
 					$data = json_encode($errorStatus);
 				}				
 				break;
@@ -288,10 +297,22 @@ class Upload
 			!empty($description) && strlen($description) <= $this->maxCharsAllowed['description'] &&
 			!empty($uploadedFile))
 		{
-			$validate = true;
+			$isValid = true;
 		}
-						
-		return $validate;		
+
+		// file type verification
+		$isTypeValid = false;
+		$fileExtension = pathinfo($uploadedFile['name'], PATHINFO_EXTENSION);
+
+		foreach ($this->whitelist as $type)
+		{
+			if (strtolower($fileExtension) == $type)
+			{
+				$isTypeValid = true;
+			}
+		}
+
+		return $isValid && $isTypeValid;
 	}
 	
 	/**
@@ -305,14 +326,14 @@ class Upload
 	private function getUploadFormData()
 	{
 		$uploadForm = \Utility\Singleton::getInstance("\View\Main");
-		
-		$resourceDetail['name'] = $uploadForm->get('name');
-		$resourceDetail['category'] = $uploadForm->get('category');
-		$resourceDetail['degreeCourse'] = $uploadForm->get('degreeCourse');
-		$resourceDetail['subject'] = $uploadForm->get('subject');
+
+		$resourceDetail['name'] = htmlspecialchars($uploadForm->get('name'));
+		$resourceDetail['category'] = htmlspecialchars($uploadForm->get('category'));
+		$resourceDetail['degreeCourse'] = htmlspecialchars($uploadForm->get('degreeCourse'));
+		$resourceDetail['subject'] = htmlspecialchars($uploadForm->get('subject'));
 		$resourceDetail['uploadedFile'] = $uploadForm->getFile('uploadedFile');
-		$resourceDetail['description'] =  $uploadForm->get('description');
-		
+		$resourceDetail['description'] =  htmlspecialchars($uploadForm->get('description'));
+
 		return $resourceDetail;
 	}
 }

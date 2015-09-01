@@ -41,15 +41,15 @@ It hasn't been tested on others HTTP server.
 
 If you want to install Unibox follow these steps :
 
-1. Unibox needs some permissions to run smoothly : If you're on a Unix PC and you're trying to install Unibox in your localhost, you should try to run the ```permissionScript.sh``` with administrative priviledges. It will sets all the required permissions.  
+1. Run ```permissionScript.sh``` with administrative priviledges. It will sets all the required permissions:  
   * ```Configuration Files``` : rwx for others
   * ```Smarty_dir/templates_c``` : rwx for others
   * ```Smarty_dir/cache``` : rwx for others
   * ```Resources``` : rwx for others
-2. Create an empty database on your DBMS (ie: 'mysql') and name it as you want (ie: ```unibox```).
-3. Put all the source code in a folder accessible from your HTTP server (remote host or local host).  
-4. Open the browser and go to the path where you stored the source code (ie: ```localhost/path/to/unibox```) 
 5. Follow the guided installation. 
+2. Create an empty database on your DBMS ('mysql') and name it as you want (ie: ```unibox```).
+3. Put all the source code in a folder accessible from your HTTP server.
+4. Open the browser and go to the path where you stored the source code (ie: ```docmuentRoot/path/to/unibox```)
 
 Now the installation is complete. Refresh the page and start using Unibox !
 
