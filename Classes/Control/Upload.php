@@ -326,14 +326,14 @@ class Upload
 	private function getUploadFormData()
 	{
 		$uploadForm = \Utility\Singleton::getInstance("\View\Main");
-		
-		$resourceDetail['name'] = $uploadForm->get('name');
-		$resourceDetail['category'] = $uploadForm->get('category');
-		$resourceDetail['degreeCourse'] = $uploadForm->get('degreeCourse');
-		$resourceDetail['subject'] = $uploadForm->get('subject');
+
+		$resourceDetail['name'] = htmlspecialchars($uploadForm->get('name'));
+		$resourceDetail['category'] = htmlspecialchars($uploadForm->get('category'));
+		$resourceDetail['degreeCourse'] = htmlspecialchars($uploadForm->get('degreeCourse'));
+		$resourceDetail['subject'] = htmlspecialchars($uploadForm->get('subject'));
 		$resourceDetail['uploadedFile'] = $uploadForm->getFile('uploadedFile');
-		$resourceDetail['description'] =  $uploadForm->get('description');
-		
+		$resourceDetail['description'] =  htmlspecialchars($uploadForm->get('description'));
+
 		return $resourceDetail;
 	}
 }
