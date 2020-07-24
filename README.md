@@ -2,7 +2,7 @@
 
 **Unibox is not maintained anymore**
 
-It was created for a University course about Web Programming. The purpose of this webapp was to practice with web technologies such as PHP, MySQL, JavaScript and the principles of software engineering (MVC pattern). 
+It was created for a University course about Web Programming. The purpose of this webapp was to practice with web technologies such as PHP, MySQL, JavaScript, HTML, CSS and the principles of software engineering (MVC pattern). 
 
 ---
 
