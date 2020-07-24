@@ -1,12 +1,20 @@
+## Disclaimer
+
+**Unibox is not maintained anymore**
+
+It was created for a University course about Web Programming. The purpose of this webapp was to practice with web languages such as PHP, MySQL, JavaScript and the principles of software engineering (MVC pattern). 
+
+---
+
 # Introduction
 
-The main goal of this web application is to give a place where users can upload and download resources.
+Unibox is a web application where users can upload and download resources.
+
+Unibox was developed by [davcri](https://github.com/davcri) and [filreg](https://github.com/filreg). 
 
 **Try it online** [v0.1.2](https://github.com/davcri/Unibox-Ajax/releases/tag/v0.1.2): http://uniboxaq.altervista.org/ 
 
-Unibox is a web application developed by [davcri](https://github.com/davcri) and [filreg](https://github.com/filreg) for an Italian college project. The purpose of the course was to learn the basics of web languages such as PHP, MySQL, JavaScript and the principles of software engineering (MVC pattern). 
-
-_**Note**: All the web application user interface is in Italian, but both code and documentation are in English. We hope to have time to finish this application and translate it._
+_**Note**: All the web application user interface is in Italian, but both code and documentation are in English._
  
 # Documentation 
 
